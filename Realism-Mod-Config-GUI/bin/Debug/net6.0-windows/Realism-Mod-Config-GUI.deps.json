@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Realism-Mod-Config-GUI/1.0.0": {
+        "runtime": {
+          "Realism-Mod-Config-GUI.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Realism-Mod-Config-GUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
