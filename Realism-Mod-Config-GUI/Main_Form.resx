@@ -67,7 +67,7 @@
         wbEfrKctQ1gyx2tklvXSe1Qm9YnszLTYNhmt2IQIEkBjnBGG6aebQZn78dFDl6z4w99f8J9iSXx1mU1W
         sVgkRZocnaIuS/SE2KToCekZVlX9f9fVTvb2FKPXB6D6yXHe2qFmC/KbjvN56Dj5I3A9wkW27L90AAPv
         om+WNe8+eNbh7LKsxXbgfANaHsyoFS1ILhmVySS8nkBDBJquoW6+WLPSPsf3EF6Tr7qC3T3okPOehW+i
-        VGgBHfv0CgAAAAlwSFlzAAAOwAAADsABataJCQAA/jhJREFUeF7s/Qmcfd2X33X5hKQ73Un+Pac7/6S7
+        VGgBHfv0CgAAAAlwSFlzAAAOvAAADrwBlbxySQAA/jhJREFUeF7s/Qmcfd2X33X5hKQ73Un+Pac7/6S7
         053uTne6MxCSJoHEQCQEMPCADCGBMGgIEAUnjIhACMqggkYgCYgCAoqAzCgoKoKzKDjP2s7ziPMAzXqX
         91Ps3/3de+tW3ar6VT3PXq/Xep1zz9lnD2uvvdZ3r73Puf+CTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0
         adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2
@@ -2115,21 +2115,25 @@
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="recoilAttOverhaul.ToolTip" xml:space="preserve">
-    <value>Enables the complete overhaul of recoil and attachments. See  the mod's overview page on the hub for details.
-IF YOU WANT TO DISABLE THIS FEATURE YOU MUST DELETE THE REALISMMOD.DLL FROM YOUR BEPINEX/PLUGINS FOLDER. OTHERWISE YOUR GAME WILL CRASH!</value>
-  </data>
-  <data name="buffHelmets.ToolTip" xml:space="preserve">
-    <value>Buffs helmets and faceshields by raising their armor level by 1. Their blunt throughput has been modified to compensate.
-Not carefully balanced, just for those that want a slightly less hardcore experience.</value>
-  </data>
-  <data name="realismMod.ToolTip" xml:space="preserve">
+  <data name="realismCheck.ToolTip" xml:space="preserve">
     <value>Enables Armour and Ammo changes, the core of Realism Mod. Player and bot health will also no longer be adjusted and starting profiles no longer changed.
 If disabled, current armour durablity and player health will not be corrected but max durability/health will be.
 </value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="masteryCheck.ToolTip" xml:space="preserve">
+    <value>Changes what weapons fall into what Mastery categories. Weapons that have similar controls or reload operation are in the same category.
+For most weapons, mastery will come a lot quicker because of this.</value>
+  </data>
+  <data name="recoilAttOverhaulCheck.ToolTip" xml:space="preserve">
+    <value>Enables the complete overhaul of recoil and attachments. See  the mod's overview page on the hub for details.
+IF YOU WANT TO DISABLE THIS FEATURE YOU MUST DELETE THE REALISMMOD.DLL FROM YOUR BEPINEX/PLUGINS FOLDER. OTHERWISE YOUR GAME WILL CRASH!</value>
+  </data>
+  <data name="buffHelmetsCheck.ToolTip" xml:space="preserve">
+    <value>Buffs helmets and faceshields by raising their armor level by 1. Their blunt throughput has been modified to compensate.
+Not carefully balanced, just for those that want a slightly less hardcore experience.</value>
   </data>
   <data name="Health_Movement.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2140,7 +2144,7 @@ If disabled, current armour durablity and player health will not be corrected bu
         wbEfrKctQ1gyx2tklvXSe1Qm9YnszLTYNhmt2IQIEkBjnBGG6aebQZn78dFDl6z4w99f8J9iSXx1mU1W
         sVgkRZocnaIuS/SE2KToCekZVlX9f9fVTvb2FKPXB6D6yXHe2qFmC/KbjvN56Dj5I3A9wkW27L90AAPv
         om+WNe8+eNbh7LKsxXbgfANaHsyoFS1ILhmVySS8nkBDBJquoW6+WLPSPsf3EF6Tr7qC3T3okPOehW+i
-        VGgBHfv0CgAAAAlwSFlzAAAOwAAADsABataJCQAA/jhJREFUeF7s/Qmcfd2X33X5hKQ73Un+Pac7/6S7
+        VGgBHfv0CgAAAAlwSFlzAAAOvAAADrwBlbxySQAA/jhJREFUeF7s/Qmcfd2X33X5hKQ73Un+Pac7/6S7
         053uTne6MxCSJoHEQCQEMPCADCGBMGgIEAUnjIhACMqggkYgCYgCAoqAzCgoKoKzKDjP2s7ziPMAzXqX
         91Ps3/3de+tW3ar6VT3PXq/Xep1zz9lnD2uvvdZ3r73Puf+CTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0
         adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2
@@ -4188,7 +4192,7 @@ If disabled, current armour durablity and player health will not be corrected bu
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="medChanges.ToolTip" xml:space="preserve">
+  <data name="medChangesCheck.ToolTip" xml:space="preserve">
     <value>Enables changes to medical items to be more hardcore. Only stims, surgery kits and new craftable makeshift medical kits will restore HP.
 Most meds now have debuffs to simulate the wound trauma from getting shot and the negative effects of tourniquets on the body. 
 See the mod overview page for details.</value>
@@ -4202,7 +4206,7 @@ See the mod overview page for details.</value>
         wbEfrKctQ1gyx2tklvXSe1Qm9YnszLTYNhmt2IQIEkBjnBGG6aebQZn78dFDl6z4w99f8J9iSXx1mU1W
         sVgkRZocnaIuS/SE2KToCekZVlX9f9fVTvb2FKPXB6D6yXHe2qFmC/KbjvN56Dj5I3A9wkW27L90AAPv
         om+WNe8+eNbh7LKsxXbgfANaHsyoFS1ILhmVySS8nkBDBJquoW6+WLPSPsf3EF6Tr7qC3T3okPOehW+i
-        VGgBHfv0CgAAAAlwSFlzAAAOwAAADsABataJCQAA/jhJREFUeF7s/Qmcfd2X33X5hKQ73Un+Pac7/6S7
+        VGgBHfv0CgAAAAlwSFlzAAAOvAAADrwBlbxySQAA/jhJREFUeF7s/Qmcfd2X33X5hKQ73Un+Pac7/6S7
         053uTne6MxCSJoHEQCQEMPCADCGBMGgIEAUnjIhACMqggkYgCYgCAoqAzCgoKoKzKDjP2s7ziPMAzXqX
         91Ps3/3de+tW3ar6VT3PXq/Xep1zz9lnD2uvvdZ3r73Puf+CTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0
         adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2
@@ -6250,9 +6254,13 @@ See the mod overview page for details.</value>
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="botHealhCheckList.ToolTip" xml:space="preserve">
-    <value>Bot health settings. If enabled these bot types will have the same health as the player. If disabled they will have default EFT health pools.
-Realism must be enabled for this to take effect. If realism is disabled all bots will have defualt health.</value>
+  <data name="botDiffGroupBox.ToolTip" xml:space="preserve">
+    <value>PMC and Boss difficulty will be raised, if set to true.
+Only use if not using FAIL or other AI mods. Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). Not compatible with FAIL, use that instead if you need to choose one or the other.</value>
+  </data>
+  <data name="botHealthGroupBox.ToolTip" xml:space="preserve">
+    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
+Realism option must be true for this to take effect. If realism is false, all bots will have defualt health.</value>
   </data>
   <data name="Misc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6263,7 +6271,7 @@ Realism must be enabled for this to take effect. If realism is disabled all bots
         wbEfrKctQ1gyx2tklvXSe1Qm9YnszLTYNhmt2IQIEkBjnBGG6aebQZn78dFDl6z4w99f8J9iSXx1mU1W
         sVgkRZocnaIuS/SE2KToCekZVlX9f9fVTvb2FKPXB6D6yXHe2qFmC/KbjvN56Dj5I3A9wkW27L90AAPv
         om+WNe8+eNbh7LKsxXbgfANaHsyoFS1ILhmVySS8nkBDBJquoW6+WLPSPsf3EF6Tr7qC3T3okPOehW+i
-        VGgBHfv0CgAAAAlwSFlzAAAOwAAADsABataJCQAA/jhJREFUeF7s/Qmcfd2X33X5hKQ73Un+Pac7/6S7
+        VGgBHfv0CgAAAAlwSFlzAAAOvAAADrwBlbxySQAA/jhJREFUeF7s/Qmcfd2X33X5hKQ73Un+Pac7/6S7
         053uTne6MxCSJoHEQCQEMPCADCGBMGgIEAUnjIhACMqggkYgCYgCAoqAzCgoKoKzKDjP2s7ziPMAzXqX
         91Ps3/3de+tW3ar6VT3PXq/Xep1zz9lnD2uvvdZ3r73Puf+CTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0
         adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2
@@ -8311,17 +8319,17 @@ Realism must be enabled for this to take effect. If realism is disabled all bots
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="airdropChanges.ToolTip" xml:space="preserve">
-    <value>If enabled airdrops will have 'types' (medical supplies, food, ammo, etc.) and will only have items of that type.
-Different types have different rarity, airdrop types will be rerolled when starting the game or at the end of raids.</value>
+  <data name="tieredFleaCheck.ToolTip" xml:space="preserve">
+    <value>If Enabled the fleamarket will unlock progressivly by category or subcategory of item based on the player's level.
+There are 7 tiers in total, the final one being a 'full unlock'. Most items are no longer blacklisted from the flea.</value>
   </data>
-  <data name="traderChanges.ToolTip" xml:space="preserve">
+  <data name="traderChangesCheck.ToolTip" xml:space="preserve">
     <value>Enables changes to trader sell categories to be more unique and make more sense. 
 For now just changes what Therapist, Skier and Mechanic will buy, Fence's inventory and cost of Therapist's healing. Many more changes to traders will come in the future.</value>
   </data>
-  <data name="tieredFlea.ToolTip" xml:space="preserve">
-    <value>If Enabled the fleamarket will unlock progressivly by category or subcategory of item based on the player's level.
-There are 7 tiers in total, the final one being a 'full unlock'. Most items are no longer blacklisted from the flea.</value>
+  <data name="airdropChangesCheck.ToolTip" xml:space="preserve">
+    <value>If enabled airdrops will have 'types' (medical supplies, food, ammo, etc.) and will only have items of that type.
+Different types have different rarity, airdrop types will be rerolled when starting the game or at the end of raids.</value>
   </data>
   <data name="Dev_Tools.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -8332,7 +8340,7 @@ There are 7 tiers in total, the final one being a 'full unlock'. Most items are 
         wbEfrKctQ1gyx2tklvXSe1Qm9YnszLTYNhmt2IQIEkBjnBGG6aebQZn78dFDl6z4w99f8J9iSXx1mU1W
         sVgkRZocnaIuS/SE2KToCekZVlX9f9fVTvb2FKPXB6D6yXHe2qFmC/KbjvN56Dj5I3A9wkW27L90AAPv
         om+WNe8+eNbh7LKsxXbgfANaHsyoFS1ILhmVySS8nkBDBJquoW6+WLPSPsf3EF6Tr7qC3T3okPOehW+i
-        VGgBHfv0CgAAAAlwSFlzAAAOwAAADsABataJCQAA/jhJREFUeF7s/Qmcfd2X33X5hKQ73Un+Pac7/6S7
+        VGgBHfv0CgAAAAlwSFlzAAAOvAAADrwBlbxySQAA/jhJREFUeF7s/Qmcfd2X33X5hKQ73Un+Pac7/6S7
         053uTne6MxCSJoHEQCQEMPCADCGBMGgIEAUnjIhACMqggkYgCYgCAoqAzCgoKoKzKDjP2s7ziPMAzXqX
         91Ps3/3de+tW3ar6VT3PXq/Xep1zz9lnD2uvvdZ3r73Puf+CTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0
         adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2bdq0adOmTZs2
@@ -10380,11 +10388,14 @@ There are 7 tiers in total, the final one being a 'full unlock'. Most items are 
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="textBox1.Text" xml:space="preserve">
+  <data name="devToolsTextBox.Text" xml:space="preserve">
     <value>Testing parameters. For testing purposes only. No support given if these are enabled. 
-First eeable bot testing. Set the tier to 1-4 to spawn a sepcific tier of bot, then set what what bot type you want to spawn.
+First enable bot testing. Set the tier to 1-4 to spawn a sepcific tier of bot, then set what what bot type you want to spawn.
 Disabling weapons will deactivate the AI, they will spawn but not move or react.</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>55</value>
   </metadata>

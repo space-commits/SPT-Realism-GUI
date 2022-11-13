@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vXyImKjwcnEVSY9iU7w0fiYhQa70CKrLJphJZOGAJO7WEQt4Pr7G3HSh4AEtTkAOf6lIuT556TwZA7xJERE4AA==",
+  "dgSpecHash": "qpNCMD8gY9ajtqZ0f+N0Y3FeRovGMMVfwweGFdSUOYfhhniKcMxK7xLv8nmpuB6fLF+At0AZClJgI5BIPfrctw==",
   "success": true,
-  "projectFilePath": "D:\\SP EFT\\Realism Mod\\Client Mods\\SPT-Realism-Config-GUI\\Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\SP EFT\\Realism Mod\\Client Mods\\SPT-Realism-GUI\\Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Hal31\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
