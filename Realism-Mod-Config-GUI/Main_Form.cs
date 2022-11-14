@@ -9,7 +9,7 @@ namespace Realism_Mod_Config_GUI
     public partial class Main_Form : Form
     {
 
-        public static string confiFilePath = Path.Combine(Path.GetDirectoryName(Environment.CurrentDirectory), @"res\config.json");
+        public static string confiFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"config\config.json");
         public static string configJSON = File.ReadAllText(confiFilePath);
 
         public static ConfigTemplate config = JsonConvert.DeserializeObject<ConfigTemplate>(configJSON);
@@ -19,7 +19,20 @@ namespace Realism_Mod_Config_GUI
         {
             InitializeComponent();
 
-            SetDisplayValues();
+            this.Text = "SPT Realism Mod Config";
+
+            try
+            {
+                warningTextBox.Hide();
+                SetDisplayValues();
+            }
+            catch
+            {
+                warningTextBox.Show();
+                warningTextBox.Text = $"config.json not found at file path: {Path.Combine(Path.GetDirectoryName(Environment.ProcessPath))}\\config\\";
+            }
+
+          
 
         }
 
@@ -109,7 +122,7 @@ namespace Realism_Mod_Config_GUI
             logEverythingCheck.Checked = config.logEverything;
 
 
-            if (config.bot_test_tier > 1 && config.bot_test_tier < 4)
+            if (config.bot_test_tier > 1 && config.bot_test_tier <= 4)
             {
                 botTierNumeric.Value = config.bot_test_tier;
             }
@@ -224,7 +237,7 @@ namespace Realism_Mod_Config_GUI
 
         private void realRRHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.realistic_raider_rogue_health = realRRHealthCheck.Checked = true ? true : false;
+            config.realistic_raider_rogue_health = realRRHealthCheck.Checked == true ? true : false;
 
         }
 
@@ -353,6 +366,11 @@ namespace Realism_Mod_Config_GUI
         private void logEverythingCheck_CheckedChanged(object sender, EventArgs e)
         {
             config.logEverything = logEverythingCheck.Checked == true ? true : false;
+        }
+
+        private void devModeCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            config.dev_mode = devModeCheck.Checked == true ? true : false;
         }
 
         private void saveButton_Click(object sender, EventArgs e)

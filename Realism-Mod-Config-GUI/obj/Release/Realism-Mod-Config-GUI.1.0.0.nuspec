@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Realism-Mod-Config-GUI</id>
+    <version>1.0.0</version>
+    <authors>Realism-Mod-Config-GUI</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0-windows7.0">
+        <dependency id="Newtonsoft.Json" version="13.0.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="D:\SP EFT\Realism Mod\Client Mods\SPT-Realism-GUI\Realism-Mod-Config-GUI\bin\Release\net6.0-windows\Realism-Mod-Config-GUI.runtimeconfig.json" target="lib\net6.0-windows7.0\Realism-Mod-Config-GUI.runtimeconfig.json" />
+    <file src="D:\SP EFT\Realism Mod\Client Mods\SPT-Realism-GUI\Realism-Mod-Config-GUI\bin\Release\net6.0-windows\Realism-Mod-Config-GUI.dll" target="lib\net6.0-windows7.0\Realism-Mod-Config-GUI.dll" />
+  </files>
+</package>

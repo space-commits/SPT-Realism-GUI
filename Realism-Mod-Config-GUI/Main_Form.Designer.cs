@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.Realism_Ballistics = new System.Windows.Forms.TabPage();
+            this.warningTextBox = new System.Windows.Forms.RichTextBox();
             this.weapGroupBox = new System.Windows.Forms.GroupBox();
             this.masteryCheck = new System.Windows.Forms.CheckBox();
             this.legacyRecoilCheck = new System.Windows.Forms.CheckBox();
@@ -90,6 +91,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
+            this.devModeCheck = new System.Windows.Forms.CheckBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -132,6 +134,7 @@
             this.Realism_Ballistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Realism_Ballistics.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Realism_Ballistics.BackgroundImage")));
             this.Realism_Ballistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Realism_Ballistics.Controls.Add(this.warningTextBox);
             this.Realism_Ballistics.Controls.Add(this.weapGroupBox);
             this.Realism_Ballistics.Controls.Add(this.armorGroupBox);
             this.Realism_Ballistics.Controls.Add(this.realismCheck);
@@ -143,6 +146,16 @@
             this.Realism_Ballistics.TabIndex = 0;
             this.Realism_Ballistics.Text = "Realism and Ballistics";
             // 
+            // warningTextBox
+            // 
+            this.warningTextBox.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.warningTextBox.ForeColor = System.Drawing.Color.Red;
+            this.warningTextBox.Location = new System.Drawing.Point(377, 272);
+            this.warningTextBox.Name = "warningTextBox";
+            this.warningTextBox.Size = new System.Drawing.Size(628, 225);
+            this.warningTextBox.TabIndex = 11;
+            this.warningTextBox.Text = "CONFIG.JSON NOT FOUND! PLEASE ENSURE ALL FILES ARE IN THE CORRECT LOCATION!\n....";
+            // 
             // weapGroupBox
             // 
             this.weapGroupBox.Controls.Add(this.masteryCheck);
@@ -150,7 +163,7 @@
             this.weapGroupBox.Controls.Add(this.recoilAttOverhaulCheck);
             this.weapGroupBox.Controls.Add(this.malfChangesCheck);
             this.weapGroupBox.ForeColor = System.Drawing.Color.White;
-            this.weapGroupBox.Location = new System.Drawing.Point(8, 35);
+            this.weapGroupBox.Location = new System.Drawing.Point(18, 42);
             this.weapGroupBox.Name = "weapGroupBox";
             this.weapGroupBox.Size = new System.Drawing.Size(206, 126);
             this.weapGroupBox.TabIndex = 8;
@@ -220,7 +233,7 @@
             this.armorGroupBox.Controls.Add(this.armorMousePenaltyCheck);
             this.armorGroupBox.Controls.Add(this.headgearConflictsCheck);
             this.armorGroupBox.ForeColor = System.Drawing.Color.White;
-            this.armorGroupBox.Location = new System.Drawing.Point(8, 167);
+            this.armorGroupBox.Location = new System.Drawing.Point(18, 174);
             this.armorGroupBox.Name = "armorGroupBox";
             this.armorGroupBox.Size = new System.Drawing.Size(150, 100);
             this.armorGroupBox.TabIndex = 7;
@@ -280,7 +293,7 @@
             this.realismCheck.Checked = true;
             this.realismCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.realismCheck.ForeColor = System.Drawing.Color.White;
-            this.realismCheck.Location = new System.Drawing.Point(8, 10);
+            this.realismCheck.Location = new System.Drawing.Point(18, 17);
             this.realismCheck.Name = "realismCheck";
             this.realismCheck.Size = new System.Drawing.Size(67, 19);
             this.realismCheck.TabIndex = 0;
@@ -308,7 +321,7 @@
             this.moveGroupBox.Controls.Add(this.movementChangesCheck);
             this.moveGroupBox.Controls.Add(this.fallDamageChangesCheck);
             this.moveGroupBox.ForeColor = System.Drawing.Color.White;
-            this.moveGroupBox.Location = new System.Drawing.Point(13, 92);
+            this.moveGroupBox.Location = new System.Drawing.Point(19, 98);
             this.moveGroupBox.Name = "moveGroupBox";
             this.moveGroupBox.Size = new System.Drawing.Size(200, 75);
             this.moveGroupBox.TabIndex = 5;
@@ -351,7 +364,7 @@
             this.healthGroupBox.Controls.Add(this.medChangesCheck);
             this.healthGroupBox.Controls.Add(this.revertMedsCheck);
             this.healthGroupBox.ForeColor = System.Drawing.Color.White;
-            this.healthGroupBox.Location = new System.Drawing.Point(13, 6);
+            this.healthGroupBox.Location = new System.Drawing.Point(19, 12);
             this.healthGroupBox.Name = "healthGroupBox";
             this.healthGroupBox.Size = new System.Drawing.Size(200, 80);
             this.healthGroupBox.TabIndex = 4;
@@ -409,7 +422,7 @@
             this.botNameGroupBox.Controls.Add(this.pmcNamesCheck);
             this.botNameGroupBox.Controls.Add(this.cyrillicNamesCheck);
             this.botNameGroupBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.botNameGroupBox.Location = new System.Drawing.Point(8, 300);
+            this.botNameGroupBox.Location = new System.Drawing.Point(18, 303);
             this.botNameGroupBox.Name = "botNameGroupBox";
             this.botNameGroupBox.Size = new System.Drawing.Size(140, 75);
             this.botNameGroupBox.TabIndex = 16;
@@ -455,7 +468,7 @@
             this.botDiffGroupBox.Controls.Add(this.pmcDifficultyCheck);
             this.botDiffGroupBox.Controls.Add(this.bossDifficultyCheck);
             this.botDiffGroupBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.botDiffGroupBox.Location = new System.Drawing.Point(8, 219);
+            this.botDiffGroupBox.Location = new System.Drawing.Point(18, 222);
             this.botDiffGroupBox.Name = "botDiffGroupBox";
             this.botDiffGroupBox.Size = new System.Drawing.Size(140, 75);
             this.botDiffGroupBox.TabIndex = 15;
@@ -500,7 +513,7 @@
             this.botHealthGroupBox.Controls.Add(this.realRRHealthCheck);
             this.botHealthGroupBox.Controls.Add(this.realCultistHealthCheck);
             this.botHealthGroupBox.ForeColor = System.Drawing.Color.White;
-            this.botHealthGroupBox.Location = new System.Drawing.Point(8, 89);
+            this.botHealthGroupBox.Location = new System.Drawing.Point(18, 92);
             this.botHealthGroupBox.Name = "botHealthGroupBox";
             this.botHealthGroupBox.Size = new System.Drawing.Size(200, 124);
             this.botHealthGroupBox.TabIndex = 14;
@@ -578,7 +591,7 @@
             this.openZonesFixCheck.Checked = true;
             this.openZonesFixCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.openZonesFixCheck.ForeColor = System.Drawing.Color.White;
-            this.openZonesFixCheck.Location = new System.Drawing.Point(8, 64);
+            this.openZonesFixCheck.Location = new System.Drawing.Point(18, 67);
             this.openZonesFixCheck.Name = "openZonesFixCheck";
             this.openZonesFixCheck.Size = new System.Drawing.Size(105, 19);
             this.openZonesFixCheck.TabIndex = 2;
@@ -595,7 +608,7 @@
             this.increasedBotCapCheck.Checked = true;
             this.increasedBotCapCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.increasedBotCapCheck.ForeColor = System.Drawing.Color.White;
-            this.increasedBotCapCheck.Location = new System.Drawing.Point(8, 39);
+            this.increasedBotCapCheck.Location = new System.Drawing.Point(18, 42);
             this.increasedBotCapCheck.Name = "increasedBotCapCheck";
             this.increasedBotCapCheck.Size = new System.Drawing.Size(121, 19);
             this.increasedBotCapCheck.TabIndex = 1;
@@ -610,7 +623,7 @@
             this.botChangesCheck.Checked = true;
             this.botChangesCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.botChangesCheck.ForeColor = System.Drawing.Color.White;
-            this.botChangesCheck.Location = new System.Drawing.Point(8, 14);
+            this.botChangesCheck.Location = new System.Drawing.Point(18, 17);
             this.botChangesCheck.Name = "botChangesCheck";
             this.botChangesCheck.Size = new System.Drawing.Size(93, 19);
             this.botChangesCheck.TabIndex = 0;
@@ -640,7 +653,7 @@
             this.itemGroupBox.Controls.Add(this.allExaminedCheck);
             this.itemGroupBox.Controls.Add(this.removeRaidRestrictionsCheck);
             this.itemGroupBox.ForeColor = System.Drawing.Color.White;
-            this.itemGroupBox.Location = new System.Drawing.Point(11, 109);
+            this.itemGroupBox.Location = new System.Drawing.Point(19, 118);
             this.itemGroupBox.Name = "itemGroupBox";
             this.itemGroupBox.Size = new System.Drawing.Size(200, 78);
             this.itemGroupBox.TabIndex = 7;
@@ -684,7 +697,7 @@
             this.tradeGroupBox.Controls.Add(this.fleaConfigCheck);
             this.tradeGroupBox.Controls.Add(this.traderChangesCheck);
             this.tradeGroupBox.ForeColor = System.Drawing.Color.White;
-            this.tradeGroupBox.Location = new System.Drawing.Point(11, 3);
+            this.tradeGroupBox.Location = new System.Drawing.Point(19, 12);
             this.tradeGroupBox.Name = "tradeGroupBox";
             this.tradeGroupBox.Size = new System.Drawing.Size(200, 100);
             this.tradeGroupBox.TabIndex = 6;
@@ -744,7 +757,7 @@
             this.airdropChangesCheck.Checked = true;
             this.airdropChangesCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.airdropChangesCheck.ForeColor = System.Drawing.Color.White;
-            this.airdropChangesCheck.Location = new System.Drawing.Point(11, 193);
+            this.airdropChangesCheck.Location = new System.Drawing.Point(19, 202);
             this.airdropChangesCheck.Name = "airdropChangesCheck";
             this.airdropChangesCheck.Size = new System.Drawing.Size(115, 19);
             this.airdropChangesCheck.TabIndex = 3;
@@ -758,6 +771,7 @@
             this.Dev_Tools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Dev_Tools.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Dev_Tools.BackgroundImage")));
             this.Dev_Tools.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Dev_Tools.Controls.Add(this.devModeCheck);
             this.Dev_Tools.Controls.Add(this.devToolsTextBox);
             this.Dev_Tools.Controls.Add(this.logEverythingCheck);
             this.Dev_Tools.Controls.Add(this.noFallDamageCheck);
@@ -778,7 +792,7 @@
             // 
             // devToolsTextBox
             // 
-            this.devToolsTextBox.Location = new System.Drawing.Point(12, 13);
+            this.devToolsTextBox.Location = new System.Drawing.Point(20, 16);
             this.devToolsTextBox.Multiline = true;
             this.devToolsTextBox.Name = "devToolsTextBox";
             this.devToolsTextBox.ReadOnly = true;
@@ -790,7 +804,7 @@
             // 
             this.logEverythingCheck.AutoSize = true;
             this.logEverythingCheck.ForeColor = System.Drawing.Color.White;
-            this.logEverythingCheck.Location = new System.Drawing.Point(12, 254);
+            this.logEverythingCheck.Location = new System.Drawing.Point(20, 282);
             this.logEverythingCheck.Name = "logEverythingCheck";
             this.logEverythingCheck.Size = new System.Drawing.Size(105, 19);
             this.logEverythingCheck.TabIndex = 9;
@@ -802,7 +816,7 @@
             // 
             this.noFallDamageCheck.AutoSize = true;
             this.noFallDamageCheck.ForeColor = System.Drawing.Color.White;
-            this.noFallDamageCheck.Location = new System.Drawing.Point(12, 229);
+            this.noFallDamageCheck.Location = new System.Drawing.Point(20, 232);
             this.noFallDamageCheck.Name = "noFallDamageCheck";
             this.noFallDamageCheck.Size = new System.Drawing.Size(110, 19);
             this.noFallDamageCheck.TabIndex = 8;
@@ -814,7 +828,7 @@
             // 
             this.disableFleaBlacklistCheck.AutoSize = true;
             this.disableFleaBlacklistCheck.ForeColor = System.Drawing.Color.White;
-            this.disableFleaBlacklistCheck.Location = new System.Drawing.Point(12, 204);
+            this.disableFleaBlacklistCheck.Location = new System.Drawing.Point(20, 207);
             this.disableFleaBlacklistCheck.Name = "disableFleaBlacklistCheck";
             this.disableFleaBlacklistCheck.Size = new System.Drawing.Size(134, 19);
             this.disableFleaBlacklistCheck.TabIndex = 7;
@@ -826,7 +840,7 @@
             // 
             this.bossSpawnsCheck.AutoSize = true;
             this.bossSpawnsCheck.ForeColor = System.Drawing.Color.White;
-            this.bossSpawnsCheck.Location = new System.Drawing.Point(12, 179);
+            this.bossSpawnsCheck.Location = new System.Drawing.Point(20, 182);
             this.bossSpawnsCheck.Name = "bossSpawnsCheck";
             this.bossSpawnsCheck.Size = new System.Drawing.Size(150, 19);
             this.bossSpawnsCheck.TabIndex = 6;
@@ -846,7 +860,7 @@
             "All USEC",
             "All Bear",
             "Default"});
-            this.botTypeCombo.Location = new System.Drawing.Point(70, 150);
+            this.botTypeCombo.Location = new System.Drawing.Point(78, 153);
             this.botTypeCombo.Name = "botTypeCombo";
             this.botTypeCombo.Size = new System.Drawing.Size(121, 23);
             this.botTypeCombo.TabIndex = 5;
@@ -856,7 +870,7 @@
             // 
             this.botTypeLabel.AutoSize = true;
             this.botTypeLabel.ForeColor = System.Drawing.Color.White;
-            this.botTypeLabel.Location = new System.Drawing.Point(12, 150);
+            this.botTypeLabel.Location = new System.Drawing.Point(20, 153);
             this.botTypeLabel.Name = "botTypeLabel";
             this.botTypeLabel.Size = new System.Drawing.Size(52, 15);
             this.botTypeLabel.TabIndex = 4;
@@ -866,7 +880,7 @@
             // 
             this.botTierLabel.AutoSize = true;
             this.botTierLabel.ForeColor = System.Drawing.Color.White;
-            this.botTierLabel.Location = new System.Drawing.Point(12, 126);
+            this.botTierLabel.Location = new System.Drawing.Point(20, 129);
             this.botTierLabel.Name = "botTierLabel";
             this.botTierLabel.Size = new System.Drawing.Size(47, 15);
             this.botTierLabel.TabIndex = 3;
@@ -874,7 +888,7 @@
             // 
             // botTierNumeric
             // 
-            this.botTierNumeric.Location = new System.Drawing.Point(70, 124);
+            this.botTierNumeric.Location = new System.Drawing.Point(78, 127);
             this.botTierNumeric.Maximum = new decimal(new int[] {
             4,
             0,
@@ -899,11 +913,11 @@
             // 
             this.enableBotWeapsCheck.AutoSize = true;
             this.enableBotWeapsCheck.ForeColor = System.Drawing.Color.White;
-            this.enableBotWeapsCheck.Location = new System.Drawing.Point(12, 99);
+            this.enableBotWeapsCheck.Location = new System.Drawing.Point(20, 102);
             this.enableBotWeapsCheck.Name = "enableBotWeapsCheck";
-            this.enableBotWeapsCheck.Size = new System.Drawing.Size(141, 19);
+            this.enableBotWeapsCheck.Size = new System.Drawing.Size(134, 19);
             this.enableBotWeapsCheck.TabIndex = 1;
-            this.enableBotWeapsCheck.Text = "Enabled Bot Weapons";
+            this.enableBotWeapsCheck.Text = "Enable Bot Weapons";
             this.enableBotWeapsCheck.UseVisualStyleBackColor = true;
             this.enableBotWeapsCheck.CheckedChanged += new System.EventHandler(this.enableBotWeapsCheck_CheckedChanged);
             // 
@@ -911,7 +925,7 @@
             // 
             this.botTestingCheck.AutoSize = true;
             this.botTestingCheck.ForeColor = System.Drawing.Color.White;
-            this.botTestingCheck.Location = new System.Drawing.Point(12, 74);
+            this.botTestingCheck.Location = new System.Drawing.Point(20, 77);
             this.botTestingCheck.Name = "botTestingCheck";
             this.botTestingCheck.Size = new System.Drawing.Size(84, 19);
             this.botTestingCheck.TabIndex = 0;
@@ -954,6 +968,7 @@
             // 
             // revertLabel
             // 
+            this.revertLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.revertLabel.AutoSize = true;
             this.revertLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.revertLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
@@ -965,6 +980,7 @@
             // 
             // savedLabel
             // 
+            this.savedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.savedLabel.AutoSize = true;
             this.savedLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.savedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
@@ -973,6 +989,18 @@
             this.savedLabel.Size = new System.Drawing.Size(86, 15);
             this.savedLabel.TabIndex = 10;
             this.savedLabel.Text = "Settings Saved!";
+            // 
+            // devModeCheck
+            // 
+            this.devModeCheck.AutoSize = true;
+            this.devModeCheck.ForeColor = System.Drawing.Color.White;
+            this.devModeCheck.Location = new System.Drawing.Point(20, 257);
+            this.devModeCheck.Name = "devModeCheck";
+            this.devModeCheck.Size = new System.Drawing.Size(80, 19);
+            this.devModeCheck.TabIndex = 11;
+            this.devModeCheck.Text = "Dev Mode";
+            this.devModeCheck.UseVisualStyleBackColor = true;
+            this.devModeCheck.CheckedChanged += new System.EventHandler(this.devModeCheck_CheckedChanged);
             // 
             // Main_Form
             // 
@@ -987,6 +1015,7 @@
             this.Controls.Add(this.revertButton);
             this.Controls.Add(this.mainTabControl);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main_Form";
             this.Text = " ";
             this.mainTabControl.ResumeLayout(false);
@@ -1085,5 +1114,7 @@
         private CheckBox masteryCheck;
         private Label revertLabel;
         private Label savedLabel;
+        private RichTextBox warningTextBox;
+        private CheckBox devModeCheck;
     }
 }
