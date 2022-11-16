@@ -1,6 +1,0 @@
-D:\SP EFT\Realism Mod\Client Mods\SPT-Realism-GUI\Realism-Mod-Config-GUI\bin\Release\net6.0-windows\publish\Realism-Mod-Config-GUI.exe
-D:\SP EFT\Realism Mod\Client Mods\SPT-Realism-GUI\Realism-Mod-Config-GUI\bin\Release\net6.0-windows\publish\Realism-Mod-Config-GUI.dll
-D:\SP EFT\Realism Mod\Client Mods\SPT-Realism-GUI\Realism-Mod-Config-GUI\bin\Release\net6.0-windows\publish\Realism-Mod-Config-GUI.deps.json
-D:\SP EFT\Realism Mod\Client Mods\SPT-Realism-GUI\Realism-Mod-Config-GUI\bin\Release\net6.0-windows\publish\Realism-Mod-Config-GUI.runtimeconfig.json
-D:\SP EFT\Realism Mod\Client Mods\SPT-Realism-GUI\Realism-Mod-Config-GUI\bin\Release\net6.0-windows\publish\Realism-Mod-Config-GUI.pdb
-D:\SP EFT\Realism Mod\Client Mods\SPT-Realism-GUI\Realism-Mod-Config-GUI\bin\Release\net6.0-windows\publish\Newtonsoft.Json.dll

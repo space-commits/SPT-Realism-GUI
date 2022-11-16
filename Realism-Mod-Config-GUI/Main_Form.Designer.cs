@@ -75,6 +75,7 @@
             this.traderChangesCheck = new System.Windows.Forms.CheckBox();
             this.airdropChangesCheck = new System.Windows.Forms.CheckBox();
             this.Dev_Tools = new System.Windows.Forms.TabPage();
+            this.devModeCheck = new System.Windows.Forms.CheckBox();
             this.devToolsTextBox = new System.Windows.Forms.TextBox();
             this.logEverythingCheck = new System.Windows.Forms.CheckBox();
             this.noFallDamageCheck = new System.Windows.Forms.CheckBox();
@@ -91,7 +92,6 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
-            this.devModeCheck = new System.Windows.Forms.CheckBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -790,6 +790,18 @@
             this.Dev_Tools.TabIndex = 5;
             this.Dev_Tools.Text = "Dev Tools";
             // 
+            // devModeCheck
+            // 
+            this.devModeCheck.AutoSize = true;
+            this.devModeCheck.ForeColor = System.Drawing.Color.White;
+            this.devModeCheck.Location = new System.Drawing.Point(20, 257);
+            this.devModeCheck.Name = "devModeCheck";
+            this.devModeCheck.Size = new System.Drawing.Size(80, 19);
+            this.devModeCheck.TabIndex = 11;
+            this.devModeCheck.Text = "Dev Mode";
+            this.devModeCheck.UseVisualStyleBackColor = true;
+            this.devModeCheck.CheckStateChanged += new System.EventHandler(this.devModeCheck_CheckedChanged);
+            // 
             // devToolsTextBox
             // 
             this.devToolsTextBox.Location = new System.Drawing.Point(20, 16);
@@ -989,18 +1001,6 @@
             this.savedLabel.Size = new System.Drawing.Size(86, 15);
             this.savedLabel.TabIndex = 10;
             this.savedLabel.Text = "Settings Saved!";
-            // 
-            // devModeCheck
-            // 
-            this.devModeCheck.AutoSize = true;
-            this.devModeCheck.ForeColor = System.Drawing.Color.White;
-            this.devModeCheck.Location = new System.Drawing.Point(20, 257);
-            this.devModeCheck.Name = "devModeCheck";
-            this.devModeCheck.Size = new System.Drawing.Size(80, 19);
-            this.devModeCheck.TabIndex = 11;
-            this.devModeCheck.Text = "Dev Mode";
-            this.devModeCheck.UseVisualStyleBackColor = true;
-            this.devModeCheck.CheckedChanged += new System.EventHandler(this.devModeCheck_CheckedChanged);
             // 
             // Main_Form
             // 

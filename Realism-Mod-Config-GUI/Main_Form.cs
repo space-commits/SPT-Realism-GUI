@@ -1,6 +1,3 @@
-using System.Reflection;
-using System.Windows.Forms;
-using Newtonsoft;
 using Newtonsoft.Json;
 using Timer = System.Windows.Forms.Timer;
 
@@ -77,6 +74,7 @@ namespace Realism_Mod_Config_GUI
             config.disable_flea_blacklist = false;
             config.no_fall_damage = false;
             config.logEverything = false;
+            config.dev_mode = false;
         }
 
         private void SetDisplayValues()
@@ -120,7 +118,7 @@ namespace Realism_Mod_Config_GUI
             disableFleaBlacklistCheck.Checked = config.disable_flea_blacklist;
             noFallDamageCheck.Checked = config.no_fall_damage;
             logEverythingCheck.Checked = config.logEverything;
-
+            devModeCheck.Checked = config.dev_mode;
 
             if (config.bot_test_tier > 1 && config.bot_test_tier <= 4)
             {
