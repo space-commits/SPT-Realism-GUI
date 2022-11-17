@@ -16,7 +16,12 @@ namespace Realism_Mod_Config_GUI
         {
             InitializeComponent();
 
-            this.Text = "SPT Realism Mod Config";
+            string modVer = "v0.6.0";
+            string sptVer = "v3.3.0";
+
+            this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
+
+            modVerLabel.Text = modVer;
 
             try
             {
@@ -28,9 +33,6 @@ namespace Realism_Mod_Config_GUI
                 warningTextBox.Show();
                 warningTextBox.Text = $"config.json not found at file path: {Path.Combine(Path.GetDirectoryName(Environment.ProcessPath))}\\config\\";
             }
-
-          
-
         }
 
         private void SetDefaultValues()
@@ -75,6 +77,7 @@ namespace Realism_Mod_Config_GUI
             config.no_fall_damage = false;
             config.logEverything = false;
             config.dev_mode = false;
+            config.unstuck_GS = false;
         }
 
         private void SetDisplayValues()
@@ -118,6 +121,7 @@ namespace Realism_Mod_Config_GUI
             disableFleaBlacklistCheck.Checked = config.disable_flea_blacklist;
             noFallDamageCheck.Checked = config.no_fall_damage;
             logEverythingCheck.Checked = config.logEverything;
+            unstuckGSCheck.Checked = config.unstuck_GS;
             devModeCheck.Checked = config.dev_mode;
 
             if (config.bot_test_tier > 1 && config.bot_test_tier <= 4)
@@ -371,6 +375,11 @@ namespace Realism_Mod_Config_GUI
             config.dev_mode = devModeCheck.Checked == true ? true : false;
         }
 
+        private void unstuckGSCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            config.unstuck_GS = unstuckGSCheck.Checked == true ? true : false;
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             File.WriteAllText(confiFilePath, JsonConvert.SerializeObject(config));
@@ -441,7 +450,9 @@ namespace Realism_Mod_Config_GUI
             public bool disable_flea_blacklist { get; set; }
             public bool no_fall_damage { get; set; }
             public bool logEverything { get; set; }
-
+            public bool unstuck_GS { get; set; }
         }
+
+  
     }
 }

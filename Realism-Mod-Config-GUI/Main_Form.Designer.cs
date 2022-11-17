@@ -92,6 +92,8 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
+            this.modVerLabel = new System.Windows.Forms.Label();
+            this.unstuckGSCheck = new System.Windows.Forms.CheckBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -150,7 +152,7 @@
             // 
             this.warningTextBox.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.warningTextBox.ForeColor = System.Drawing.Color.Red;
-            this.warningTextBox.Location = new System.Drawing.Point(377, 272);
+            this.warningTextBox.Location = new System.Drawing.Point(369, 114);
             this.warningTextBox.Name = "warningTextBox";
             this.warningTextBox.Size = new System.Drawing.Size(628, 225);
             this.warningTextBox.TabIndex = 11;
@@ -638,6 +640,7 @@
             this.Misc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Misc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Misc.BackgroundImage")));
             this.Misc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Misc.Controls.Add(this.unstuckGSCheck);
             this.Misc.Controls.Add(this.itemGroupBox);
             this.Misc.Controls.Add(this.tradeGroupBox);
             this.Misc.Controls.Add(this.airdropChangesCheck);
@@ -1002,6 +1005,32 @@
             this.savedLabel.TabIndex = 10;
             this.savedLabel.Text = "Settings Saved!";
             // 
+            // modVerLabel
+            // 
+            this.modVerLabel.AutoSize = true;
+            this.modVerLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.modVerLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.modVerLabel.ForeColor = System.Drawing.Color.White;
+            this.modVerLabel.Location = new System.Drawing.Point(934, 477);
+            this.modVerLabel.Name = "modVerLabel";
+            this.modVerLabel.Size = new System.Drawing.Size(78, 25);
+            this.modVerLabel.TabIndex = 11;
+            this.modVerLabel.Text = "modVer";
+            // 
+            // unstuckGSCheck
+            // 
+            this.unstuckGSCheck.AutoSize = true;
+            this.unstuckGSCheck.ForeColor = System.Drawing.Color.White;
+            this.unstuckGSCheck.Location = new System.Drawing.Point(19, 227);
+            this.unstuckGSCheck.Name = "unstuckGSCheck";
+            this.unstuckGSCheck.Size = new System.Drawing.Size(163, 19);
+            this.unstuckGSCheck.TabIndex = 10;
+            this.unstuckGSCheck.Text = "Unstuck Gunsmith Quests";
+            this.toolTip1.SetToolTip(this.unstuckGSCheck, "Reduces gunsmith quest requirements so that all will be completable in case there" +
+        " is an issue with the requirements.");
+            this.unstuckGSCheck.UseVisualStyleBackColor = true;
+            this.unstuckGSCheck.CheckedChanged += new System.EventHandler(this.unstuckGSCheck_CheckedChanged);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1009,6 +1038,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1356, 703);
+            this.Controls.Add(this.modVerLabel);
             this.Controls.Add(this.savedLabel);
             this.Controls.Add(this.revertLabel);
             this.Controls.Add(this.saveButton);
@@ -1116,5 +1146,7 @@
         private Label savedLabel;
         private RichTextBox warningTextBox;
         private CheckBox devModeCheck;
+        private Label modVerLabel;
+        private CheckBox unstuckGSCheck;
     }
 }
