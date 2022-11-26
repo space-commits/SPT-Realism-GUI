@@ -1,0 +1,15 @@
+
+*.dll
+*.exe
+obj
+bin
+.vs/Realism-Mod-Config-GUI/v17/.suo
+.vs/Realism-Mod-Config-GUI/v17/.futdcache.v2
+.vs/Realism-Mod-Config-GUI/FileContentIndex/read.lock
+.vs/Realism-Mod-Config-GUI/FileContentIndex/87f1004e-3b11-434a-8123-e8b74f47f0a8.vsidx
+.vs/Realism-Mod-Config-GUI/FileContentIndex/7eb014cd-aa2a-4f9a-8085-684be539a9ee.vsidx
+.vs/Realism-Mod-Config-GUI/DesignTimeBuild/.dtbcache.v2
+.vs/ProjectEvaluation/realism-mod-config-gui.projects.v5.1
+.vs/ProjectEvaluation/realism-mod-config-gui.projects.v5.2
+.vs/ProjectEvaluation/realism-mod-config-gui.metadata.v5.2
+.vs/ProjectEvaluation/realism-mod-config-gui.metadata.v5.1

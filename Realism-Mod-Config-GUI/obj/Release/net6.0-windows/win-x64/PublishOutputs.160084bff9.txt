@@ -1,2 +1,0 @@
-D:\SP EFT\Realism Mod\Client Mods\SPT-Realism-GUI\Realism-Mod-Config-GUI\bin\Release\net6.0-windows\publish\win-x64\Realism-Mod-Config-GUI.pdb
-D:\SP EFT\Realism Mod\Client Mods\SPT-Realism-GUI\Realism-Mod-Config-GUI\bin\Release\net6.0-windows\publish\win-x64\Realism-Mod-Config-GUI.exe

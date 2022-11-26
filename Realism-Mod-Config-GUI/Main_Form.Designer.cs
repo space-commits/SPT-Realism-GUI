@@ -66,6 +66,7 @@
             this.increasedBotCapCheck = new System.Windows.Forms.CheckBox();
             this.botChangesCheck = new System.Windows.Forms.CheckBox();
             this.Misc = new System.Windows.Forms.TabPage();
+            this.unstuckGSCheck = new System.Windows.Forms.CheckBox();
             this.itemGroupBox = new System.Windows.Forms.GroupBox();
             this.allExaminedCheck = new System.Windows.Forms.CheckBox();
             this.removeRaidRestrictionsCheck = new System.Windows.Forms.CheckBox();
@@ -93,7 +94,6 @@
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
             this.modVerLabel = new System.Windows.Forms.Label();
-            this.unstuckGSCheck = new System.Windows.Forms.CheckBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -651,6 +651,20 @@
             this.Misc.TabIndex = 4;
             this.Misc.Text = "Misc.";
             // 
+            // unstuckGSCheck
+            // 
+            this.unstuckGSCheck.AutoSize = true;
+            this.unstuckGSCheck.ForeColor = System.Drawing.Color.White;
+            this.unstuckGSCheck.Location = new System.Drawing.Point(19, 227);
+            this.unstuckGSCheck.Name = "unstuckGSCheck";
+            this.unstuckGSCheck.Size = new System.Drawing.Size(163, 19);
+            this.unstuckGSCheck.TabIndex = 10;
+            this.unstuckGSCheck.Text = "Unstuck Gunsmith Quests";
+            this.toolTip1.SetToolTip(this.unstuckGSCheck, "Reduces gunsmith quest requirements so that all will be completable in case there" +
+        " is an issue with the requirements.");
+            this.unstuckGSCheck.UseVisualStyleBackColor = true;
+            this.unstuckGSCheck.CheckedChanged += new System.EventHandler(this.unstuckGSCheck_CheckedChanged);
+            // 
             // itemGroupBox
             // 
             this.itemGroupBox.Controls.Add(this.allExaminedCheck);
@@ -734,7 +748,7 @@
             this.fleaConfigCheck.TabIndex = 1;
             this.fleaConfigCheck.Text = "Hardcore Flea Config";
             this.toolTip1.SetToolTip(this.fleaConfigCheck, "Enables a hardcore fleamarket config. There are very few offers per item, if any " +
-        "at all. Item condition and stack amount vary a lot, high prices, lower seel chan" +
+        "at all. Item condition and stack amount vary a lot, high prices, lower sell chan" +
         "ce and so on.");
             this.fleaConfigCheck.UseVisualStyleBackColor = true;
             this.fleaConfigCheck.CheckedChanged += new System.EventHandler(this.fleaConfigCheck_CheckedChanged);
@@ -1016,20 +1030,6 @@
             this.modVerLabel.Size = new System.Drawing.Size(78, 25);
             this.modVerLabel.TabIndex = 11;
             this.modVerLabel.Text = "modVer";
-            // 
-            // unstuckGSCheck
-            // 
-            this.unstuckGSCheck.AutoSize = true;
-            this.unstuckGSCheck.ForeColor = System.Drawing.Color.White;
-            this.unstuckGSCheck.Location = new System.Drawing.Point(19, 227);
-            this.unstuckGSCheck.Name = "unstuckGSCheck";
-            this.unstuckGSCheck.Size = new System.Drawing.Size(163, 19);
-            this.unstuckGSCheck.TabIndex = 10;
-            this.unstuckGSCheck.Text = "Unstuck Gunsmith Quests";
-            this.toolTip1.SetToolTip(this.unstuckGSCheck, "Reduces gunsmith quest requirements so that all will be completable in case there" +
-        " is an issue with the requirements.");
-            this.unstuckGSCheck.UseVisualStyleBackColor = true;
-            this.unstuckGSCheck.CheckedChanged += new System.EventHandler(this.unstuckGSCheck_CheckedChanged);
             // 
             // Main_Form
             // 
