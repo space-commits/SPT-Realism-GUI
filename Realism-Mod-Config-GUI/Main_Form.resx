@@ -2118,21 +2118,35 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="realPlayerHealthCheck.ToolTip" xml:space="preserve">
+    <value>Changes the player's health to be realistic and to match that of PMC bots and Scavs. Use in combination with "Realistic Ballistics".
+
+NOTE: It is NOT recommended to turn this off, it is balanced around changes to ballistics, and turning it off may cause unforseen issues.
+This is only an option for those who want to raise their health using another mod to make the game easier.</value>
+  </data>
   <data name="masteryCheck.ToolTip" xml:space="preserve">
     <value>Changes what weapons fall into what Mastery categories. Weapons that have similar controls or reload operation are in the same category.
 For most weapons, mastery will come a lot quicker because of this.</value>
   </data>
   <data name="recoilAttOverhaulCheck.ToolTip" xml:space="preserve">
-    <value>Enables the complete overhaul of recoil and attachments. See  the mod's overview page on the hub for details.
+    <value>Enables the complete overhaul of recoil, ballistics and attachments. See  the mod's overview page on the hub for details.
+You can further configure the overhaul in-game, press F12 to open the config menu for mods.
+
+NOTE: some of the changes made by this overhaul are balanaced around the changes made to ammo stats, it is recommended to use in combination with 'Realistic Ballistics'.
+
 IF YOU WANT TO DISABLE THIS FEATURE YOU MUST DELETE THE REALISMMOD.DLL FROM YOUR BEPINEX/PLUGINS FOLDER. OTHERWISE YOUR GAME WILL CRASH!</value>
   </data>
   <data name="buffHelmetsCheck.ToolTip" xml:space="preserve">
     <value>Buffs helmets and faceshields by raising their armor level by 1. Their blunt throughput has been modified to compensate.
 Not carefully balanced, just for those that want a slightly less hardcore experience.</value>
   </data>
-  <data name="realismCheck.ToolTip" xml:space="preserve">
-    <value>Enables Armour and Ammo changes, the core of Realism Mod. Player and bot health will also no longer be adjusted and starting profiles no longer changed.
-If disabled, current armour durablity and player health will not be corrected but max durability/health will be.
+  <data name="realBallisticsCheck.ToolTip" xml:space="preserve">
+    <value>Enables Armor and Ammo changes, the core of Realism Mod. This will change the health of bot PMCs and Scavs to be balanced with these changes.
+Also changes the ammo and armor of starter profiles to reflect these changes.
+
+NOTE: Ammo has been balanced with the changes made by the 'Recoil, Ballistics and Attachment' overhaul in mind, it is not recommended to use the overhaul with this option disabled.
+
+
 </value>
   </data>
   <data name="Health_Movement.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -6254,13 +6268,57 @@ See the mod overview page for details.</value>
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="pmcTypeCheck.ToolTip" xml:space="preserve">
+    <value>Changes the odds and available behaviour templates that PMCs can use. The types available and their odds changes based on the level of the PMC and the time of day.
+These templates are based on existing bot types, such as scavs, bosses, rogues, raiders etc. 
+
+NOTE: PMCs using different templates is a feature of SPT AKI, this option just changes what templates are used and how/when.
+
+</value>
+  </data>
+  <data name="bossDifficultyCheck.ToolTip" xml:space="preserve">
+    <value>PMC and Boss difficulty will be raised, if set to true.
+Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
+
+NOTE: it's not recommended to use this option if you are using mods that change AI behaviour.
+</value>
+  </data>
   <data name="botDiffGroupBox.ToolTip" xml:space="preserve">
     <value>PMC and Boss difficulty will be raised, if set to true.
-Only use if not using FAIL or other AI mods. Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). Not compatible with FAIL, use that instead if you need to choose one or the other.</value>
+Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
+
+NOTE: it's not recommended to use this option if you are using mods that change AI behaviour.
+</value>
+  </data>
+  <data name="realBossHealthCheck.ToolTip" xml:space="preserve">
+    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
+
+NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
+</value>
+  </data>
+  <data name="realFollowerHealthCheck.ToolTip" xml:space="preserve">
+    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
+
+NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
+</value>
+  </data>
+  <data name="realRRHealthCheck.ToolTip" xml:space="preserve">
+    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
+
+NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
+.</value>
+  </data>
+  <data name="realCultistHealthCheck.ToolTip" xml:space="preserve">
+    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
+
+NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
+</value>
   </data>
   <data name="botHealthGroupBox.ToolTip" xml:space="preserve">
     <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
-Realism option must be true for this to take effect. If realism is false, all bots will have defualt health.</value>
+
+NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
+</value>
   </data>
   <data name="Misc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.Realism_Ballistics = new System.Windows.Forms.TabPage();
+            this.realPlayerHealthCheck = new System.Windows.Forms.CheckBox();
             this.warningTextBox = new System.Windows.Forms.RichTextBox();
             this.weapGroupBox = new System.Windows.Forms.GroupBox();
             this.masteryCheck = new System.Windows.Forms.CheckBox();
@@ -42,7 +43,7 @@
             this.buffHelmetsCheck = new System.Windows.Forms.CheckBox();
             this.armorMousePenaltyCheck = new System.Windows.Forms.CheckBox();
             this.headgearConflictsCheck = new System.Windows.Forms.CheckBox();
-            this.realismCheck = new System.Windows.Forms.CheckBox();
+            this.realBallisticsCheck = new System.Windows.Forms.CheckBox();
             this.Health_Movement = new System.Windows.Forms.TabPage();
             this.moveGroupBox = new System.Windows.Forms.GroupBox();
             this.movementChangesCheck = new System.Windows.Forms.CheckBox();
@@ -94,6 +95,7 @@
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
             this.modVerLabel = new System.Windows.Forms.Label();
+            this.pmcTypeCheck = new System.Windows.Forms.CheckBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -136,10 +138,11 @@
             this.Realism_Ballistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Realism_Ballistics.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Realism_Ballistics.BackgroundImage")));
             this.Realism_Ballistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Realism_Ballistics.Controls.Add(this.realPlayerHealthCheck);
             this.Realism_Ballistics.Controls.Add(this.warningTextBox);
             this.Realism_Ballistics.Controls.Add(this.weapGroupBox);
             this.Realism_Ballistics.Controls.Add(this.armorGroupBox);
-            this.Realism_Ballistics.Controls.Add(this.realismCheck);
+            this.Realism_Ballistics.Controls.Add(this.realBallisticsCheck);
             this.Realism_Ballistics.Location = new System.Drawing.Point(4, 24);
             this.Realism_Ballistics.Margin = new System.Windows.Forms.Padding(0);
             this.Realism_Ballistics.Name = "Realism_Ballistics";
@@ -147,6 +150,21 @@
             this.Realism_Ballistics.Size = new System.Drawing.Size(1360, 684);
             this.Realism_Ballistics.TabIndex = 0;
             this.Realism_Ballistics.Text = "Realism and Ballistics";
+            // 
+            // realPlayerHealthCheck
+            // 
+            this.realPlayerHealthCheck.AutoSize = true;
+            this.realPlayerHealthCheck.Checked = true;
+            this.realPlayerHealthCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.realPlayerHealthCheck.ForeColor = System.Drawing.Color.White;
+            this.realPlayerHealthCheck.Location = new System.Drawing.Point(18, 17);
+            this.realPlayerHealthCheck.Name = "realPlayerHealthCheck";
+            this.realPlayerHealthCheck.Size = new System.Drawing.Size(142, 19);
+            this.realPlayerHealthCheck.TabIndex = 12;
+            this.realPlayerHealthCheck.Text = "Realistic Player Health";
+            this.toolTip1.SetToolTip(this.realPlayerHealthCheck, resources.GetString("realPlayerHealthCheck.ToolTip"));
+            this.realPlayerHealthCheck.UseVisualStyleBackColor = true;
+            this.realPlayerHealthCheck.CheckedChanged += new System.EventHandler(this.realPlayerHealthCheck_CheckedChanged);
             // 
             // warningTextBox
             // 
@@ -165,9 +183,9 @@
             this.weapGroupBox.Controls.Add(this.recoilAttOverhaulCheck);
             this.weapGroupBox.Controls.Add(this.malfChangesCheck);
             this.weapGroupBox.ForeColor = System.Drawing.Color.White;
-            this.weapGroupBox.Location = new System.Drawing.Point(18, 42);
+            this.weapGroupBox.Location = new System.Drawing.Point(18, 67);
             this.weapGroupBox.Name = "weapGroupBox";
-            this.weapGroupBox.Size = new System.Drawing.Size(206, 126);
+            this.weapGroupBox.Size = new System.Drawing.Size(260, 126);
             this.weapGroupBox.TabIndex = 8;
             this.weapGroupBox.TabStop = false;
             this.weapGroupBox.Text = "Weapons";
@@ -207,9 +225,9 @@
             this.recoilAttOverhaulCheck.ForeColor = System.Drawing.Color.White;
             this.recoilAttOverhaulCheck.Location = new System.Drawing.Point(6, 22);
             this.recoilAttOverhaulCheck.Name = "recoilAttOverhaulCheck";
-            this.recoilAttOverhaulCheck.Size = new System.Drawing.Size(198, 19);
+            this.recoilAttOverhaulCheck.Size = new System.Drawing.Size(249, 19);
             this.recoilAttOverhaulCheck.TabIndex = 6;
-            this.recoilAttOverhaulCheck.Text = "Recoil and Attachment Overhaul";
+            this.recoilAttOverhaulCheck.Text = "Recoil, Ballistics and Attachment Overhaul";
             this.toolTip1.SetToolTip(this.recoilAttOverhaulCheck, resources.GetString("recoilAttOverhaulCheck.ToolTip"));
             this.recoilAttOverhaulCheck.UseVisualStyleBackColor = true;
             // 
@@ -235,7 +253,7 @@
             this.armorGroupBox.Controls.Add(this.armorMousePenaltyCheck);
             this.armorGroupBox.Controls.Add(this.headgearConflictsCheck);
             this.armorGroupBox.ForeColor = System.Drawing.Color.White;
-            this.armorGroupBox.Location = new System.Drawing.Point(18, 174);
+            this.armorGroupBox.Location = new System.Drawing.Point(18, 199);
             this.armorGroupBox.Name = "armorGroupBox";
             this.armorGroupBox.Size = new System.Drawing.Size(150, 100);
             this.armorGroupBox.TabIndex = 7;
@@ -289,20 +307,20 @@
             this.headgearConflictsCheck.UseVisualStyleBackColor = true;
             this.headgearConflictsCheck.CheckedChanged += new System.EventHandler(this.headgearConflictsCheck_CheckedChanged);
             // 
-            // realismCheck
+            // realBallisticsCheck
             // 
-            this.realismCheck.AutoSize = true;
-            this.realismCheck.Checked = true;
-            this.realismCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.realismCheck.ForeColor = System.Drawing.Color.White;
-            this.realismCheck.Location = new System.Drawing.Point(18, 17);
-            this.realismCheck.Name = "realismCheck";
-            this.realismCheck.Size = new System.Drawing.Size(67, 19);
-            this.realismCheck.TabIndex = 0;
-            this.realismCheck.Text = "Realism";
-            this.toolTip1.SetToolTip(this.realismCheck, resources.GetString("realismCheck.ToolTip"));
-            this.realismCheck.UseVisualStyleBackColor = true;
-            this.realismCheck.CheckedChanged += new System.EventHandler(this.realismCheck_CheckedChanged);
+            this.realBallisticsCheck.AutoSize = true;
+            this.realBallisticsCheck.Checked = true;
+            this.realBallisticsCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.realBallisticsCheck.ForeColor = System.Drawing.Color.White;
+            this.realBallisticsCheck.Location = new System.Drawing.Point(18, 42);
+            this.realBallisticsCheck.Name = "realBallisticsCheck";
+            this.realBallisticsCheck.Size = new System.Drawing.Size(117, 19);
+            this.realBallisticsCheck.TabIndex = 0;
+            this.realBallisticsCheck.Text = "Realistic Ballistics";
+            this.toolTip1.SetToolTip(this.realBallisticsCheck, resources.GetString("realBallisticsCheck.ToolTip"));
+            this.realBallisticsCheck.UseVisualStyleBackColor = true;
+            this.realBallisticsCheck.CheckedChanged += new System.EventHandler(this.realismCheck_CheckedChanged);
             // 
             // Health_Movement
             // 
@@ -424,7 +442,7 @@
             this.botNameGroupBox.Controls.Add(this.pmcNamesCheck);
             this.botNameGroupBox.Controls.Add(this.cyrillicNamesCheck);
             this.botNameGroupBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.botNameGroupBox.Location = new System.Drawing.Point(18, 303);
+            this.botNameGroupBox.Location = new System.Drawing.Point(18, 325);
             this.botNameGroupBox.Name = "botNameGroupBox";
             this.botNameGroupBox.Size = new System.Drawing.Size(140, 75);
             this.botNameGroupBox.TabIndex = 16;
@@ -467,12 +485,13 @@
             // 
             // botDiffGroupBox
             // 
+            this.botDiffGroupBox.Controls.Add(this.pmcTypeCheck);
             this.botDiffGroupBox.Controls.Add(this.pmcDifficultyCheck);
             this.botDiffGroupBox.Controls.Add(this.bossDifficultyCheck);
             this.botDiffGroupBox.ForeColor = System.Drawing.SystemColors.Window;
             this.botDiffGroupBox.Location = new System.Drawing.Point(18, 222);
             this.botDiffGroupBox.Name = "botDiffGroupBox";
-            this.botDiffGroupBox.Size = new System.Drawing.Size(140, 75);
+            this.botDiffGroupBox.Size = new System.Drawing.Size(140, 97);
             this.botDiffGroupBox.TabIndex = 15;
             this.botDiffGroupBox.TabStop = false;
             this.botDiffGroupBox.Text = "Bot Difficulty";
@@ -481,8 +500,6 @@
             // pmcDifficultyCheck
             // 
             this.pmcDifficultyCheck.AutoSize = true;
-            this.pmcDifficultyCheck.Checked = true;
-            this.pmcDifficultyCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pmcDifficultyCheck.ForeColor = System.Drawing.Color.White;
             this.pmcDifficultyCheck.Location = new System.Drawing.Point(6, 22);
             this.pmcDifficultyCheck.Name = "pmcDifficultyCheck";
@@ -496,15 +513,13 @@
             // bossDifficultyCheck
             // 
             this.bossDifficultyCheck.AutoSize = true;
-            this.bossDifficultyCheck.Checked = true;
-            this.bossDifficultyCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.bossDifficultyCheck.ForeColor = System.Drawing.Color.White;
             this.bossDifficultyCheck.Location = new System.Drawing.Point(6, 47);
             this.bossDifficultyCheck.Name = "bossDifficultyCheck";
             this.bossDifficultyCheck.Size = new System.Drawing.Size(101, 19);
             this.bossDifficultyCheck.TabIndex = 11;
             this.bossDifficultyCheck.Text = "Boss Difficulty";
-            this.toolTip1.SetToolTip(this.bossDifficultyCheck, "PMC and Boss difficulty will be raised, if set to true.");
+            this.toolTip1.SetToolTip(this.bossDifficultyCheck, resources.GetString("bossDifficultyCheck.ToolTip"));
             this.bossDifficultyCheck.UseVisualStyleBackColor = true;
             this.bossDifficultyCheck.CheckedChanged += new System.EventHandler(this.bossDifficultyCheck_CheckedChanged);
             // 
@@ -534,8 +549,7 @@
             this.realBossHealthCheck.Size = new System.Drawing.Size(134, 19);
             this.realBossHealthCheck.TabIndex = 7;
             this.realBossHealthCheck.Text = "Realistic Boss Health";
-            this.toolTip1.SetToolTip(this.realBossHealthCheck, "Bot health settings. If set to true, these bot types will have the same health as" +
-        " the player. If false, they will have default EFT health pools.");
+            this.toolTip1.SetToolTip(this.realBossHealthCheck, resources.GetString("realBossHealthCheck.ToolTip"));
             this.realBossHealthCheck.UseVisualStyleBackColor = true;
             this.realBossHealthCheck.CheckedChanged += new System.EventHandler(this.realBossHealthCheck_CheckedChanged);
             // 
@@ -550,8 +564,7 @@
             this.realFollowerHealthCheck.Size = new System.Drawing.Size(182, 19);
             this.realFollowerHealthCheck.TabIndex = 6;
             this.realFollowerHealthCheck.Text = "Realistic Boss Follower Health";
-            this.toolTip1.SetToolTip(this.realFollowerHealthCheck, "Bot health settings. If set to true, these bot types will have the same health as" +
-        " the player. If false, they will have default EFT health pools.");
+            this.toolTip1.SetToolTip(this.realFollowerHealthCheck, resources.GetString("realFollowerHealthCheck.ToolTip"));
             this.realFollowerHealthCheck.UseVisualStyleBackColor = true;
             this.realFollowerHealthCheck.CheckedChanged += new System.EventHandler(this.realFollowerHealthCheck_CheckedChanged);
             // 
@@ -566,8 +579,7 @@
             this.realRRHealthCheck.Size = new System.Drawing.Size(182, 19);
             this.realRRHealthCheck.TabIndex = 8;
             this.realRRHealthCheck.Text = "Realistic Raider/Rogue Health";
-            this.toolTip1.SetToolTip(this.realRRHealthCheck, "Bot health settings. If set to true, these bot types will have the same health as" +
-        " the player. If false, they will have default EFT health pools.");
+            this.toolTip1.SetToolTip(this.realRRHealthCheck, resources.GetString("realRRHealthCheck.ToolTip"));
             this.realRRHealthCheck.UseVisualStyleBackColor = true;
             this.realRRHealthCheck.CheckedChanged += new System.EventHandler(this.realRRHealthCheck_CheckedChanged);
             // 
@@ -582,8 +594,7 @@
             this.realCultistHealthCheck.Size = new System.Drawing.Size(144, 19);
             this.realCultistHealthCheck.TabIndex = 9;
             this.realCultistHealthCheck.Text = "Realistic Cultist Health";
-            this.toolTip1.SetToolTip(this.realCultistHealthCheck, "Bot health settings. If set to true, these bot types will have the same health as" +
-        " the player. If false, they will have default EFT health pools.");
+            this.toolTip1.SetToolTip(this.realCultistHealthCheck, resources.GetString("realCultistHealthCheck.ToolTip"));
             this.realCultistHealthCheck.UseVisualStyleBackColor = true;
             this.realCultistHealthCheck.CheckedChanged += new System.EventHandler(this.realCultistHealthCheck_CheckedChanged);
             // 
@@ -1031,6 +1042,20 @@
             this.modVerLabel.TabIndex = 11;
             this.modVerLabel.Text = "modVer";
             // 
+            // pmcTypeCheck
+            // 
+            this.pmcTypeCheck.AutoSize = true;
+            this.pmcTypeCheck.Checked = true;
+            this.pmcTypeCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.pmcTypeCheck.Location = new System.Drawing.Point(6, 72);
+            this.pmcTypeCheck.Name = "pmcTypeCheck";
+            this.pmcTypeCheck.Size = new System.Drawing.Size(128, 19);
+            this.pmcTypeCheck.TabIndex = 12;
+            this.pmcTypeCheck.Text = "PMC Type Changes";
+            this.toolTip1.SetToolTip(this.pmcTypeCheck, resources.GetString("pmcTypeCheck.ToolTip"));
+            this.pmcTypeCheck.UseVisualStyleBackColor = true;
+            this.pmcTypeCheck.CheckedChanged += new System.EventHandler(this.pmcTypeCheck_CheckedChanged);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1091,7 +1116,7 @@
         private TabPage Misc;
         private TabPage Dev_Tools;
         private CheckBox buffHelmetsCheck;
-        private CheckBox realismCheck;
+        private CheckBox realBallisticsCheck;
         private CheckBox headgearConflictsCheck;
         private CheckBox armorMousePenaltyCheck;
         private CheckBox legacyRecoilCheck;
@@ -1148,5 +1173,7 @@
         private CheckBox devModeCheck;
         private Label modVerLabel;
         private CheckBox unstuckGSCheck;
+        private CheckBox realPlayerHealthCheck;
+        private CheckBox pmcTypeCheck;
     }
 }

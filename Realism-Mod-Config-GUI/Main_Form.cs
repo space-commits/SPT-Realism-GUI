@@ -16,7 +16,7 @@ namespace Realism_Mod_Config_GUI
         {
             InitializeComponent();
 
-            string modVer = "v0.6.1";
+            string modVer = "v0.6.2";
             string sptVer = "v3.3.0";
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
@@ -37,7 +37,8 @@ namespace Realism_Mod_Config_GUI
 
         private void SetDefaultValues()
         {
-            config.realism = true;
+            config.realistic_player_health = true;
+            config.realistic_ballistics = true;
             config.mastery_changes = true;
             config.legacy_recoil_changes = false;
             config.buff_helmets = false;
@@ -55,8 +56,9 @@ namespace Realism_Mod_Config_GUI
             config.realistic_boss_follower_health = true;
             config.realistic_raider_rogue_health = true;
             config.realistic_cultist_health = true;
-            config.pmc_difficulty = true;
-            config.boss_difficulty = true;
+            config.pmc_difficulty = false;
+            config.boss_difficulty = false;
+            config.pmc_types= true;
             config.bot_names = true;
             config.cyrillic_bear_names = true;
             config.tiered_flea = true;
@@ -82,7 +84,8 @@ namespace Realism_Mod_Config_GUI
 
         private void SetDisplayValues()
         {
-            realismCheck.Checked = config.realism;
+            realPlayerHealthCheck.Checked = config.realistic_player_health;
+            realBallisticsCheck.Checked = config.realistic_ballistics;
             recoilAttOverhaulCheck.Checked = config.recoil_attachment_overhaul;
             malfChangesCheck.Checked = config.malf_changes;
             masteryCheck.Checked = config.mastery_changes;
@@ -105,6 +108,7 @@ namespace Realism_Mod_Config_GUI
             realCultistHealthCheck.Checked = config.realistic_cultist_health;
             bossDifficultyCheck.Checked = config.boss_difficulty;
             pmcDifficultyCheck.Checked = config.pmc_difficulty;
+            pmcTypeCheck.Checked = config.pmc_types;
             pmcNamesCheck.Checked = config.bot_names;
             cyrillicNamesCheck.Checked = config.cyrillic_bear_names;
 
@@ -156,9 +160,14 @@ namespace Realism_Mod_Config_GUI
             }
         }
 
+        private void realPlayerHealthCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            config.realistic_player_health = realPlayerHealthCheck.Checked == true ? true : false;
+        }
+
         private void realismCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.realism = realismCheck.Checked == true ? true : false;
+            config.realistic_ballistics = realBallisticsCheck.Checked == true ? true : false;
 
         }
         private void masteryCheck_CheckedChanged(object sender, EventArgs e)
@@ -240,12 +249,16 @@ namespace Realism_Mod_Config_GUI
         private void realRRHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
             config.realistic_raider_rogue_health = realRRHealthCheck.Checked == true ? true : false;
-
         }
 
         private void realCultistHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
             config.realistic_cultist_health = realCultistHealthCheck.Checked == true ? true : false;
+        }
+
+        private void pmcTypeCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            config.pmc_types = pmcTypeCheck.Checked == true ? true : false;
         }
 
         private void pmcDifficultyCheck_CheckedChanged(object sender, EventArgs e)
@@ -409,7 +422,8 @@ namespace Realism_Mod_Config_GUI
 
         public class ConfigTemplate
         {
-            public bool realism { get; set; }
+            public bool realistic_player_health { get; set; }
+            public bool realistic_ballistics { get; set; }
             public bool buff_helmets { get; set; }
             public bool armor_mouse_penalty { get; set; }
             public bool headgear_conflicts { get; set; }
@@ -429,6 +443,7 @@ namespace Realism_Mod_Config_GUI
             public bool open_zones_fix { get; set; }
             public bool pmc_difficulty { get; set; }
             public bool boss_difficulty { get; set; }
+            public bool pmc_types { get; set; }
             public bool bot_names { get; set; }
             public bool cyrillic_bear_names { get; set; }
             public bool tiered_flea { get; set; }
@@ -453,6 +468,6 @@ namespace Realism_Mod_Config_GUI
             public bool unstuck_GS { get; set; }
         }
 
-  
+
     }
 }

@@ -13,3 +13,6 @@ bin
 .vs/ProjectEvaluation/realism-mod-config-gui.projects.v5.2
 .vs/ProjectEvaluation/realism-mod-config-gui.metadata.v5.2
 .vs/ProjectEvaluation/realism-mod-config-gui.metadata.v5.1
+*.vsidx
+*.user
+Realism-Mod-Config-GUI/Properties/PublishProfiles/FolderProfile.pubxml.user
