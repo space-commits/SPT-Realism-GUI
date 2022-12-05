@@ -52,6 +52,7 @@ namespace Realism_Mod_Config_GUI
             config.bot_changes = true;
             config.increased_bot_cap = false;
             config.open_zones_fix = true;
+            config.boss_spawns= true; 
             config.realistic_boss_health = true;
             config.realistic_boss_follower_health = true;
             config.realistic_raider_rogue_health = true;
@@ -66,6 +67,7 @@ namespace Realism_Mod_Config_GUI
             config.trader_changes = true;
             config.all_examined = true;
             config.remove_inraid_restrictions = true;
+            config.remove_fir_req = true;
             config.airdrop_changes = true;
             config.bot_testing = false;
             config.bot_test_tier = 1;
@@ -102,6 +104,7 @@ namespace Realism_Mod_Config_GUI
             botChangesCheck.Checked = config.bot_changes;
             increasedBotCapCheck.Checked = config.increased_bot_cap;
             openZonesFixCheck.Checked = config.open_zones_fix;
+            bossSpawnCheck.Checked = config.boss_spawns;
             realBossHealthCheck.Checked = config.realistic_boss_health;
             realFollowerHealthCheck.Checked = config.realistic_boss_follower_health;
             realRRHealthCheck.Checked = config.realistic_raider_rogue_health;
@@ -117,6 +120,7 @@ namespace Realism_Mod_Config_GUI
             traderChangesCheck.Checked = config.trader_changes;
             allExaminedCheck.Checked = config.all_examined;
             removeRaidRestrictionsCheck.Checked = config.remove_inraid_restrictions;
+            firCheck.Checked = config.remove_fir_req;
             airdropChangesCheck.Checked = config.airdrop_changes;
 
             botTestingCheck.Checked = config.bot_testing;
@@ -231,6 +235,12 @@ namespace Realism_Mod_Config_GUI
             config.increased_bot_cap = increasedBotCapCheck.Checked == true ? true : false;
         }
 
+
+        private void bossSpawnCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            config.boss_spawns = bossSpawnCheck.Checked == true ? true : false;
+        }
+
         private void openZonesFixCheck_CheckedChanged(object sender, EventArgs e)
         {
             config.open_zones_fix = openZonesFixCheck.Checked == true ? true : false;
@@ -303,6 +313,12 @@ namespace Realism_Mod_Config_GUI
         private void removeRaidRestrictionsCheck_CheckedChanged(object sender, EventArgs e)
         {
             config.remove_inraid_restrictions = removeRaidRestrictionsCheck.Checked == true ? true : false;
+        }
+
+        private void firCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            config.remove_fir_req = firCheck.Checked == true ? true : false;
+
         }
 
         private void airdropChangesCheck_CheckedChanged(object sender, EventArgs e)
@@ -441,6 +457,7 @@ namespace Realism_Mod_Config_GUI
             public bool realistic_raider_rogue_health { get; set; }
             public bool realistic_cultist_health { get; set; }
             public bool open_zones_fix { get; set; }
+            public bool boss_spawns { get; set; }
             public bool pmc_difficulty { get; set; }
             public bool boss_difficulty { get; set; }
             public bool pmc_types { get; set; }
@@ -452,6 +469,7 @@ namespace Realism_Mod_Config_GUI
             public bool airdrop_changes { get; set; }
             public bool all_examined { get; set; }
             public bool remove_inraid_restrictions { get; set; }
+            public bool remove_fir_req { get; set; }
             public bool legacy_recoil_changes { get; set; }
             public bool bot_testing { get; set; }
             public bool bot_test_weps_enabled { get; set; }
@@ -468,6 +486,6 @@ namespace Realism_Mod_Config_GUI
             public bool unstuck_GS { get; set; }
         }
 
-
+  
     }
 }

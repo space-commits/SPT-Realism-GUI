@@ -52,10 +52,12 @@
             this.medChangesCheck = new System.Windows.Forms.CheckBox();
             this.revertMedsCheck = new System.Windows.Forms.CheckBox();
             this.Bots = new System.Windows.Forms.TabPage();
+            this.bossSpawnCheck = new System.Windows.Forms.CheckBox();
             this.botNameGroupBox = new System.Windows.Forms.GroupBox();
             this.pmcNamesCheck = new System.Windows.Forms.CheckBox();
             this.cyrillicNamesCheck = new System.Windows.Forms.CheckBox();
             this.botDiffGroupBox = new System.Windows.Forms.GroupBox();
+            this.pmcTypeCheck = new System.Windows.Forms.CheckBox();
             this.pmcDifficultyCheck = new System.Windows.Forms.CheckBox();
             this.bossDifficultyCheck = new System.Windows.Forms.CheckBox();
             this.botHealthGroupBox = new System.Windows.Forms.GroupBox();
@@ -69,6 +71,7 @@
             this.Misc = new System.Windows.Forms.TabPage();
             this.unstuckGSCheck = new System.Windows.Forms.CheckBox();
             this.itemGroupBox = new System.Windows.Forms.GroupBox();
+            this.firCheck = new System.Windows.Forms.CheckBox();
             this.allExaminedCheck = new System.Windows.Forms.CheckBox();
             this.removeRaidRestrictionsCheck = new System.Windows.Forms.CheckBox();
             this.tradeGroupBox = new System.Windows.Forms.GroupBox();
@@ -95,7 +98,6 @@
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
             this.modVerLabel = new System.Windows.Forms.Label();
-            this.pmcTypeCheck = new System.Windows.Forms.CheckBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -425,6 +427,7 @@
             this.Bots.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Bots.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Bots.BackgroundImage")));
             this.Bots.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Bots.Controls.Add(this.bossSpawnCheck);
             this.Bots.Controls.Add(this.botNameGroupBox);
             this.Bots.Controls.Add(this.botDiffGroupBox);
             this.Bots.Controls.Add(this.botHealthGroupBox);
@@ -437,12 +440,29 @@
             this.Bots.TabIndex = 2;
             this.Bots.Text = "Bots";
             // 
+            // bossSpawnCheck
+            // 
+            this.bossSpawnCheck.AutoSize = true;
+            this.bossSpawnCheck.Checked = true;
+            this.bossSpawnCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.bossSpawnCheck.ForeColor = System.Drawing.Color.White;
+            this.bossSpawnCheck.Location = new System.Drawing.Point(18, 92);
+            this.bossSpawnCheck.Name = "bossSpawnCheck";
+            this.bossSpawnCheck.Size = new System.Drawing.Size(101, 19);
+            this.bossSpawnCheck.TabIndex = 17;
+            this.bossSpawnCheck.Text = "Spawn Tweaks";
+            this.toolTip1.SetToolTip(this.bossSpawnCheck, "Increases boss spawn chance, allows bosses to spawn in more parts of the map, add" +
+        "s chance for Raiders and Rogues to spawn on more maps, increases Raider trigger " +
+        "spawns to 100%.");
+            this.bossSpawnCheck.UseVisualStyleBackColor = true;
+            this.bossSpawnCheck.CheckedChanged += new System.EventHandler(this.bossSpawnCheck_CheckedChanged);
+            // 
             // botNameGroupBox
             // 
             this.botNameGroupBox.Controls.Add(this.pmcNamesCheck);
             this.botNameGroupBox.Controls.Add(this.cyrillicNamesCheck);
             this.botNameGroupBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.botNameGroupBox.Location = new System.Drawing.Point(18, 325);
+            this.botNameGroupBox.Location = new System.Drawing.Point(18, 348);
             this.botNameGroupBox.Name = "botNameGroupBox";
             this.botNameGroupBox.Size = new System.Drawing.Size(140, 75);
             this.botNameGroupBox.TabIndex = 16;
@@ -489,13 +509,27 @@
             this.botDiffGroupBox.Controls.Add(this.pmcDifficultyCheck);
             this.botDiffGroupBox.Controls.Add(this.bossDifficultyCheck);
             this.botDiffGroupBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.botDiffGroupBox.Location = new System.Drawing.Point(18, 222);
+            this.botDiffGroupBox.Location = new System.Drawing.Point(18, 245);
             this.botDiffGroupBox.Name = "botDiffGroupBox";
             this.botDiffGroupBox.Size = new System.Drawing.Size(140, 97);
             this.botDiffGroupBox.TabIndex = 15;
             this.botDiffGroupBox.TabStop = false;
             this.botDiffGroupBox.Text = "Bot Difficulty";
             this.toolTip1.SetToolTip(this.botDiffGroupBox, resources.GetString("botDiffGroupBox.ToolTip"));
+            // 
+            // pmcTypeCheck
+            // 
+            this.pmcTypeCheck.AutoSize = true;
+            this.pmcTypeCheck.Checked = true;
+            this.pmcTypeCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.pmcTypeCheck.Location = new System.Drawing.Point(6, 72);
+            this.pmcTypeCheck.Name = "pmcTypeCheck";
+            this.pmcTypeCheck.Size = new System.Drawing.Size(128, 19);
+            this.pmcTypeCheck.TabIndex = 12;
+            this.pmcTypeCheck.Text = "PMC Type Changes";
+            this.toolTip1.SetToolTip(this.pmcTypeCheck, resources.GetString("pmcTypeCheck.ToolTip"));
+            this.pmcTypeCheck.UseVisualStyleBackColor = true;
+            this.pmcTypeCheck.CheckedChanged += new System.EventHandler(this.pmcTypeCheck_CheckedChanged);
             // 
             // pmcDifficultyCheck
             // 
@@ -506,7 +540,7 @@
             this.pmcDifficultyCheck.Size = new System.Drawing.Size(103, 19);
             this.pmcDifficultyCheck.TabIndex = 10;
             this.pmcDifficultyCheck.Text = "PMC Difficulty";
-            this.toolTip1.SetToolTip(this.pmcDifficultyCheck, "PMC and Boss difficulty will be raised, if set to true.");
+            this.toolTip1.SetToolTip(this.pmcDifficultyCheck, resources.GetString("pmcDifficultyCheck.ToolTip"));
             this.pmcDifficultyCheck.UseVisualStyleBackColor = true;
             this.pmcDifficultyCheck.CheckedChanged += new System.EventHandler(this.pmcDifficultyCheck_CheckedChanged);
             // 
@@ -530,7 +564,7 @@
             this.botHealthGroupBox.Controls.Add(this.realRRHealthCheck);
             this.botHealthGroupBox.Controls.Add(this.realCultistHealthCheck);
             this.botHealthGroupBox.ForeColor = System.Drawing.Color.White;
-            this.botHealthGroupBox.Location = new System.Drawing.Point(18, 92);
+            this.botHealthGroupBox.Location = new System.Drawing.Point(18, 115);
             this.botHealthGroupBox.Name = "botHealthGroupBox";
             this.botHealthGroupBox.Size = new System.Drawing.Size(200, 124);
             this.botHealthGroupBox.TabIndex = 14;
@@ -666,7 +700,7 @@
             // 
             this.unstuckGSCheck.AutoSize = true;
             this.unstuckGSCheck.ForeColor = System.Drawing.Color.White;
-            this.unstuckGSCheck.Location = new System.Drawing.Point(19, 227);
+            this.unstuckGSCheck.Location = new System.Drawing.Point(19, 245);
             this.unstuckGSCheck.Name = "unstuckGSCheck";
             this.unstuckGSCheck.Size = new System.Drawing.Size(163, 19);
             this.unstuckGSCheck.TabIndex = 10;
@@ -678,15 +712,31 @@
             // 
             // itemGroupBox
             // 
+            this.itemGroupBox.Controls.Add(this.firCheck);
             this.itemGroupBox.Controls.Add(this.allExaminedCheck);
             this.itemGroupBox.Controls.Add(this.removeRaidRestrictionsCheck);
             this.itemGroupBox.ForeColor = System.Drawing.Color.White;
             this.itemGroupBox.Location = new System.Drawing.Point(19, 118);
             this.itemGroupBox.Name = "itemGroupBox";
-            this.itemGroupBox.Size = new System.Drawing.Size(200, 78);
+            this.itemGroupBox.Size = new System.Drawing.Size(234, 96);
             this.itemGroupBox.TabIndex = 7;
             this.itemGroupBox.TabStop = false;
             this.itemGroupBox.Text = "Items";
+            // 
+            // firCheck
+            // 
+            this.firCheck.AutoSize = true;
+            this.firCheck.Checked = true;
+            this.firCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.firCheck.ForeColor = System.Drawing.Color.White;
+            this.firCheck.Location = new System.Drawing.Point(6, 71);
+            this.firCheck.Name = "firCheck";
+            this.firCheck.Size = new System.Drawing.Size(225, 19);
+            this.firCheck.TabIndex = 6;
+            this.firCheck.Text = "Remove Found-In-Raid Requirements";
+            this.toolTip1.SetToolTip(this.firCheck, "Sets all items to FIR status after extracting with them from a raid.");
+            this.firCheck.UseVisualStyleBackColor = true;
+            this.firCheck.CheckedChanged += new System.EventHandler(this.firCheck_CheckedChanged);
             // 
             // allExaminedCheck
             // 
@@ -785,7 +835,7 @@
             this.airdropChangesCheck.Checked = true;
             this.airdropChangesCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.airdropChangesCheck.ForeColor = System.Drawing.Color.White;
-            this.airdropChangesCheck.Location = new System.Drawing.Point(19, 202);
+            this.airdropChangesCheck.Location = new System.Drawing.Point(19, 220);
             this.airdropChangesCheck.Name = "airdropChangesCheck";
             this.airdropChangesCheck.Size = new System.Drawing.Size(115, 19);
             this.airdropChangesCheck.TabIndex = 3;
@@ -1042,20 +1092,6 @@
             this.modVerLabel.TabIndex = 11;
             this.modVerLabel.Text = "modVer";
             // 
-            // pmcTypeCheck
-            // 
-            this.pmcTypeCheck.AutoSize = true;
-            this.pmcTypeCheck.Checked = true;
-            this.pmcTypeCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.pmcTypeCheck.Location = new System.Drawing.Point(6, 72);
-            this.pmcTypeCheck.Name = "pmcTypeCheck";
-            this.pmcTypeCheck.Size = new System.Drawing.Size(128, 19);
-            this.pmcTypeCheck.TabIndex = 12;
-            this.pmcTypeCheck.Text = "PMC Type Changes";
-            this.toolTip1.SetToolTip(this.pmcTypeCheck, resources.GetString("pmcTypeCheck.ToolTip"));
-            this.pmcTypeCheck.UseVisualStyleBackColor = true;
-            this.pmcTypeCheck.CheckedChanged += new System.EventHandler(this.pmcTypeCheck_CheckedChanged);
-            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1175,5 +1211,7 @@
         private CheckBox unstuckGSCheck;
         private CheckBox realPlayerHealthCheck;
         private CheckBox pmcTypeCheck;
+        private CheckBox bossSpawnCheck;
+        private CheckBox firCheck;
     }
 }

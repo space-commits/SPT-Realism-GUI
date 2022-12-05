@@ -2121,7 +2121,9 @@
   <data name="realPlayerHealthCheck.ToolTip" xml:space="preserve">
     <value>Changes the player's health to be realistic and to match that of PMC bots and Scavs. Use in combination with "Realistic Ballistics".
 
-NOTE: It is NOT recommended to turn this off, it is balanced around changes to ballistics, and turning it off may cause unforseen issues.
+NOTE: Default EFT player health is LOWER than what this option changes it to.
+
+It is NOT recommended to turn this off, it is balanced around changes to ballistics, and turning it off may cause unforseen issues.
 This is only an option for those who want to raise their health using another mod to make the game easier.</value>
   </data>
   <data name="masteryCheck.ToolTip" xml:space="preserve">
@@ -6272,22 +6274,33 @@ See the mod overview page for details.</value>
     <value>Changes the odds and available behaviour templates that PMCs can use. The types available and their odds changes based on the level of the PMC and the time of day.
 These templates are based on existing bot types, such as scavs, bosses, rogues, raiders etc. 
 
-NOTE: PMCs using different templates is a feature of SPT AKI, this option just changes what templates are used and how/when.
+NOTE: Will only take effect if 'Bot Changes' is enabled.
+PMCs using different templates is a feature of SPT AKI, this option just changes what templates are used and how/when.
 
 </value>
   </data>
-  <data name="bossDifficultyCheck.ToolTip" xml:space="preserve">
-    <value>PMC and Boss difficulty will be raised, if set to true.
+  <data name="pmcDifficultyCheck.ToolTip" xml:space="preserve">
+    <value>Raises PMC and Boss difficulty.
 Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
 
-NOTE: it's not recommended to use this option if you are using mods that change AI behaviour.
+NOTE: This option will only take effect if 'Bot Changes' is enabled.
+It's not recommended to use this option if you are using mods that change AI behaviour.
+.</value>
+  </data>
+  <data name="bossDifficultyCheck.ToolTip" xml:space="preserve">
+    <value>Raises PMC and Boss difficulty.
+Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
+
+NOTE: This option will only take effect if 'Bot Changes' is enabled.
+It's not recommended to use this option if you are using mods that change AI behaviour.
 </value>
   </data>
   <data name="botDiffGroupBox.ToolTip" xml:space="preserve">
-    <value>PMC and Boss difficulty will be raised, if set to true.
+    <value>Raises PMC and Boss difficulty.
 Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
 
-NOTE: it's not recommended to use this option if you are using mods that change AI behaviour.
+NOTE: This option will only take effect if 'Bot Changes' is enabled.
+It's not recommended to use this option if you are using mods that change AI behaviour.
 </value>
   </data>
   <data name="realBossHealthCheck.ToolTip" xml:space="preserve">
