@@ -174,6 +174,11 @@ namespace Realism_Mod_Config_GUI
             config.realistic_ballistics = realBallisticsCheck.Checked == true ? true : false;
 
         }
+        private void recoilAttOverhaulCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            config.recoil_attachment_overhaul = recoilAttOverhaulCheck.Checked == true ? true : false;
+        }
+
         private void masteryCheck_CheckedChanged(object sender, EventArgs e)
         {
             config.mastery_changes = masteryCheck.Checked == true ? true : false;

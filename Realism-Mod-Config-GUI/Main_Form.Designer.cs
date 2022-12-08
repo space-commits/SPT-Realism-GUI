@@ -232,6 +232,7 @@
             this.recoilAttOverhaulCheck.Text = "Recoil, Ballistics and Attachment Overhaul";
             this.toolTip1.SetToolTip(this.recoilAttOverhaulCheck, resources.GetString("recoilAttOverhaulCheck.ToolTip"));
             this.recoilAttOverhaulCheck.UseVisualStyleBackColor = true;
+            this.recoilAttOverhaulCheck.CheckedChanged += new System.EventHandler(this.recoilAttOverhaulCheck_CheckedChanged);
             // 
             // malfChangesCheck
             // 
