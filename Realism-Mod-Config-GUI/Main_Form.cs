@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
 
 namespace Realism_Mod_Config_GUI
@@ -6,18 +7,18 @@ namespace Realism_Mod_Config_GUI
     public partial class Main_Form : Form
     {
 
-        public static string confiFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"config\config.json");
-        public static string configJSON = File.ReadAllText(confiFilePath);
+        public static string ConfigFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"config\config.json");
+        public static string ConfigJSON = File.ReadAllText(ConfigFilePath);
 
-        public static ConfigTemplate config = JsonConvert.DeserializeObject<ConfigTemplate>(configJSON);
+        public static ConfigTemplate Config = JsonConvert.DeserializeObject<ConfigTemplate>(ConfigJSON);
 
 
         public Main_Form()
         {
             InitializeComponent();
 
-            string modVer = "v0.6.2";
-            string sptVer = "v3.3.0";
+            string modVer = "v0.6.3";
+            string sptVer = "v3.4.0";
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
 
@@ -37,124 +38,147 @@ namespace Realism_Mod_Config_GUI
 
         private void SetDefaultValues()
         {
-            config.realistic_player_health = true;
-            config.realistic_ballistics = true;
-            config.mastery_changes = true;
-            config.legacy_recoil_changes = false;
-            config.buff_helmets = false;
-            config.armor_mouse_penalty = true;
-            config.headgear_conflicts = true;
-            config.malf_changes = true;
-            config.med_changes = true;
-            config.revert_med_changes = false;
-            config.movement_changes = true;
-            config.fall_damage_changes = true;
-            config.bot_changes = true;
-            config.increased_bot_cap = false;
-            config.open_zones_fix = true;
-            config.boss_spawns= true; 
-            config.realistic_boss_health = true;
-            config.realistic_boss_follower_health = true;
-            config.realistic_raider_rogue_health = true;
-            config.realistic_cultist_health = true;
-            config.pmc_difficulty = false;
-            config.boss_difficulty = false;
-            config.pmc_types= true;
-            config.bot_names = true;
-            config.cyrillic_bear_names = true;
-            config.tiered_flea = true;
-            config.flea_changes = true;
-            config.trader_changes = true;
-            config.all_examined = true;
-            config.remove_inraid_restrictions = true;
-            config.remove_fir_req = true;
-            config.airdrop_changes = true;
-            config.bot_testing = false;
-            config.bot_test_tier = 1;
-            config.all_bear = false;
-            config.all_USEC = false;
-            config.all_PMCs = false;
-            config.all_scavs = false;
-            config.bot_test_weps_enabled = true;
-            config.guarantee_boss_spawn = false;
-            config.disable_flea_blacklist = false;
-            config.no_fall_damage = false;
-            config.logEverything = false;
-            config.dev_mode = false;
-            config.unstuck_GS = false;
+
+            foreach (TabPage p in this.mainTabControl.TabPages)
+            {
+                foreach (Control c in p.Controls)
+                {
+                    if (c is CheckBox)
+                    {
+                        CheckBox cb = (CheckBox)c;
+                        cb.Enabled = true;
+                    }
+                    if (c is GroupBox)
+                    {
+                        foreach (CheckBox cb in c.Controls)
+                        {
+                            cb.Enabled = true;
+                        }
+                    }
+                }
+            }
+
+            Config.realistic_player_health = true;
+            Config.realistic_ballistics = true;
+            Config.recoil_attachment_overhaul = true;
+            Config.mastery_changes = true;
+            Config.legacy_recoil_changes = false;
+            Config.buff_helmets = false;
+            Config.armor_mouse_penalty = true;
+            Config.headgear_conflicts = true;
+            Config.malf_changes = true;
+            Config.med_changes = true;
+            Config.revert_med_changes = false;
+            Config.movement_changes = true;
+            Config.fall_damage_changes = true;
+            Config.bot_changes = true;
+            Config.increased_bot_cap = false;
+            Config.open_zones_fix = true;
+            Config.boss_spawns= true; 
+            Config.realistic_boss_health = true;
+            Config.realistic_boss_follower_health = true;
+            Config.realistic_raider_rogue_health = true;
+            Config.realistic_cultist_health = true;
+            Config.pmc_difficulty = false;
+            Config.boss_difficulty = false;
+            Config.pmc_types= true;
+            Config.bot_names = true;
+            Config.cyrillic_bear_names = true;
+            Config.tiered_flea = true;
+            Config.flea_changes = true;
+            Config.trader_changes = true;
+            Config.all_examined = true;
+            Config.remove_inraid_restrictions = true;
+            Config.remove_fir_req = true;
+            Config.airdrop_changes = true;
+            Config.bot_testing = false;
+            Config.bot_test_tier = 1;
+            Config.all_bear = false;
+            Config.all_USEC = false;
+            Config.all_PMCs = false;
+            Config.all_scavs = false;
+            Config.bot_test_weps_enabled = true;
+            Config.guarantee_boss_spawn = false;
+            Config.disable_flea_blacklist = false;
+            Config.no_fall_damage = false;
+            Config.logEverything = false;
+            Config.dev_mode = false;
+            Config.unstuck_GS = false;
+
+              CheckCheckBoxes();
         }
 
         private void SetDisplayValues()
         {
-            realPlayerHealthCheck.Checked = config.realistic_player_health;
-            realBallisticsCheck.Checked = config.realistic_ballistics;
-            recoilAttOverhaulCheck.Checked = config.recoil_attachment_overhaul;
-            malfChangesCheck.Checked = config.malf_changes;
-            masteryCheck.Checked = config.mastery_changes;
-            buffHelmetsCheck.Checked = config.buff_helmets;
-            armorMousePenaltyCheck.Checked = config.armor_mouse_penalty;
-            headgearConflictsCheck.Checked = config.headgear_conflicts;
-            legacyRecoilCheck.Checked = config.legacy_recoil_changes;
+            realPlayerHealthCheck.Checked = Config.realistic_player_health;
+            realBallisticsCheck.Checked = Config.realistic_ballistics;
+            recoilAttOverhaulCheck.Checked = Config.recoil_attachment_overhaul;
+            malfChangesCheck.Checked = Config.malf_changes;
+            masteryCheck.Checked = Config.mastery_changes;
+            buffHelmetsCheck.Checked = Config.buff_helmets;
+            armorMousePenaltyCheck.Checked = Config.armor_mouse_penalty;
+            headgearConflictsCheck.Checked = Config.headgear_conflicts;
+            legacyRecoilCheck.Checked = Config.legacy_recoil_changes;
 
-            medChangesCheck.Checked = config.med_changes;
-            revertMedsCheck.Checked = config.revert_med_changes;
-            movementChangesCheck.Checked = config.movement_changes;
-            fallDamageChangesCheck.Checked = config.fall_damage_changes;
+            medChangesCheck.Checked = Config.med_changes;
+            revertMedsCheck.Checked = Config.revert_med_changes;
+            movementChangesCheck.Checked = Config.movement_changes;
+            fallDamageChangesCheck.Checked = Config.fall_damage_changes;
 
-            botChangesCheck.Checked = config.bot_changes;
-            increasedBotCapCheck.Checked = config.increased_bot_cap;
-            openZonesFixCheck.Checked = config.open_zones_fix;
-            bossSpawnCheck.Checked = config.boss_spawns;
-            realBossHealthCheck.Checked = config.realistic_boss_health;
-            realFollowerHealthCheck.Checked = config.realistic_boss_follower_health;
-            realRRHealthCheck.Checked = config.realistic_raider_rogue_health;
-            realCultistHealthCheck.Checked = config.realistic_cultist_health;
-            bossDifficultyCheck.Checked = config.boss_difficulty;
-            pmcDifficultyCheck.Checked = config.pmc_difficulty;
-            pmcTypeCheck.Checked = config.pmc_types;
-            pmcNamesCheck.Checked = config.bot_names;
-            cyrillicNamesCheck.Checked = config.cyrillic_bear_names;
+            botChangesCheck.Checked = Config.bot_changes;
+            increasedBotCapCheck.Checked = Config.increased_bot_cap;
+            openZonesFixCheck.Checked = Config.open_zones_fix;
+            bossSpawnCheck.Checked = Config.boss_spawns;
+            realBossHealthCheck.Checked = Config.realistic_boss_health;
+            realFollowerHealthCheck.Checked = Config.realistic_boss_follower_health;
+            realRRHealthCheck.Checked = Config.realistic_raider_rogue_health;
+            realCultistHealthCheck.Checked = Config.realistic_cultist_health;
+            bossDifficultyCheck.Checked = Config.boss_difficulty;
+            pmcDifficultyCheck.Checked = Config.pmc_difficulty;
+            pmcTypeCheck.Checked = Config.pmc_types;
+            pmcNamesCheck.Checked = Config.bot_names;
+            cyrillicNamesCheck.Checked = Config.cyrillic_bear_names;
 
-            tieredFleaCheck.Checked = config.tiered_flea;
-            fleaConfigCheck.Checked = config.flea_changes;
-            traderChangesCheck.Checked = config.trader_changes;
-            allExaminedCheck.Checked = config.all_examined;
-            removeRaidRestrictionsCheck.Checked = config.remove_inraid_restrictions;
-            firCheck.Checked = config.remove_fir_req;
-            airdropChangesCheck.Checked = config.airdrop_changes;
+            tieredFleaCheck.Checked = Config.tiered_flea;
+            fleaConfigCheck.Checked = Config.flea_changes;
+            traderChangesCheck.Checked = Config.trader_changes;
+            allExaminedCheck.Checked = Config.all_examined;
+            removeRaidRestrictionsCheck.Checked = Config.remove_inraid_restrictions;
+            firCheck.Checked = Config.remove_fir_req;
+            airdropChangesCheck.Checked = Config.airdrop_changes;
 
-            botTestingCheck.Checked = config.bot_testing;
-            enableBotWeapsCheck.Checked = config.bot_test_weps_enabled;
-            bossSpawnsCheck.Checked = config.guarantee_boss_spawn;
-            disableFleaBlacklistCheck.Checked = config.disable_flea_blacklist;
-            noFallDamageCheck.Checked = config.no_fall_damage;
-            logEverythingCheck.Checked = config.logEverything;
-            unstuckGSCheck.Checked = config.unstuck_GS;
-            devModeCheck.Checked = config.dev_mode;
+            botTestingCheck.Checked = Config.bot_testing;
+            enableBotWeapsCheck.Checked = Config.bot_test_weps_enabled;
+            bossSpawnsCheck.Checked = Config.guarantee_boss_spawn;
+            disableFleaBlacklistCheck.Checked = Config.disable_flea_blacklist;
+            noFallDamageCheck.Checked = Config.no_fall_damage;
+            logEverythingCheck.Checked = Config.logEverything;
+            unstuckGSCheck.Checked = Config.unstuck_GS;
+            devModeCheck.Checked = Config.dev_mode;
 
-            if (config.bot_test_tier > 1 && config.bot_test_tier <= 4)
+            if (Config.bot_test_tier > 1 && Config.bot_test_tier <= 4)
             {
-                botTierNumeric.Value = config.bot_test_tier;
+                botTierNumeric.Value = Config.bot_test_tier;
             }
             else
             {
                 botTierNumeric.Value = 1;
-                config.bot_test_tier = 1;
+                Config.bot_test_tier = 1;
             }
 
-            if (config.all_scavs == true)
+            if (Config.all_scavs == true)
             {
                 botTypeCombo.SelectedItem = "All Scavs";
             }
-            else if (config.all_PMCs == true)
+            else if (Config.all_PMCs == true)
             {
                 botTypeCombo.SelectedItem = "All PMCs";
             }
-            else if (config.all_USEC == true)
+            else if (Config.all_USEC == true)
             {
                 botTypeCombo.SelectedItem = "All USEC";
             }
-            else if (config.all_bear == true)
+            else if (Config.all_bear == true)
             {
                 botTypeCombo.SelectedItem = "All Bear";
             }
@@ -164,259 +188,423 @@ namespace Realism_Mod_Config_GUI
             }
         }
 
+        private void CheckCheckBoxes() 
+        {
+            Color disabled = Color.SlateGray;
+            Color enabled = Color.FromArgb(36,36,36);
+
+            //recoil
+            if (recoilAttOverhaulCheck.Checked == true)
+            {
+                legacyRecoilCheck.Checked = false;
+                legacyRecoilCheck.Enabled = false;
+                unstuckGSCheck.Enabled = true;
+            }
+            else
+            {
+                legacyRecoilCheck.Enabled = true;
+                unstuckGSCheck.Enabled = false;
+                unstuckGSCheck.Checked = false;
+            }
+            if (legacyRecoilCheck.Checked == true)
+            {
+                recoilAttOverhaulCheck.Checked = false;
+                recoilAttOverhaulCheck.Enabled = false;
+            }
+            else
+            {
+                recoilAttOverhaulCheck.Enabled = true;
+            }
+
+            //ballistics
+            if (realBallisticsCheck.Checked == false) 
+            {
+                buffHelmetsCheck.Checked = false;
+                buffHelmetsCheck.Enabled = false;
+                realPlayerHealthCheck.Checked = false;
+                realPlayerHealthCheck.Enabled = false;
+
+                realBossHealthCheck.Checked = false;
+                realBossHealthCheck.Enabled = false;
+                realFollowerHealthCheck.Checked = false;
+                realFollowerHealthCheck.Enabled = false;
+                realRRHealthCheck.Checked = false;
+                realRRHealthCheck.Enabled = false;
+                realCultistHealthCheck.Checked = false;
+                realCultistHealthCheck.Enabled = false;
+            }
+            else
+            {
+                buffHelmetsCheck.Enabled = true;
+                realPlayerHealthCheck.Enabled = true;
+
+                realBossHealthCheck.Enabled = true;
+                realFollowerHealthCheck.Enabled = true;
+                realRRHealthCheck.Enabled = true;
+                realCultistHealthCheck.Enabled = true;
+            }
+
+            //health
+            if (medChangesCheck.Checked == true)
+            {
+                revertMedsCheck.Checked = false;
+                revertMedsCheck.Enabled = false;
+            }
+            else
+            {
+                revertMedsCheck.Enabled = true;
+            }
+
+            //bots
+            if (pmcNamesCheck.Checked == false)
+            {
+                cyrillicNamesCheck.Checked = false;
+                cyrillicNamesCheck.Enabled = false;
+            }
+            else
+            {
+                cyrillicNamesCheck.Enabled = true;
+            }
+    
+  
+            //testing
+            if (botTestingCheck.Checked == false)
+            {
+                enableBotWeapsCheck.Checked = false;
+                enableBotWeapsCheck.Enabled = false;
+            }
+            else
+            {
+                enableBotWeapsCheck.Enabled = true;
+            }
+
+            foreach (TabPage p in this.mainTabControl.TabPages)
+            {
+                foreach (Control c in p.Controls)
+                {
+                    if (c is CheckBox)
+                    {
+                        CheckBox cb = (CheckBox)c;
+                        if (cb.Enabled == false)
+                        {
+                            cb.BackColor = disabled;
+                        }
+                        else
+                        {
+                            cb.BackColor = enabled;
+                        }
+                    }
+                    if (c is GroupBox)
+                    {
+                        foreach (CheckBox cb in c.Controls)
+                        {
+                            if (cb.Enabled == false)
+                            {
+                                cb.BackColor = disabled;
+                            }
+                            else
+                            {
+                                cb.BackColor = enabled;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         private void realPlayerHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.realistic_player_health = realPlayerHealthCheck.Checked == true ? true : false;
+            Config.realistic_player_health = realPlayerHealthCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void realismCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.realistic_ballistics = realBallisticsCheck.Checked == true ? true : false;
+            Config.realistic_ballistics = realBallisticsCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
 
         }
         private void recoilAttOverhaulCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.recoil_attachment_overhaul = recoilAttOverhaulCheck.Checked == true ? true : false;
-        }
-
-        private void masteryCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            config.mastery_changes = masteryCheck.Checked == true ? true : false;
+            Config.recoil_attachment_overhaul = recoilAttOverhaulCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void legacyRecoilCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.legacy_recoil_changes = legacyRecoilCheck.Checked == true ? true : false;
+            Config.legacy_recoil_changes = legacyRecoilCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+        private void masteryCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.mastery_changes = masteryCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void buffHelmetsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.buff_helmets = buffHelmetsCheck.Checked == true ? true : false;
+            Config.buff_helmets = buffHelmetsCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void armorMousePenaltyCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.armor_mouse_penalty = armorMousePenaltyCheck.Checked == true ? true : false;
+            Config.armor_mouse_penalty = armorMousePenaltyCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void headgearConflictsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.headgear_conflicts = headgearConflictsCheck.Checked == true ? true : false;
+            Config.headgear_conflicts = headgearConflictsCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void malfChanges_CheckedChanged(object sender, EventArgs e)
         {
-            config.malf_changes = malfChangesCheck.Checked == true ? true : false;
-
+            Config.malf_changes = malfChangesCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void medChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.med_changes = medChangesCheck.Checked == true ? true : false;
+            Config.med_changes = medChangesCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void revertMedsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.revert_med_changes = revertMedsCheck.Checked == true ? true : false;
+            Config.revert_med_changes = revertMedsCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void movementChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.movement_changes = movementChangesCheck.Checked == true ? true : false;
+            Config.movement_changes = movementChangesCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void fallDamageChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.fall_damage_changes = fallDamageChangesCheck.Checked == true ? true : false;
+            Config.fall_damage_changes = fallDamageChangesCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void botChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.bot_changes = botChangesCheck.Checked == true ? true : false;
+            Config.bot_changes = botChangesCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void increasedBotCapCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.increased_bot_cap = increasedBotCapCheck.Checked == true ? true : false;
+            Config.increased_bot_cap = increasedBotCapCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
 
         private void bossSpawnCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.boss_spawns = bossSpawnCheck.Checked == true ? true : false;
+            Config.boss_spawns = bossSpawnCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void openZonesFixCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.open_zones_fix = openZonesFixCheck.Checked == true ? true : false;
+            Config.open_zones_fix = openZonesFixCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void realBossHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.realistic_boss_health = realBossHealthCheck.Checked == true ? true : false;
+            Config.realistic_boss_health = realBossHealthCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void realFollowerHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.realistic_boss_follower_health = realFollowerHealthCheck.Checked == true ? true : false;
+            Config.realistic_boss_follower_health = realFollowerHealthCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void realRRHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.realistic_raider_rogue_health = realRRHealthCheck.Checked == true ? true : false;
+            Config.realistic_raider_rogue_health = realRRHealthCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void realCultistHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.realistic_cultist_health = realCultistHealthCheck.Checked == true ? true : false;
+            Config.realistic_cultist_health = realCultistHealthCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void pmcTypeCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.pmc_types = pmcTypeCheck.Checked == true ? true : false;
+            Config.pmc_types = pmcTypeCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void pmcDifficultyCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.pmc_difficulty = pmcDifficultyCheck.Checked == true ? true : false;
+            Config.pmc_difficulty = pmcDifficultyCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void bossDifficultyCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.boss_difficulty = bossDifficultyCheck.Checked == true ? true : false;
+            Config.boss_difficulty = bossDifficultyCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void pmcNamesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.bot_names = pmcNamesCheck.Checked == true ? true : false;
+            Config.bot_names = pmcNamesCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
         private void cyrillicNamesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.cyrillic_bear_names = cyrillicNamesCheck.Checked == true ? true : false;
+            Config.cyrillic_bear_names = cyrillicNamesCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void tieredFleaCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.tiered_flea = tieredFleaCheck.Checked == true ? true : false;
+            Config.tiered_flea = tieredFleaCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void fleaConfigCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.flea_changes = fleaConfigCheck.Checked == true ? true : false;
+            Config.flea_changes = fleaConfigCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void traderChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.trader_changes = traderChangesCheck.Checked == true ? true : false;
+            Config.trader_changes = traderChangesCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void allExaminedCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.all_examined = allExaminedCheck.Checked == true ? true : false;
+            Config.all_examined = allExaminedCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void removeRaidRestrictionsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.remove_inraid_restrictions = removeRaidRestrictionsCheck.Checked == true ? true : false;
+            Config.remove_inraid_restrictions = removeRaidRestrictionsCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void firCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.remove_fir_req = firCheck.Checked == true ? true : false;
-
+            Config.remove_fir_req = firCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void airdropChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.airdrop_changes = airdropChangesCheck.Checked == true ? true : false;
+            Config.airdrop_changes = airdropChangesCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void botTestingCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.bot_testing = botTestingCheck.Checked == true ? true : false;
+            Config.bot_testing = botTestingCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void botTierNumeric_ValueChanged(object sender, EventArgs e)
         {
-            config.bot_test_tier = (int)botTierNumeric.Value;
+            Config.bot_test_tier = (int)botTierNumeric.Value;
+            CheckCheckBoxes();
         }
 
         private void botTypeCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if ((string)botTypeCombo.SelectedItem == "Default")
             {
-                config.all_bear = false;
-                config.all_USEC = false;
-                config.all_PMCs = false;
-                config.all_scavs = false;
+                Config.all_bear = false;
+                Config.all_USEC = false;
+                Config.all_PMCs = false;
+                Config.all_scavs = false;
             }
             if ((string)botTypeCombo.SelectedItem == "All Scavs")
             {
-                config.all_bear = false;
-                config.all_USEC = false;
-                config.all_PMCs = false;
-                config.all_scavs = true;
+                Config.all_bear = false;
+                Config.all_USEC = false;
+                Config.all_PMCs = false;
+                Config.all_scavs = true;
             }
             if ((string)botTypeCombo.SelectedItem == "All PMCs")
             {
-                config.all_bear = false;
-                config.all_USEC = false;
-                config.all_PMCs = true;
-                config.all_scavs = false;
+                Config.all_bear = false;
+                Config.all_USEC = false;
+                Config.all_PMCs = true;
+                Config.all_scavs = false;
             }
             if ((string)botTypeCombo.SelectedItem == "All Bear")
             {
-                config.all_bear = true;
-                config.all_USEC = false;
-                config.all_PMCs = false;
-                config.all_scavs = false;
+                Config.all_bear = true;
+                Config.all_USEC = false;
+                Config.all_PMCs = false;
+                Config.all_scavs = false;
             }
             if ((string)botTypeCombo.SelectedItem == "All USEC")
             {
-                config.all_bear = false;
-                config.all_USEC = true;
-                config.all_PMCs = false;
-                config.all_scavs = false;
+                Config.all_bear = false;
+                Config.all_USEC = true;
+                Config.all_PMCs = false;
+                Config.all_scavs = false;
             }
+            CheckCheckBoxes();
         }
         private void enableBotWeapsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.bot_test_weps_enabled = enableBotWeapsCheck.Checked == true ? true : false;
+            Config.bot_test_weps_enabled = enableBotWeapsCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void bossSpawnsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.guarantee_boss_spawn = bossSpawnsCheck.Checked == true ? true : false;
+            Config.guarantee_boss_spawn = bossSpawnsCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void disableFleaBlacklistCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.disable_flea_blacklist = disableFleaBlacklistCheck.Checked == true ? true : false;
+            Config.disable_flea_blacklist = disableFleaBlacklistCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void noFallDamageCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.no_fall_damage = noFallDamageCheck.Checked == true ? true : false;
+            Config.no_fall_damage = noFallDamageCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void logEverythingCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.logEverything = logEverythingCheck.Checked == true ? true : false;
+            Config.logEverything = logEverythingCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void devModeCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.dev_mode = devModeCheck.Checked == true ? true : false;
+            Config.dev_mode = devModeCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void unstuckGSCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.unstuck_GS = unstuckGSCheck.Checked == true ? true : false;
+            Config.unstuck_GS = unstuckGSCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            File.WriteAllText(confiFilePath, JsonConvert.SerializeObject(config));
+            File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
             savedLabel.ForeColor = Color.GreenYellow;
             Timer(savedLabel);
         }
@@ -424,7 +612,7 @@ namespace Realism_Mod_Config_GUI
         {
             SetDefaultValues();
             SetDisplayValues();
-            File.WriteAllText(confiFilePath, JsonConvert.SerializeObject(config));
+            File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
             revertLabel.ForeColor = Color.DarkOrange;
             Timer(revertLabel);
         }
@@ -490,7 +678,5 @@ namespace Realism_Mod_Config_GUI
             public bool logEverything { get; set; }
             public bool unstuck_GS { get; set; }
         }
-
-  
     }
 }

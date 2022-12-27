@@ -305,8 +305,7 @@
             this.headgearConflictsCheck.Size = new System.Drawing.Size(127, 19);
             this.headgearConflictsCheck.TabIndex = 3;
             this.headgearConflictsCheck.Text = "Headgear Conflicts";
-            this.toolTip1.SetToolTip(this.headgearConflictsCheck, "Makes some masks and headgear conflict to prevent bots from looking cursed, these" +
-        " are items that clip badly. If you want to look cursed too, you can disable it.");
+            this.toolTip1.SetToolTip(this.headgearConflictsCheck, resources.GetString("headgearConflictsCheck.ToolTip"));
             this.headgearConflictsCheck.UseVisualStyleBackColor = true;
             this.headgearConflictsCheck.CheckedChanged += new System.EventHandler(this.headgearConflictsCheck_CheckedChanged);
             // 
