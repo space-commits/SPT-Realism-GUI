@@ -98,6 +98,7 @@
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
             this.modVerLabel = new System.Windows.Forms.Label();
+            this.bossItemsCheck = new System.Windows.Forms.CheckBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -427,6 +428,7 @@
             this.Bots.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Bots.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Bots.BackgroundImage")));
             this.Bots.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Bots.Controls.Add(this.bossItemsCheck);
             this.Bots.Controls.Add(this.bossSpawnCheck);
             this.Bots.Controls.Add(this.botNameGroupBox);
             this.Bots.Controls.Add(this.botDiffGroupBox);
@@ -446,7 +448,7 @@
             this.bossSpawnCheck.Checked = true;
             this.bossSpawnCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.bossSpawnCheck.ForeColor = System.Drawing.Color.White;
-            this.bossSpawnCheck.Location = new System.Drawing.Point(18, 92);
+            this.bossSpawnCheck.Location = new System.Drawing.Point(18, 118);
             this.bossSpawnCheck.Name = "bossSpawnCheck";
             this.bossSpawnCheck.Size = new System.Drawing.Size(101, 19);
             this.bossSpawnCheck.TabIndex = 17;
@@ -462,7 +464,7 @@
             this.botNameGroupBox.Controls.Add(this.pmcNamesCheck);
             this.botNameGroupBox.Controls.Add(this.cyrillicNamesCheck);
             this.botNameGroupBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.botNameGroupBox.Location = new System.Drawing.Point(18, 348);
+            this.botNameGroupBox.Location = new System.Drawing.Point(18, 376);
             this.botNameGroupBox.Name = "botNameGroupBox";
             this.botNameGroupBox.Size = new System.Drawing.Size(140, 75);
             this.botNameGroupBox.TabIndex = 16;
@@ -509,7 +511,7 @@
             this.botDiffGroupBox.Controls.Add(this.pmcDifficultyCheck);
             this.botDiffGroupBox.Controls.Add(this.bossDifficultyCheck);
             this.botDiffGroupBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.botDiffGroupBox.Location = new System.Drawing.Point(18, 245);
+            this.botDiffGroupBox.Location = new System.Drawing.Point(18, 273);
             this.botDiffGroupBox.Name = "botDiffGroupBox";
             this.botDiffGroupBox.Size = new System.Drawing.Size(140, 97);
             this.botDiffGroupBox.TabIndex = 15;
@@ -564,7 +566,7 @@
             this.botHealthGroupBox.Controls.Add(this.realRRHealthCheck);
             this.botHealthGroupBox.Controls.Add(this.realCultistHealthCheck);
             this.botHealthGroupBox.ForeColor = System.Drawing.Color.White;
-            this.botHealthGroupBox.Location = new System.Drawing.Point(18, 115);
+            this.botHealthGroupBox.Location = new System.Drawing.Point(18, 143);
             this.botHealthGroupBox.Name = "botHealthGroupBox";
             this.botHealthGroupBox.Size = new System.Drawing.Size(200, 124);
             this.botHealthGroupBox.TabIndex = 14;
@@ -638,7 +640,7 @@
             this.openZonesFixCheck.Checked = true;
             this.openZonesFixCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.openZonesFixCheck.ForeColor = System.Drawing.Color.White;
-            this.openZonesFixCheck.Location = new System.Drawing.Point(18, 67);
+            this.openZonesFixCheck.Location = new System.Drawing.Point(18, 93);
             this.openZonesFixCheck.Name = "openZonesFixCheck";
             this.openZonesFixCheck.Size = new System.Drawing.Size(105, 19);
             this.openZonesFixCheck.TabIndex = 2;
@@ -655,7 +657,7 @@
             this.increasedBotCapCheck.Checked = true;
             this.increasedBotCapCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.increasedBotCapCheck.ForeColor = System.Drawing.Color.White;
-            this.increasedBotCapCheck.Location = new System.Drawing.Point(18, 42);
+            this.increasedBotCapCheck.Location = new System.Drawing.Point(18, 68);
             this.increasedBotCapCheck.Name = "increasedBotCapCheck";
             this.increasedBotCapCheck.Size = new System.Drawing.Size(121, 19);
             this.increasedBotCapCheck.TabIndex = 1;
@@ -1092,6 +1094,22 @@
             this.modVerLabel.TabIndex = 11;
             this.modVerLabel.Text = "modVer";
             // 
+            // bossItemsCheck
+            // 
+            this.bossItemsCheck.AutoSize = true;
+            this.bossItemsCheck.Checked = true;
+            this.bossItemsCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.bossItemsCheck.ForeColor = System.Drawing.Color.White;
+            this.bossItemsCheck.Location = new System.Drawing.Point(18, 42);
+            this.bossItemsCheck.Name = "bossItemsCheck";
+            this.bossItemsCheck.Size = new System.Drawing.Size(114, 19);
+            this.bossItemsCheck.TabIndex = 18;
+            this.bossItemsCheck.Text = "Force Boss Items";
+            this.toolTip1.SetToolTip(this.bossItemsCheck, "Forces bosses to spawn with their unique items that are required for quests that " +
+        "would otherwise be modified by \'Bot Changes\'.");
+            this.bossItemsCheck.UseVisualStyleBackColor = true;
+            this.bossItemsCheck.CheckedChanged += new System.EventHandler(this.bossItemsCheck_CheckedChanged);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1213,5 +1231,6 @@
         private CheckBox pmcTypeCheck;
         private CheckBox bossSpawnCheck;
         private CheckBox firCheck;
+        private CheckBox bossItemsCheck;
     }
 }

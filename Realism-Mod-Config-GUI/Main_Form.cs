@@ -99,6 +99,7 @@ namespace Realism_Mod_Config_GUI
             Config.all_scavs = false;
             Config.bot_test_weps_enabled = true;
             Config.guarantee_boss_spawn = false;
+            Config.force_boss_items = false;    
             Config.disable_flea_blacklist = false;
             Config.no_fall_damage = false;
             Config.logEverything = false;
@@ -150,6 +151,7 @@ namespace Realism_Mod_Config_GUI
             botTestingCheck.Checked = Config.bot_testing;
             enableBotWeapsCheck.Checked = Config.bot_test_weps_enabled;
             bossSpawnsCheck.Checked = Config.guarantee_boss_spawn;
+            bossItemsCheck.Checked = Config.force_boss_items;
             disableFleaBlacklistCheck.Checked = Config.disable_flea_blacklist;
             noFallDamageCheck.Checked = Config.no_fall_damage;
             logEverythingCheck.Checked = Config.logEverything;
@@ -272,10 +274,17 @@ namespace Realism_Mod_Config_GUI
             {
                 enableBotWeapsCheck.Checked = false;
                 enableBotWeapsCheck.Enabled = false;
+
+                botTypeCombo.Enabled = false;
+                botTierNumeric.Enabled = false;
             }
             else
             {
                 enableBotWeapsCheck.Enabled = true;
+
+                botTypeCombo.Enabled = true;
+                botTierNumeric.Enabled = true;
+
             }
 
             foreach (TabPage p in this.mainTabControl.TabPages)
@@ -321,6 +330,12 @@ namespace Realism_Mod_Config_GUI
         private void realismCheck_CheckedChanged(object sender, EventArgs e)
         {
             Config.realistic_ballistics = realBallisticsCheck.Checked == true ? true : false;
+
+            if (realBallisticsCheck.Checked == true)
+            {
+                realPlayerHealthCheck.Checked = true;
+            }
+      
             CheckCheckBoxes();
 
         }
@@ -572,6 +587,12 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void bossItemsCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.force_boss_items = bossItemsCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
         private void disableFleaBlacklistCheck_CheckedChanged(object sender, EventArgs e)
         {
             Config.disable_flea_blacklist = disableFleaBlacklistCheck.Checked == true ? true : false;
@@ -677,6 +698,9 @@ namespace Realism_Mod_Config_GUI
             public bool no_fall_damage { get; set; }
             public bool logEverything { get; set; }
             public bool unstuck_GS { get; set; }
+            public bool force_boss_items { get; set; }
+
         }
+
     }
 }

@@ -2126,27 +2126,6 @@ NOTE: Default EFT player health is LOWER than what this option changes it to.
 It is NOT recommended to turn this off, it is balanced around changes to ballistics, and turning it off may cause unforseen issues.
 This is only an option for those who want to raise their health using another mod to make the game easier.</value>
   </data>
-  <data name="masteryCheck.ToolTip" xml:space="preserve">
-    <value>Changes what weapons fall into what Mastery categories. Weapons that have similar controls or reload operation are in the same category.
-For most weapons, mastery will come a lot quicker because of this.</value>
-  </data>
-  <data name="recoilAttOverhaulCheck.ToolTip" xml:space="preserve">
-    <value>Enables the complete overhaul of recoil, ballistics and attachments. See  the mod's overview page on the hub for details.
-You can further configure the overhaul in-game, press F12 to open the config menu for mods.
-
-NOTE: some of the changes made by this overhaul are balanaced around the changes made to ammo stats, it is recommended to use in combination with 'Realistic Ballistics'.
-
-IF YOU WANT TO DISABLE THIS FEATURE YOU MUST DELETE THE REALISMMOD.DLL FROM YOUR BEPINEX/PLUGINS FOLDER. OTHERWISE YOUR GAME WILL CRASH!</value>
-  </data>
-  <data name="buffHelmetsCheck.ToolTip" xml:space="preserve">
-    <value>Buffs helmets and faceshields by raising their armor level by 1. Their blunt throughput has been modified to compensate.
-Not carefully balanced, just for those that want a slightly less hardcore experience.</value>
-  </data>
-  <data name="headgearConflictsCheck.ToolTip" xml:space="preserve">
-    <value>Ensures Bots Spawn with NVGs Correctly And Makes some masks and headgear conflict to prevent bots from looking cursed, these are items that clip badly. 
-
-If disabled, bots will sometimes spawn with NVG mounts but the NVG missing.</value>
-  </data>
   <data name="realBallisticsCheck.ToolTip" xml:space="preserve">
     <value>Enables Armor and Ammo changes, the core of Realism Mod. This will change the health of bot PMCs and Scavs to be balanced with these changes.
 Also changes the ammo and armor of starter profiles to reflect these changes.
@@ -4213,11 +4192,6 @@ NOTE: Ammo has been balanced with the changes made by the 'Recoil, Ballistics an
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="medChangesCheck.ToolTip" xml:space="preserve">
-    <value>Enables changes to medical items to be more hardcore. Only stims, surgery kits and new craftable makeshift medical kits will restore HP.
-Most meds now have debuffs to simulate the wound trauma from getting shot and the negative effects of tourniquets on the body. 
-See the mod overview page for details.</value>
-  </data>
   <data name="Bots.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAp4AAAGQCAYAAAAHlGB+AAABfmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAA
@@ -6275,61 +6249,15 @@ See the mod overview page for details.</value>
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pmcTypeCheck.ToolTip" xml:space="preserve">
-    <value>Changes the odds and available behaviour templates that PMCs can use. The types available and their odds changes based on the level of the PMC and the time of day.
-These templates are based on existing bot types, such as scavs, bosses, rogues, raiders etc. 
-
-NOTE: Will only take effect if 'Bot Changes' is enabled.
-PMCs using different templates is a feature of SPT AKI, this option just changes what templates are used and how/when.
-
-</value>
-  </data>
-  <data name="pmcDifficultyCheck.ToolTip" xml:space="preserve">
-    <value>Raises PMC and Boss difficulty.
-Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
-
-NOTE: This option will only take effect if 'Bot Changes' is enabled.
-It's not recommended to use this option if you are using mods that change AI behaviour.
-.</value>
-  </data>
-  <data name="bossDifficultyCheck.ToolTip" xml:space="preserve">
-    <value>Raises PMC and Boss difficulty.
-Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
-
-NOTE: This option will only take effect if 'Bot Changes' is enabled.
-It's not recommended to use this option if you are using mods that change AI behaviour.
-</value>
-  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="botDiffGroupBox.ToolTip" xml:space="preserve">
     <value>Raises PMC and Boss difficulty.
 Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
 
 NOTE: This option will only take effect if 'Bot Changes' is enabled.
 It's not recommended to use this option if you are using mods that change AI behaviour.
-</value>
-  </data>
-  <data name="realBossHealthCheck.ToolTip" xml:space="preserve">
-    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
-
-NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
-</value>
-  </data>
-  <data name="realFollowerHealthCheck.ToolTip" xml:space="preserve">
-    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
-
-NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
-</value>
-  </data>
-  <data name="realRRHealthCheck.ToolTip" xml:space="preserve">
-    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
-
-NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
-.</value>
-  </data>
-  <data name="realCultistHealthCheck.ToolTip" xml:space="preserve">
-    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
-
-NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
 </value>
   </data>
   <data name="botHealthGroupBox.ToolTip" xml:space="preserve">
@@ -8395,18 +8323,6 @@ NOTE: 'Realistic Ballistics' option must be true for this to take effect. If rea
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="tieredFleaCheck.ToolTip" xml:space="preserve">
-    <value>If Enabled the fleamarket will unlock progressivly by category or subcategory of item based on the player's level.
-There are 7 tiers in total, the final one being a 'full unlock'. Most items are no longer blacklisted from the flea.</value>
-  </data>
-  <data name="traderChangesCheck.ToolTip" xml:space="preserve">
-    <value>Enables changes to trader sell categories to be more unique and make more sense. 
-For now just changes what Therapist, Skier and Mechanic will buy, Fence's inventory and cost of Therapist's healing. Many more changes to traders will come in the future.</value>
-  </data>
-  <data name="airdropChangesCheck.ToolTip" xml:space="preserve">
-    <value>If enabled airdrops will have 'types' (medical supplies, food, ammo, etc.) and will only have items of that type.
-Different types have different rarity, airdrop types will be rerolled when starting the game or at the end of raids.</value>
-  </data>
   <data name="Dev_Tools.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAp4AAAGQCAYAAAAHlGB+AAABfmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAA
@@ -10463,6 +10379,93 @@ Different types have different rarity, airdrop types will be rerolled when start
         SimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRS
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="masteryCheck.ToolTip" xml:space="preserve">
+    <value>Changes what weapons fall into what Mastery categories. Weapons that have similar controls or reload operation are in the same category.
+For most weapons, mastery will come a lot quicker because of this.</value>
+  </data>
+  <data name="recoilAttOverhaulCheck.ToolTip" xml:space="preserve">
+    <value>Enables the complete overhaul of recoil, ballistics and attachments. See  the mod's overview page on the hub for details.
+You can further configure the overhaul in-game, press F12 to open the config menu for mods.
+
+NOTE: some of the changes made by this overhaul are balanaced around the changes made to ammo stats, it is recommended to use in combination with 'Realistic Ballistics'.
+
+IF YOU WANT TO DISABLE THIS FEATURE YOU MUST DELETE THE REALISMMOD.DLL FROM YOUR BEPINEX/PLUGINS FOLDER. OTHERWISE YOUR GAME WILL CRASH!</value>
+  </data>
+  <data name="buffHelmetsCheck.ToolTip" xml:space="preserve">
+    <value>Buffs helmets and faceshields by raising their armor level by 1. Their blunt throughput has been modified to compensate.
+Not carefully balanced, just for those that want a slightly less hardcore experience.</value>
+  </data>
+  <data name="headgearConflictsCheck.ToolTip" xml:space="preserve">
+    <value>Ensures Bots Spawn with NVGs Correctly And Makes some masks and headgear conflict to prevent bots from looking cursed, these are items that clip badly. 
+
+If disabled, bots will sometimes spawn with NVG mounts but the NVG missing.</value>
+  </data>
+  <data name="medChangesCheck.ToolTip" xml:space="preserve">
+    <value>Enables changes to medical items to be more hardcore. Only stims, surgery kits and new craftable makeshift medical kits will restore HP.
+Most meds now have debuffs to simulate the wound trauma from getting shot and the negative effects of tourniquets on the body. 
+See the mod overview page for details.</value>
+  </data>
+  <data name="pmcTypeCheck.ToolTip" xml:space="preserve">
+    <value>Changes the odds and available behaviour templates that PMCs can use. The types available and their odds changes based on the level of the PMC and the time of day.
+These templates are based on existing bot types, such as scavs, bosses, rogues, raiders etc. 
+
+NOTE: Will only take effect if 'Bot Changes' is enabled.
+PMCs using different templates is a feature of SPT AKI, this option just changes what templates are used and how/when.
+
+</value>
+  </data>
+  <data name="pmcDifficultyCheck.ToolTip" xml:space="preserve">
+    <value>Raises PMC and Boss difficulty.
+Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
+
+NOTE: This option will only take effect if 'Bot Changes' is enabled.
+It's not recommended to use this option if you are using mods that change AI behaviour.
+.</value>
+  </data>
+  <data name="bossDifficultyCheck.ToolTip" xml:space="preserve">
+    <value>Raises PMC and Boss difficulty.
+Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
+
+NOTE: This option will only take effect if 'Bot Changes' is enabled.
+It's not recommended to use this option if you are using mods that change AI behaviour.
+</value>
+  </data>
+  <data name="realBossHealthCheck.ToolTip" xml:space="preserve">
+    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
+
+NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
+</value>
+  </data>
+  <data name="realFollowerHealthCheck.ToolTip" xml:space="preserve">
+    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
+
+NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
+</value>
+  </data>
+  <data name="realRRHealthCheck.ToolTip" xml:space="preserve">
+    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
+
+NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
+.</value>
+  </data>
+  <data name="realCultistHealthCheck.ToolTip" xml:space="preserve">
+    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
+
+NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have defualt health.
+</value>
+  </data>
+  <data name="tieredFleaCheck.ToolTip" xml:space="preserve">
+    <value>If Enabled the fleamarket will unlock progressivly by category or subcategory of item based on the player's level.
+There are 7 tiers in total, the final one being a 'full unlock'. Most items are no longer blacklisted from the flea.</value>
+  </data>
+  <data name="traderChangesCheck.ToolTip" xml:space="preserve">
+    <value>Enables changes to trader sell categories to be more unique and make more sense. 
+For now just changes what Therapist, Skier and Mechanic will buy, Fence's inventory and cost of Therapist's healing. Many more changes to traders will come in the future.</value>
+  </data>
+  <data name="airdropChangesCheck.ToolTip" xml:space="preserve">
+    <value>If enabled airdrops will have 'types' (medical supplies, food, ammo, etc.) and will only have items of that type.
+Different types have different rarity, airdrop types will be rerolled when starting the game or at the end of raids.</value>
   </data>
   <data name="devToolsTextBox.Text" xml:space="preserve">
     <value>Testing parameters. For testing purposes only. No support given if these are enabled. 
