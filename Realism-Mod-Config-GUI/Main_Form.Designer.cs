@@ -52,6 +52,7 @@
             this.medChangesCheck = new System.Windows.Forms.CheckBox();
             this.revertMedsCheck = new System.Windows.Forms.CheckBox();
             this.Bots = new System.Windows.Forms.TabPage();
+            this.bossItemsCheck = new System.Windows.Forms.CheckBox();
             this.bossSpawnCheck = new System.Windows.Forms.CheckBox();
             this.botNameGroupBox = new System.Windows.Forms.GroupBox();
             this.pmcNamesCheck = new System.Windows.Forms.CheckBox();
@@ -98,7 +99,6 @@
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
             this.modVerLabel = new System.Windows.Forms.Label();
-            this.bossItemsCheck = new System.Windows.Forms.CheckBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -441,6 +441,22 @@
             this.Bots.Size = new System.Drawing.Size(1360, 684);
             this.Bots.TabIndex = 2;
             this.Bots.Text = "Bots";
+            // 
+            // bossItemsCheck
+            // 
+            this.bossItemsCheck.AutoSize = true;
+            this.bossItemsCheck.Checked = true;
+            this.bossItemsCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.bossItemsCheck.ForeColor = System.Drawing.Color.White;
+            this.bossItemsCheck.Location = new System.Drawing.Point(18, 42);
+            this.bossItemsCheck.Name = "bossItemsCheck";
+            this.bossItemsCheck.Size = new System.Drawing.Size(114, 19);
+            this.bossItemsCheck.TabIndex = 18;
+            this.bossItemsCheck.Text = "Force Boss Items";
+            this.toolTip1.SetToolTip(this.bossItemsCheck, "Forces bosses to spawn with their unique items that are required for quests that " +
+        "would otherwise be modified by \'Bot Changes\'.");
+            this.bossItemsCheck.UseVisualStyleBackColor = true;
+            this.bossItemsCheck.CheckedChanged += new System.EventHandler(this.bossItemsCheck_CheckedChanged);
             // 
             // bossSpawnCheck
             // 
@@ -1093,22 +1109,6 @@
             this.modVerLabel.Size = new System.Drawing.Size(78, 25);
             this.modVerLabel.TabIndex = 11;
             this.modVerLabel.Text = "modVer";
-            // 
-            // bossItemsCheck
-            // 
-            this.bossItemsCheck.AutoSize = true;
-            this.bossItemsCheck.Checked = true;
-            this.bossItemsCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.bossItemsCheck.ForeColor = System.Drawing.Color.White;
-            this.bossItemsCheck.Location = new System.Drawing.Point(18, 42);
-            this.bossItemsCheck.Name = "bossItemsCheck";
-            this.bossItemsCheck.Size = new System.Drawing.Size(114, 19);
-            this.bossItemsCheck.TabIndex = 18;
-            this.bossItemsCheck.Text = "Force Boss Items";
-            this.toolTip1.SetToolTip(this.bossItemsCheck, "Forces bosses to spawn with their unique items that are required for quests that " +
-        "would otherwise be modified by \'Bot Changes\'.");
-            this.bossItemsCheck.UseVisualStyleBackColor = true;
-            this.bossItemsCheck.CheckedChanged += new System.EventHandler(this.bossItemsCheck_CheckedChanged);
             // 
             // Main_Form
             // 

@@ -17,8 +17,8 @@ namespace Realism_Mod_Config_GUI
         {
             InitializeComponent();
 
-            string modVer = "v0.6.3";
-            string sptVer = "v3.4.0";
+            string modVer = "v0.6.4";
+            string sptVer = "v3.4.1";
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
 
