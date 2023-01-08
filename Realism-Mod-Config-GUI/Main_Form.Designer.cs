@@ -99,6 +99,7 @@
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
             this.modVerLabel = new System.Windows.Forms.Label();
+            this.revertHPCheck = new System.Windows.Forms.CheckBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -141,6 +142,7 @@
             this.Realism_Ballistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Realism_Ballistics.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Realism_Ballistics.BackgroundImage")));
             this.Realism_Ballistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Realism_Ballistics.Controls.Add(this.revertHPCheck);
             this.Realism_Ballistics.Controls.Add(this.realPlayerHealthCheck);
             this.Realism_Ballistics.Controls.Add(this.warningTextBox);
             this.Realism_Ballistics.Controls.Add(this.weapGroupBox);
@@ -186,7 +188,7 @@
             this.weapGroupBox.Controls.Add(this.recoilAttOverhaulCheck);
             this.weapGroupBox.Controls.Add(this.malfChangesCheck);
             this.weapGroupBox.ForeColor = System.Drawing.Color.White;
-            this.weapGroupBox.Location = new System.Drawing.Point(18, 67);
+            this.weapGroupBox.Location = new System.Drawing.Point(18, 93);
             this.weapGroupBox.Name = "weapGroupBox";
             this.weapGroupBox.Size = new System.Drawing.Size(260, 126);
             this.weapGroupBox.TabIndex = 8;
@@ -257,7 +259,7 @@
             this.armorGroupBox.Controls.Add(this.armorMousePenaltyCheck);
             this.armorGroupBox.Controls.Add(this.headgearConflictsCheck);
             this.armorGroupBox.ForeColor = System.Drawing.Color.White;
-            this.armorGroupBox.Location = new System.Drawing.Point(18, 199);
+            this.armorGroupBox.Location = new System.Drawing.Point(18, 225);
             this.armorGroupBox.Name = "armorGroupBox";
             this.armorGroupBox.Size = new System.Drawing.Size(150, 100);
             this.armorGroupBox.TabIndex = 7;
@@ -316,7 +318,7 @@
             this.realBallisticsCheck.Checked = true;
             this.realBallisticsCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.realBallisticsCheck.ForeColor = System.Drawing.Color.White;
-            this.realBallisticsCheck.Location = new System.Drawing.Point(18, 42);
+            this.realBallisticsCheck.Location = new System.Drawing.Point(18, 68);
             this.realBallisticsCheck.Name = "realBallisticsCheck";
             this.realBallisticsCheck.Size = new System.Drawing.Size(117, 19);
             this.realBallisticsCheck.TabIndex = 0;
@@ -752,7 +754,8 @@
             this.firCheck.Size = new System.Drawing.Size(225, 19);
             this.firCheck.TabIndex = 6;
             this.firCheck.Text = "Remove Found-In-Raid Requirements";
-            this.toolTip1.SetToolTip(this.firCheck, "Sets all items to FIR status after extracting with them from a raid.");
+            this.toolTip1.SetToolTip(this.firCheck, "Sets all items to FIR status after extracting with them from a raid, and removes " +
+        "quest FIR requirements.");
             this.firCheck.UseVisualStyleBackColor = true;
             this.firCheck.CheckedChanged += new System.EventHandler(this.firCheck_CheckedChanged);
             // 
@@ -779,9 +782,9 @@
             this.removeRaidRestrictionsCheck.ForeColor = System.Drawing.Color.White;
             this.removeRaidRestrictionsCheck.Location = new System.Drawing.Point(6, 47);
             this.removeRaidRestrictionsCheck.Name = "removeRaidRestrictionsCheck";
-            this.removeRaidRestrictionsCheck.Size = new System.Drawing.Size(181, 19);
+            this.removeRaidRestrictionsCheck.Size = new System.Drawing.Size(174, 19);
             this.removeRaidRestrictionsCheck.TabIndex = 5;
-            this.removeRaidRestrictionsCheck.Text = "Removed In-Raid Restrictions";
+            this.removeRaidRestrictionsCheck.Text = "Remove In-Raid Restrictions";
             this.toolTip1.SetToolTip(this.removeRaidRestrictionsCheck, "Removes all in-raid item count restrictions and discard limits enabled. For examp" +
         "le, you can carry as much cash, BTC, LEDX etc. as you like in raid.");
             this.removeRaidRestrictionsCheck.UseVisualStyleBackColor = true;
@@ -1110,6 +1113,23 @@
             this.modVerLabel.TabIndex = 11;
             this.modVerLabel.Text = "modVer";
             // 
+            // revertHPCheck
+            // 
+            this.revertHPCheck.AutoSize = true;
+            this.revertHPCheck.Checked = true;
+            this.revertHPCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.revertHPCheck.ForeColor = System.Drawing.Color.White;
+            this.revertHPCheck.Location = new System.Drawing.Point(18, 42);
+            this.revertHPCheck.Name = "revertHPCheck";
+            this.revertHPCheck.Size = new System.Drawing.Size(133, 19);
+            this.revertHPCheck.TabIndex = 13;
+            this.revertHPCheck.Text = "Revert HP to Default";
+            this.toolTip1.SetToolTip(this.revertHPCheck, "Reverts player HP back to the defualt values. You must do this after disabling \"R" +
+        "ealistic Player Health\" unless you will use another mod to change your health va" +
+        "lues.");
+            this.revertHPCheck.UseVisualStyleBackColor = true;
+            this.revertHPCheck.CheckedChanged += new System.EventHandler(this.revertHPCheck_CheckedChanged);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1232,5 +1252,6 @@
         private CheckBox bossSpawnCheck;
         private CheckBox firCheck;
         private CheckBox bossItemsCheck;
+        private CheckBox revertHPCheck;
     }
 }

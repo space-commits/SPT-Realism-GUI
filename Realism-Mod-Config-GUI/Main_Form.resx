@@ -2121,7 +2121,8 @@
   <data name="realPlayerHealthCheck.ToolTip" xml:space="preserve">
     <value>Changes the player's health to be realistic and to match that of PMC bots and Scavs. Use in combination with "Realistic Ballistics".
 
-NOTE: Default EFT player health is LOWER than what this option changes it to.
+NOTE: You must disable this AND select "Revert HP to Default" otherwise your health will not change back. You don't need to do this if
+you're going to use another mod to change your health.
 
 It is NOT recommended to turn this off, it is balanced around changes to ballistics, and turning it off may cause unforseen issues.
 This is only an option for those who want to raise their health using another mod to make the game easier.</value>

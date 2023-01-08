@@ -105,8 +105,9 @@ namespace Realism_Mod_Config_GUI
             Config.logEverything = false;
             Config.dev_mode = false;
             Config.unstuck_GS = false;
+            Config.revert_hp= false;
 
-              CheckCheckBoxes();
+            CheckCheckBoxes();
         }
 
         private void SetDisplayValues()
@@ -156,6 +157,7 @@ namespace Realism_Mod_Config_GUI
             noFallDamageCheck.Checked = Config.no_fall_damage;
             logEverythingCheck.Checked = Config.logEverything;
             unstuckGSCheck.Checked = Config.unstuck_GS;
+            revertHPCheck.Checked = Config.revert_hp;
             devModeCheck.Checked = Config.dev_mode;
 
             if (Config.bot_test_tier > 1 && Config.bot_test_tier <= 4)
@@ -244,6 +246,28 @@ namespace Realism_Mod_Config_GUI
                 realFollowerHealthCheck.Enabled = true;
                 realRRHealthCheck.Enabled = true;
                 realCultistHealthCheck.Enabled = true;
+            }
+
+
+            //realistic player HP
+            if (realPlayerHealthCheck.Checked == true)
+            {
+                revertHPCheck.Checked = false;
+                revertHPCheck.Enabled = false;
+            }
+            else
+            {
+                revertHPCheck.Enabled = true;
+            }
+            //revert HP
+            if (revertHPCheck.Checked == true)
+            {
+                realPlayerHealthCheck.Checked = false;
+                realPlayerHealthCheck.Enabled = false;
+            }
+            else
+            {
+                realPlayerHealthCheck.Enabled = true;
             }
 
             //health
@@ -623,6 +647,12 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void revertHPCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.revert_hp = revertHPCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
@@ -699,8 +729,8 @@ namespace Realism_Mod_Config_GUI
             public bool logEverything { get; set; }
             public bool unstuck_GS { get; set; }
             public bool force_boss_items { get; set; }
+            public bool revert_hp { get; set; }
 
         }
-
     }
 }
