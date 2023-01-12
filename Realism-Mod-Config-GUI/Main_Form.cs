@@ -9,32 +9,96 @@ namespace Realism_Mod_Config_GUI
 
         public static string ConfigFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"config\config.json");
         public static string ConfigJSON = File.ReadAllText(ConfigFilePath);
-
         public static ConfigTemplate Config = JsonConvert.DeserializeObject<ConfigTemplate>(ConfigJSON);
+
+        public static string weapFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"db/templates/weapons/");
+        public static DirectoryInfo weapDI = new DirectoryInfo(weapFilePath);
+        public static DirectoryInfo[] weapPresetFilePath = weapDI.GetDirectories();
+
+        public static string attFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"db/templates/attatchments/");
+        public static DirectoryInfo attDI = new DirectoryInfo(attFilePath);
+        public static DirectoryInfo[] attPresetFilePath = attDI.GetDirectories();
 
 
         public Main_Form()
         {
             InitializeComponent();
-
-            string modVer = "v0.6.4";
-            string sptVer = "v3.4.1";
-
-            this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
-
-            modVerLabel.Text = modVer;
+            setTitleBar();
+            setNumericLimits();
+            SetPresetComboBoxes(weapPresetFilePath, weapPresetCombo);
+            SetPresetComboBoxes(attPresetFilePath, attachPresetCombo);
 
             try
             {
                 warningTextBox.Hide();
                 SetDisplayValues();
             }
-            catch
+            catch(Exception exception)
             {
                 warningTextBox.Show();
-                warningTextBox.Text = $"config.json not found at file path: {Path.Combine(Path.GetDirectoryName(Environment.ProcessPath))}\\config\\";
+               /* warningTextBox.Text = $"config.json not found at file path: {Path.Combine(Path.GetDirectoryName(Environment.ProcessPath))}\\config\\";*/
+                warningTextBox.Text = $"{exception.Message}";
             }
         }
+
+
+        private void setTitleBar()
+        {
+            string modVer = "v0.6.5";
+            string sptVer = "v3.4.1";
+
+            this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
+
+            modVerLabel.Text = modVer;
+        }
+
+        private void setNumericLimits()
+        {
+            decimal recoilMultiMin = 0.1m;
+            decimal recoilMultiMax = 10.0m;
+            decimal recoilMultiIncrement = 0.1m;
+            int decimalPlaces = 2;
+
+            procNumeric.Minimum = 0.1m;
+            procNumeric.Maximum = 2.0m;
+            procNumeric.Increment = 0.05m;
+            procNumeric.DecimalPlaces = decimalPlaces;
+
+            vertRecNumeric.Minimum = recoilMultiMin;
+            vertRecNumeric.Maximum = recoilMultiMax;
+            vertRecNumeric.Increment = recoilMultiIncrement;
+            vertRecNumeric.DecimalPlaces = decimalPlaces;
+
+            horzRecNumeric.Minimum = recoilMultiMin;
+            horzRecNumeric.Maximum = recoilMultiMax;
+            horzRecNumeric.Increment = recoilMultiIncrement;
+            horzRecNumeric.DecimalPlaces = decimalPlaces;
+
+            convNumeric.Minimum = recoilMultiMin;
+            convNumeric.Maximum = recoilMultiMax;
+            convNumeric.Increment = recoilMultiIncrement;
+            convNumeric.DecimalPlaces = decimalPlaces;
+
+            dispNumeric.Minimum = recoilMultiMin;
+            dispNumeric.Maximum = recoilMultiMax;
+            dispNumeric.Increment = recoilMultiIncrement;
+            dispNumeric.DecimalPlaces = decimalPlaces;
+
+            ergoNumeric.Minimum = recoilMultiMin;
+            ergoNumeric.Maximum = recoilMultiMax;
+            ergoNumeric.Increment = recoilMultiIncrement;
+            ergoNumeric.DecimalPlaces = decimalPlaces;
+        }
+
+        private void SetPresetComboBoxes(DirectoryInfo[] dirInfoArr, ComboBox cb)
+        {
+            foreach (DirectoryInfo dir in dirInfoArr)
+            {
+                cb.Items.Add(dir.Name);
+            }
+        }
+
+
 
         private void SetDefaultValues()
         {
@@ -57,6 +121,18 @@ namespace Realism_Mod_Config_GUI
                     }
                 }
             }
+
+            procNumeric.Value = 1.0m;
+            vertRecNumeric.Value = 1.0m;
+            horzRecNumeric.Value = 1.0m;
+            convNumeric.Value = 1.0m;
+            dispNumeric.Value = 1.0m;
+            ergoNumeric.Value = 1.0m;
+
+            crankCheck.Checked = true;
+
+            weapPresetCombo.SelectedItem = "Realism";
+            attachPresetCombo.SelectedItem = "Realism";
 
             Config.realistic_player_health = true;
             Config.realistic_ballistics = true;
@@ -112,6 +188,18 @@ namespace Realism_Mod_Config_GUI
 
         private void SetDisplayValues()
         {
+            procNumeric.Value = (decimal)Config.procedural_intensity;
+            vertRecNumeric.Value = (decimal)Config.vert_recoil_multi;
+            horzRecNumeric.Value = (decimal)Config.horz_recoil_multi;
+            convNumeric.Value = (decimal)Config.convergence_multi;
+            dispNumeric.Value = (decimal)Config.dispersion_multi;
+            ergoNumeric.Value = (decimal)Config.ergo_multi;
+
+            crankCheck.Checked = Config.recoil_crank;
+
+            weapPresetCombo.SelectedItem = Config.weap_preset;
+            attachPresetCombo.SelectedItem = Config.att_preset;
+
             realPlayerHealthCheck.Checked = Config.realistic_player_health;
             realBallisticsCheck.Checked = Config.realistic_ballistics;
             recoilAttOverhaulCheck.Checked = Config.recoil_attachment_overhaul;
@@ -209,6 +297,8 @@ namespace Realism_Mod_Config_GUI
                 legacyRecoilCheck.Enabled = true;
                 unstuckGSCheck.Enabled = false;
                 unstuckGSCheck.Checked = false;
+                attachPresetCombo.Enabled = false;
+                weapPresetCombo.Enabled = false;
             }
             if (legacyRecoilCheck.Checked == true)
             {
@@ -329,20 +419,36 @@ namespace Realism_Mod_Config_GUI
                     }
                     if (c is GroupBox)
                     {
-                        foreach (CheckBox cb in c.Controls)
+                        foreach (Control gc in c.Controls)
                         {
-                            if (cb.Enabled == false)
+                            if (gc is CheckBox)
                             {
-                                cb.BackColor = disabled;
-                            }
-                            else
-                            {
-                                cb.BackColor = enabled;
+                                CheckBox gcb = (CheckBox)gc;
+                                if (gcb.Enabled == false)
+                                {
+                                    gcb.BackColor = disabled;
+                                }
+                                else
+                                {
+                                    gcb.BackColor = enabled;
+                                }
                             }
                         }
                     }
                 }
             }
+        }
+
+        public void Timer(Label label)
+        {
+            var t = new Timer();
+            t.Interval = 700;
+            t.Tick += (s, e) =>
+            {
+                label.ForeColor = label.BackColor;
+                t.Stop();
+            };
+            t.Start();
         }
 
         private void realPlayerHealthCheck_CheckedChanged(object sender, EventArgs e)
@@ -653,6 +759,60 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void vertRecNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Config.vert_recoil_multi = vertRecNumeric.Value;
+            CheckCheckBoxes();
+        }
+
+        private void horzRecNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Config.horz_recoil_multi = horzRecNumeric.Value;
+            CheckCheckBoxes();
+        }
+
+        private void convNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Config.convergence_multi = convNumeric.Value;
+            CheckCheckBoxes();
+        }
+
+        private void dispNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Config.dispersion_multi = dispNumeric.Value;
+            CheckCheckBoxes();
+        }
+
+        private void ergoNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Config.ergo_multi = ergoNumeric.Value;
+            CheckCheckBoxes();
+        }
+
+        private void procNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Config.procedural_intensity = procNumeric.Value;
+            CheckCheckBoxes();
+        }
+
+        private void crankCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.recoil_crank = crankCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
+        private void weapPresetCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Config.weap_preset = weapPresetCombo.SelectedItem.ToString();
+            CheckCheckBoxes();
+        }
+
+        private void attachPresetCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Config.att_preset = attachPresetCombo.SelectedItem.ToString();
+            CheckCheckBoxes();
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
@@ -666,18 +826,6 @@ namespace Realism_Mod_Config_GUI
             File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
             revertLabel.ForeColor = Color.DarkOrange;
             Timer(revertLabel);
-        }
-
-        public void Timer(Label label) 
-        {
-            var t = new Timer();
-            t.Interval = 700;
-            t.Tick += (s, e) =>
-            {
-                label.ForeColor = label.BackColor;
-                t.Stop();
-            };
-            t.Start();
         }
 
         public class ConfigTemplate
@@ -730,6 +878,18 @@ namespace Realism_Mod_Config_GUI
             public bool unstuck_GS { get; set; }
             public bool force_boss_items { get; set; }
             public bool revert_hp { get; set; }
+            public string weap_preset { get; set; }
+            public string att_preset { get; set; }
+            public bool recoil_crank { get; set; }
+            public decimal procedural_intensity { get; set; }
+            public decimal vert_recoil_multi { get; set; }
+            public decimal horz_recoil_multi { get; set; }
+            public decimal convergence_multi { get; set; }
+            public decimal dispersion_multi { get; set; }
+            public decimal ergo_multi { get; set; }
+            public decimal standard_bot_hp_multi { get; set; }
+            public decimal mid_bot_hp_multi { get; set; }
+            public decimal boss_bot_hp_multi { get; set; }
 
         }
     }

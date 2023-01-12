@@ -59,5 +59,15 @@ namespace Realism_Mod_Config_GUI.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SPTRM_config_image {
+            get {
+                object obj = ResourceManager.GetObject("SPTRM config image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

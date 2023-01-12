@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.Realism_Ballistics = new System.Windows.Forms.TabPage();
+            this.revertHPCheck = new System.Windows.Forms.CheckBox();
             this.realPlayerHealthCheck = new System.Windows.Forms.CheckBox();
             this.warningTextBox = new System.Windows.Forms.RichTextBox();
             this.weapGroupBox = new System.Windows.Forms.GroupBox();
@@ -70,16 +71,38 @@
             this.increasedBotCapCheck = new System.Windows.Forms.CheckBox();
             this.botChangesCheck = new System.Windows.Forms.CheckBox();
             this.Misc = new System.Windows.Forms.TabPage();
+            this.tradeGroupBox = new System.Windows.Forms.GroupBox();
+            this.tieredFleaCheck = new System.Windows.Forms.CheckBox();
+            this.fleaConfigCheck = new System.Windows.Forms.CheckBox();
+            this.traderChangesCheck = new System.Windows.Forms.CheckBox();
+            this.miscTab = new System.Windows.Forms.TabPage();
             this.unstuckGSCheck = new System.Windows.Forms.CheckBox();
             this.itemGroupBox = new System.Windows.Forms.GroupBox();
             this.firCheck = new System.Windows.Forms.CheckBox();
             this.allExaminedCheck = new System.Windows.Forms.CheckBox();
             this.removeRaidRestrictionsCheck = new System.Windows.Forms.CheckBox();
-            this.tradeGroupBox = new System.Windows.Forms.GroupBox();
-            this.tieredFleaCheck = new System.Windows.Forms.CheckBox();
-            this.fleaConfigCheck = new System.Windows.Forms.CheckBox();
-            this.traderChangesCheck = new System.Windows.Forms.CheckBox();
             this.airdropChangesCheck = new System.Windows.Forms.CheckBox();
+            this.recoilTab = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.attachPresetCombo = new System.Windows.Forms.ComboBox();
+            this.presetHelpLabel = new System.Windows.Forms.Label();
+            this.presetLabel = new System.Windows.Forms.Label();
+            this.weapPresetCombo = new System.Windows.Forms.ComboBox();
+            this.globalRecoilGroupBox = new System.Windows.Forms.GroupBox();
+            this.procLabel = new System.Windows.Forms.Label();
+            this.crankCheck = new System.Windows.Forms.CheckBox();
+            this.procNumeric = new System.Windows.Forms.NumericUpDown();
+            this.globalRecoilModiGroupBox = new System.Windows.Forms.GroupBox();
+            this.ergoMultiLabel = new System.Windows.Forms.Label();
+            this.ergoNumeric = new System.Windows.Forms.NumericUpDown();
+            this.dispMultLabel = new System.Windows.Forms.Label();
+            this.dispNumeric = new System.Windows.Forms.NumericUpDown();
+            this.convMultLabel = new System.Windows.Forms.Label();
+            this.convNumeric = new System.Windows.Forms.NumericUpDown();
+            this.horzRecMultLabel = new System.Windows.Forms.Label();
+            this.horzRecNumeric = new System.Windows.Forms.NumericUpDown();
+            this.vertRecMultLabel = new System.Windows.Forms.Label();
+            this.vertRecNumeric = new System.Windows.Forms.NumericUpDown();
             this.Dev_Tools = new System.Windows.Forms.TabPage();
             this.devModeCheck = new System.Windows.Forms.CheckBox();
             this.devToolsTextBox = new System.Windows.Forms.TextBox();
@@ -99,7 +122,12 @@
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
             this.modVerLabel = new System.Windows.Forms.Label();
-            this.revertHPCheck = new System.Windows.Forms.CheckBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -112,10 +140,23 @@
             this.botDiffGroupBox.SuspendLayout();
             this.botHealthGroupBox.SuspendLayout();
             this.Misc.SuspendLayout();
-            this.itemGroupBox.SuspendLayout();
             this.tradeGroupBox.SuspendLayout();
+            this.miscTab.SuspendLayout();
+            this.itemGroupBox.SuspendLayout();
+            this.recoilTab.SuspendLayout();
+            this.globalRecoilGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.procNumeric)).BeginInit();
+            this.globalRecoilModiGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ergoNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dispNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.convNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horzRecNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vertRecNumeric)).BeginInit();
             this.Dev_Tools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botTierNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -127,6 +168,8 @@
             this.mainTabControl.Controls.Add(this.Health_Movement);
             this.mainTabControl.Controls.Add(this.Bots);
             this.mainTabControl.Controls.Add(this.Misc);
+            this.mainTabControl.Controls.Add(this.miscTab);
+            this.mainTabControl.Controls.Add(this.recoilTab);
             this.mainTabControl.Controls.Add(this.Dev_Tools);
             this.mainTabControl.HotTrack = true;
             this.mainTabControl.Location = new System.Drawing.Point(-5, -2);
@@ -155,6 +198,23 @@
             this.Realism_Ballistics.Size = new System.Drawing.Size(1360, 684);
             this.Realism_Ballistics.TabIndex = 0;
             this.Realism_Ballistics.Text = "Realism and Ballistics";
+            // 
+            // revertHPCheck
+            // 
+            this.revertHPCheck.AutoSize = true;
+            this.revertHPCheck.Checked = true;
+            this.revertHPCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.revertHPCheck.ForeColor = System.Drawing.Color.White;
+            this.revertHPCheck.Location = new System.Drawing.Point(18, 42);
+            this.revertHPCheck.Name = "revertHPCheck";
+            this.revertHPCheck.Size = new System.Drawing.Size(133, 19);
+            this.revertHPCheck.TabIndex = 13;
+            this.revertHPCheck.Text = "Revert HP to Default";
+            this.toolTip1.SetToolTip(this.revertHPCheck, "Reverts player HP back to the defualt values. You must do this after disabling \"R" +
+        "ealistic Player Health\" unless you will use another mod to change your health va" +
+        "lues.");
+            this.revertHPCheck.UseVisualStyleBackColor = true;
+            this.revertHPCheck.CheckedChanged += new System.EventHandler(this.revertHPCheck_CheckedChanged);
             // 
             // realPlayerHealthCheck
             // 
@@ -579,6 +639,12 @@
             // 
             // botHealthGroupBox
             // 
+            this.botHealthGroupBox.Controls.Add(this.label4);
+            this.botHealthGroupBox.Controls.Add(this.numericUpDown3);
+            this.botHealthGroupBox.Controls.Add(this.label2);
+            this.botHealthGroupBox.Controls.Add(this.numericUpDown2);
+            this.botHealthGroupBox.Controls.Add(this.label3);
+            this.botHealthGroupBox.Controls.Add(this.numericUpDown1);
             this.botHealthGroupBox.Controls.Add(this.realBossHealthCheck);
             this.botHealthGroupBox.Controls.Add(this.realFollowerHealthCheck);
             this.botHealthGroupBox.Controls.Add(this.realRRHealthCheck);
@@ -586,7 +652,7 @@
             this.botHealthGroupBox.ForeColor = System.Drawing.Color.White;
             this.botHealthGroupBox.Location = new System.Drawing.Point(18, 143);
             this.botHealthGroupBox.Name = "botHealthGroupBox";
-            this.botHealthGroupBox.Size = new System.Drawing.Size(200, 124);
+            this.botHealthGroupBox.Size = new System.Drawing.Size(416, 124);
             this.botHealthGroupBox.TabIndex = 14;
             this.botHealthGroupBox.TabStop = false;
             this.botHealthGroupBox.Text = "Bot Health";
@@ -705,90 +771,13 @@
             this.Misc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Misc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Misc.BackgroundImage")));
             this.Misc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Misc.Controls.Add(this.unstuckGSCheck);
-            this.Misc.Controls.Add(this.itemGroupBox);
             this.Misc.Controls.Add(this.tradeGroupBox);
-            this.Misc.Controls.Add(this.airdropChangesCheck);
             this.Misc.ImeMode = System.Windows.Forms.ImeMode.On;
             this.Misc.Location = new System.Drawing.Point(4, 24);
             this.Misc.Name = "Misc";
             this.Misc.Size = new System.Drawing.Size(1360, 684);
             this.Misc.TabIndex = 4;
-            this.Misc.Text = "Misc.";
-            // 
-            // unstuckGSCheck
-            // 
-            this.unstuckGSCheck.AutoSize = true;
-            this.unstuckGSCheck.ForeColor = System.Drawing.Color.White;
-            this.unstuckGSCheck.Location = new System.Drawing.Point(19, 245);
-            this.unstuckGSCheck.Name = "unstuckGSCheck";
-            this.unstuckGSCheck.Size = new System.Drawing.Size(163, 19);
-            this.unstuckGSCheck.TabIndex = 10;
-            this.unstuckGSCheck.Text = "Unstuck Gunsmith Quests";
-            this.toolTip1.SetToolTip(this.unstuckGSCheck, "Reduces gunsmith quest requirements so that all will be completable in case there" +
-        " is an issue with the requirements.");
-            this.unstuckGSCheck.UseVisualStyleBackColor = true;
-            this.unstuckGSCheck.CheckedChanged += new System.EventHandler(this.unstuckGSCheck_CheckedChanged);
-            // 
-            // itemGroupBox
-            // 
-            this.itemGroupBox.Controls.Add(this.firCheck);
-            this.itemGroupBox.Controls.Add(this.allExaminedCheck);
-            this.itemGroupBox.Controls.Add(this.removeRaidRestrictionsCheck);
-            this.itemGroupBox.ForeColor = System.Drawing.Color.White;
-            this.itemGroupBox.Location = new System.Drawing.Point(19, 118);
-            this.itemGroupBox.Name = "itemGroupBox";
-            this.itemGroupBox.Size = new System.Drawing.Size(234, 96);
-            this.itemGroupBox.TabIndex = 7;
-            this.itemGroupBox.TabStop = false;
-            this.itemGroupBox.Text = "Items";
-            // 
-            // firCheck
-            // 
-            this.firCheck.AutoSize = true;
-            this.firCheck.Checked = true;
-            this.firCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.firCheck.ForeColor = System.Drawing.Color.White;
-            this.firCheck.Location = new System.Drawing.Point(6, 71);
-            this.firCheck.Name = "firCheck";
-            this.firCheck.Size = new System.Drawing.Size(225, 19);
-            this.firCheck.TabIndex = 6;
-            this.firCheck.Text = "Remove Found-In-Raid Requirements";
-            this.toolTip1.SetToolTip(this.firCheck, "Sets all items to FIR status after extracting with them from a raid, and removes " +
-        "quest FIR requirements.");
-            this.firCheck.UseVisualStyleBackColor = true;
-            this.firCheck.CheckedChanged += new System.EventHandler(this.firCheck_CheckedChanged);
-            // 
-            // allExaminedCheck
-            // 
-            this.allExaminedCheck.AutoSize = true;
-            this.allExaminedCheck.Checked = true;
-            this.allExaminedCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.allExaminedCheck.ForeColor = System.Drawing.Color.White;
-            this.allExaminedCheck.Location = new System.Drawing.Point(6, 22);
-            this.allExaminedCheck.Name = "allExaminedCheck";
-            this.allExaminedCheck.Size = new System.Drawing.Size(127, 19);
-            this.allExaminedCheck.TabIndex = 4;
-            this.allExaminedCheck.Text = "All Items Examined";
-            this.toolTip1.SetToolTip(this.allExaminedCheck, "All items will be by default examined if enabled.");
-            this.allExaminedCheck.UseVisualStyleBackColor = true;
-            this.allExaminedCheck.CheckedChanged += new System.EventHandler(this.allExaminedCheck_CheckedChanged);
-            // 
-            // removeRaidRestrictionsCheck
-            // 
-            this.removeRaidRestrictionsCheck.AutoSize = true;
-            this.removeRaidRestrictionsCheck.Checked = true;
-            this.removeRaidRestrictionsCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.removeRaidRestrictionsCheck.ForeColor = System.Drawing.Color.White;
-            this.removeRaidRestrictionsCheck.Location = new System.Drawing.Point(6, 47);
-            this.removeRaidRestrictionsCheck.Name = "removeRaidRestrictionsCheck";
-            this.removeRaidRestrictionsCheck.Size = new System.Drawing.Size(174, 19);
-            this.removeRaidRestrictionsCheck.TabIndex = 5;
-            this.removeRaidRestrictionsCheck.Text = "Remove In-Raid Restrictions";
-            this.toolTip1.SetToolTip(this.removeRaidRestrictionsCheck, "Removes all in-raid item count restrictions and discard limits enabled. For examp" +
-        "le, you can carry as much cash, BTC, LEDX etc. as you like in raid.");
-            this.removeRaidRestrictionsCheck.UseVisualStyleBackColor = true;
-            this.removeRaidRestrictionsCheck.CheckedChanged += new System.EventHandler(this.removeRaidRestrictionsCheck_CheckedChanged);
+            this.Misc.Text = "Traders & Flea";
             // 
             // tradeGroupBox
             // 
@@ -850,20 +839,456 @@
             this.traderChangesCheck.UseVisualStyleBackColor = true;
             this.traderChangesCheck.CheckedChanged += new System.EventHandler(this.traderChangesCheck_CheckedChanged);
             // 
+            // miscTab
+            // 
+            this.miscTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.miscTab.BackgroundImage = global::Realism_Mod_Config_GUI.Properties.Resources.SPTRM_config_image;
+            this.miscTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.miscTab.Controls.Add(this.unstuckGSCheck);
+            this.miscTab.Controls.Add(this.itemGroupBox);
+            this.miscTab.Controls.Add(this.airdropChangesCheck);
+            this.miscTab.Location = new System.Drawing.Point(4, 24);
+            this.miscTab.Name = "miscTab";
+            this.miscTab.Size = new System.Drawing.Size(1360, 684);
+            this.miscTab.TabIndex = 6;
+            this.miscTab.Text = "Misc.";
+            // 
+            // unstuckGSCheck
+            // 
+            this.unstuckGSCheck.AutoSize = true;
+            this.unstuckGSCheck.ForeColor = System.Drawing.Color.White;
+            this.unstuckGSCheck.Location = new System.Drawing.Point(19, 139);
+            this.unstuckGSCheck.Name = "unstuckGSCheck";
+            this.unstuckGSCheck.Size = new System.Drawing.Size(163, 19);
+            this.unstuckGSCheck.TabIndex = 13;
+            this.unstuckGSCheck.Text = "Unstuck Gunsmith Quests";
+            this.toolTip1.SetToolTip(this.unstuckGSCheck, "Reduces gunsmith quest requirements so that all will be completable in case there" +
+        " is an issue with the requirements.");
+            this.unstuckGSCheck.UseVisualStyleBackColor = true;
+            // 
+            // itemGroupBox
+            // 
+            this.itemGroupBox.Controls.Add(this.firCheck);
+            this.itemGroupBox.Controls.Add(this.allExaminedCheck);
+            this.itemGroupBox.Controls.Add(this.removeRaidRestrictionsCheck);
+            this.itemGroupBox.ForeColor = System.Drawing.Color.White;
+            this.itemGroupBox.Location = new System.Drawing.Point(19, 12);
+            this.itemGroupBox.Name = "itemGroupBox";
+            this.itemGroupBox.Size = new System.Drawing.Size(234, 96);
+            this.itemGroupBox.TabIndex = 12;
+            this.itemGroupBox.TabStop = false;
+            this.itemGroupBox.Text = "Items";
+            // 
+            // firCheck
+            // 
+            this.firCheck.AutoSize = true;
+            this.firCheck.Checked = true;
+            this.firCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.firCheck.ForeColor = System.Drawing.Color.White;
+            this.firCheck.Location = new System.Drawing.Point(6, 71);
+            this.firCheck.Name = "firCheck";
+            this.firCheck.Size = new System.Drawing.Size(225, 19);
+            this.firCheck.TabIndex = 6;
+            this.firCheck.Text = "Remove Found-In-Raid Requirements";
+            this.toolTip1.SetToolTip(this.firCheck, "Sets all items to FIR status after extracting with them from a raid, and removes " +
+        "quest FIR requirements.");
+            this.firCheck.UseVisualStyleBackColor = true;
+            // 
+            // allExaminedCheck
+            // 
+            this.allExaminedCheck.AutoSize = true;
+            this.allExaminedCheck.Checked = true;
+            this.allExaminedCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.allExaminedCheck.ForeColor = System.Drawing.Color.White;
+            this.allExaminedCheck.Location = new System.Drawing.Point(6, 22);
+            this.allExaminedCheck.Name = "allExaminedCheck";
+            this.allExaminedCheck.Size = new System.Drawing.Size(127, 19);
+            this.allExaminedCheck.TabIndex = 4;
+            this.allExaminedCheck.Text = "All Items Examined";
+            this.toolTip1.SetToolTip(this.allExaminedCheck, "All items will be by default examined if enabled.");
+            this.allExaminedCheck.UseVisualStyleBackColor = true;
+            // 
+            // removeRaidRestrictionsCheck
+            // 
+            this.removeRaidRestrictionsCheck.AutoSize = true;
+            this.removeRaidRestrictionsCheck.Checked = true;
+            this.removeRaidRestrictionsCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.removeRaidRestrictionsCheck.ForeColor = System.Drawing.Color.White;
+            this.removeRaidRestrictionsCheck.Location = new System.Drawing.Point(6, 47);
+            this.removeRaidRestrictionsCheck.Name = "removeRaidRestrictionsCheck";
+            this.removeRaidRestrictionsCheck.Size = new System.Drawing.Size(174, 19);
+            this.removeRaidRestrictionsCheck.TabIndex = 5;
+            this.removeRaidRestrictionsCheck.Text = "Remove In-Raid Restrictions";
+            this.toolTip1.SetToolTip(this.removeRaidRestrictionsCheck, "Removes all in-raid item count restrictions and discard limits enabled. For examp" +
+        "le, you can carry as much cash, BTC, LEDX etc. as you like in raid.");
+            this.removeRaidRestrictionsCheck.UseVisualStyleBackColor = true;
+            // 
             // airdropChangesCheck
             // 
             this.airdropChangesCheck.AutoSize = true;
             this.airdropChangesCheck.Checked = true;
             this.airdropChangesCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.airdropChangesCheck.ForeColor = System.Drawing.Color.White;
-            this.airdropChangesCheck.Location = new System.Drawing.Point(19, 220);
+            this.airdropChangesCheck.Location = new System.Drawing.Point(19, 114);
             this.airdropChangesCheck.Name = "airdropChangesCheck";
             this.airdropChangesCheck.Size = new System.Drawing.Size(115, 19);
-            this.airdropChangesCheck.TabIndex = 3;
+            this.airdropChangesCheck.TabIndex = 11;
             this.airdropChangesCheck.Text = "Airdrop Changes";
             this.toolTip1.SetToolTip(this.airdropChangesCheck, resources.GetString("airdropChangesCheck.ToolTip"));
             this.airdropChangesCheck.UseVisualStyleBackColor = true;
-            this.airdropChangesCheck.CheckedChanged += new System.EventHandler(this.airdropChangesCheck_CheckedChanged);
+            // 
+            // recoilTab
+            // 
+            this.recoilTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.recoilTab.BackgroundImage = global::Realism_Mod_Config_GUI.Properties.Resources.SPTRM_config_image;
+            this.recoilTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.recoilTab.Controls.Add(this.label1);
+            this.recoilTab.Controls.Add(this.attachPresetCombo);
+            this.recoilTab.Controls.Add(this.presetHelpLabel);
+            this.recoilTab.Controls.Add(this.presetLabel);
+            this.recoilTab.Controls.Add(this.weapPresetCombo);
+            this.recoilTab.Controls.Add(this.globalRecoilGroupBox);
+            this.recoilTab.Controls.Add(this.globalRecoilModiGroupBox);
+            this.recoilTab.Location = new System.Drawing.Point(4, 24);
+            this.recoilTab.Name = "recoilTab";
+            this.recoilTab.Size = new System.Drawing.Size(1360, 684);
+            this.recoilTab.TabIndex = 7;
+            this.recoilTab.Text = "Recoil & Presets";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(18, 420);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 15);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Attatchment Preset:";
+            // 
+            // attachPresetCombo
+            // 
+            this.attachPresetCombo.FormattingEnabled = true;
+            this.attachPresetCombo.Location = new System.Drawing.Point(139, 417);
+            this.attachPresetCombo.Name = "attachPresetCombo";
+            this.attachPresetCombo.Size = new System.Drawing.Size(188, 23);
+            this.attachPresetCombo.TabIndex = 19;
+            this.attachPresetCombo.SelectedIndexChanged += new System.EventHandler(this.attachPresetCombo_SelectedIndexChanged);
+            // 
+            // presetHelpLabel
+            // 
+            this.presetHelpLabel.AutoSize = true;
+            this.presetHelpLabel.ForeColor = System.Drawing.Color.White;
+            this.presetHelpLabel.Location = new System.Drawing.Point(19, 345);
+            this.presetHelpLabel.Name = "presetHelpLabel";
+            this.presetHelpLabel.Size = new System.Drawing.Size(649, 15);
+            this.presetHelpLabel.TabIndex = 18;
+            this.presetHelpLabel.Text = "Select An Installed Preset From The Dropdown Box Below, And Then Press \'Save\' To " +
+    "Load It. Remeber To Restart The Server.";
+            // 
+            // presetLabel
+            // 
+            this.presetLabel.AutoSize = true;
+            this.presetLabel.ForeColor = System.Drawing.Color.White;
+            this.presetLabel.Location = new System.Drawing.Point(18, 382);
+            this.presetLabel.Name = "presetLabel";
+            this.presetLabel.Size = new System.Drawing.Size(89, 15);
+            this.presetLabel.TabIndex = 17;
+            this.presetLabel.Text = "Weapon Preset:";
+            // 
+            // weapPresetCombo
+            // 
+            this.weapPresetCombo.FormattingEnabled = true;
+            this.weapPresetCombo.Location = new System.Drawing.Point(139, 379);
+            this.weapPresetCombo.Name = "weapPresetCombo";
+            this.weapPresetCombo.Size = new System.Drawing.Size(188, 23);
+            this.weapPresetCombo.TabIndex = 16;
+            this.weapPresetCombo.SelectedIndexChanged += new System.EventHandler(this.weapPresetCombo_SelectedIndexChanged);
+            // 
+            // globalRecoilGroupBox
+            // 
+            this.globalRecoilGroupBox.Controls.Add(this.procLabel);
+            this.globalRecoilGroupBox.Controls.Add(this.crankCheck);
+            this.globalRecoilGroupBox.Controls.Add(this.procNumeric);
+            this.globalRecoilGroupBox.ForeColor = System.Drawing.Color.White;
+            this.globalRecoilGroupBox.Location = new System.Drawing.Point(19, 223);
+            this.globalRecoilGroupBox.Name = "globalRecoilGroupBox";
+            this.globalRecoilGroupBox.Size = new System.Drawing.Size(320, 106);
+            this.globalRecoilGroupBox.TabIndex = 15;
+            this.globalRecoilGroupBox.TabStop = false;
+            this.globalRecoilGroupBox.Text = "Global Recoil and Weapon Settings";
+            // 
+            // procLabel
+            // 
+            this.procLabel.AutoSize = true;
+            this.procLabel.Location = new System.Drawing.Point(6, 58);
+            this.procLabel.Name = "procLabel";
+            this.procLabel.Size = new System.Drawing.Size(112, 15);
+            this.procLabel.TabIndex = 11;
+            this.procLabel.Text = "Procedural Intensity";
+            this.toolTip1.SetToolTip(this.procLabel, "This Is The Intensity Of All Weapon-Related Procedural Animations. This Includes " +
+        "Sway, Aim Inertira And Recoil. The Lower It Is, The Less Recoil, Sway And Aim In" +
+        "ertia. Recommended To Leave At 1.");
+            // 
+            // crankCheck
+            // 
+            this.crankCheck.AutoSize = true;
+            this.crankCheck.ForeColor = System.Drawing.Color.White;
+            this.crankCheck.Location = new System.Drawing.Point(6, 33);
+            this.crankCheck.Name = "crankCheck";
+            this.crankCheck.Size = new System.Drawing.Size(136, 19);
+            this.crankCheck.TabIndex = 4;
+            this.crankCheck.Text = "Enable \'Recoil Crank\'";
+            this.toolTip1.SetToolTip(this.crankCheck, "If Recoil Crank Is Enabled, Recoil Will Go Rearwards Into The Shoulder. If It\'s O" +
+        "ff Then Recoil Will Go Forward Like In Unmodded EFT.");
+            this.crankCheck.UseVisualStyleBackColor = true;
+            this.crankCheck.CheckedChanged += new System.EventHandler(this.crankCheck_CheckedChanged);
+            // 
+            // procNumeric
+            // 
+            this.procNumeric.DecimalPlaces = 2;
+            this.procNumeric.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
+            this.procNumeric.Location = new System.Drawing.Point(147, 56);
+            this.procNumeric.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.procNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.procNumeric.Name = "procNumeric";
+            this.procNumeric.Size = new System.Drawing.Size(120, 23);
+            this.procNumeric.TabIndex = 10;
+            this.procNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.procNumeric.ValueChanged += new System.EventHandler(this.procNumeric_ValueChanged);
+            // 
+            // globalRecoilModiGroupBox
+            // 
+            this.globalRecoilModiGroupBox.Controls.Add(this.ergoMultiLabel);
+            this.globalRecoilModiGroupBox.Controls.Add(this.ergoNumeric);
+            this.globalRecoilModiGroupBox.Controls.Add(this.dispMultLabel);
+            this.globalRecoilModiGroupBox.Controls.Add(this.dispNumeric);
+            this.globalRecoilModiGroupBox.Controls.Add(this.convMultLabel);
+            this.globalRecoilModiGroupBox.Controls.Add(this.convNumeric);
+            this.globalRecoilModiGroupBox.Controls.Add(this.horzRecMultLabel);
+            this.globalRecoilModiGroupBox.Controls.Add(this.horzRecNumeric);
+            this.globalRecoilModiGroupBox.Controls.Add(this.vertRecMultLabel);
+            this.globalRecoilModiGroupBox.Controls.Add(this.vertRecNumeric);
+            this.globalRecoilModiGroupBox.ForeColor = System.Drawing.Color.White;
+            this.globalRecoilModiGroupBox.Location = new System.Drawing.Point(19, 12);
+            this.globalRecoilModiGroupBox.Name = "globalRecoilModiGroupBox";
+            this.globalRecoilModiGroupBox.Size = new System.Drawing.Size(320, 191);
+            this.globalRecoilModiGroupBox.TabIndex = 14;
+            this.globalRecoilModiGroupBox.TabStop = false;
+            this.globalRecoilModiGroupBox.Text = "Global Recoil Modifiers";
+            // 
+            // ergoMultiLabel
+            // 
+            this.ergoMultiLabel.AutoSize = true;
+            this.ergoMultiLabel.Location = new System.Drawing.Point(6, 149);
+            this.ergoMultiLabel.Name = "ergoMultiLabel";
+            this.ergoMultiLabel.Size = new System.Drawing.Size(62, 15);
+            this.ergoMultiLabel.TabIndex = 9;
+            this.ergoMultiLabel.Text = "Ergo Multi";
+            this.toolTip1.SetToolTip(this.ergoMultiLabel, "Ergonomics Multi. In This Mod, Higher Ergo = Reduction To Weight And Balance Pena" +
+        "lties, So Faster ADS, Less Aim Sway And Inertira, Faster Weapon Handling (Reload" +
+        "ing, Chambering).");
+            // 
+            // ergoNumeric
+            // 
+            this.ergoNumeric.DecimalPlaces = 2;
+            this.ergoNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.ergoNumeric.Location = new System.Drawing.Point(147, 147);
+            this.ergoNumeric.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.ergoNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.ergoNumeric.Name = "ergoNumeric";
+            this.ergoNumeric.Size = new System.Drawing.Size(120, 23);
+            this.ergoNumeric.TabIndex = 8;
+            this.ergoNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ergoNumeric.ValueChanged += new System.EventHandler(this.ergoNumeric_ValueChanged);
+            // 
+            // dispMultLabel
+            // 
+            this.dispMultLabel.AutoSize = true;
+            this.dispMultLabel.Location = new System.Drawing.Point(6, 120);
+            this.dispMultLabel.Name = "dispMultLabel";
+            this.dispMultLabel.Size = new System.Drawing.Size(93, 15);
+            this.dispMultLabel.TabIndex = 7;
+            this.dispMultLabel.Text = "Dispersion Multi";
+            this.toolTip1.SetToolTip(this.dispMultLabel, "Dispersion Is Basically The Amount Of Spread. It\'s The Radius In Which Recoil Can" +
+        " Occur, So Higher Dispersion = More Spread.");
+            // 
+            // dispNumeric
+            // 
+            this.dispNumeric.DecimalPlaces = 2;
+            this.dispNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.dispNumeric.Location = new System.Drawing.Point(147, 118);
+            this.dispNumeric.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.dispNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.dispNumeric.Name = "dispNumeric";
+            this.dispNumeric.Size = new System.Drawing.Size(120, 23);
+            this.dispNumeric.TabIndex = 6;
+            this.dispNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.dispNumeric.ValueChanged += new System.EventHandler(this.dispNumeric_ValueChanged);
+            // 
+            // convMultLabel
+            // 
+            this.convMultLabel.AutoSize = true;
+            this.convMultLabel.Location = new System.Drawing.Point(6, 91);
+            this.convMultLabel.Name = "convMultLabel";
+            this.convMultLabel.Size = new System.Drawing.Size(108, 15);
+            this.convMultLabel.TabIndex = 5;
+            this.convMultLabel.Text = "Convergence Multi";
+            this.toolTip1.SetToolTip(this.convMultLabel, resources.GetString("convMultLabel.ToolTip"));
+            // 
+            // convNumeric
+            // 
+            this.convNumeric.DecimalPlaces = 2;
+            this.convNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.convNumeric.Location = new System.Drawing.Point(147, 89);
+            this.convNumeric.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.convNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.convNumeric.Name = "convNumeric";
+            this.convNumeric.Size = new System.Drawing.Size(120, 23);
+            this.convNumeric.TabIndex = 4;
+            this.convNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.convNumeric.ValueChanged += new System.EventHandler(this.convNumeric_ValueChanged);
+            // 
+            // horzRecMultLabel
+            // 
+            this.horzRecMultLabel.AutoSize = true;
+            this.horzRecMultLabel.Location = new System.Drawing.Point(6, 62);
+            this.horzRecMultLabel.Name = "horzRecMultLabel";
+            this.horzRecMultLabel.Size = new System.Drawing.Size(128, 15);
+            this.horzRecMultLabel.TabIndex = 3;
+            this.horzRecMultLabel.Text = "Horizontal Recoil Multi";
+            this.toolTip1.SetToolTip(this.horzRecMultLabel, resources.GetString("horzRecMultLabel.ToolTip"));
+            // 
+            // horzRecNumeric
+            // 
+            this.horzRecNumeric.DecimalPlaces = 2;
+            this.horzRecNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.horzRecNumeric.Location = new System.Drawing.Point(147, 60);
+            this.horzRecNumeric.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.horzRecNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.horzRecNumeric.Name = "horzRecNumeric";
+            this.horzRecNumeric.Size = new System.Drawing.Size(120, 23);
+            this.horzRecNumeric.TabIndex = 2;
+            this.horzRecNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.horzRecNumeric.ValueChanged += new System.EventHandler(this.horzRecNumeric_ValueChanged);
+            // 
+            // vertRecMultLabel
+            // 
+            this.vertRecMultLabel.AutoSize = true;
+            this.vertRecMultLabel.Location = new System.Drawing.Point(6, 33);
+            this.vertRecMultLabel.Name = "vertRecMultLabel";
+            this.vertRecMultLabel.Size = new System.Drawing.Size(111, 15);
+            this.vertRecMultLabel.TabIndex = 1;
+            this.vertRecMultLabel.Text = "Vertical Recoil Multi";
+            this.toolTip1.SetToolTip(this.vertRecMultLabel, "Vertical Recoil Multi. Higher Vertical Recoil = More Muzzle Rise And Flip.");
+            // 
+            // vertRecNumeric
+            // 
+            this.vertRecNumeric.DecimalPlaces = 2;
+            this.vertRecNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.vertRecNumeric.Location = new System.Drawing.Point(147, 31);
+            this.vertRecNumeric.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.vertRecNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.vertRecNumeric.Name = "vertRecNumeric";
+            this.vertRecNumeric.Size = new System.Drawing.Size(120, 23);
+            this.vertRecNumeric.TabIndex = 0;
+            this.vertRecNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.vertRecNumeric.ValueChanged += new System.EventHandler(this.vertRecNumeric_ValueChanged);
             // 
             // Dev_Tools
             // 
@@ -1113,22 +1538,125 @@
             this.modVerLabel.TabIndex = 11;
             this.modVerLabel.Text = "modVer";
             // 
-            // revertHPCheck
+            // numericUpDown1
             // 
-            this.revertHPCheck.AutoSize = true;
-            this.revertHPCheck.Checked = true;
-            this.revertHPCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.revertHPCheck.ForeColor = System.Drawing.Color.White;
-            this.revertHPCheck.Location = new System.Drawing.Point(18, 42);
-            this.revertHPCheck.Name = "revertHPCheck";
-            this.revertHPCheck.Size = new System.Drawing.Size(133, 19);
-            this.revertHPCheck.TabIndex = 13;
-            this.revertHPCheck.Text = "Revert HP to Default";
-            this.toolTip1.SetToolTip(this.revertHPCheck, "Reverts player HP back to the defualt values. You must do this after disabling \"R" +
-        "ealistic Player Health\" unless you will use another mod to change your health va" +
-        "lues.");
-            this.revertHPCheck.UseVisualStyleBackColor = true;
-            this.revertHPCheck.CheckedChanged += new System.EventHandler(this.revertHPCheck_CheckedChanged);
+            this.numericUpDown1.DecimalPlaces = 2;
+            this.numericUpDown1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numericUpDown1.Location = new System.Drawing.Point(329, 18);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(70, 23);
+            this.numericUpDown1.TabIndex = 19;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(194, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 15);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Standard Bot HP Multi";
+            this.toolTip1.SetToolTip(this.label3, "HP Multi for PMCs and all Scav types (except head). Applies Regardless of \'Realis" +
+        "tic\' HP options.");
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(194, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(129, 15);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Mid Level Bot HP Multi";
+            this.toolTip1.SetToolTip(this.label2, "HP Multi for Boss Followers, Rogues, Raiders and Cultists (except head). Applies " +
+        "Regardless of \'Realistic\' HP options.");
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.DecimalPlaces = 2;
+            this.numericUpDown2.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numericUpDown2.Location = new System.Drawing.Point(329, 47);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(70, 23);
+            this.numericUpDown2.TabIndex = 21;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(194, 78);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 15);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Boss HP Multi";
+            this.toolTip1.SetToolTip(this.label4, "HP Multi for Bosses (except head). Applies Regardless of \'Realistic\' HP options.\r" +
+        "\n\r\n");
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.DecimalPlaces = 2;
+            this.numericUpDown3.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numericUpDown3.Location = new System.Drawing.Point(329, 76);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(70, 23);
+            this.numericUpDown3.TabIndex = 23;
+            this.numericUpDown3.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // Main_Form
             // 
@@ -1168,14 +1696,30 @@
             this.botHealthGroupBox.ResumeLayout(false);
             this.botHealthGroupBox.PerformLayout();
             this.Misc.ResumeLayout(false);
-            this.Misc.PerformLayout();
-            this.itemGroupBox.ResumeLayout(false);
-            this.itemGroupBox.PerformLayout();
             this.tradeGroupBox.ResumeLayout(false);
             this.tradeGroupBox.PerformLayout();
+            this.miscTab.ResumeLayout(false);
+            this.miscTab.PerformLayout();
+            this.itemGroupBox.ResumeLayout(false);
+            this.itemGroupBox.PerformLayout();
+            this.recoilTab.ResumeLayout(false);
+            this.recoilTab.PerformLayout();
+            this.globalRecoilGroupBox.ResumeLayout(false);
+            this.globalRecoilGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.procNumeric)).EndInit();
+            this.globalRecoilModiGroupBox.ResumeLayout(false);
+            this.globalRecoilModiGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ergoNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dispNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.convNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.horzRecNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vertRecNumeric)).EndInit();
             this.Dev_Tools.ResumeLayout(false);
             this.Dev_Tools.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botTierNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1204,9 +1748,6 @@
         private CheckBox revertMedsCheck;
         private CheckBox openZonesFixCheck;
         private CheckBox increasedBotCapCheck;
-        private CheckBox removeRaidRestrictionsCheck;
-        private CheckBox allExaminedCheck;
-        private CheckBox airdropChangesCheck;
         private CheckBox traderChangesCheck;
         private CheckBox fleaConfigCheck;
         private CheckBox tieredFleaCheck;
@@ -1238,7 +1779,6 @@
         private GroupBox armorGroupBox;
         private GroupBox moveGroupBox;
         private GroupBox healthGroupBox;
-        private GroupBox itemGroupBox;
         private GroupBox tradeGroupBox;
         private CheckBox masteryCheck;
         private Label revertLabel;
@@ -1246,12 +1786,44 @@
         private RichTextBox warningTextBox;
         private CheckBox devModeCheck;
         private Label modVerLabel;
-        private CheckBox unstuckGSCheck;
         private CheckBox realPlayerHealthCheck;
         private CheckBox pmcTypeCheck;
         private CheckBox bossSpawnCheck;
-        private CheckBox firCheck;
         private CheckBox bossItemsCheck;
         private CheckBox revertHPCheck;
+        private TabPage miscTab;
+        private CheckBox unstuckGSCheck;
+        private GroupBox itemGroupBox;
+        private CheckBox firCheck;
+        private CheckBox allExaminedCheck;
+        private CheckBox removeRaidRestrictionsCheck;
+        private CheckBox airdropChangesCheck;
+        private TabPage recoilTab;
+        private Label label1;
+        private ComboBox attachPresetCombo;
+        private Label presetHelpLabel;
+        private Label presetLabel;
+        private ComboBox weapPresetCombo;
+        private GroupBox globalRecoilGroupBox;
+        private Label procLabel;
+        private CheckBox crankCheck;
+        private NumericUpDown procNumeric;
+        private GroupBox globalRecoilModiGroupBox;
+        private Label ergoMultiLabel;
+        private NumericUpDown ergoNumeric;
+        private Label dispMultLabel;
+        private NumericUpDown dispNumeric;
+        private Label convMultLabel;
+        private NumericUpDown convNumeric;
+        private Label horzRecMultLabel;
+        private NumericUpDown horzRecNumeric;
+        private Label vertRecMultLabel;
+        private NumericUpDown vertRecNumeric;
+        private Label label4;
+        private NumericUpDown numericUpDown3;
+        private Label label2;
+        private NumericUpDown numericUpDown2;
+        private Label label3;
+        private NumericUpDown numericUpDown1;
     }
 }

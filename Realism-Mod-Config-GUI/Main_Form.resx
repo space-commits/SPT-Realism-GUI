@@ -8409,6 +8409,13 @@ Also changes the categorie of items that traders will buy to make more sense, ma
     <value>If enabled airdrops will have 'types' (medical supplies, food, ammo, etc.) and will only have items of that type.
 Different types have different rarity, airdrop types will be rerolled when starting the game or at the end of raids.</value>
   </data>
+  <data name="convMultLabel.ToolTip" xml:space="preserve">
+    <value>Also Known As 'Auto Compensation', This Is The Speed At Which The Gun Comes Under Control. In This Mod Convergence Only Works This Way For Semi Auto, In Full Auto Convergence Dictates The Overall Amount Of Recoil Climb And How Snappy It Is. Basically, Lower = More Recoil That Is More Floaty.</value>
+  </data>
+  <data name="horzRecMultLabel.ToolTip" xml:space="preserve">
+    <value>Horizontal Recoil. Horizontal Recoil In EFT Is Actually The Front/Rear Recoil Impulse. With 'Recoil Crank' Enabled More Horizontal Recoil = More Recoil Into The Shoulder, If Disabled Recoil Will Go Forward Instead.
+</value>
+  </data>
   <data name="Dev_Tools.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAp4AAAGQCAYAAAAHlGB+AAABfmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAA
