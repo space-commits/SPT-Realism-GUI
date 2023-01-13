@@ -47,6 +47,7 @@
             this.realBallisticsCheck = new System.Windows.Forms.CheckBox();
             this.Health_Movement = new System.Windows.Forms.TabPage();
             this.moveGroupBox = new System.Windows.Forms.GroupBox();
+            this.weightCheck = new System.Windows.Forms.CheckBox();
             this.movementChangesCheck = new System.Windows.Forms.CheckBox();
             this.fallDamageChangesCheck = new System.Windows.Forms.CheckBox();
             this.healthGroupBox = new System.Windows.Forms.GroupBox();
@@ -63,6 +64,12 @@
             this.pmcDifficultyCheck = new System.Windows.Forms.CheckBox();
             this.bossDifficultyCheck = new System.Windows.Forms.CheckBox();
             this.botHealthGroupBox = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.bossHPNumeric = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.midHPNumeric = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.standardHPNumeric = new System.Windows.Forms.NumericUpDown();
             this.realBossHealthCheck = new System.Windows.Forms.CheckBox();
             this.realFollowerHealthCheck = new System.Windows.Forms.CheckBox();
             this.realRRHealthCheck = new System.Windows.Forms.CheckBox();
@@ -122,12 +129,6 @@
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
             this.modVerLabel = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -139,6 +140,9 @@
             this.botNameGroupBox.SuspendLayout();
             this.botDiffGroupBox.SuspendLayout();
             this.botHealthGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bossHPNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.midHPNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.standardHPNumeric)).BeginInit();
             this.Misc.SuspendLayout();
             this.tradeGroupBox.SuspendLayout();
             this.miscTab.SuspendLayout();
@@ -154,9 +158,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.vertRecNumeric)).BeginInit();
             this.Dev_Tools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botTierNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -403,15 +404,32 @@
             // 
             // moveGroupBox
             // 
+            this.moveGroupBox.Controls.Add(this.weightCheck);
             this.moveGroupBox.Controls.Add(this.movementChangesCheck);
             this.moveGroupBox.Controls.Add(this.fallDamageChangesCheck);
             this.moveGroupBox.ForeColor = System.Drawing.Color.White;
             this.moveGroupBox.Location = new System.Drawing.Point(19, 98);
             this.moveGroupBox.Name = "moveGroupBox";
-            this.moveGroupBox.Size = new System.Drawing.Size(200, 75);
+            this.moveGroupBox.Size = new System.Drawing.Size(200, 99);
             this.moveGroupBox.TabIndex = 5;
             this.moveGroupBox.TabStop = false;
             this.moveGroupBox.Text = "Movement";
+            // 
+            // weightCheck
+            // 
+            this.weightCheck.AutoSize = true;
+            this.weightCheck.Checked = true;
+            this.weightCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.weightCheck.ForeColor = System.Drawing.Color.White;
+            this.weightCheck.Location = new System.Drawing.Point(6, 72);
+            this.weightCheck.Name = "weightCheck";
+            this.weightCheck.Size = new System.Drawing.Size(148, 19);
+            this.weightCheck.TabIndex = 2;
+            this.weightCheck.Text = "Weight Limits Changes";
+            this.toolTip1.SetToolTip(this.weightCheck, "Enables changes to movement speed, inertia, weight limits, and fall/jump penaltie" +
+        "s.");
+            this.weightCheck.UseVisualStyleBackColor = true;
+            this.weightCheck.CheckedChanged += new System.EventHandler(this.weightCheck_CheckedChanged);
             // 
             // movementChangesCheck
             // 
@@ -640,11 +658,11 @@
             // botHealthGroupBox
             // 
             this.botHealthGroupBox.Controls.Add(this.label4);
-            this.botHealthGroupBox.Controls.Add(this.numericUpDown3);
+            this.botHealthGroupBox.Controls.Add(this.bossHPNumeric);
             this.botHealthGroupBox.Controls.Add(this.label2);
-            this.botHealthGroupBox.Controls.Add(this.numericUpDown2);
+            this.botHealthGroupBox.Controls.Add(this.midHPNumeric);
             this.botHealthGroupBox.Controls.Add(this.label3);
-            this.botHealthGroupBox.Controls.Add(this.numericUpDown1);
+            this.botHealthGroupBox.Controls.Add(this.standardHPNumeric);
             this.botHealthGroupBox.Controls.Add(this.realBossHealthCheck);
             this.botHealthGroupBox.Controls.Add(this.realFollowerHealthCheck);
             this.botHealthGroupBox.Controls.Add(this.realRRHealthCheck);
@@ -657,6 +675,129 @@
             this.botHealthGroupBox.TabStop = false;
             this.botHealthGroupBox.Text = "Bot Health";
             this.toolTip1.SetToolTip(this.botHealthGroupBox, resources.GetString("botHealthGroupBox.ToolTip"));
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(194, 78);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 15);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Boss HP Multi";
+            this.toolTip1.SetToolTip(this.label4, "HP Multi for Bosses (except head). Applies Regardless of \'Realistic\' HP options.\r" +
+        "\n\r\n");
+            // 
+            // bossHPNumeric
+            // 
+            this.bossHPNumeric.DecimalPlaces = 2;
+            this.bossHPNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.bossHPNumeric.Location = new System.Drawing.Point(329, 76);
+            this.bossHPNumeric.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.bossHPNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.bossHPNumeric.Name = "bossHPNumeric";
+            this.bossHPNumeric.Size = new System.Drawing.Size(70, 23);
+            this.bossHPNumeric.TabIndex = 23;
+            this.bossHPNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.bossHPNumeric.ValueChanged += new System.EventHandler(this.bossHPNumeric_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(194, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(129, 15);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Mid Level Bot HP Multi";
+            this.toolTip1.SetToolTip(this.label2, "HP Multi for Boss Followers, Rogues, Raiders and Cultists (except head). Applies " +
+        "Regardless of \'Realistic\' HP options.");
+            // 
+            // midHPNumeric
+            // 
+            this.midHPNumeric.DecimalPlaces = 2;
+            this.midHPNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.midHPNumeric.Location = new System.Drawing.Point(329, 47);
+            this.midHPNumeric.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.midHPNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.midHPNumeric.Name = "midHPNumeric";
+            this.midHPNumeric.Size = new System.Drawing.Size(70, 23);
+            this.midHPNumeric.TabIndex = 21;
+            this.midHPNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.midHPNumeric.ValueChanged += new System.EventHandler(this.midHPNumeric_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(194, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 15);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Standard Bot HP Multi";
+            this.toolTip1.SetToolTip(this.label3, "HP Multi for PMCs and all Scav types (except head). Applies Regardless of \'Realis" +
+        "tic\' HP options.");
+            // 
+            // standardHPNumeric
+            // 
+            this.standardHPNumeric.DecimalPlaces = 2;
+            this.standardHPNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.standardHPNumeric.Location = new System.Drawing.Point(329, 18);
+            this.standardHPNumeric.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.standardHPNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.standardHPNumeric.Name = "standardHPNumeric";
+            this.standardHPNumeric.Size = new System.Drawing.Size(70, 23);
+            this.standardHPNumeric.TabIndex = 19;
+            this.standardHPNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.standardHPNumeric.ValueChanged += new System.EventHandler(this.standardHPNumeric_ValueChanged);
             // 
             // realBossHealthCheck
             // 
@@ -1538,126 +1679,6 @@
             this.modVerLabel.TabIndex = 11;
             this.modVerLabel.Text = "modVer";
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numericUpDown1.Location = new System.Drawing.Point(329, 18);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(70, 23);
-            this.numericUpDown1.TabIndex = 19;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(194, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 15);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Standard Bot HP Multi";
-            this.toolTip1.SetToolTip(this.label3, "HP Multi for PMCs and all Scav types (except head). Applies Regardless of \'Realis" +
-        "tic\' HP options.");
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(194, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 15);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Mid Level Bot HP Multi";
-            this.toolTip1.SetToolTip(this.label2, "HP Multi for Boss Followers, Rogues, Raiders and Cultists (except head). Applies " +
-        "Regardless of \'Realistic\' HP options.");
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.DecimalPlaces = 2;
-            this.numericUpDown2.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numericUpDown2.Location = new System.Drawing.Point(329, 47);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(70, 23);
-            this.numericUpDown2.TabIndex = 21;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(194, 78);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 15);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Boss HP Multi";
-            this.toolTip1.SetToolTip(this.label4, "HP Multi for Bosses (except head). Applies Regardless of \'Realistic\' HP options.\r" +
-        "\n\r\n");
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.DecimalPlaces = 2;
-            this.numericUpDown3.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numericUpDown3.Location = new System.Drawing.Point(329, 76);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDown3.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(70, 23);
-            this.numericUpDown3.TabIndex = 23;
-            this.numericUpDown3.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1695,6 +1716,9 @@
             this.botDiffGroupBox.PerformLayout();
             this.botHealthGroupBox.ResumeLayout(false);
             this.botHealthGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bossHPNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.midHPNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.standardHPNumeric)).EndInit();
             this.Misc.ResumeLayout(false);
             this.tradeGroupBox.ResumeLayout(false);
             this.tradeGroupBox.PerformLayout();
@@ -1717,9 +1741,6 @@
             this.Dev_Tools.ResumeLayout(false);
             this.Dev_Tools.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botTierNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1820,10 +1841,11 @@
         private Label vertRecMultLabel;
         private NumericUpDown vertRecNumeric;
         private Label label4;
-        private NumericUpDown numericUpDown3;
+        private NumericUpDown bossHPNumeric;
         private Label label2;
-        private NumericUpDown numericUpDown2;
+        private NumericUpDown midHPNumeric;
         private Label label3;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown standardHPNumeric;
+        private CheckBox weightCheck;
     }
 }

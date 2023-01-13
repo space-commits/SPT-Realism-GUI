@@ -54,9 +54,12 @@ namespace Realism_Mod_Config_GUI
 
         private void setNumericLimits()
         {
+
             decimal recoilMultiMin = 0.1m;
             decimal recoilMultiMax = 10.0m;
-            decimal recoilMultiIncrement = 0.1m;
+            decimal hpMultiMax = 10.0m;
+            decimal hpMultiMin = 0.1m;
+            decimal increment = 0.1m;
             int decimalPlaces = 2;
 
             procNumeric.Minimum = 0.1m;
@@ -66,28 +69,43 @@ namespace Realism_Mod_Config_GUI
 
             vertRecNumeric.Minimum = recoilMultiMin;
             vertRecNumeric.Maximum = recoilMultiMax;
-            vertRecNumeric.Increment = recoilMultiIncrement;
+            vertRecNumeric.Increment = increment;
             vertRecNumeric.DecimalPlaces = decimalPlaces;
 
             horzRecNumeric.Minimum = recoilMultiMin;
             horzRecNumeric.Maximum = recoilMultiMax;
-            horzRecNumeric.Increment = recoilMultiIncrement;
+            horzRecNumeric.Increment = increment;
             horzRecNumeric.DecimalPlaces = decimalPlaces;
 
             convNumeric.Minimum = recoilMultiMin;
             convNumeric.Maximum = recoilMultiMax;
-            convNumeric.Increment = recoilMultiIncrement;
+            convNumeric.Increment = increment;
             convNumeric.DecimalPlaces = decimalPlaces;
 
             dispNumeric.Minimum = recoilMultiMin;
             dispNumeric.Maximum = recoilMultiMax;
-            dispNumeric.Increment = recoilMultiIncrement;
+            dispNumeric.Increment = increment;
             dispNumeric.DecimalPlaces = decimalPlaces;
 
             ergoNumeric.Minimum = recoilMultiMin;
             ergoNumeric.Maximum = recoilMultiMax;
-            ergoNumeric.Increment = recoilMultiIncrement;
+            ergoNumeric.Increment = increment;
             ergoNumeric.DecimalPlaces = decimalPlaces;
+
+            standardHPNumeric.Minimum = hpMultiMin;
+            standardHPNumeric.Maximum = hpMultiMax;
+            standardHPNumeric.Increment = increment;
+            standardHPNumeric.DecimalPlaces = decimalPlaces;
+
+            midHPNumeric.Minimum = hpMultiMin;
+            midHPNumeric.Maximum = hpMultiMax;
+            midHPNumeric.Increment = increment;
+            midHPNumeric.DecimalPlaces = decimalPlaces;
+
+            bossHPNumeric.Minimum = hpMultiMin;
+            bossHPNumeric.Maximum = hpMultiMax;
+            bossHPNumeric.Increment = increment;
+            bossHPNumeric.DecimalPlaces = decimalPlaces;
         }
 
         private void SetPresetComboBoxes(DirectoryInfo[] dirInfoArr, ComboBox cb)
@@ -114,13 +132,15 @@ namespace Realism_Mod_Config_GUI
                     }
                     if (c is GroupBox)
                     {
-                        foreach (CheckBox cb in c.Controls)
+                        foreach (Control gc in c.Controls)
                         {
-                            cb.Enabled = true;
+                            gc.Enabled = true;
                         }
                     }
                 }
             }
+
+
 
             procNumeric.Value = 1.0m;
             vertRecNumeric.Value = 1.0m;
@@ -128,6 +148,10 @@ namespace Realism_Mod_Config_GUI
             convNumeric.Value = 1.0m;
             dispNumeric.Value = 1.0m;
             ergoNumeric.Value = 1.0m;
+
+            standardHPNumeric.Value = 1.0m;
+            midHPNumeric.Value = 1.0m;
+            bossHPNumeric.Value = 1.0m;
 
             crankCheck.Checked = true;
 
@@ -145,6 +169,7 @@ namespace Realism_Mod_Config_GUI
             Config.malf_changes = true;
             Config.med_changes = true;
             Config.revert_med_changes = false;
+            Config.weight_limits_changes= true;
             Config.movement_changes = true;
             Config.fall_damage_changes = true;
             Config.bot_changes = true;
@@ -195,6 +220,10 @@ namespace Realism_Mod_Config_GUI
             dispNumeric.Value = (decimal)Config.dispersion_multi;
             ergoNumeric.Value = (decimal)Config.ergo_multi;
 
+            standardHPNumeric.Value = (decimal)Config.standard_bot_hp_multi;
+            midHPNumeric.Value = (decimal)Config.mid_bot_hp_multi;
+            bossHPNumeric.Value = (decimal)Config.boss_bot_hp_multi;
+
             crankCheck.Checked = Config.recoil_crank;
 
             weapPresetCombo.SelectedItem = Config.weap_preset;
@@ -213,6 +242,7 @@ namespace Realism_Mod_Config_GUI
             medChangesCheck.Checked = Config.med_changes;
             revertMedsCheck.Checked = Config.revert_med_changes;
             movementChangesCheck.Checked = Config.movement_changes;
+            weightCheck.Checked = Config.weight_limits_changes;
             fallDamageChangesCheck.Checked = Config.fall_damage_changes;
 
             botChangesCheck.Checked = Config.bot_changes;
@@ -291,6 +321,8 @@ namespace Realism_Mod_Config_GUI
                 legacyRecoilCheck.Checked = false;
                 legacyRecoilCheck.Enabled = false;
                 unstuckGSCheck.Enabled = true;
+                attachPresetCombo.Enabled = true;
+                weapPresetCombo.Enabled = true;
             }
             else
             {
@@ -705,6 +737,8 @@ namespace Realism_Mod_Config_GUI
             }
             CheckCheckBoxes();
         }
+
+
         private void enableBotWeapsCheck_CheckedChanged(object sender, EventArgs e)
         {
             Config.bot_test_weps_enabled = enableBotWeapsCheck.Checked == true ? true : false;
@@ -813,6 +847,30 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void standardHPNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Config.standard_bot_hp_multi= standardHPNumeric.Value;
+            CheckCheckBoxes();
+        }
+
+        private void midHPNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Config.mid_bot_hp_multi = midHPNumeric.Value;
+            CheckCheckBoxes();
+        }
+
+        private void bossHPNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Config.boss_bot_hp_multi = bossHPNumeric.Value;
+            CheckCheckBoxes();
+        }
+
+        private void weightCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.weight_limits_changes = weightCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
@@ -839,6 +897,7 @@ namespace Realism_Mod_Config_GUI
             public bool mastery_changes { get; set; }
             public bool malf_changes { get; set; }
             public bool movement_changes { get; set; }
+            public bool weight_limits_changes { get; set; }
             public bool fall_damage_changes { get; set; }
             public bool med_changes { get; set; }
             public bool revert_med_changes { get; set; }
@@ -892,5 +951,6 @@ namespace Realism_Mod_Config_GUI
             public decimal boss_bot_hp_multi { get; set; }
 
         }
+
     }
 }
