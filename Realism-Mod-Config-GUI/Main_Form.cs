@@ -25,19 +25,18 @@ namespace Realism_Mod_Config_GUI
             InitializeComponent();
             setTitleBar();
             setNumericLimits();
-            SetPresetComboBoxes(weapPresetFilePath, weapPresetCombo);
-            SetPresetComboBoxes(attPresetFilePath, attachPresetCombo);
 
             try
             {
                 warningTextBox.Hide();
                 SetDisplayValues();
+                SetPresetComboBoxes(weapPresetFilePath, weapPresetCombo);
+                SetPresetComboBoxes(attPresetFilePath, attachPresetCombo);
             }
             catch(Exception exception)
             {
                 warningTextBox.Show();
-               /* warningTextBox.Text = $"config.json not found at file path: {Path.Combine(Path.GetDirectoryName(Environment.ProcessPath))}\\config\\";*/
-                warningTextBox.Text = $"{exception.Message}";
+                warningTextBox.Text = $"{exception.Message}  \n\nMake sure this app is located in the 'SPT-Realism-Mod' folder, and make sure the 'config.json' file is located in 'config\\config.json'";
             }
         }
 
@@ -686,6 +685,12 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void unstuckGSCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.unstuck_GS = unstuckGSCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
         private void botTestingCheck_CheckedChanged(object sender, EventArgs e)
         {
             Config.bot_testing = botTestingCheck.Checked == true ? true : false;
@@ -778,12 +783,6 @@ namespace Realism_Mod_Config_GUI
         private void devModeCheck_CheckedChanged(object sender, EventArgs e)
         {
             Config.dev_mode = devModeCheck.Checked == true ? true : false;
-            CheckCheckBoxes();
-        }
-
-        private void unstuckGSCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            Config.unstuck_GS = unstuckGSCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 

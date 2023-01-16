@@ -238,7 +238,8 @@
             this.warningTextBox.ForeColor = System.Drawing.Color.Red;
             this.warningTextBox.Location = new System.Drawing.Point(369, 114);
             this.warningTextBox.Name = "warningTextBox";
-            this.warningTextBox.Size = new System.Drawing.Size(628, 225);
+            this.warningTextBox.ReadOnly = true;
+            this.warningTextBox.Size = new System.Drawing.Size(628, 338);
             this.warningTextBox.TabIndex = 11;
             this.warningTextBox.Text = "CONFIG.JSON NOT FOUND! PLEASE ENSURE ALL FILES ARE IN THE CORRECT LOCATION!\n....";
             // 
@@ -549,9 +550,7 @@
             this.bossSpawnCheck.Size = new System.Drawing.Size(101, 19);
             this.bossSpawnCheck.TabIndex = 17;
             this.bossSpawnCheck.Text = "Spawn Tweaks";
-            this.toolTip1.SetToolTip(this.bossSpawnCheck, "Increases boss spawn chance, allows bosses to spawn in more parts of the map, add" +
-        "s chance for Raiders and Rogues to spawn on more maps, increases Raider trigger " +
-        "spawns to 100%.");
+            this.toolTip1.SetToolTip(this.bossSpawnCheck, resources.GetString("bossSpawnCheck.ToolTip"));
             this.bossSpawnCheck.UseVisualStyleBackColor = true;
             this.bossSpawnCheck.CheckedChanged += new System.EventHandler(this.bossSpawnCheck_CheckedChanged);
             // 
@@ -1006,6 +1005,7 @@
             this.toolTip1.SetToolTip(this.unstuckGSCheck, "Reduces gunsmith quest requirements so that all will be completable in case there" +
         " is an issue with the requirements.");
             this.unstuckGSCheck.UseVisualStyleBackColor = true;
+            this.unstuckGSCheck.CheckedChanged += new System.EventHandler(this.unstuckGSCheck_CheckedChanged);
             // 
             // itemGroupBox
             // 
@@ -1034,6 +1034,7 @@
             this.toolTip1.SetToolTip(this.firCheck, "Sets all items to FIR status after extracting with them from a raid, and removes " +
         "quest FIR requirements.");
             this.firCheck.UseVisualStyleBackColor = true;
+            this.firCheck.CheckedChanged += new System.EventHandler(this.firCheck_CheckedChanged);
             // 
             // allExaminedCheck
             // 
@@ -1048,6 +1049,7 @@
             this.allExaminedCheck.Text = "All Items Examined";
             this.toolTip1.SetToolTip(this.allExaminedCheck, "All items will be by default examined if enabled.");
             this.allExaminedCheck.UseVisualStyleBackColor = true;
+            this.allExaminedCheck.CheckedChanged += new System.EventHandler(this.allExaminedCheck_CheckedChanged);
             // 
             // removeRaidRestrictionsCheck
             // 
@@ -1063,6 +1065,7 @@
             this.toolTip1.SetToolTip(this.removeRaidRestrictionsCheck, "Removes all in-raid item count restrictions and discard limits enabled. For examp" +
         "le, you can carry as much cash, BTC, LEDX etc. as you like in raid.");
             this.removeRaidRestrictionsCheck.UseVisualStyleBackColor = true;
+            this.removeRaidRestrictionsCheck.CheckedChanged += new System.EventHandler(this.removeRaidRestrictionsCheck_CheckedChanged);
             // 
             // airdropChangesCheck
             // 
@@ -1077,6 +1080,7 @@
             this.airdropChangesCheck.Text = "Airdrop Changes";
             this.toolTip1.SetToolTip(this.airdropChangesCheck, resources.GetString("airdropChangesCheck.ToolTip"));
             this.airdropChangesCheck.UseVisualStyleBackColor = true;
+            this.airdropChangesCheck.CheckedChanged += new System.EventHandler(this.airdropChangesCheck_CheckedChanged);
             // 
             // recoilTab
             // 
@@ -1669,6 +1673,7 @@
             // 
             // modVerLabel
             // 
+            this.modVerLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.modVerLabel.AutoSize = true;
             this.modVerLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.modVerLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
