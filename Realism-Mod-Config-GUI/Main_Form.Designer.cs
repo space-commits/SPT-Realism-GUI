@@ -41,6 +41,7 @@
             this.recoilAttOverhaulCheck = new System.Windows.Forms.CheckBox();
             this.malfChangesCheck = new System.Windows.Forms.CheckBox();
             this.armorGroupBox = new System.Windows.Forms.GroupBox();
+            this.headsetCheck = new System.Windows.Forms.CheckBox();
             this.buffHelmetsCheck = new System.Windows.Forms.CheckBox();
             this.armorMousePenaltyCheck = new System.Windows.Forms.CheckBox();
             this.headgearConflictsCheck = new System.Windows.Forms.CheckBox();
@@ -54,6 +55,31 @@
             this.medChangesCheck = new System.Windows.Forms.CheckBox();
             this.revertMedsCheck = new System.Windows.Forms.CheckBox();
             this.Bots = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.hostNum3 = new System.Windows.Forms.NumericUpDown();
+            this.hostNum2 = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.hostNum1 = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.botTierGroup = new System.Windows.Forms.GroupBox();
+            this.botOdds8Text = new System.Windows.Forms.TextBox();
+            this.botOdds7Text = new System.Windows.Forms.TextBox();
+            this.botOdds6Text = new System.Windows.Forms.TextBox();
+            this.botOdds5Text = new System.Windows.Forms.TextBox();
+            this.botOdds4Text = new System.Windows.Forms.TextBox();
+            this.botOdds3Text = new System.Windows.Forms.TextBox();
+            this.botOdds2Text = new System.Windows.Forms.TextBox();
+            this.botOdds1Text = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.bossItemsCheck = new System.Windows.Forms.CheckBox();
             this.bossSpawnCheck = new System.Windows.Forms.CheckBox();
             this.botNameGroupBox = new System.Windows.Forms.GroupBox();
@@ -95,11 +121,10 @@
             this.presetHelpLabel = new System.Windows.Forms.Label();
             this.presetLabel = new System.Windows.Forms.Label();
             this.weapPresetCombo = new System.Windows.Forms.ComboBox();
-            this.globalRecoilGroupBox = new System.Windows.Forms.GroupBox();
-            this.procLabel = new System.Windows.Forms.Label();
-            this.crankCheck = new System.Windows.Forms.CheckBox();
-            this.procNumeric = new System.Windows.Forms.NumericUpDown();
             this.globalRecoilModiGroupBox = new System.Windows.Forms.GroupBox();
+            this.crankCheck = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.camRecNumeric = new System.Windows.Forms.NumericUpDown();
             this.ergoMultiLabel = new System.Windows.Forms.Label();
             this.ergoNumeric = new System.Windows.Forms.NumericUpDown();
             this.dispMultLabel = new System.Windows.Forms.Label();
@@ -111,7 +136,6 @@
             this.vertRecMultLabel = new System.Windows.Forms.Label();
             this.vertRecNumeric = new System.Windows.Forms.NumericUpDown();
             this.Dev_Tools = new System.Windows.Forms.TabPage();
-            this.devModeCheck = new System.Windows.Forms.CheckBox();
             this.devToolsTextBox = new System.Windows.Forms.TextBox();
             this.logEverythingCheck = new System.Windows.Forms.CheckBox();
             this.noFallDamageCheck = new System.Windows.Forms.CheckBox();
@@ -137,6 +161,11 @@
             this.moveGroupBox.SuspendLayout();
             this.healthGroupBox.SuspendLayout();
             this.Bots.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hostNum3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hostNum2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hostNum1)).BeginInit();
+            this.botTierGroup.SuspendLayout();
             this.botNameGroupBox.SuspendLayout();
             this.botDiffGroupBox.SuspendLayout();
             this.botHealthGroupBox.SuspendLayout();
@@ -148,9 +177,8 @@
             this.miscTab.SuspendLayout();
             this.itemGroupBox.SuspendLayout();
             this.recoilTab.SuspendLayout();
-            this.globalRecoilGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.procNumeric)).BeginInit();
             this.globalRecoilModiGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.camRecNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ergoNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dispNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.convNumeric)).BeginInit();
@@ -317,16 +345,32 @@
             // 
             // armorGroupBox
             // 
+            this.armorGroupBox.Controls.Add(this.headsetCheck);
             this.armorGroupBox.Controls.Add(this.buffHelmetsCheck);
             this.armorGroupBox.Controls.Add(this.armorMousePenaltyCheck);
             this.armorGroupBox.Controls.Add(this.headgearConflictsCheck);
             this.armorGroupBox.ForeColor = System.Drawing.Color.White;
             this.armorGroupBox.Location = new System.Drawing.Point(18, 225);
             this.armorGroupBox.Name = "armorGroupBox";
-            this.armorGroupBox.Size = new System.Drawing.Size(150, 100);
+            this.armorGroupBox.Size = new System.Drawing.Size(150, 124);
             this.armorGroupBox.TabIndex = 7;
             this.armorGroupBox.TabStop = false;
-            this.armorGroupBox.Text = "Armor";
+            this.armorGroupBox.Text = "Gear";
+            // 
+            // headsetCheck
+            // 
+            this.headsetCheck.AutoSize = true;
+            this.headsetCheck.Checked = true;
+            this.headsetCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.headsetCheck.ForeColor = System.Drawing.Color.White;
+            this.headsetCheck.Location = new System.Drawing.Point(6, 96);
+            this.headsetCheck.Name = "headsetCheck";
+            this.headsetCheck.Size = new System.Drawing.Size(118, 19);
+            this.headsetCheck.TabIndex = 4;
+            this.headsetCheck.Text = "Headset Changes";
+            this.toolTip1.SetToolTip(this.headsetCheck, "Enables changes to the sound profile of headsets.\r\n");
+            this.headsetCheck.UseVisualStyleBackColor = true;
+            this.headsetCheck.CheckedChanged += new System.EventHandler(this.headsetCheck_CheckedChanged);
             // 
             // buffHelmetsCheck
             // 
@@ -509,6 +553,9 @@
             this.Bots.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Bots.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Bots.BackgroundImage")));
             this.Bots.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Bots.Controls.Add(this.groupBox1);
+            this.Bots.Controls.Add(this.label5);
+            this.Bots.Controls.Add(this.botTierGroup);
             this.Bots.Controls.Add(this.bossItemsCheck);
             this.Bots.Controls.Add(this.bossSpawnCheck);
             this.Bots.Controls.Add(this.botNameGroupBox);
@@ -522,6 +569,273 @@
             this.Bots.Size = new System.Drawing.Size(1360, 684);
             this.Bots.TabIndex = 2;
             this.Bots.Text = "Bots";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.hostNum3);
+            this.groupBox1.Controls.Add(this.hostNum2);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.hostNum1);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Window;
+            this.groupBox1.Location = new System.Drawing.Point(294, 465);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(140, 115);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Bot Hostile Chance";
+            this.toolTip1.SetToolTip(this.groupBox1, resources.GetString("groupBox1.ToolTip"));
+            // 
+            // hostNum3
+            // 
+            this.hostNum3.Location = new System.Drawing.Point(50, 80);
+            this.hostNum3.Name = "hostNum3";
+            this.hostNum3.Size = new System.Drawing.Size(70, 23);
+            this.hostNum3.TabIndex = 27;
+            this.toolTip1.SetToolTip(this.hostNum3, resources.GetString("hostNum3.ToolTip"));
+            this.hostNum3.ValueChanged += new System.EventHandler(this.botHost3_ValueChanged);
+            // 
+            // hostNum2
+            // 
+            this.hostNum2.Location = new System.Drawing.Point(50, 49);
+            this.hostNum2.Name = "hostNum2";
+            this.hostNum2.Size = new System.Drawing.Size(70, 23);
+            this.hostNum2.TabIndex = 26;
+            this.toolTip1.SetToolTip(this.hostNum2, resources.GetString("hostNum2.ToolTip"));
+            this.hostNum2.ValueChanged += new System.EventHandler(this.botHost2_ValueChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(9, 80);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(35, 15);
+            this.label17.TabIndex = 25;
+            this.label17.Text = "Tier 3";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(9, 51);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(35, 15);
+            this.label16.TabIndex = 24;
+            this.label16.Text = "Tier 2";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 24);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(35, 15);
+            this.label15.TabIndex = 23;
+            this.label15.Text = "Tier 1";
+            // 
+            // hostNum1
+            // 
+            this.hostNum1.Location = new System.Drawing.Point(50, 20);
+            this.hostNum1.Name = "hostNum1";
+            this.hostNum1.Size = new System.Drawing.Size(70, 23);
+            this.hostNum1.TabIndex = 20;
+            this.toolTip1.SetToolTip(this.hostNum1, resources.GetString("hostNum1.ToolTip"));
+            this.hostNum1.ValueChanged += new System.EventHandler(this.botHost1_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 15);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "label5";
+            // 
+            // botTierGroup
+            // 
+            this.botTierGroup.Controls.Add(this.botOdds8Text);
+            this.botTierGroup.Controls.Add(this.botOdds7Text);
+            this.botTierGroup.Controls.Add(this.botOdds6Text);
+            this.botTierGroup.Controls.Add(this.botOdds5Text);
+            this.botTierGroup.Controls.Add(this.botOdds4Text);
+            this.botTierGroup.Controls.Add(this.botOdds3Text);
+            this.botTierGroup.Controls.Add(this.botOdds2Text);
+            this.botTierGroup.Controls.Add(this.botOdds1Text);
+            this.botTierGroup.Controls.Add(this.label13);
+            this.botTierGroup.Controls.Add(this.label12);
+            this.botTierGroup.Controls.Add(this.label11);
+            this.botTierGroup.Controls.Add(this.label10);
+            this.botTierGroup.Controls.Add(this.label9);
+            this.botTierGroup.Controls.Add(this.label7);
+            this.botTierGroup.Controls.Add(this.label6);
+            this.botTierGroup.Controls.Add(this.label8);
+            this.botTierGroup.ForeColor = System.Drawing.Color.White;
+            this.botTierGroup.Location = new System.Drawing.Point(18, 281);
+            this.botTierGroup.Name = "botTierGroup";
+            this.botTierGroup.Size = new System.Drawing.Size(258, 299);
+            this.botTierGroup.TabIndex = 19;
+            this.botTierGroup.TabStop = false;
+            this.botTierGroup.Text = "Bot Tier Odds";
+            this.toolTip1.SetToolTip(this.botTierGroup, resources.GetString("botTierGroup.ToolTip"));
+            // 
+            // botOdds8Text
+            // 
+            this.botOdds8Text.Location = new System.Drawing.Point(87, 228);
+            this.botOdds8Text.Name = "botOdds8Text";
+            this.botOdds8Text.Size = new System.Drawing.Size(146, 23);
+            this.botOdds8Text.TabIndex = 95;
+            this.botOdds8Text.Text = "15, 1, 0, 0";
+            this.toolTip1.SetToolTip(this.botOdds8Text, resources.GetString("botOdds8Text.ToolTip"));
+            this.botOdds8Text.TextChanged += new System.EventHandler(this.botOdds8Text_TextChanged);
+            // 
+            // botOdds7Text
+            // 
+            this.botOdds7Text.Location = new System.Drawing.Point(87, 199);
+            this.botOdds7Text.Name = "botOdds7Text";
+            this.botOdds7Text.Size = new System.Drawing.Size(146, 23);
+            this.botOdds7Text.TabIndex = 94;
+            this.botOdds7Text.Text = "15, 1, 0, 0";
+            this.toolTip1.SetToolTip(this.botOdds7Text, resources.GetString("botOdds7Text.ToolTip"));
+            this.botOdds7Text.TextChanged += new System.EventHandler(this.botOdds7Text_TextChanged);
+            // 
+            // botOdds6Text
+            // 
+            this.botOdds6Text.Location = new System.Drawing.Point(87, 170);
+            this.botOdds6Text.Name = "botOdds6Text";
+            this.botOdds6Text.Size = new System.Drawing.Size(146, 23);
+            this.botOdds6Text.TabIndex = 93;
+            this.botOdds6Text.Text = "15, 1, 0, 0";
+            this.toolTip1.SetToolTip(this.botOdds6Text, resources.GetString("botOdds6Text.ToolTip"));
+            this.botOdds6Text.TextChanged += new System.EventHandler(this.botOdds6Text_TextChanged);
+            // 
+            // botOdds5Text
+            // 
+            this.botOdds5Text.Location = new System.Drawing.Point(87, 141);
+            this.botOdds5Text.Name = "botOdds5Text";
+            this.botOdds5Text.Size = new System.Drawing.Size(146, 23);
+            this.botOdds5Text.TabIndex = 92;
+            this.botOdds5Text.Text = "15, 1, 0, 0";
+            this.toolTip1.SetToolTip(this.botOdds5Text, resources.GetString("botOdds5Text.ToolTip"));
+            this.botOdds5Text.TextChanged += new System.EventHandler(this.botOdds5Text_TextChanged);
+            // 
+            // botOdds4Text
+            // 
+            this.botOdds4Text.Location = new System.Drawing.Point(87, 112);
+            this.botOdds4Text.Name = "botOdds4Text";
+            this.botOdds4Text.Size = new System.Drawing.Size(146, 23);
+            this.botOdds4Text.TabIndex = 91;
+            this.botOdds4Text.Text = "15, 1, 0, 0";
+            this.toolTip1.SetToolTip(this.botOdds4Text, resources.GetString("botOdds4Text.ToolTip"));
+            this.botOdds4Text.TextChanged += new System.EventHandler(this.botOdds4Text_TextChanged);
+            // 
+            // botOdds3Text
+            // 
+            this.botOdds3Text.Location = new System.Drawing.Point(87, 83);
+            this.botOdds3Text.Name = "botOdds3Text";
+            this.botOdds3Text.Size = new System.Drawing.Size(146, 23);
+            this.botOdds3Text.TabIndex = 90;
+            this.botOdds3Text.Text = "15, 1, 0, 0";
+            this.toolTip1.SetToolTip(this.botOdds3Text, resources.GetString("botOdds3Text.ToolTip"));
+            this.botOdds3Text.TextChanged += new System.EventHandler(this.botOdds3Text_TextChanged);
+            // 
+            // botOdds2Text
+            // 
+            this.botOdds2Text.Location = new System.Drawing.Point(87, 54);
+            this.botOdds2Text.Name = "botOdds2Text";
+            this.botOdds2Text.Size = new System.Drawing.Size(146, 23);
+            this.botOdds2Text.TabIndex = 89;
+            this.botOdds2Text.Text = "15, 1, 0, 0";
+            this.toolTip1.SetToolTip(this.botOdds2Text, resources.GetString("botOdds2Text.ToolTip"));
+            this.botOdds2Text.TextChanged += new System.EventHandler(this.botOdds2Text_TextChanged);
+            // 
+            // botOdds1Text
+            // 
+            this.botOdds1Text.Location = new System.Drawing.Point(87, 25);
+            this.botOdds1Text.Name = "botOdds1Text";
+            this.botOdds1Text.Size = new System.Drawing.Size(146, 23);
+            this.botOdds1Text.TabIndex = 21;
+            this.botOdds1Text.Text = "15, 1, 0, 0";
+            this.toolTip1.SetToolTip(this.botOdds1Text, resources.GetString("botOdds1Text.ToolTip"));
+            this.botOdds1Text.TextChanged += new System.EventHandler(this.botOdds1Text_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(15, 231);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 15);
+            this.label13.TabIndex = 88;
+            this.label13.Text = "Lvl 34+";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(15, 202);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 15);
+            this.label12.TabIndex = 83;
+            this.label12.Text = "Lvl 30-34";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(15, 173);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 15);
+            this.label11.TabIndex = 78;
+            this.label11.Text = "Lvl 25-29";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(15, 144);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 15);
+            this.label10.TabIndex = 73;
+            this.label10.Text = "Lvl 20-24";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(15, 115);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 15);
+            this.label9.TabIndex = 68;
+            this.label9.Text = "Lvl 15-19";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(15, 86);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 15);
+            this.label7.TabIndex = 63;
+            this.label7.Text = "Lvl 10-14";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(15, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 15);
+            this.label6.TabIndex = 58;
+            this.label6.Text = "Lvl 5-9";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(15, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 15);
+            this.label8.TabIndex = 53;
+            this.label8.Text = "Lvl 0-4";
             // 
             // bossItemsCheck
             // 
@@ -559,7 +873,7 @@
             this.botNameGroupBox.Controls.Add(this.pmcNamesCheck);
             this.botNameGroupBox.Controls.Add(this.cyrillicNamesCheck);
             this.botNameGroupBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.botNameGroupBox.Location = new System.Drawing.Point(18, 376);
+            this.botNameGroupBox.Location = new System.Drawing.Point(294, 384);
             this.botNameGroupBox.Name = "botNameGroupBox";
             this.botNameGroupBox.Size = new System.Drawing.Size(140, 75);
             this.botNameGroupBox.TabIndex = 16;
@@ -606,7 +920,7 @@
             this.botDiffGroupBox.Controls.Add(this.pmcDifficultyCheck);
             this.botDiffGroupBox.Controls.Add(this.bossDifficultyCheck);
             this.botDiffGroupBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.botDiffGroupBox.Location = new System.Drawing.Point(18, 273);
+            this.botDiffGroupBox.Location = new System.Drawing.Point(294, 281);
             this.botDiffGroupBox.Name = "botDiffGroupBox";
             this.botDiffGroupBox.Size = new System.Drawing.Size(140, 97);
             this.botDiffGroupBox.TabIndex = 15;
@@ -679,7 +993,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(194, 78);
+            this.label4.Location = new System.Drawing.Point(194, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 15);
             this.label4.TabIndex = 22;
@@ -720,7 +1034,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(194, 51);
+            this.label2.Location = new System.Drawing.Point(194, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 15);
             this.label2.TabIndex = 20;
@@ -761,7 +1075,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(194, 26);
+            this.label3.Location = new System.Drawing.Point(194, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 15);
             this.label3.TabIndex = 19;
@@ -901,8 +1215,8 @@
             this.botChangesCheck.Size = new System.Drawing.Size(93, 19);
             this.botChangesCheck.TabIndex = 0;
             this.botChangesCheck.Text = "Bot Changes";
-            this.toolTip1.SetToolTip(this.botChangesCheck, "Enables bot tiered loadouts, randomized PMC behaviour, changes to bot loot, armor" +
-        " and weapon durability, hostilitiy chance, spawn ratios, etc.");
+            this.toolTip1.SetToolTip(this.botChangesCheck, "Enables bot tiered loadouts, changes to bot loot, armor and weapon durability, ho" +
+        "stilitiy chance, spawn ratios, etc.\r\n");
             this.botChangesCheck.UseVisualStyleBackColor = true;
             this.botChangesCheck.CheckedChanged += new System.EventHandler(this.botChangesCheck_CheckedChanged);
             // 
@@ -1092,7 +1406,6 @@
             this.recoilTab.Controls.Add(this.presetHelpLabel);
             this.recoilTab.Controls.Add(this.presetLabel);
             this.recoilTab.Controls.Add(this.weapPresetCombo);
-            this.recoilTab.Controls.Add(this.globalRecoilGroupBox);
             this.recoilTab.Controls.Add(this.globalRecoilModiGroupBox);
             this.recoilTab.Location = new System.Drawing.Point(4, 24);
             this.recoilTab.Name = "recoilTab";
@@ -1104,7 +1417,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(18, 420);
+            this.label1.Location = new System.Drawing.Point(24, 450);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 15);
             this.label1.TabIndex = 20;
@@ -1113,7 +1426,7 @@
             // attachPresetCombo
             // 
             this.attachPresetCombo.FormattingEnabled = true;
-            this.attachPresetCombo.Location = new System.Drawing.Point(139, 417);
+            this.attachPresetCombo.Location = new System.Drawing.Point(145, 447);
             this.attachPresetCombo.Name = "attachPresetCombo";
             this.attachPresetCombo.Size = new System.Drawing.Size(188, 23);
             this.attachPresetCombo.TabIndex = 19;
@@ -1123,7 +1436,7 @@
             // 
             this.presetHelpLabel.AutoSize = true;
             this.presetHelpLabel.ForeColor = System.Drawing.Color.White;
-            this.presetHelpLabel.Location = new System.Drawing.Point(19, 345);
+            this.presetHelpLabel.Location = new System.Drawing.Point(25, 375);
             this.presetHelpLabel.Name = "presetHelpLabel";
             this.presetHelpLabel.Size = new System.Drawing.Size(649, 15);
             this.presetHelpLabel.TabIndex = 18;
@@ -1134,7 +1447,7 @@
             // 
             this.presetLabel.AutoSize = true;
             this.presetLabel.ForeColor = System.Drawing.Color.White;
-            this.presetLabel.Location = new System.Drawing.Point(18, 382);
+            this.presetLabel.Location = new System.Drawing.Point(24, 412);
             this.presetLabel.Name = "presetLabel";
             this.presetLabel.Size = new System.Drawing.Size(89, 15);
             this.presetLabel.TabIndex = 17;
@@ -1143,82 +1456,17 @@
             // weapPresetCombo
             // 
             this.weapPresetCombo.FormattingEnabled = true;
-            this.weapPresetCombo.Location = new System.Drawing.Point(139, 379);
+            this.weapPresetCombo.Location = new System.Drawing.Point(145, 409);
             this.weapPresetCombo.Name = "weapPresetCombo";
             this.weapPresetCombo.Size = new System.Drawing.Size(188, 23);
             this.weapPresetCombo.TabIndex = 16;
             this.weapPresetCombo.SelectedIndexChanged += new System.EventHandler(this.weapPresetCombo_SelectedIndexChanged);
             // 
-            // globalRecoilGroupBox
-            // 
-            this.globalRecoilGroupBox.Controls.Add(this.procLabel);
-            this.globalRecoilGroupBox.Controls.Add(this.crankCheck);
-            this.globalRecoilGroupBox.Controls.Add(this.procNumeric);
-            this.globalRecoilGroupBox.ForeColor = System.Drawing.Color.White;
-            this.globalRecoilGroupBox.Location = new System.Drawing.Point(19, 223);
-            this.globalRecoilGroupBox.Name = "globalRecoilGroupBox";
-            this.globalRecoilGroupBox.Size = new System.Drawing.Size(320, 106);
-            this.globalRecoilGroupBox.TabIndex = 15;
-            this.globalRecoilGroupBox.TabStop = false;
-            this.globalRecoilGroupBox.Text = "Global Recoil and Weapon Settings";
-            // 
-            // procLabel
-            // 
-            this.procLabel.AutoSize = true;
-            this.procLabel.Location = new System.Drawing.Point(6, 58);
-            this.procLabel.Name = "procLabel";
-            this.procLabel.Size = new System.Drawing.Size(112, 15);
-            this.procLabel.TabIndex = 11;
-            this.procLabel.Text = "Procedural Intensity";
-            this.toolTip1.SetToolTip(this.procLabel, "This Is The Intensity Of All Weapon-Related Procedural Animations. This Includes " +
-        "Sway, Aim Inertira And Recoil. The Lower It Is, The Less Recoil, Sway And Aim In" +
-        "ertia. Recommended To Leave At 1.");
-            // 
-            // crankCheck
-            // 
-            this.crankCheck.AutoSize = true;
-            this.crankCheck.ForeColor = System.Drawing.Color.White;
-            this.crankCheck.Location = new System.Drawing.Point(6, 33);
-            this.crankCheck.Name = "crankCheck";
-            this.crankCheck.Size = new System.Drawing.Size(136, 19);
-            this.crankCheck.TabIndex = 4;
-            this.crankCheck.Text = "Enable \'Recoil Crank\'";
-            this.toolTip1.SetToolTip(this.crankCheck, "If Recoil Crank Is Enabled, Recoil Will Go Rearwards Into The Shoulder. If It\'s O" +
-        "ff Then Recoil Will Go Forward Like In Unmodded EFT.");
-            this.crankCheck.UseVisualStyleBackColor = true;
-            this.crankCheck.CheckedChanged += new System.EventHandler(this.crankCheck_CheckedChanged);
-            // 
-            // procNumeric
-            // 
-            this.procNumeric.DecimalPlaces = 2;
-            this.procNumeric.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            131072});
-            this.procNumeric.Location = new System.Drawing.Point(147, 56);
-            this.procNumeric.Maximum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.procNumeric.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.procNumeric.Name = "procNumeric";
-            this.procNumeric.Size = new System.Drawing.Size(120, 23);
-            this.procNumeric.TabIndex = 10;
-            this.procNumeric.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.procNumeric.ValueChanged += new System.EventHandler(this.procNumeric_ValueChanged);
-            // 
             // globalRecoilModiGroupBox
             // 
+            this.globalRecoilModiGroupBox.Controls.Add(this.crankCheck);
+            this.globalRecoilModiGroupBox.Controls.Add(this.label14);
+            this.globalRecoilModiGroupBox.Controls.Add(this.camRecNumeric);
             this.globalRecoilModiGroupBox.Controls.Add(this.ergoMultiLabel);
             this.globalRecoilModiGroupBox.Controls.Add(this.ergoNumeric);
             this.globalRecoilModiGroupBox.Controls.Add(this.dispMultLabel);
@@ -1232,10 +1480,64 @@
             this.globalRecoilModiGroupBox.ForeColor = System.Drawing.Color.White;
             this.globalRecoilModiGroupBox.Location = new System.Drawing.Point(19, 12);
             this.globalRecoilModiGroupBox.Name = "globalRecoilModiGroupBox";
-            this.globalRecoilModiGroupBox.Size = new System.Drawing.Size(320, 191);
+            this.globalRecoilModiGroupBox.Size = new System.Drawing.Size(320, 245);
             this.globalRecoilModiGroupBox.TabIndex = 14;
             this.globalRecoilModiGroupBox.TabStop = false;
             this.globalRecoilModiGroupBox.Text = "Global Recoil Modifiers";
+            // 
+            // crankCheck
+            // 
+            this.crankCheck.AutoSize = true;
+            this.crankCheck.ForeColor = System.Drawing.Color.White;
+            this.crankCheck.Location = new System.Drawing.Point(6, 205);
+            this.crankCheck.Name = "crankCheck";
+            this.crankCheck.Size = new System.Drawing.Size(136, 19);
+            this.crankCheck.TabIndex = 4;
+            this.crankCheck.Text = "Enable \'Recoil Crank\'";
+            this.toolTip1.SetToolTip(this.crankCheck, "If Recoil Crank Is Enabled, Recoil Will Go Rearwards Into The Shoulder. If It\'s O" +
+        "ff Then Recoil Will Go Forward Like In Unmodded EFT.");
+            this.crankCheck.UseVisualStyleBackColor = true;
+            this.crankCheck.CheckedChanged += new System.EventHandler(this.crankCheck_CheckedChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 178);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(114, 15);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Camera Recoil Multi";
+            this.toolTip1.SetToolTip(this.label14, "Camera Recoil Multi. Higher = More Screen Shake And Head Tilting When Firing.");
+            // 
+            // camRecNumeric
+            // 
+            this.camRecNumeric.DecimalPlaces = 2;
+            this.camRecNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.camRecNumeric.Location = new System.Drawing.Point(147, 176);
+            this.camRecNumeric.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.camRecNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.camRecNumeric.Name = "camRecNumeric";
+            this.camRecNumeric.Size = new System.Drawing.Size(120, 23);
+            this.camRecNumeric.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.camRecNumeric, "Camera Recoil multi. Higher = more screen shake and head tilting when firing.");
+            this.camRecNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.camRecNumeric.ValueChanged += new System.EventHandler(this.camRecNumeric_ValueChanged);
             // 
             // ergoMultiLabel
             // 
@@ -1440,7 +1742,6 @@
             this.Dev_Tools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Dev_Tools.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Dev_Tools.BackgroundImage")));
             this.Dev_Tools.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Dev_Tools.Controls.Add(this.devModeCheck);
             this.Dev_Tools.Controls.Add(this.devToolsTextBox);
             this.Dev_Tools.Controls.Add(this.logEverythingCheck);
             this.Dev_Tools.Controls.Add(this.noFallDamageCheck);
@@ -1459,18 +1760,6 @@
             this.Dev_Tools.TabIndex = 5;
             this.Dev_Tools.Text = "Dev Tools";
             // 
-            // devModeCheck
-            // 
-            this.devModeCheck.AutoSize = true;
-            this.devModeCheck.ForeColor = System.Drawing.Color.White;
-            this.devModeCheck.Location = new System.Drawing.Point(20, 257);
-            this.devModeCheck.Name = "devModeCheck";
-            this.devModeCheck.Size = new System.Drawing.Size(80, 19);
-            this.devModeCheck.TabIndex = 11;
-            this.devModeCheck.Text = "Dev Mode";
-            this.devModeCheck.UseVisualStyleBackColor = true;
-            this.devModeCheck.CheckStateChanged += new System.EventHandler(this.devModeCheck_CheckedChanged);
-            // 
             // devToolsTextBox
             // 
             this.devToolsTextBox.Location = new System.Drawing.Point(20, 16);
@@ -1485,7 +1774,7 @@
             // 
             this.logEverythingCheck.AutoSize = true;
             this.logEverythingCheck.ForeColor = System.Drawing.Color.White;
-            this.logEverythingCheck.Location = new System.Drawing.Point(20, 282);
+            this.logEverythingCheck.Location = new System.Drawing.Point(20, 257);
             this.logEverythingCheck.Name = "logEverythingCheck";
             this.logEverythingCheck.Size = new System.Drawing.Size(105, 19);
             this.logEverythingCheck.TabIndex = 9;
@@ -1715,6 +2004,13 @@
             this.healthGroupBox.PerformLayout();
             this.Bots.ResumeLayout(false);
             this.Bots.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hostNum3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hostNum2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hostNum1)).EndInit();
+            this.botTierGroup.ResumeLayout(false);
+            this.botTierGroup.PerformLayout();
             this.botNameGroupBox.ResumeLayout(false);
             this.botNameGroupBox.PerformLayout();
             this.botDiffGroupBox.ResumeLayout(false);
@@ -1733,11 +2029,9 @@
             this.itemGroupBox.PerformLayout();
             this.recoilTab.ResumeLayout(false);
             this.recoilTab.PerformLayout();
-            this.globalRecoilGroupBox.ResumeLayout(false);
-            this.globalRecoilGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.procNumeric)).EndInit();
             this.globalRecoilModiGroupBox.ResumeLayout(false);
             this.globalRecoilModiGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.camRecNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ergoNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dispNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.convNumeric)).EndInit();
@@ -1810,7 +2104,6 @@
         private Label revertLabel;
         private Label savedLabel;
         private RichTextBox warningTextBox;
-        private CheckBox devModeCheck;
         private Label modVerLabel;
         private CheckBox realPlayerHealthCheck;
         private CheckBox pmcTypeCheck;
@@ -1830,10 +2123,7 @@
         private Label presetHelpLabel;
         private Label presetLabel;
         private ComboBox weapPresetCombo;
-        private GroupBox globalRecoilGroupBox;
-        private Label procLabel;
         private CheckBox crankCheck;
-        private NumericUpDown procNumeric;
         private GroupBox globalRecoilModiGroupBox;
         private Label ergoMultiLabel;
         private NumericUpDown ergoNumeric;
@@ -1852,5 +2142,33 @@
         private Label label3;
         private NumericUpDown standardHPNumeric;
         private CheckBox weightCheck;
+        private CheckBox headsetCheck;
+        private GroupBox botTierGroup;
+        private Label label5;
+        private Label label8;
+        private TextBox botOdds1Text;
+        private Label label13;
+        private Label label12;
+        private Label label11;
+        private Label label10;
+        private Label label9;
+        private Label label7;
+        private Label label6;
+        private TextBox botOdds8Text;
+        private TextBox botOdds7Text;
+        private TextBox botOdds6Text;
+        private TextBox botOdds5Text;
+        private TextBox botOdds4Text;
+        private TextBox botOdds3Text;
+        private TextBox botOdds2Text;
+        private Label label14;
+        private NumericUpDown camRecNumeric;
+        private GroupBox groupBox1;
+        private NumericUpDown hostNum1;
+        private NumericUpDown hostNum3;
+        private NumericUpDown hostNum2;
+        private Label label17;
+        private Label label16;
+        private Label label15;
     }
 }

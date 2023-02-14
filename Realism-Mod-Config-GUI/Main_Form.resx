@@ -2144,7 +2144,7 @@ IF YOU WANT TO DISABLE THIS FEATURE YOU MUST DELETE THE REALISMMOD.DLL FROM YOUR
 Not carefully balanced, just for those that want a slightly less hardcore experience.</value>
   </data>
   <data name="headgearConflictsCheck.ToolTip" xml:space="preserve">
-    <value>Ensures Bots Spawn with NVGs Correctly And Makes some masks and headgear conflict to prevent bots from looking cursed, these are items that clip badly. 
+    <value>Ensures bots spawn with NVGs correctly and makes some masks and headgear conflict to prevent bots from looking cursed, these are items that clip badly. 
 
 If disabled, bots will sometimes spawn with NVG mounts but the NVG missing.</value>
   </data>
@@ -6276,8 +6276,90 @@ See the mod overview page for details.</value>
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="hostNum3.ToolTip" xml:space="preserve">
+    <value>Chance of same-faction PMCs being friendly per base tier.
+
+Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
+</value>
+  </data>
+  <data name="hostNum2.ToolTip" xml:space="preserve">
+    <value>Chance of same-faction PMCs being friendly per base tier.
+
+Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
+</value>
+  </data>
+  <data name="hostNum1.ToolTip" xml:space="preserve">
+    <value>Chance of same-faction PMCs being friendly per base tier.
+
+Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
+</value>
+  </data>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value>Chance of same-faction PMCs being hostile to player per base tier.
+
+Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
+
+</value>
+  </data>
+  <data name="botOdds8Text.ToolTip" xml:space="preserve">
+    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
+
+Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
+</value>
+  </data>
+  <data name="botOdds7Text.ToolTip" xml:space="preserve">
+    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
+
+Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
+</value>
+  </data>
+  <data name="botOdds6Text.ToolTip" xml:space="preserve">
+    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
+
+Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
+</value>
+  </data>
+  <data name="botOdds5Text.ToolTip" xml:space="preserve">
+    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
+
+Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
+</value>
+  </data>
+  <data name="botOdds4Text.ToolTip" xml:space="preserve">
+    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
+
+Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
+</value>
+  </data>
+  <data name="botOdds3Text.ToolTip" xml:space="preserve">
+    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
+
+Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
+</value>
+  </data>
+  <data name="botOdds2Text.ToolTip" xml:space="preserve">
+    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
+
+Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
+</value>
+  </data>
+  <data name="botOdds1Text.ToolTip" xml:space="preserve">
+    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
+
+For example, at lvl 0-4, tier 1 bots have odds of 15, tier 2 bots odds of 1, tier 3 &amp; 4 bots odds of 0.
+
+Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
+</value>
+  </data>
+  <data name="botTierGroup.ToolTip" xml:space="preserve">
+    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
+
+Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
+</value>
+  </data>
   <data name="bossSpawnCheck.ToolTip" xml:space="preserve">
-    <value>Boss/Rogue/Raider spawn chances increase as you level up, allows bosses to spawn in more parts of the map, adds chance for Raiders and Rogues to spawn on more maps, increases Raider trigger spawns to 100%.</value>
+    <value>Boss/Rogue/Raider spawn chances increase as you level up, allows bosses to spawn in more parts of the map and additional maps, adds chance for Raiders and Rogues to spawn on more maps. 
+Raiders and Rogues still have 100% spawn chance on Labs and Lighthouse respectively.</value>
   </data>
   <data name="pmcTypeCheck.ToolTip" xml:space="preserve">
     <value>Changes the odds and available behaviour templates that PMCs can use. The types available and their odds changes based on the level of the PMC, the map and the time of day.

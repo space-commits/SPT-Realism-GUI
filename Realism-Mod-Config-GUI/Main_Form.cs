@@ -43,8 +43,8 @@ namespace Realism_Mod_Config_GUI
 
         private void setTitleBar()
         {
-            string modVer = "v0.6.5";
-            string sptVer = "v3.4.1";
+            string modVer = "v0.7.0";
+            string sptVer = "v3.5.0";
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
 
@@ -61,10 +61,12 @@ namespace Realism_Mod_Config_GUI
             decimal increment = 0.1m;
             int decimalPlaces = 2;
 
-            procNumeric.Minimum = 0.1m;
-            procNumeric.Maximum = 2.0m;
-            procNumeric.Increment = 0.05m;
-            procNumeric.DecimalPlaces = decimalPlaces;
+            decimal botHostMin = 0.0m;
+            decimal botHostMax = 100.0m;
+            decimal botHostInc = 1.0m;
+            int botHostDeci = 0;
+
+
 
             vertRecNumeric.Minimum = recoilMultiMin;
             vertRecNumeric.Maximum = recoilMultiMax;
@@ -91,6 +93,11 @@ namespace Realism_Mod_Config_GUI
             ergoNumeric.Increment = increment;
             ergoNumeric.DecimalPlaces = decimalPlaces;
 
+            camRecNumeric.Minimum = recoilMultiMin;
+            camRecNumeric.Maximum = recoilMultiMax;
+            camRecNumeric.Increment = increment;
+            camRecNumeric.DecimalPlaces = decimalPlaces;
+
             standardHPNumeric.Minimum = hpMultiMin;
             standardHPNumeric.Maximum = hpMultiMax;
             standardHPNumeric.Increment = increment;
@@ -105,6 +112,22 @@ namespace Realism_Mod_Config_GUI
             bossHPNumeric.Maximum = hpMultiMax;
             bossHPNumeric.Increment = increment;
             bossHPNumeric.DecimalPlaces = decimalPlaces;
+
+            hostNum1.Minimum = botHostMin;
+            hostNum1.Maximum = botHostMax;
+            hostNum1.Increment = botHostInc;
+            hostNum1.DecimalPlaces = botHostDeci;
+
+            hostNum2.Minimum = botHostMin;
+            hostNum2.Maximum = botHostMax;
+            hostNum2.Increment = botHostInc;
+            hostNum2.DecimalPlaces = botHostDeci;
+
+            hostNum3.Minimum = botHostMin;
+            hostNum3.Maximum = botHostMax;
+            hostNum3.Increment = botHostInc;
+            hostNum3.DecimalPlaces = botHostDeci;
+
         }
 
         private void SetPresetComboBoxes(DirectoryInfo[] dirInfoArr, ComboBox cb)
@@ -114,7 +137,6 @@ namespace Realism_Mod_Config_GUI
                 cb.Items.Add(dir.Name);
             }
         }
-
 
 
         private void SetDefaultValues()
@@ -139,14 +161,16 @@ namespace Realism_Mod_Config_GUI
                 }
             }
 
-
-
-            procNumeric.Value = 1.0m;
             vertRecNumeric.Value = 1.0m;
             horzRecNumeric.Value = 1.0m;
             convNumeric.Value = 1.0m;
             dispNumeric.Value = 1.0m;
             ergoNumeric.Value = 1.0m;
+            camRecNumeric.Value = 1.0m;
+
+            hostNum1.Value = 95.0m;
+            hostNum2.Value = 99.0m;
+            hostNum3.Value = 100.0m;
 
             standardHPNumeric.Value = 1.0m;
             midHPNumeric.Value = 1.0m;
@@ -169,6 +193,7 @@ namespace Realism_Mod_Config_GUI
             Config.med_changes = true;
             Config.revert_med_changes = false;
             Config.weight_limits_changes= true;
+            Config.headset_changes = true;
             Config.movement_changes = true;
             Config.fall_damage_changes = true;
             Config.bot_changes = true;
@@ -203,21 +228,32 @@ namespace Realism_Mod_Config_GUI
             Config.disable_flea_blacklist = false;
             Config.no_fall_damage = false;
             Config.logEverything = false;
-            Config.dev_mode = false;
             Config.unstuck_GS = false;
             Config.revert_hp= false;
+            Config.botTierOdds1 = new int[] { 15, 1, 0, 0 };
+            Config.botTierOdds2 = new int[] { 20, 2, 0, 0 };
+            Config.botTierOdds3 = new int[] { 15, 10, 1, 0 };
+            Config.botTierOdds4 = new int[] { 5, 15, 2, 1 };
+            Config.botTierOdds5 = new int[] { 2, 10, 15, 2 };
+            Config.botTierOdds6 = new int[] { 1, 4, 25, 10 };
+            Config.botTierOdds7 = new int[] { 1, 4, 10, 30 };
+            Config.botTierOdds8 = new int[] { 1, 2, 8, 35 };
 
             CheckCheckBoxes();
         }
 
         private void SetDisplayValues()
         {
-            procNumeric.Value = (decimal)Config.procedural_intensity;
             vertRecNumeric.Value = (decimal)Config.vert_recoil_multi;
             horzRecNumeric.Value = (decimal)Config.horz_recoil_multi;
             convNumeric.Value = (decimal)Config.convergence_multi;
             dispNumeric.Value = (decimal)Config.dispersion_multi;
             ergoNumeric.Value = (decimal)Config.ergo_multi;
+            camRecNumeric.Value = (decimal)Config.cam_multi;
+
+            hostNum1.Value = (decimal)Config.bot_hostile1;
+            hostNum2.Value = (decimal)Config.bot_hostile2;
+            hostNum3.Value = (decimal)Config.bot_hostile3;
 
             standardHPNumeric.Value = (decimal)Config.standard_bot_hp_multi;
             midHPNumeric.Value = (decimal)Config.mid_bot_hp_multi;
@@ -227,6 +263,8 @@ namespace Realism_Mod_Config_GUI
 
             weapPresetCombo.SelectedItem = Config.weap_preset;
             attachPresetCombo.SelectedItem = Config.att_preset;
+            weapPresetCombo.Text = Config.weap_preset;
+            attachPresetCombo.Text = Config.att_preset;
 
             realPlayerHealthCheck.Checked = Config.realistic_player_health;
             realBallisticsCheck.Checked = Config.realistic_ballistics;
@@ -242,7 +280,17 @@ namespace Realism_Mod_Config_GUI
             revertMedsCheck.Checked = Config.revert_med_changes;
             movementChangesCheck.Checked = Config.movement_changes;
             weightCheck.Checked = Config.weight_limits_changes;
+            headsetCheck.Checked = Config.headset_changes;
             fallDamageChangesCheck.Checked = Config.fall_damage_changes;
+
+            botOdds1Text.Text = intArrToString(Config.botTierOdds1);
+            botOdds2Text.Text = intArrToString(Config.botTierOdds2);
+            botOdds3Text.Text = intArrToString(Config.botTierOdds3);
+            botOdds4Text.Text = intArrToString(Config.botTierOdds4);
+            botOdds5Text.Text = intArrToString(Config.botTierOdds5);
+            botOdds6Text.Text = intArrToString(Config.botTierOdds6);
+            botOdds7Text.Text = intArrToString(Config.botTierOdds7);
+            botOdds8Text.Text = intArrToString(Config.botTierOdds8);
 
             botChangesCheck.Checked = Config.bot_changes;
             increasedBotCapCheck.Checked = Config.increased_bot_cap;
@@ -275,7 +323,6 @@ namespace Realism_Mod_Config_GUI
             logEverythingCheck.Checked = Config.logEverything;
             unstuckGSCheck.Checked = Config.unstuck_GS;
             revertHPCheck.Checked = Config.revert_hp;
-            devModeCheck.Checked = Config.dev_mode;
 
             if (Config.bot_test_tier > 1 && Config.bot_test_tier <= 4)
             {
@@ -402,7 +449,7 @@ namespace Realism_Mod_Config_GUI
                 revertMedsCheck.Enabled = true;
             }
 
-            //bots
+            //bot names
             if (pmcNamesCheck.Checked == false)
             {
                 cyrillicNamesCheck.Checked = false;
@@ -412,8 +459,32 @@ namespace Realism_Mod_Config_GUI
             {
                 cyrillicNamesCheck.Enabled = true;
             }
-    
-  
+
+            //bot changes
+            if (botChangesCheck.Checked == false)
+            {
+                botOdds1Text.Enabled = false;
+                botOdds2Text.Enabled = false;
+                botOdds3Text.Enabled = false;
+                botOdds4Text.Enabled = false;
+                botOdds5Text.Enabled = false;
+                botOdds6Text.Enabled = false;
+                botOdds7Text.Enabled = false;
+                botOdds8Text.Enabled = false;
+            }
+            else
+            {
+                botOdds1Text.Enabled = true;
+                botOdds2Text.Enabled = true;
+                botOdds3Text.Enabled = true;
+                botOdds4Text.Enabled = true;
+                botOdds5Text.Enabled = true;
+                botOdds6Text.Enabled = true;
+                botOdds7Text.Enabled = true;
+                botOdds8Text.Enabled = true;
+            }
+
+
             //testing
             if (botTestingCheck.Checked == false)
             {
@@ -780,12 +851,6 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
-        private void devModeCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            Config.dev_mode = devModeCheck.Checked == true ? true : false;
-            CheckCheckBoxes();
-        }
-
         private void revertHPCheck_CheckedChanged(object sender, EventArgs e)
         {
             Config.revert_hp = revertHPCheck.Checked == true ? true : false;
@@ -822,9 +887,9 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
-        private void procNumeric_ValueChanged(object sender, EventArgs e)
+        private void camRecNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.procedural_intensity = procNumeric.Value;
+            Config.cam_multi = camRecNumeric.Value;
             CheckCheckBoxes();
         }
 
@@ -870,6 +935,79 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void headsetCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.headset_changes = headsetCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
+        private void botOdds1Text_TextChanged(object sender, EventArgs e)
+        {
+            Config.botTierOdds1 = stringToIntArr(botOdds1Text.Text); ;
+            CheckCheckBoxes();
+        }
+
+        private void botOdds2Text_TextChanged(object sender, EventArgs e)
+        {
+            Config.botTierOdds2 = stringToIntArr(botOdds2Text.Text); ;
+            CheckCheckBoxes();
+        }
+
+        private void botOdds3Text_TextChanged(object sender, EventArgs e)
+        {
+            Config.botTierOdds3 = stringToIntArr(botOdds3Text.Text); ;
+            CheckCheckBoxes();
+        }
+
+        private void botOdds4Text_TextChanged(object sender, EventArgs e)
+        {
+            Config.botTierOdds4 = stringToIntArr(botOdds4Text.Text); ;
+            CheckCheckBoxes();
+        }
+
+        private void botOdds5Text_TextChanged(object sender, EventArgs e)
+        {
+            Config.botTierOdds5 = stringToIntArr(botOdds5Text.Text); ;
+            CheckCheckBoxes();
+        }
+
+        private void botOdds6Text_TextChanged(object sender, EventArgs e)
+        {
+            Config.botTierOdds6 = stringToIntArr(botOdds6Text.Text);
+            CheckCheckBoxes();
+        }
+
+        private void botOdds7Text_TextChanged(object sender, EventArgs e)
+        {
+            Config.botTierOdds7 = stringToIntArr(botOdds7Text.Text);
+            CheckCheckBoxes();
+        }
+
+        private void botOdds8Text_TextChanged(object sender, EventArgs e)
+        {
+            Config.botTierOdds8 = stringToIntArr(botOdds8Text.Text);
+            CheckCheckBoxes();
+        }
+
+
+        private void botHost1_ValueChanged(object sender, EventArgs e)
+        {
+            Config.bot_hostile1 = (int)hostNum1.Value;
+            CheckCheckBoxes();
+        }
+
+        private void botHost2_ValueChanged(object sender, EventArgs e)
+        {
+            Config.bot_hostile2 = (int)hostNum2.Value;
+            CheckCheckBoxes();
+        }
+
+        private void botHost3_ValueChanged(object sender, EventArgs e)
+        {
+            Config.bot_hostile3 = (int)hostNum3.Value;
+            CheckCheckBoxes();
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
@@ -883,6 +1021,16 @@ namespace Realism_Mod_Config_GUI
             File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
             revertLabel.ForeColor = Color.DarkOrange;
             Timer(revertLabel);
+        }
+
+        private int[] stringToIntArr(string str) 
+        {
+            return Array.ConvertAll(str.Split(','), int.Parse);
+        }
+
+        private string intArrToString(int[] intArr)
+        {
+            return string.Join(",", intArr);
         }
 
         public class ConfigTemplate
@@ -928,7 +1076,6 @@ namespace Realism_Mod_Config_GUI
             public bool all_USEC { get; set; }
             public bool all_bear { get; set; }
             public bool all_PMCs { get; set; }
-            public bool dev_mode { get; set; }
             public bool guarantee_boss_spawn { get; set; }
             public bool disable_flea_blacklist { get; set; }
             public bool no_fall_damage { get; set; }
@@ -939,16 +1086,27 @@ namespace Realism_Mod_Config_GUI
             public string weap_preset { get; set; }
             public string att_preset { get; set; }
             public bool recoil_crank { get; set; }
-            public decimal procedural_intensity { get; set; }
             public decimal vert_recoil_multi { get; set; }
             public decimal horz_recoil_multi { get; set; }
             public decimal convergence_multi { get; set; }
             public decimal dispersion_multi { get; set; }
             public decimal ergo_multi { get; set; }
+            public decimal cam_multi { get; set; }
             public decimal standard_bot_hp_multi { get; set; }
             public decimal mid_bot_hp_multi { get; set; }
             public decimal boss_bot_hp_multi { get; set; }
-
+            public bool headset_changes { get; set; }
+            public int[] botTierOdds1 { get; set; }
+            public int[] botTierOdds2 { get; set; }
+            public int[] botTierOdds3 { get; set; }
+            public int[] botTierOdds4 { get; set; }
+            public int[] botTierOdds5 { get; set; }
+            public int[] botTierOdds6 { get; set; }
+            public int[] botTierOdds7 { get; set; }
+            public int[] botTierOdds8 { get; set; }
+            public int bot_hostile1 { get; set; }
+            public int bot_hostile2 { get; set; }
+            public int bot_hostile3 { get; set; }
         }
 
     }
