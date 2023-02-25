@@ -2132,12 +2132,17 @@ This is only an option for those who want to raise their health using another mo
 For most weapons, mastery will come a lot quicker because of this.</value>
   </data>
   <data name="recoilAttOverhaulCheck.ToolTip" xml:space="preserve">
-    <value>Enables the complete overhaul of recoil, ballistics and attachments. See  the mod's overview page on the hub for details.
+    <value>Enables the complete overhaul of recoil and attachments. See  the mod's overview page on the hub for details.
 You can further configure the overhaul in-game, press F12 to open the config menu for mods.
 
 NOTE: some of the changes made by this overhaul are balanaced around the changes made to ammo stats, it is recommended to use in combination with 'Realistic Ballistics'.
 
-IF YOU WANT TO DISABLE THIS FEATURE YOU MUST DELETE THE REALISMMOD.DLL FROM YOUR BEPINEX/PLUGINS FOLDER. OTHERWISE YOUR GAME WILL CRASH!</value>
+IF YOU WANT TO DISABLE THIS FEATURE MAKE SURE TO ASLO DELETE THE REALISMMOD.DLL FROM YOUR BEPINEX/PLUGINS FOLDER!</value>
+  </data>
+  <data name="malfChangesCheck.ToolTip" xml:space="preserve">
+    <value>Enables changes to malfunctions and overheating. Overall the chance of a malfunction is lower, depending on the weapon, attachments, magazine and ammo. See the mod's Overview page for details.
+
+This option must be enabled for the additonal malfunction mechanics to be available.</value>
   </data>
   <data name="buffHelmetsCheck.ToolTip" xml:space="preserve">
     <value>Buffs helmets and faceshields by raising their armor level by 1. Their blunt throughput has been modified to compensate.
@@ -2149,10 +2154,11 @@ Not carefully balanced, just for those that want a slightly less hardcore experi
 If disabled, bots will sometimes spawn with NVG mounts but the NVG missing.</value>
   </data>
   <data name="realBallisticsCheck.ToolTip" xml:space="preserve">
-    <value>Enables Armor and Ammo changes, the core of Realism Mod. This will change the health of bot PMCs and Scavs to be balanced with these changes.
-Also changes the ammo and armor of starter profiles to reflect these changes.
+    <value>Enables Armor and Ammo changes, the core of Realism Mod. This includes the complete overhaul of how armor damage, penetatraion and blunt damage is calculated as well as adding some additional mechanics. 
+This will change the health of bot PMCs and Scavs to be balanced with these changes.
 
-NOTE: Ammo has been balanced with the changes made by the 'Recoil, Ballistics and Attachment' overhaul in mind, it is not recommended to use the overhaul with this option disabled.
+IF YOU WANT TO DISABLE THIS FEATURE MAKE SURE TO ASLO DELETE THE REALISMMOD.DLL FROM YOUR BEPINEX/PLUGINS FOLDER!
+
 
 
 </value>
@@ -6277,19 +6283,19 @@ See the mod overview page for details.</value>
 </value>
   </data>
   <data name="hostNum3.ToolTip" xml:space="preserve">
-    <value>Chance of same-faction PMCs being friendly per base tier.
+    <value>Chance of same-faction PMCs being hostile to player per base tier.
 
 Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
 </value>
   </data>
   <data name="hostNum2.ToolTip" xml:space="preserve">
-    <value>Chance of same-faction PMCs being friendly per base tier.
+    <value>Chance of same-faction PMCs being hostile to player per base tier.
 
 Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
 </value>
   </data>
   <data name="hostNum1.ToolTip" xml:space="preserve">
-    <value>Chance of same-faction PMCs being friendly per base tier.
+    <value>Chance of same-faction PMCs being hostile to player per base tier.
 
 Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
 </value>
@@ -8481,14 +8487,15 @@ NOTE: 'Realistic Ballistics' option must be true for this to take effect. If rea
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="tieredFleaCheck.ToolTip" xml:space="preserve">
-    <value>If Enabled the fleamarket will unlock progressivly by category or subcategory of item based on the player's level.
-There are 7 tiers in total, the final one being a 'full unlock'. Most items are no longer blacklisted from the flea.</value>
-  </data>
-  <data name="traderChangesCheck.ToolTip" xml:space="preserve">
-    <value>Enables dynamic changes to trader stock and item availability. Items can be out of stock completely, and will always have limited stock if it's available. 
+  <data name="tradRepairCheck.ToolTip" xml:space="preserve">
+    <value>Improves the repair quality of Traders. Skier's and Prapor's repairs will still reduce max durability, but Mechanic's repairs will not reduce max durability but will be much more expensive.
 
-Also changes the categorie of items that traders will buy to make more sense, makes Fence hace less offers and increases the cost of Therapist's healing. </value>
+Recommended to use in combination with the "Malfunction Changes" option.</value>
+  </data>
+  <data name="tradCustItemCheck.ToolTip" xml:space="preserve">
+    <value>Adds custom items and new offers  to traders. Mechanic will have complete scopes/sights with their mounts, Ragman will have different helmet setups with NVGs, Faceshields etc.
+
+If the "Med Changes" are enabled Therapist will sell the makeshift medkits, if the "Recoil, Attachment and Ballistics" overhaul is enabled Mechanic will sell custom weapons.</value>
   </data>
   <data name="airdropChangesCheck.ToolTip" xml:space="preserve">
     <value>If enabled airdrops will have 'types' (medical supplies, food, ammo, etc.) and will only have items of that type.

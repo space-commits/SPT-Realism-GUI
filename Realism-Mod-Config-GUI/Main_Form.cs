@@ -43,7 +43,7 @@ namespace Realism_Mod_Config_GUI
 
         private void setTitleBar()
         {
-            string modVer = "v0.7.0";
+            string modVer = "v0.7.3";
             string sptVer = "v3.5.0";
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
@@ -161,7 +161,7 @@ namespace Realism_Mod_Config_GUI
                 }
             }
 
-            vertRecNumeric.Value = 1.0m;
+   /*         vertRecNumeric.Value = 1.0m;
             horzRecNumeric.Value = 1.0m;
             convNumeric.Value = 1.0m;
             dispNumeric.Value = 1.0m;
@@ -179,7 +179,27 @@ namespace Realism_Mod_Config_GUI
             crankCheck.Checked = true;
 
             weapPresetCombo.SelectedItem = "Realism";
-            attachPresetCombo.SelectedItem = "Realism";
+            attachPresetCombo.SelectedItem = "Realism";*/
+
+            Config.vert_recoil_multi = 1.0m;
+            Config.horz_recoil_multi = 1.0m;
+            Config.convergence_multi = 1.0m;
+            Config.dispersion_multi = 1.0m;
+            Config.ergo_multi = 1.0m;
+            Config.cam_multi = 1.0m;
+
+            Config.bot_hostile1 = 95;
+            Config.bot_hostile2 = 99;
+            Config.bot_hostile3 = 100;
+
+            Config.standard_bot_hp_multi = 1.0m;
+            Config.mid_bot_hp_multi = 1.0m;
+            Config.boss_bot_hp_multi = 1.0m;
+
+            Config.recoil_crank = true;
+
+            Config.weap_preset = "Realism";
+            Config.att_preset = "Realism";
 
             Config.realistic_player_health = true;
             Config.realistic_ballistics = true;
@@ -228,7 +248,6 @@ namespace Realism_Mod_Config_GUI
             Config.disable_flea_blacklist = false;
             Config.no_fall_damage = false;
             Config.logEverything = false;
-            Config.unstuck_GS = false;
             Config.revert_hp= false;
             Config.botTierOdds1 = new int[] { 15, 1, 0, 0 };
             Config.botTierOdds2 = new int[] { 20, 2, 0, 0 };
@@ -238,6 +257,23 @@ namespace Realism_Mod_Config_GUI
             Config.botTierOdds6 = new int[] { 1, 4, 25, 10 };
             Config.botTierOdds7 = new int[] { 1, 4, 10, 30 };
             Config.botTierOdds8 = new int[] { 1, 2, 8, 35 };
+
+            Config.trader_repair_changes = true;
+            Config.change_trader_ll = true;
+            Config.add_cust_trader_items = true;
+            Config.randomize_traders = true;
+            Config.randomize_trader_ll = true;
+            Config.randomize_trader_stock = true;
+            Config.adjust_trader_prices = true;
+            Config.randomize_trader_prices = true;
+
+            Config.old_ballistics = false;
+
+            Config.rand_stock_modifier = 0;
+            Config.rand_stackable_modifier = 1m;
+            Config.rand_cost_discount = 0.85m;
+            Config.rand_cost_increase = 1.15m;
+            Config.trader_refresh_time = 1800;
 
             CheckCheckBoxes();
         }
@@ -321,8 +357,24 @@ namespace Realism_Mod_Config_GUI
             disableFleaBlacklistCheck.Checked = Config.disable_flea_blacklist;
             noFallDamageCheck.Checked = Config.no_fall_damage;
             logEverythingCheck.Checked = Config.logEverything;
-            unstuckGSCheck.Checked = Config.unstuck_GS;
             revertHPCheck.Checked = Config.revert_hp;
+
+            tradAdjustPriceCheck.Checked = Config.adjust_trader_prices;
+            tradRepairCheck.Checked = Config.trader_repair_changes;
+            traderllCheck.Checked = Config.change_trader_ll;
+            tradCustItemCheck.Checked = Config.add_cust_trader_items;
+            randTradCheck.Checked = Config.randomize_traders;
+            randTradLLCheck.Checked = Config.randomize_trader_ll;
+            randTradStockCheck.Checked = Config.randomize_trader_stock;
+            randTradPriceCheck.Checked = Config.randomize_trader_prices;
+
+            oldBallsCheck.Checked = Config.old_ballistics;
+
+            stockModNum.Value = (decimal)Config.rand_stock_modifier;
+            stackMultiNum.Value = (decimal)Config.rand_stackable_modifier;
+            discountNum.Value = (decimal)Config.rand_cost_discount;
+            costIncreaseNum.Value = (decimal)Config.rand_cost_increase;
+            tradRefreshNum.Value = (decimal)Config.trader_refresh_time;
 
             if (Config.bot_test_tier > 1 && Config.bot_test_tier <= 4)
             {
@@ -366,15 +418,12 @@ namespace Realism_Mod_Config_GUI
             {
                 legacyRecoilCheck.Checked = false;
                 legacyRecoilCheck.Enabled = false;
-                unstuckGSCheck.Enabled = true;
                 attachPresetCombo.Enabled = true;
                 weapPresetCombo.Enabled = true;
             }
             else
             {
                 legacyRecoilCheck.Enabled = true;
-                unstuckGSCheck.Enabled = false;
-                unstuckGSCheck.Checked = false;
                 attachPresetCombo.Enabled = false;
                 weapPresetCombo.Enabled = false;
             }
@@ -395,6 +444,7 @@ namespace Realism_Mod_Config_GUI
                 buffHelmetsCheck.Enabled = false;
                 realPlayerHealthCheck.Checked = false;
                 realPlayerHealthCheck.Enabled = false;
+                oldBallsCheck.Enabled = true;
 
                 realBossHealthCheck.Checked = false;
                 realBossHealthCheck.Enabled = false;
@@ -409,6 +459,7 @@ namespace Realism_Mod_Config_GUI
             {
                 buffHelmetsCheck.Enabled = true;
                 realPlayerHealthCheck.Enabled = true;
+                oldBallsCheck.Enabled = false;
 
                 realBossHealthCheck.Enabled = true;
                 realFollowerHealthCheck.Enabled = true;
@@ -417,8 +468,17 @@ namespace Realism_Mod_Config_GUI
             }
 
 
-            //realistic player HP
-            if (realPlayerHealthCheck.Checked == true)
+            if (oldBallsCheck.Checked == true)
+            {
+                realBallisticsCheck.Enabled = false;
+            }
+            else 
+            {
+                realBallisticsCheck.Enabled = true;
+            }
+                
+                //realistic player HP
+                if (realPlayerHealthCheck.Checked == true)
             {
                 revertHPCheck.Checked = false;
                 revertHPCheck.Enabled = false;
@@ -458,6 +518,37 @@ namespace Realism_Mod_Config_GUI
             else
             {
                 cyrillicNamesCheck.Enabled = true;
+            }
+
+            //traders
+            if (randTradCheck.Checked == false)
+            {
+                randTradLLCheck.Checked = false;
+                randTradLLCheck.Enabled = false;
+
+                randTradStockCheck.Checked = false;
+                randTradStockCheck.Enabled = false;
+
+                randTradPriceCheck.Checked = false;
+                randTradPriceCheck.Enabled = false;
+
+                stockModNum.Enabled = false;
+                stackMultiNum.Enabled = false;
+                discountNum.Enabled = false;
+                costIncreaseNum.Enabled = false;
+            }
+            else
+            {
+                randTradLLCheck.Enabled = true;
+
+                randTradStockCheck.Enabled = true;
+
+                randTradPriceCheck.Enabled = true;
+
+                stockModNum.Enabled = true;
+                stackMultiNum.Enabled = true;
+                discountNum.Enabled = true;
+                costIncreaseNum.Enabled = true;
             }
 
             //bot changes
@@ -756,12 +847,6 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
-        private void unstuckGSCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            Config.unstuck_GS = unstuckGSCheck.Checked == true ? true : false;
-            CheckCheckBoxes();
-        }
-
         private void botTestingCheck_CheckedChanged(object sender, EventArgs e)
         {
             Config.bot_testing = botTestingCheck.Checked == true ? true : false;
@@ -1008,6 +1093,91 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void tradRepairCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.trader_repair_changes = tradRepairCheck.Checked == true ? true : false; ;
+            CheckCheckBoxes();
+        }
+
+        private void traderllCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.change_trader_ll = traderllCheck.Checked == true ? true : false; ;
+            CheckCheckBoxes();
+        }
+
+        private void tradCustItemCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.add_cust_trader_items = tradCustItemCheck.Checked == true ? true : false; ;
+            CheckCheckBoxes();
+        }
+
+        private void tradAdjustPriceCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.adjust_trader_prices = tradAdjustPriceCheck.Checked == true ? true : false; ;
+            CheckCheckBoxes();
+        }
+
+        private void randTradCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.randomize_traders = randTradCheck.Checked == true ? true : false; ;
+            CheckCheckBoxes();
+        }
+
+        private void randTradLLCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.randomize_trader_ll = randTradLLCheck.Checked == true ? true : false; ;
+            CheckCheckBoxes();
+        }
+
+        private void randTradStockCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.randomize_trader_stock = randTradStockCheck.Checked == true ? true : false; ;
+            CheckCheckBoxes();
+        }
+
+        private void randTradPriceCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.randomize_trader_prices = randTradPriceCheck.Checked == true ? true : false; ;
+            CheckCheckBoxes();
+        }
+
+        private void stockModNum_ValueChanged(object sender, EventArgs e)
+        {
+            Config.rand_stock_modifier = (int)stockModNum.Value;
+            CheckCheckBoxes();
+        }
+
+        private void stackMultiNum_ValueChanged(object sender, EventArgs e)
+        {
+            Config.rand_stackable_modifier = stackMultiNum.Value;
+            CheckCheckBoxes();
+        }
+
+        private void discountNum_ValueChanged(object sender, EventArgs e)
+        {
+            Config.rand_cost_discount = discountNum.Value;
+            CheckCheckBoxes();
+        }
+
+        private void costIncreaseNum_ValueChanged(object sender, EventArgs e)
+        {
+            Config.rand_cost_increase = costIncreaseNum.Value;
+            CheckCheckBoxes();
+        }
+
+        private void tradRefreshNum_ValueChanged(object sender, EventArgs e)
+        {
+            Config.trader_refresh_time = (int)tradRefreshNum.Value;
+            CheckCheckBoxes();
+        }
+
+
+        private void oldBallsCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.old_ballistics = oldBallsCheck.Checked == true ? true : false; ;
+            CheckCheckBoxes();
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
@@ -1032,6 +1202,7 @@ namespace Realism_Mod_Config_GUI
         {
             return string.Join(",", intArr);
         }
+
 
         public class ConfigTemplate
         {
@@ -1080,7 +1251,6 @@ namespace Realism_Mod_Config_GUI
             public bool disable_flea_blacklist { get; set; }
             public bool no_fall_damage { get; set; }
             public bool logEverything { get; set; }
-            public bool unstuck_GS { get; set; }
             public bool force_boss_items { get; set; }
             public bool revert_hp { get; set; }
             public string weap_preset { get; set; }
@@ -1107,7 +1277,20 @@ namespace Realism_Mod_Config_GUI
             public int bot_hostile1 { get; set; }
             public int bot_hostile2 { get; set; }
             public int bot_hostile3 { get; set; }
+            public bool trader_repair_changes { get; set; }
+            public bool change_trader_ll { get; set; }
+            public bool add_cust_trader_items { get; set; }
+            public bool randomize_traders { get; set; }
+            public bool randomize_trader_ll { get; set; }
+            public bool randomize_trader_stock { get; set; }
+            public bool adjust_trader_prices { get; set; }
+            public bool randomize_trader_prices { get; set; }
+            public int rand_stock_modifier { get; set; }
+            public decimal rand_stackable_modifier { get; set; }
+            public decimal rand_cost_discount { get; set; }
+            public decimal rand_cost_increase { get; set; }
+            public int trader_refresh_time { get; set; }
+            public bool old_ballistics { get; set; }            
         }
-
     }
 }

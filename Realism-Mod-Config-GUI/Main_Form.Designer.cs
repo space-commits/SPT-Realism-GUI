@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.Realism_Ballistics = new System.Windows.Forms.TabPage();
+            this.oldBallsCheck = new System.Windows.Forms.CheckBox();
             this.revertHPCheck = new System.Windows.Forms.CheckBox();
             this.realPlayerHealthCheck = new System.Windows.Forms.CheckBox();
             this.warningTextBox = new System.Windows.Forms.RichTextBox();
@@ -104,12 +105,30 @@
             this.increasedBotCapCheck = new System.Windows.Forms.CheckBox();
             this.botChangesCheck = new System.Windows.Forms.CheckBox();
             this.Misc = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tradRefreshNum = new System.Windows.Forms.NumericUpDown();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.costIncreaseNum = new System.Windows.Forms.NumericUpDown();
+            this.discountNum = new System.Windows.Forms.NumericUpDown();
+            this.label19 = new System.Windows.Forms.Label();
+            this.stackMultiNum = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
+            this.stockModNum = new System.Windows.Forms.NumericUpDown();
+            this.tradRepairCheck = new System.Windows.Forms.CheckBox();
+            this.tradAdjustPriceCheck = new System.Windows.Forms.CheckBox();
+            this.randTradPriceCheck = new System.Windows.Forms.CheckBox();
+            this.randTradStockCheck = new System.Windows.Forms.CheckBox();
+            this.randTradLLCheck = new System.Windows.Forms.CheckBox();
+            this.traderChangesCheck = new System.Windows.Forms.CheckBox();
+            this.randTradCheck = new System.Windows.Forms.CheckBox();
+            this.tradCustItemCheck = new System.Windows.Forms.CheckBox();
+            this.traderllCheck = new System.Windows.Forms.CheckBox();
             this.tradeGroupBox = new System.Windows.Forms.GroupBox();
             this.tieredFleaCheck = new System.Windows.Forms.CheckBox();
             this.fleaConfigCheck = new System.Windows.Forms.CheckBox();
-            this.traderChangesCheck = new System.Windows.Forms.CheckBox();
             this.miscTab = new System.Windows.Forms.TabPage();
-            this.unstuckGSCheck = new System.Windows.Forms.CheckBox();
             this.itemGroupBox = new System.Windows.Forms.GroupBox();
             this.firCheck = new System.Windows.Forms.CheckBox();
             this.allExaminedCheck = new System.Windows.Forms.CheckBox();
@@ -173,6 +192,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.midHPNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.standardHPNumeric)).BeginInit();
             this.Misc.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tradRefreshNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.costIncreaseNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stackMultiNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockModNum)).BeginInit();
             this.tradeGroupBox.SuspendLayout();
             this.miscTab.SuspendLayout();
             this.itemGroupBox.SuspendLayout();
@@ -214,6 +239,7 @@
             this.Realism_Ballistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Realism_Ballistics.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Realism_Ballistics.BackgroundImage")));
             this.Realism_Ballistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Realism_Ballistics.Controls.Add(this.oldBallsCheck);
             this.Realism_Ballistics.Controls.Add(this.revertHPCheck);
             this.Realism_Ballistics.Controls.Add(this.realPlayerHealthCheck);
             this.Realism_Ballistics.Controls.Add(this.warningTextBox);
@@ -227,6 +253,23 @@
             this.Realism_Ballistics.Size = new System.Drawing.Size(1360, 684);
             this.Realism_Ballistics.TabIndex = 0;
             this.Realism_Ballistics.Text = "Realism and Ballistics";
+            // 
+            // oldBallsCheck
+            // 
+            this.oldBallsCheck.AutoSize = true;
+            this.oldBallsCheck.Checked = true;
+            this.oldBallsCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.oldBallsCheck.ForeColor = System.Drawing.Color.White;
+            this.oldBallsCheck.Location = new System.Drawing.Point(141, 67);
+            this.oldBallsCheck.Name = "oldBallsCheck";
+            this.oldBallsCheck.Size = new System.Drawing.Size(93, 19);
+            this.oldBallsCheck.TabIndex = 14;
+            this.oldBallsCheck.Text = "Old Ballistics";
+            this.toolTip1.SetToolTip(this.oldBallsCheck, "Enables the Armor and Ammo changes from before the overhaul of ballistics. Penetr" +
+        "ation, blunt damage and armor damage is calculated as it is in unmodded EFT.\r\n\r\n" +
+        "");
+            this.oldBallsCheck.UseVisualStyleBackColor = true;
+            this.oldBallsCheck.CheckedChanged += new System.EventHandler(this.oldBallsCheck_CheckedChanged);
             // 
             // revertHPCheck
             // 
@@ -320,9 +363,9 @@
             this.recoilAttOverhaulCheck.ForeColor = System.Drawing.Color.White;
             this.recoilAttOverhaulCheck.Location = new System.Drawing.Point(6, 22);
             this.recoilAttOverhaulCheck.Name = "recoilAttOverhaulCheck";
-            this.recoilAttOverhaulCheck.Size = new System.Drawing.Size(249, 19);
+            this.recoilAttOverhaulCheck.Size = new System.Drawing.Size(201, 19);
             this.recoilAttOverhaulCheck.TabIndex = 6;
-            this.recoilAttOverhaulCheck.Text = "Recoil, Ballistics and Attachment Overhaul";
+            this.recoilAttOverhaulCheck.Text = "Recoil, and Attachment Overhaul";
             this.toolTip1.SetToolTip(this.recoilAttOverhaulCheck, resources.GetString("recoilAttOverhaulCheck.ToolTip"));
             this.recoilAttOverhaulCheck.UseVisualStyleBackColor = true;
             this.recoilAttOverhaulCheck.CheckedChanged += new System.EventHandler(this.recoilAttOverhaulCheck_CheckedChanged);
@@ -338,8 +381,7 @@
             this.malfChangesCheck.Size = new System.Drawing.Size(140, 19);
             this.malfChangesCheck.TabIndex = 4;
             this.malfChangesCheck.Text = "Malfunction Changes";
-            this.toolTip1.SetToolTip(this.malfChangesCheck, "Enables changes to malfunctions and overheating. No malfunctions will occur betwe" +
-        "en 98-100 durability.\r\nSee mod page description for details.\r\n");
+            this.toolTip1.SetToolTip(this.malfChangesCheck, resources.GetString("malfChangesCheck.ToolTip"));
             this.malfChangesCheck.UseVisualStyleBackColor = true;
             this.malfChangesCheck.CheckedChanged += new System.EventHandler(this.malfChanges_CheckedChanged);
             // 
@@ -1225,6 +1267,7 @@
             this.Misc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Misc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Misc.BackgroundImage")));
             this.Misc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Misc.Controls.Add(this.groupBox2);
             this.Misc.Controls.Add(this.tradeGroupBox);
             this.Misc.ImeMode = System.Windows.Forms.ImeMode.On;
             this.Misc.Location = new System.Drawing.Point(4, 24);
@@ -1233,18 +1276,330 @@
             this.Misc.TabIndex = 4;
             this.Misc.Text = "Traders & Flea";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.tradRefreshNum);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.costIncreaseNum);
+            this.groupBox2.Controls.Add(this.discountNum);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.stackMultiNum);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.stockModNum);
+            this.groupBox2.Controls.Add(this.tradRepairCheck);
+            this.groupBox2.Controls.Add(this.tradAdjustPriceCheck);
+            this.groupBox2.Controls.Add(this.randTradPriceCheck);
+            this.groupBox2.Controls.Add(this.randTradStockCheck);
+            this.groupBox2.Controls.Add(this.randTradLLCheck);
+            this.groupBox2.Controls.Add(this.traderChangesCheck);
+            this.groupBox2.Controls.Add(this.randTradCheck);
+            this.groupBox2.Controls.Add(this.tradCustItemCheck);
+            this.groupBox2.Controls.Add(this.traderllCheck);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(19, 98);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(297, 389);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Traders";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 359);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(110, 15);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "Trader Refresh Time\r\n";
+            this.toolTip1.SetToolTip(this.label22, "The time it takes for trader offers to refresh in seconds.\r\n\r\nIf randomization is" +
+        " enabled, refersh will also randomize offers.\r\n");
+            // 
+            // tradRefreshNum
+            // 
+            this.tradRefreshNum.Increment = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.tradRefreshNum.Location = new System.Drawing.Point(161, 357);
+            this.tradRefreshNum.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.tradRefreshNum.Name = "tradRefreshNum";
+            this.tradRefreshNum.Size = new System.Drawing.Size(120, 23);
+            this.tradRefreshNum.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.tradRefreshNum, "The time it takes for trader offers to refresh in seconds.\r\n\r\nIf randomization is" +
+        " enabled, refersh will also randomize offers.\r\n");
+            this.tradRefreshNum.ValueChanged += new System.EventHandler(this.tradRefreshNum_ValueChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 333);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(148, 15);
+            this.label21.TabIndex = 15;
+            this.label21.Text = "Randomized Price Increase";
+            this.toolTip1.SetToolTip(this.label21, "Multiplier for how much an item\'s price can be increased by.\r\n\r\n1.15= 15% increas" +
+        "e.\r\n\r\nEvery trader refresh has a chance of either increasing or reducing prices," +
+        " so it can stack.\r\n");
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 306);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(152, 15);
+            this.label20.TabIndex = 14;
+            this.label20.Text = "Randomized Price Discount";
+            this.toolTip1.SetToolTip(this.label20, "Multiplier for how much an item\'s price can be reduced by.\r\n\r\n0.85 = 15% reductio" +
+        "n.\r\n\r\nEvery trader refresh has a chance of either increasing or reducing prices," +
+        " so it can stack.\r\n");
+            // 
+            // costIncreaseNum
+            // 
+            this.costIncreaseNum.DecimalPlaces = 2;
+            this.costIncreaseNum.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.costIncreaseNum.Location = new System.Drawing.Point(161, 331);
+            this.costIncreaseNum.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.costIncreaseNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.costIncreaseNum.Name = "costIncreaseNum";
+            this.costIncreaseNum.Size = new System.Drawing.Size(120, 23);
+            this.costIncreaseNum.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.costIncreaseNum, "Multiplier for how much an item\'s price can be increased by.\r\n\r\n1.15= 15% increas" +
+        "e.\r\n\r\nEvery trader refresh has a chance of either increasing or reducing prices," +
+        " so it can stack.\r\n");
+            this.costIncreaseNum.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.costIncreaseNum.ValueChanged += new System.EventHandler(this.costIncreaseNum_ValueChanged);
+            // 
+            // discountNum
+            // 
+            this.discountNum.DecimalPlaces = 2;
+            this.discountNum.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.discountNum.Location = new System.Drawing.Point(161, 304);
+            this.discountNum.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.discountNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.discountNum.Name = "discountNum";
+            this.discountNum.Size = new System.Drawing.Size(120, 23);
+            this.discountNum.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.discountNum, "Multiplier for how much an item\'s price can be reduced by.\r\n\r\n0.85 = 15% reductio" +
+        "n.\r\n\r\nEvery trader refresh has a chance of either increasing or reducing prices," +
+        " so it can stack.\r\n");
+            this.discountNum.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.discountNum.ValueChanged += new System.EventHandler(this.discountNum_ValueChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 277);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(115, 15);
+            this.label19.TabIndex = 11;
+            this.label19.Text = "Stackable Item Multi";
+            this.toolTip1.SetToolTip(this.label19, "Multilplier for the stock of stackable items like ammo.");
+            // 
+            // stackMultiNum
+            // 
+            this.stackMultiNum.DecimalPlaces = 1;
+            this.stackMultiNum.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.stackMultiNum.Location = new System.Drawing.Point(161, 275);
+            this.stackMultiNum.Name = "stackMultiNum";
+            this.stackMultiNum.Size = new System.Drawing.Size(120, 23);
+            this.stackMultiNum.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.stackMultiNum, "Multilplier for the stock of stackable items like ammo.");
+            this.stackMultiNum.ValueChanged += new System.EventHandler(this.stackMultiNum_ValueChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 248);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(81, 15);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Stock Modifer";
+            this.toolTip1.SetToolTip(this.label18, "Adds to the minium and maximum stock of items that aren\'t stackable (weapons, foo" +
+        "d, meds, armor, etc.).\r\n\r\n1 means +1 to minimum and maximum stock.\r\n");
+            // 
+            // stockModNum
+            // 
+            this.stockModNum.Location = new System.Drawing.Point(161, 246);
+            this.stockModNum.Name = "stockModNum";
+            this.stockModNum.Size = new System.Drawing.Size(120, 23);
+            this.stockModNum.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.stockModNum, "Adds to the minium and maximum stock of items that aren\'t stackable (weapons, foo" +
+        "d, meds, armor, etc.).\r\n\r\n1 means +1 to minimum and maximum stock.\r\n");
+            this.stockModNum.ValueChanged += new System.EventHandler(this.stockModNum_ValueChanged);
+            // 
+            // tradRepairCheck
+            // 
+            this.tradRepairCheck.AutoSize = true;
+            this.tradRepairCheck.Checked = true;
+            this.tradRepairCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tradRepairCheck.ForeColor = System.Drawing.Color.White;
+            this.tradRepairCheck.Location = new System.Drawing.Point(6, 46);
+            this.tradRepairCheck.Name = "tradRepairCheck";
+            this.tradRepairCheck.Size = new System.Drawing.Size(143, 19);
+            this.tradRepairCheck.TabIndex = 8;
+            this.tradRepairCheck.Text = "Trader Repair Changes";
+            this.toolTip1.SetToolTip(this.tradRepairCheck, resources.GetString("tradRepairCheck.ToolTip"));
+            this.tradRepairCheck.UseVisualStyleBackColor = true;
+            this.tradRepairCheck.CheckedChanged += new System.EventHandler(this.tradRepairCheck_CheckedChanged);
+            // 
+            // tradAdjustPriceCheck
+            // 
+            this.tradAdjustPriceCheck.AutoSize = true;
+            this.tradAdjustPriceCheck.Location = new System.Drawing.Point(6, 121);
+            this.tradAdjustPriceCheck.Name = "tradAdjustPriceCheck";
+            this.tradAdjustPriceCheck.Size = new System.Drawing.Size(94, 19);
+            this.tradAdjustPriceCheck.TabIndex = 7;
+            this.tradAdjustPriceCheck.Text = "Adjust Prices";
+            this.toolTip1.SetToolTip(this.tradAdjustPriceCheck, "Adjusts the prices of items. Helmets will be cheaper, ammo, armor and weapons wil" +
+        "l be more expensive.\r\n");
+            this.tradAdjustPriceCheck.UseVisualStyleBackColor = true;
+            this.tradAdjustPriceCheck.CheckedChanged += new System.EventHandler(this.tradAdjustPriceCheck_CheckedChanged);
+            // 
+            // randTradPriceCheck
+            // 
+            this.randTradPriceCheck.AutoSize = true;
+            this.randTradPriceCheck.Location = new System.Drawing.Point(6, 221);
+            this.randTradPriceCheck.Name = "randTradPriceCheck";
+            this.randTradPriceCheck.Size = new System.Drawing.Size(119, 19);
+            this.randTradPriceCheck.TabIndex = 6;
+            this.randTradPriceCheck.Text = "Randomize Prices";
+            this.toolTip1.SetToolTip(this.randTradPriceCheck, "Randomizes the cost of trader offers. They can be higher or lower than the base p" +
+        "irce.");
+            this.randTradPriceCheck.UseVisualStyleBackColor = true;
+            this.randTradPriceCheck.CheckedChanged += new System.EventHandler(this.randTradPriceCheck_CheckedChanged);
+            // 
+            // randTradStockCheck
+            // 
+            this.randTradStockCheck.AutoSize = true;
+            this.randTradStockCheck.Location = new System.Drawing.Point(6, 196);
+            this.randTradStockCheck.Name = "randTradStockCheck";
+            this.randTradStockCheck.Size = new System.Drawing.Size(117, 19);
+            this.randTradStockCheck.TabIndex = 5;
+            this.randTradStockCheck.Text = "Randomize Stock\r\n";
+            this.toolTip1.SetToolTip(this.randTradStockCheck, "Randomizes the stock and availability of all items sold by traders.");
+            this.randTradStockCheck.UseVisualStyleBackColor = true;
+            this.randTradStockCheck.CheckedChanged += new System.EventHandler(this.randTradStockCheck_CheckedChanged);
+            // 
+            // randTradLLCheck
+            // 
+            this.randTradLLCheck.AutoSize = true;
+            this.randTradLLCheck.Location = new System.Drawing.Point(6, 171);
+            this.randTradLLCheck.Name = "randTradLLCheck";
+            this.randTradLLCheck.Size = new System.Drawing.Size(161, 19);
+            this.randTradLLCheck.TabIndex = 4;
+            this.randTradLLCheck.Text = "Randomize Loyalty Levels\r\n";
+            this.toolTip1.SetToolTip(this.randTradLLCheck, "Enables the randomization of trader loyalty level requirements. There\'s a chance " +
+        "to see items from a higher loyalty level at one LL lower.");
+            this.randTradLLCheck.UseVisualStyleBackColor = true;
+            this.randTradLLCheck.CheckedChanged += new System.EventHandler(this.randTradLLCheck_CheckedChanged);
+            // 
+            // traderChangesCheck
+            // 
+            this.traderChangesCheck.AutoSize = true;
+            this.traderChangesCheck.Checked = true;
+            this.traderChangesCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.traderChangesCheck.ForeColor = System.Drawing.Color.White;
+            this.traderChangesCheck.Location = new System.Drawing.Point(6, 22);
+            this.traderChangesCheck.Name = "traderChangesCheck";
+            this.traderChangesCheck.Size = new System.Drawing.Size(98, 19);
+            this.traderChangesCheck.TabIndex = 2;
+            this.traderChangesCheck.Text = "Trader Tweaks";
+            this.toolTip1.SetToolTip(this.traderChangesCheck, "Enables changes to what traders will buy, increases Therapist healing cost, and n" +
+        "erfs Fence a small bit.\r\n");
+            this.traderChangesCheck.UseVisualStyleBackColor = true;
+            this.traderChangesCheck.CheckedChanged += new System.EventHandler(this.traderChangesCheck_CheckedChanged);
+            // 
+            // randTradCheck
+            // 
+            this.randTradCheck.AutoSize = true;
+            this.randTradCheck.Location = new System.Drawing.Point(6, 146);
+            this.randTradCheck.Name = "randTradCheck";
+            this.randTradCheck.Size = new System.Drawing.Size(125, 19);
+            this.randTradCheck.TabIndex = 3;
+            this.randTradCheck.Text = "Randomize Traders\r\n";
+            this.toolTip1.SetToolTip(this.randTradCheck, "Enabled the the randomization of trader offers.");
+            this.randTradCheck.UseVisualStyleBackColor = true;
+            this.randTradCheck.CheckedChanged += new System.EventHandler(this.randTradCheck_CheckedChanged);
+            // 
+            // tradCustItemCheck
+            // 
+            this.tradCustItemCheck.AutoSize = true;
+            this.tradCustItemCheck.Location = new System.Drawing.Point(6, 96);
+            this.tradCustItemCheck.Name = "tradCustItemCheck";
+            this.tradCustItemCheck.Size = new System.Drawing.Size(125, 19);
+            this.tradCustItemCheck.TabIndex = 2;
+            this.tradCustItemCheck.Text = "Add Custom Items\r\n";
+            this.toolTip1.SetToolTip(this.tradCustItemCheck, resources.GetString("tradCustItemCheck.ToolTip"));
+            this.tradCustItemCheck.UseVisualStyleBackColor = true;
+            this.tradCustItemCheck.CheckedChanged += new System.EventHandler(this.tradCustItemCheck_CheckedChanged);
+            // 
+            // traderllCheck
+            // 
+            this.traderllCheck.AutoSize = true;
+            this.traderllCheck.Location = new System.Drawing.Point(6, 71);
+            this.traderllCheck.Name = "traderllCheck";
+            this.traderllCheck.Size = new System.Drawing.Size(170, 19);
+            this.traderllCheck.TabIndex = 1;
+            this.traderllCheck.Text = "Change Item Loyalty Levels";
+            this.toolTip1.SetToolTip(this.traderllCheck, "Changes the trader loyalty level requirements for ammo, armor and wepaons to be b" +
+        "alanced with changes to ballistics and weapons.");
+            this.traderllCheck.UseVisualStyleBackColor = true;
+            this.traderllCheck.CheckedChanged += new System.EventHandler(this.traderllCheck_CheckedChanged);
+            // 
             // tradeGroupBox
             // 
             this.tradeGroupBox.Controls.Add(this.tieredFleaCheck);
             this.tradeGroupBox.Controls.Add(this.fleaConfigCheck);
-            this.tradeGroupBox.Controls.Add(this.traderChangesCheck);
             this.tradeGroupBox.ForeColor = System.Drawing.Color.White;
             this.tradeGroupBox.Location = new System.Drawing.Point(19, 12);
             this.tradeGroupBox.Name = "tradeGroupBox";
-            this.tradeGroupBox.Size = new System.Drawing.Size(200, 100);
+            this.tradeGroupBox.Size = new System.Drawing.Size(297, 80);
             this.tradeGroupBox.TabIndex = 6;
             this.tradeGroupBox.TabStop = false;
-            this.tradeGroupBox.Text = "Trading";
+            this.tradeGroupBox.Text = "Fleamarket";
             // 
             // tieredFleaCheck
             // 
@@ -1257,7 +1612,9 @@
             this.tieredFleaCheck.Size = new System.Drawing.Size(119, 19);
             this.tieredFleaCheck.TabIndex = 0;
             this.tieredFleaCheck.Text = "Tiered Fleamarket";
-            this.toolTip1.SetToolTip(this.tieredFleaCheck, resources.GetString("tieredFleaCheck.ToolTip"));
+            this.toolTip1.SetToolTip(this.tieredFleaCheck, "If Enabled the fleamarket will unlock progressivly by category or subcategory of " +
+        "item based on the player\'s level.\r\nThere are 7 tiers in total, the final one bei" +
+        "ng a \'full unlock\'. ");
             this.tieredFleaCheck.UseVisualStyleBackColor = true;
             this.tieredFleaCheck.CheckedChanged += new System.EventHandler(this.tieredFleaCheck_CheckedChanged);
             // 
@@ -1278,27 +1635,11 @@
             this.fleaConfigCheck.UseVisualStyleBackColor = true;
             this.fleaConfigCheck.CheckedChanged += new System.EventHandler(this.fleaConfigCheck_CheckedChanged);
             // 
-            // traderChangesCheck
-            // 
-            this.traderChangesCheck.AutoSize = true;
-            this.traderChangesCheck.Checked = true;
-            this.traderChangesCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.traderChangesCheck.ForeColor = System.Drawing.Color.White;
-            this.traderChangesCheck.Location = new System.Drawing.Point(6, 72);
-            this.traderChangesCheck.Name = "traderChangesCheck";
-            this.traderChangesCheck.Size = new System.Drawing.Size(107, 19);
-            this.traderChangesCheck.TabIndex = 2;
-            this.traderChangesCheck.Text = "Trader Changes";
-            this.toolTip1.SetToolTip(this.traderChangesCheck, resources.GetString("traderChangesCheck.ToolTip"));
-            this.traderChangesCheck.UseVisualStyleBackColor = true;
-            this.traderChangesCheck.CheckedChanged += new System.EventHandler(this.traderChangesCheck_CheckedChanged);
-            // 
             // miscTab
             // 
             this.miscTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.miscTab.BackgroundImage = global::Realism_Mod_Config_GUI.Properties.Resources.SPTRM_config_image;
             this.miscTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.miscTab.Controls.Add(this.unstuckGSCheck);
             this.miscTab.Controls.Add(this.itemGroupBox);
             this.miscTab.Controls.Add(this.airdropChangesCheck);
             this.miscTab.Location = new System.Drawing.Point(4, 24);
@@ -1306,20 +1647,6 @@
             this.miscTab.Size = new System.Drawing.Size(1360, 684);
             this.miscTab.TabIndex = 6;
             this.miscTab.Text = "Misc.";
-            // 
-            // unstuckGSCheck
-            // 
-            this.unstuckGSCheck.AutoSize = true;
-            this.unstuckGSCheck.ForeColor = System.Drawing.Color.White;
-            this.unstuckGSCheck.Location = new System.Drawing.Point(19, 139);
-            this.unstuckGSCheck.Name = "unstuckGSCheck";
-            this.unstuckGSCheck.Size = new System.Drawing.Size(163, 19);
-            this.unstuckGSCheck.TabIndex = 13;
-            this.unstuckGSCheck.Text = "Unstuck Gunsmith Quests";
-            this.toolTip1.SetToolTip(this.unstuckGSCheck, "Reduces gunsmith quest requirements so that all will be completable in case there" +
-        " is an issue with the requirements.");
-            this.unstuckGSCheck.UseVisualStyleBackColor = true;
-            this.unstuckGSCheck.CheckedChanged += new System.EventHandler(this.unstuckGSCheck_CheckedChanged);
             // 
             // itemGroupBox
             // 
@@ -2021,6 +2348,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.midHPNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.standardHPNumeric)).EndInit();
             this.Misc.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tradRefreshNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.costIncreaseNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stackMultiNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockModNum)).EndInit();
             this.tradeGroupBox.ResumeLayout(false);
             this.tradeGroupBox.PerformLayout();
             this.miscTab.ResumeLayout(false);
@@ -2111,7 +2445,6 @@
         private CheckBox bossItemsCheck;
         private CheckBox revertHPCheck;
         private TabPage miscTab;
-        private CheckBox unstuckGSCheck;
         private GroupBox itemGroupBox;
         private CheckBox firCheck;
         private CheckBox allExaminedCheck;
@@ -2170,5 +2503,25 @@
         private Label label17;
         private Label label16;
         private Label label15;
+        private GroupBox groupBox2;
+        private CheckBox randTradLLCheck;
+        private CheckBox randTradCheck;
+        private CheckBox tradCustItemCheck;
+        private CheckBox traderllCheck;
+        private CheckBox tradRepairCheck;
+        private CheckBox tradAdjustPriceCheck;
+        private CheckBox randTradPriceCheck;
+        private CheckBox randTradStockCheck;
+        private Label label21;
+        private Label label20;
+        private NumericUpDown costIncreaseNum;
+        private NumericUpDown discountNum;
+        private Label label19;
+        private NumericUpDown stackMultiNum;
+        private Label label18;
+        private NumericUpDown stockModNum;
+        private NumericUpDown tradRefreshNum;
+        private Label label22;
+        private CheckBox oldBallsCheck;
     }
 }
