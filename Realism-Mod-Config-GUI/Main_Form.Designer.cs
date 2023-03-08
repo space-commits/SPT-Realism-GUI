@@ -172,6 +172,7 @@
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
             this.modVerLabel = new System.Windows.Forms.Label();
+            this.backupCheck = new System.Windows.Forms.CheckBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -1640,6 +1641,7 @@
             this.miscTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.miscTab.BackgroundImage = global::Realism_Mod_Config_GUI.Properties.Resources.SPTRM_config_image;
             this.miscTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.miscTab.Controls.Add(this.backupCheck);
             this.miscTab.Controls.Add(this.itemGroupBox);
             this.miscTab.Controls.Add(this.airdropChangesCheck);
             this.miscTab.Location = new System.Drawing.Point(4, 24);
@@ -1672,8 +1674,8 @@
             this.firCheck.Size = new System.Drawing.Size(225, 19);
             this.firCheck.TabIndex = 6;
             this.firCheck.Text = "Remove Found-In-Raid Requirements";
-            this.toolTip1.SetToolTip(this.firCheck, "Sets all items to FIR status after extracting with them from a raid, and removes " +
-        "quest FIR requirements.");
+            this.toolTip1.SetToolTip(this.firCheck, "Sets all items to FIR, including bought items, and removes FIR requirement for qu" +
+        "ests.\r\n");
             this.firCheck.UseVisualStyleBackColor = true;
             this.firCheck.CheckedChanged += new System.EventHandler(this.firCheck_CheckedChanged);
             // 
@@ -2300,6 +2302,22 @@
             this.modVerLabel.TabIndex = 11;
             this.modVerLabel.Text = "modVer";
             // 
+            // backupCheck
+            // 
+            this.backupCheck.AutoSize = true;
+            this.backupCheck.Checked = true;
+            this.backupCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.backupCheck.ForeColor = System.Drawing.Color.White;
+            this.backupCheck.Location = new System.Drawing.Point(19, 139);
+            this.backupCheck.Name = "backupCheck";
+            this.backupCheck.Size = new System.Drawing.Size(107, 19);
+            this.backupCheck.TabIndex = 13;
+            this.backupCheck.Text = "Backup Profiles";
+            this.toolTip1.SetToolTip(this.backupCheck, "Makes backups of user profiles in the \"ProfileBackups\" folder of the mod\'s direct" +
+        "ory every time the game starts.\r\n");
+            this.backupCheck.UseVisualStyleBackColor = true;
+            this.backupCheck.CheckedChanged += new System.EventHandler(this.backupCheck_CheckedChanged);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2523,5 +2541,6 @@
         private NumericUpDown tradRefreshNum;
         private Label label22;
         private CheckBox oldBallsCheck;
+        private CheckBox backupCheck;
     }
 }

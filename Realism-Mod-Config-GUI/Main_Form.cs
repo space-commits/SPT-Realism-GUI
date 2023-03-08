@@ -43,7 +43,7 @@ namespace Realism_Mod_Config_GUI
 
         private void setTitleBar()
         {
-            string modVer = "v0.7.3";
+            string modVer = "v0.7.4";
             string sptVer = "v3.5.0";
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
@@ -269,6 +269,8 @@ namespace Realism_Mod_Config_GUI
 
             Config.old_ballistics = false;
 
+            Config.backup_profiles = true;
+
             Config.rand_stock_modifier = 0;
             Config.rand_stackable_modifier = 1m;
             Config.rand_cost_discount = 0.85m;
@@ -369,6 +371,8 @@ namespace Realism_Mod_Config_GUI
             randTradPriceCheck.Checked = Config.randomize_trader_prices;
 
             oldBallsCheck.Checked = Config.old_ballistics;
+
+            backupCheck.Checked = Config.backup_profiles;
 
             stockModNum.Value = (decimal)Config.rand_stock_modifier;
             stackMultiNum.Value = (decimal)Config.rand_stackable_modifier;
@@ -1174,7 +1178,14 @@ namespace Realism_Mod_Config_GUI
 
         private void oldBallsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.old_ballistics = oldBallsCheck.Checked == true ? true : false; ;
+            Config.old_ballistics = oldBallsCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
+
+        private void backupCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.backup_profiles = backupCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
@@ -1291,6 +1302,8 @@ namespace Realism_Mod_Config_GUI
             public decimal rand_cost_increase { get; set; }
             public int trader_refresh_time { get; set; }
             public bool old_ballistics { get; set; }            
+            public bool backup_profiles { get; set; }  
         }
+
     }
 }
