@@ -129,6 +129,7 @@
             this.tieredFleaCheck = new System.Windows.Forms.CheckBox();
             this.fleaConfigCheck = new System.Windows.Forms.CheckBox();
             this.miscTab = new System.Windows.Forms.TabPage();
+            this.backupCheck = new System.Windows.Forms.CheckBox();
             this.itemGroupBox = new System.Windows.Forms.GroupBox();
             this.firCheck = new System.Windows.Forms.CheckBox();
             this.allExaminedCheck = new System.Windows.Forms.CheckBox();
@@ -172,7 +173,8 @@
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
             this.modVerLabel = new System.Windows.Forms.Label();
-            this.backupCheck = new System.Windows.Forms.CheckBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.gearPresetCombo = new System.Windows.Forms.ComboBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -1650,6 +1652,22 @@
             this.miscTab.TabIndex = 6;
             this.miscTab.Text = "Misc.";
             // 
+            // backupCheck
+            // 
+            this.backupCheck.AutoSize = true;
+            this.backupCheck.Checked = true;
+            this.backupCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.backupCheck.ForeColor = System.Drawing.Color.White;
+            this.backupCheck.Location = new System.Drawing.Point(19, 139);
+            this.backupCheck.Name = "backupCheck";
+            this.backupCheck.Size = new System.Drawing.Size(107, 19);
+            this.backupCheck.TabIndex = 13;
+            this.backupCheck.Text = "Backup Profiles";
+            this.toolTip1.SetToolTip(this.backupCheck, "Makes backups of user profiles in the \"ProfileBackups\" folder of the mod\'s direct" +
+        "ory every time the game starts.\r\n");
+            this.backupCheck.UseVisualStyleBackColor = true;
+            this.backupCheck.CheckedChanged += new System.EventHandler(this.backupCheck_CheckedChanged);
+            // 
             // itemGroupBox
             // 
             this.itemGroupBox.Controls.Add(this.firCheck);
@@ -1730,6 +1748,8 @@
             this.recoilTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.recoilTab.BackgroundImage = global::Realism_Mod_Config_GUI.Properties.Resources.SPTRM_config_image;
             this.recoilTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.recoilTab.Controls.Add(this.label23);
+            this.recoilTab.Controls.Add(this.gearPresetCombo);
             this.recoilTab.Controls.Add(this.label1);
             this.recoilTab.Controls.Add(this.attachPresetCombo);
             this.recoilTab.Controls.Add(this.presetHelpLabel);
@@ -2302,21 +2322,24 @@
             this.modVerLabel.TabIndex = 11;
             this.modVerLabel.Text = "modVer";
             // 
-            // backupCheck
+            // label23
             // 
-            this.backupCheck.AutoSize = true;
-            this.backupCheck.Checked = true;
-            this.backupCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.backupCheck.ForeColor = System.Drawing.Color.White;
-            this.backupCheck.Location = new System.Drawing.Point(19, 139);
-            this.backupCheck.Name = "backupCheck";
-            this.backupCheck.Size = new System.Drawing.Size(107, 19);
-            this.backupCheck.TabIndex = 13;
-            this.backupCheck.Text = "Backup Profiles";
-            this.toolTip1.SetToolTip(this.backupCheck, "Makes backups of user profiles in the \"ProfileBackups\" folder of the mod\'s direct" +
-        "ory every time the game starts.\r\n");
-            this.backupCheck.UseVisualStyleBackColor = true;
-            this.backupCheck.CheckedChanged += new System.EventHandler(this.backupCheck_CheckedChanged);
+            this.label23.AutoSize = true;
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(24, 488);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(69, 15);
+            this.label23.TabIndex = 22;
+            this.label23.Text = "Gear Preset:";
+            // 
+            // gearPresetCombo
+            // 
+            this.gearPresetCombo.FormattingEnabled = true;
+            this.gearPresetCombo.Location = new System.Drawing.Point(145, 485);
+            this.gearPresetCombo.Name = "gearPresetCombo";
+            this.gearPresetCombo.Size = new System.Drawing.Size(188, 23);
+            this.gearPresetCombo.TabIndex = 21;
+            this.gearPresetCombo.SelectedIndexChanged += new System.EventHandler(this.gearPresetCombo_SelectedIndexChanged);
             // 
             // Main_Form
             // 
@@ -2542,5 +2565,7 @@
         private Label label22;
         private CheckBox oldBallsCheck;
         private CheckBox backupCheck;
+        private Label label23;
+        private ComboBox gearPresetCombo;
     }
 }

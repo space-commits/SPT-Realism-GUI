@@ -8308,13 +8308,6 @@ IF YOU WANT TO DISABLE THIS FEATURE MAKE SURE TO ASLO DELETE THE REALISMMOD.DLL 
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="airdropChangesCheck.ToolTip" xml:space="preserve">
-    <value>If enabled airdrops will have 'types' (medical supplies, food, ammo, etc.) and will only have items of that type.
-Different types have different rarity, airdrop types will be rerolled when starting the game or at the end of raids.</value>
-  </data>
   <data name="Dev_Tools.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAp4AAAGQCAYAAAAHlGB+AAABfmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAA
@@ -10561,6 +10554,10 @@ Recommended to use in combination with the "Malfunction Changes" option.</value>
 
 If the "Med Changes" are enabled Therapist will sell the makeshift medkits, if the "Recoil, Attachment and Ballistics" overhaul is enabled Mechanic will sell custom weapons.</value>
   </data>
+  <data name="airdropChangesCheck.ToolTip" xml:space="preserve">
+    <value>If enabled airdrops will have 'types' (medical supplies, food, ammo, etc.) and will only have items of that type.
+Different types have different rarity, airdrop types will be rerolled when starting the game or at the end of raids.</value>
+  </data>
   <data name="convMultLabel.ToolTip" xml:space="preserve">
     <value>Also Known As 'Auto Compensation', This Is The Speed At Which The Gun Comes Under Control. In This Mod Convergence Only Works This Way For Semi Auto, In Full Auto Convergence Dictates The Overall Amount Of Recoil Climb And How Snappy It Is. Basically, Lower = More Recoil That Is More Floaty.</value>
   </data>
@@ -10573,6 +10570,9 @@ If the "Med Changes" are enabled Therapist will sell the makeshift medkits, if t
 First enable bot testing. Set the tier to 1-4 to spawn a sepcific tier of bot, then set what what bot type you want to spawn.
 Disabling weapons will deactivate the AI, they will spawn but not move or react.</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>55</value>
   </metadata>

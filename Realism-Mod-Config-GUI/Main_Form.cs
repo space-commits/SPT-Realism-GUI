@@ -19,6 +19,10 @@ namespace Realism_Mod_Config_GUI
         public static DirectoryInfo attDI = new DirectoryInfo(attFilePath);
         public static DirectoryInfo[] attPresetFilePath = attDI.GetDirectories();
 
+        public static string gearFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"db/templates/gear/");
+        public static DirectoryInfo gearDI = new DirectoryInfo(gearFilePath);
+        public static DirectoryInfo[] gearPresetFilePath = gearDI.GetDirectories();
+
 
         public Main_Form()
         {
@@ -32,6 +36,7 @@ namespace Realism_Mod_Config_GUI
                 SetDisplayValues();
                 SetPresetComboBoxes(weapPresetFilePath, weapPresetCombo);
                 SetPresetComboBoxes(attPresetFilePath, attachPresetCombo);
+                SetPresetComboBoxes(gearPresetFilePath, gearPresetCombo);
             }
             catch(Exception exception)
             {
@@ -200,6 +205,7 @@ namespace Realism_Mod_Config_GUI
 
             Config.weap_preset = "Realism";
             Config.att_preset = "Realism";
+            Config.gear_preset = "Realism";
 
             Config.realistic_player_health = true;
             Config.realistic_ballistics = true;
@@ -301,8 +307,10 @@ namespace Realism_Mod_Config_GUI
 
             weapPresetCombo.SelectedItem = Config.weap_preset;
             attachPresetCombo.SelectedItem = Config.att_preset;
+            gearPresetCombo.SelectedItem = Config.gear_preset;
             weapPresetCombo.Text = Config.weap_preset;
             attachPresetCombo.Text = Config.att_preset;
+            gearPresetCombo.Text = Config.gear_preset;
 
             realPlayerHealthCheck.Checked = Config.realistic_player_health;
             realBallisticsCheck.Checked = Config.realistic_ballistics;
@@ -1000,6 +1008,12 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void gearPresetCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Config.gear_preset = gearPresetCombo.SelectedItem.ToString();
+            CheckCheckBoxes();
+        }
+
         private void standardHPNumeric_ValueChanged(object sender, EventArgs e)
         {
             Config.standard_bot_hp_multi= standardHPNumeric.Value;
@@ -1266,6 +1280,7 @@ namespace Realism_Mod_Config_GUI
             public bool revert_hp { get; set; }
             public string weap_preset { get; set; }
             public string att_preset { get; set; }
+            public string gear_preset { get; set; }
             public bool recoil_crank { get; set; }
             public decimal vert_recoil_multi { get; set; }
             public decimal horz_recoil_multi { get; set; }
@@ -1305,5 +1320,6 @@ namespace Realism_Mod_Config_GUI
             public bool backup_profiles { get; set; }  
         }
 
+   
     }
 }
