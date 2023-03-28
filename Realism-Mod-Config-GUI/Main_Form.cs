@@ -38,7 +38,7 @@ namespace Realism_Mod_Config_GUI
                 SetPresetComboBoxes(attPresetFilePath, attachPresetCombo);
                 SetPresetComboBoxes(gearPresetFilePath, gearPresetCombo);
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 warningTextBox.Show();
                 warningTextBox.Text = $"{exception.Message}  \n\nMake sure this app is located in the 'SPT-Realism-Mod' folder, and make sure the 'config.json' file is located in 'config\\config.json'";
@@ -48,8 +48,8 @@ namespace Realism_Mod_Config_GUI
 
         private void setTitleBar()
         {
-            string modVer = "v0.7.4";
-            string sptVer = "v3.5.0";
+            string modVer = "v0.7.8";
+            string sptVer = "v3.5.3";
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
 
@@ -166,25 +166,25 @@ namespace Realism_Mod_Config_GUI
                 }
             }
 
-   /*         vertRecNumeric.Value = 1.0m;
-            horzRecNumeric.Value = 1.0m;
-            convNumeric.Value = 1.0m;
-            dispNumeric.Value = 1.0m;
-            ergoNumeric.Value = 1.0m;
-            camRecNumeric.Value = 1.0m;
+            /*         vertRecNumeric.Value = 1.0m;
+                     horzRecNumeric.Value = 1.0m;
+                     convNumeric.Value = 1.0m;
+                     dispNumeric.Value = 1.0m;
+                     ergoNumeric.Value = 1.0m;
+                     camRecNumeric.Value = 1.0m;
 
-            hostNum1.Value = 95.0m;
-            hostNum2.Value = 99.0m;
-            hostNum3.Value = 100.0m;
+                     hostNum1.Value = 95.0m;
+                     hostNum2.Value = 99.0m;
+                     hostNum3.Value = 100.0m;
 
-            standardHPNumeric.Value = 1.0m;
-            midHPNumeric.Value = 1.0m;
-            bossHPNumeric.Value = 1.0m;
+                     standardHPNumeric.Value = 1.0m;
+                     midHPNumeric.Value = 1.0m;
+                     bossHPNumeric.Value = 1.0m;
 
-            crankCheck.Checked = true;
+                     crankCheck.Checked = true;
 
-            weapPresetCombo.SelectedItem = "Realism";
-            attachPresetCombo.SelectedItem = "Realism";*/
+                     weapPresetCombo.SelectedItem = "Realism";
+                     attachPresetCombo.SelectedItem = "Realism";*/
 
             Config.vert_recoil_multi = 1.0m;
             Config.horz_recoil_multi = 1.0m;
@@ -218,21 +218,21 @@ namespace Realism_Mod_Config_GUI
             Config.malf_changes = true;
             Config.med_changes = true;
             Config.revert_med_changes = false;
-            Config.weight_limits_changes= true;
+            Config.weight_limits_changes = true;
             Config.headset_changes = true;
             Config.movement_changes = true;
             Config.fall_damage_changes = true;
             Config.bot_changes = true;
             Config.increased_bot_cap = false;
             Config.open_zones_fix = true;
-            Config.boss_spawns= true; 
+            Config.boss_spawns = true;
             Config.realistic_boss_health = true;
             Config.realistic_boss_follower_health = true;
             Config.realistic_raider_rogue_health = true;
             Config.realistic_cultist_health = true;
             Config.pmc_difficulty = false;
             Config.boss_difficulty = false;
-            Config.pmc_types= true;
+            Config.pmc_types = true;
             Config.bot_names = true;
             Config.cyrillic_bear_names = true;
             Config.tiered_flea = true;
@@ -240,6 +240,7 @@ namespace Realism_Mod_Config_GUI
             Config.trader_changes = true;
             Config.all_examined = true;
             Config.remove_inraid_restrictions = true;
+            Config.remove_quest_fir_req = true;
             Config.remove_fir_req = true;
             Config.airdrop_changes = true;
             Config.bot_testing = false;
@@ -250,11 +251,11 @@ namespace Realism_Mod_Config_GUI
             Config.all_scavs = false;
             Config.bot_test_weps_enabled = true;
             Config.guarantee_boss_spawn = false;
-            Config.force_boss_items = false;    
+            Config.force_boss_items = false;
             Config.disable_flea_blacklist = false;
             Config.no_fall_damage = false;
             Config.logEverything = false;
-            Config.revert_hp= false;
+            Config.revert_hp = false;
             Config.botTierOdds1 = new int[] { 15, 1, 0, 0 };
             Config.botTierOdds2 = new int[] { 20, 2, 0, 0 };
             Config.botTierOdds3 = new int[] { 15, 10, 1, 0 };
@@ -358,6 +359,7 @@ namespace Realism_Mod_Config_GUI
             allExaminedCheck.Checked = Config.all_examined;
             removeRaidRestrictionsCheck.Checked = Config.remove_inraid_restrictions;
             firCheck.Checked = Config.remove_fir_req;
+            firQuestCheck.Checked = Config.remove_quest_fir_req;
             airdropChangesCheck.Checked = Config.airdrop_changes;
 
             botTestingCheck.Checked = Config.bot_testing;
@@ -420,10 +422,10 @@ namespace Realism_Mod_Config_GUI
             }
         }
 
-        private void CheckCheckBoxes() 
+        private void CheckCheckBoxes()
         {
             Color disabled = Color.SlateGray;
-            Color enabled = Color.FromArgb(36,36,36);
+            Color enabled = Color.FromArgb(36, 36, 36);
 
             //recoil
             if (recoilAttOverhaulCheck.Checked == true)
@@ -450,7 +452,7 @@ namespace Realism_Mod_Config_GUI
             }
 
             //ballistics
-            if (realBallisticsCheck.Checked == false) 
+            if (realBallisticsCheck.Checked == false)
             {
                 buffHelmetsCheck.Checked = false;
                 buffHelmetsCheck.Enabled = false;
@@ -484,13 +486,13 @@ namespace Realism_Mod_Config_GUI
             {
                 realBallisticsCheck.Enabled = false;
             }
-            else 
+            else
             {
                 realBallisticsCheck.Enabled = true;
             }
-                
-                //realistic player HP
-                if (realPlayerHealthCheck.Checked == true)
+
+            //realistic player HP
+            if (realPlayerHealthCheck.Checked == true)
             {
                 revertHPCheck.Checked = false;
                 revertHPCheck.Enabled = false;
@@ -670,7 +672,7 @@ namespace Realism_Mod_Config_GUI
             {
                 realPlayerHealthCheck.Checked = true;
             }
-      
+
             CheckCheckBoxes();
 
         }
@@ -847,6 +849,12 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void firQuestCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.remove_quest_fir_req = firQuestCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
         private void firCheck_CheckedChanged(object sender, EventArgs e)
         {
             Config.remove_fir_req = firCheck.Checked == true ? true : false;
@@ -1016,7 +1024,7 @@ namespace Realism_Mod_Config_GUI
 
         private void standardHPNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.standard_bot_hp_multi= standardHPNumeric.Value;
+            Config.standard_bot_hp_multi = standardHPNumeric.Value;
             CheckCheckBoxes();
         }
 
@@ -1043,55 +1051,6 @@ namespace Realism_Mod_Config_GUI
             Config.headset_changes = headsetCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
-
-        private void botOdds1Text_TextChanged(object sender, EventArgs e)
-        {
-            Config.botTierOdds1 = stringToIntArr(botOdds1Text.Text); ;
-            CheckCheckBoxes();
-        }
-
-        private void botOdds2Text_TextChanged(object sender, EventArgs e)
-        {
-            Config.botTierOdds2 = stringToIntArr(botOdds2Text.Text); ;
-            CheckCheckBoxes();
-        }
-
-        private void botOdds3Text_TextChanged(object sender, EventArgs e)
-        {
-            Config.botTierOdds3 = stringToIntArr(botOdds3Text.Text); ;
-            CheckCheckBoxes();
-        }
-
-        private void botOdds4Text_TextChanged(object sender, EventArgs e)
-        {
-            Config.botTierOdds4 = stringToIntArr(botOdds4Text.Text); ;
-            CheckCheckBoxes();
-        }
-
-        private void botOdds5Text_TextChanged(object sender, EventArgs e)
-        {
-            Config.botTierOdds5 = stringToIntArr(botOdds5Text.Text); ;
-            CheckCheckBoxes();
-        }
-
-        private void botOdds6Text_TextChanged(object sender, EventArgs e)
-        {
-            Config.botTierOdds6 = stringToIntArr(botOdds6Text.Text);
-            CheckCheckBoxes();
-        }
-
-        private void botOdds7Text_TextChanged(object sender, EventArgs e)
-        {
-            Config.botTierOdds7 = stringToIntArr(botOdds7Text.Text);
-            CheckCheckBoxes();
-        }
-
-        private void botOdds8Text_TextChanged(object sender, EventArgs e)
-        {
-            Config.botTierOdds8 = stringToIntArr(botOdds8Text.Text);
-            CheckCheckBoxes();
-        }
-
 
         private void botHost1_ValueChanged(object sender, EventArgs e)
         {
@@ -1203,8 +1162,31 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void validateBotTierText()
+        {
+            Config.botTierOdds1 = stringToIntArr(stringValidationHelper(botOdds1Text.Text));
+            Config.botTierOdds2 = stringToIntArr(stringValidationHelper(botOdds2Text.Text));
+            Config.botTierOdds3 = stringToIntArr(stringValidationHelper(botOdds3Text.Text));
+            Config.botTierOdds4 = stringToIntArr(stringValidationHelper(botOdds4Text.Text));
+            Config.botTierOdds5 = stringToIntArr(stringValidationHelper(botOdds5Text.Text));
+            Config.botTierOdds6 = stringToIntArr(stringValidationHelper(botOdds6Text.Text));
+            Config.botTierOdds7 = stringToIntArr(stringValidationHelper(botOdds7Text.Text));
+            Config.botTierOdds8 = stringToIntArr(stringValidationHelper(botOdds8Text.Text));
+        }
+
+        private string stringValidationHelper(string str) 
+        {
+            if (str == "" || str.Any(Char.IsLetter) || str.Contains(".") || !str.Contains(",")) 
+            {
+                throw new ArgumentException("Invalid Character(s) In Bot Tier String");
+            }
+            return str;
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
+
+            validateBotTierText();
             File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
             savedLabel.ForeColor = Color.GreenYellow;
             Timer(savedLabel);
@@ -1220,7 +1202,12 @@ namespace Realism_Mod_Config_GUI
 
         private int[] stringToIntArr(string str) 
         {
-            return Array.ConvertAll(str.Split(','), int.Parse);
+            int[] arr = Array.ConvertAll(str.Split(','), int.Parse);
+            if (arr.Length <4 || arr.Length > 4) 
+            {
+                throw new ArgumentException("Bot Tier Array Has Too Few Or Too Many Tiers");
+            }
+            return arr;
         }
 
         private string intArrToString(int[] intArr)
@@ -1264,6 +1251,7 @@ namespace Realism_Mod_Config_GUI
             public bool all_examined { get; set; }
             public bool remove_inraid_restrictions { get; set; }
             public bool remove_fir_req { get; set; }
+            public bool remove_quest_fir_req { get; set; }
             public bool legacy_recoil_changes { get; set; }
             public bool bot_testing { get; set; }
             public bool bot_test_weps_enabled { get; set; }
@@ -1320,6 +1308,6 @@ namespace Realism_Mod_Config_GUI
             public bool backup_profiles { get; set; }  
         }
 
-   
+
     }
 }

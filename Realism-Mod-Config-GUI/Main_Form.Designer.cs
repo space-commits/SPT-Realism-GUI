@@ -131,11 +131,14 @@
             this.miscTab = new System.Windows.Forms.TabPage();
             this.backupCheck = new System.Windows.Forms.CheckBox();
             this.itemGroupBox = new System.Windows.Forms.GroupBox();
+            this.firQuestCheck = new System.Windows.Forms.CheckBox();
             this.firCheck = new System.Windows.Forms.CheckBox();
             this.allExaminedCheck = new System.Windows.Forms.CheckBox();
             this.removeRaidRestrictionsCheck = new System.Windows.Forms.CheckBox();
             this.airdropChangesCheck = new System.Windows.Forms.CheckBox();
             this.recoilTab = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.gearPresetCombo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.attachPresetCombo = new System.Windows.Forms.ComboBox();
             this.presetHelpLabel = new System.Windows.Forms.Label();
@@ -173,8 +176,6 @@
             this.revertLabel = new System.Windows.Forms.Label();
             this.savedLabel = new System.Windows.Forms.Label();
             this.modVerLabel = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.gearPresetCombo = new System.Windows.Forms.ComboBox();
             this.mainTabControl.SuspendLayout();
             this.Realism_Ballistics.SuspendLayout();
             this.weapGroupBox.SuspendLayout();
@@ -285,9 +286,9 @@
             this.revertHPCheck.Size = new System.Drawing.Size(133, 19);
             this.revertHPCheck.TabIndex = 13;
             this.revertHPCheck.Text = "Revert HP to Default";
-            this.toolTip1.SetToolTip(this.revertHPCheck, "Reverts player HP back to the defualt values. You must do this after disabling \"R" +
-        "ealistic Player Health\" unless you will use another mod to change your health va" +
-        "lues.");
+            this.toolTip1.SetToolTip(this.revertHPCheck, "Reverts player HP back to the defaut values. You must do this after disabling \"Re" +
+        "alistic Player Health\" unless you will use another mod to change your health val" +
+        "ues.");
             this.revertHPCheck.UseVisualStyleBackColor = true;
             this.revertHPCheck.CheckedChanged += new System.EventHandler(this.revertHPCheck_CheckedChanged);
             // 
@@ -490,7 +491,7 @@
             this.Health_Movement.Padding = new System.Windows.Forms.Padding(3);
             this.Health_Movement.Size = new System.Drawing.Size(1360, 684);
             this.Health_Movement.TabIndex = 1;
-            this.Health_Movement.Text = "Health & Movment";
+            this.Health_Movement.Text = "Health & Movement";
             // 
             // moveGroupBox
             // 
@@ -730,7 +731,6 @@
             this.botOdds8Text.TabIndex = 95;
             this.botOdds8Text.Text = "15, 1, 0, 0";
             this.toolTip1.SetToolTip(this.botOdds8Text, resources.GetString("botOdds8Text.ToolTip"));
-            this.botOdds8Text.TextChanged += new System.EventHandler(this.botOdds8Text_TextChanged);
             // 
             // botOdds7Text
             // 
@@ -740,7 +740,6 @@
             this.botOdds7Text.TabIndex = 94;
             this.botOdds7Text.Text = "15, 1, 0, 0";
             this.toolTip1.SetToolTip(this.botOdds7Text, resources.GetString("botOdds7Text.ToolTip"));
-            this.botOdds7Text.TextChanged += new System.EventHandler(this.botOdds7Text_TextChanged);
             // 
             // botOdds6Text
             // 
@@ -750,7 +749,6 @@
             this.botOdds6Text.TabIndex = 93;
             this.botOdds6Text.Text = "15, 1, 0, 0";
             this.toolTip1.SetToolTip(this.botOdds6Text, resources.GetString("botOdds6Text.ToolTip"));
-            this.botOdds6Text.TextChanged += new System.EventHandler(this.botOdds6Text_TextChanged);
             // 
             // botOdds5Text
             // 
@@ -760,7 +758,6 @@
             this.botOdds5Text.TabIndex = 92;
             this.botOdds5Text.Text = "15, 1, 0, 0";
             this.toolTip1.SetToolTip(this.botOdds5Text, resources.GetString("botOdds5Text.ToolTip"));
-            this.botOdds5Text.TextChanged += new System.EventHandler(this.botOdds5Text_TextChanged);
             // 
             // botOdds4Text
             // 
@@ -770,7 +767,6 @@
             this.botOdds4Text.TabIndex = 91;
             this.botOdds4Text.Text = "15, 1, 0, 0";
             this.toolTip1.SetToolTip(this.botOdds4Text, resources.GetString("botOdds4Text.ToolTip"));
-            this.botOdds4Text.TextChanged += new System.EventHandler(this.botOdds4Text_TextChanged);
             // 
             // botOdds3Text
             // 
@@ -780,7 +776,6 @@
             this.botOdds3Text.TabIndex = 90;
             this.botOdds3Text.Text = "15, 1, 0, 0";
             this.toolTip1.SetToolTip(this.botOdds3Text, resources.GetString("botOdds3Text.ToolTip"));
-            this.botOdds3Text.TextChanged += new System.EventHandler(this.botOdds3Text_TextChanged);
             // 
             // botOdds2Text
             // 
@@ -790,7 +785,6 @@
             this.botOdds2Text.TabIndex = 89;
             this.botOdds2Text.Text = "15, 1, 0, 0";
             this.toolTip1.SetToolTip(this.botOdds2Text, resources.GetString("botOdds2Text.ToolTip"));
-            this.botOdds2Text.TextChanged += new System.EventHandler(this.botOdds2Text_TextChanged);
             // 
             // botOdds1Text
             // 
@@ -800,7 +794,6 @@
             this.botOdds1Text.TabIndex = 21;
             this.botOdds1Text.Text = "15, 1, 0, 0";
             this.toolTip1.SetToolTip(this.botOdds1Text, resources.GetString("botOdds1Text.ToolTip"));
-            this.botOdds1Text.TextChanged += new System.EventHandler(this.botOdds1Text_TextChanged);
             // 
             // label13
             // 
@@ -1260,8 +1253,8 @@
             this.botChangesCheck.Size = new System.Drawing.Size(93, 19);
             this.botChangesCheck.TabIndex = 0;
             this.botChangesCheck.Text = "Bot Changes";
-            this.toolTip1.SetToolTip(this.botChangesCheck, "Enables bot tiered loadouts, changes to bot loot, armor and weapon durability, ho" +
-        "stilitiy chance, spawn ratios, etc.\r\n");
+            this.toolTip1.SetToolTip(this.botChangesCheck, "Enables bot tiered loadouts, changes to bot loot, armor and weapon durability, sp" +
+        "awn ratios, etc.\r\n");
             this.botChangesCheck.UseVisualStyleBackColor = true;
             this.botChangesCheck.CheckedChanged += new System.EventHandler(this.botChangesCheck_CheckedChanged);
             // 
@@ -1317,7 +1310,7 @@
             this.label22.TabIndex = 17;
             this.label22.Text = "Trader Refresh Time\r\n";
             this.toolTip1.SetToolTip(this.label22, "The time it takes for trader offers to refresh in seconds.\r\n\r\nIf randomization is" +
-        " enabled, refersh will also randomize offers.\r\n");
+        " enabled, refresh will also randomize offers.\r\n");
             // 
             // tradRefreshNum
             // 
@@ -1435,7 +1428,7 @@
             this.label19.Size = new System.Drawing.Size(115, 15);
             this.label19.TabIndex = 11;
             this.label19.Text = "Stackable Item Multi";
-            this.toolTip1.SetToolTip(this.label19, "Multilplier for the stock of stackable items like ammo.");
+            this.toolTip1.SetToolTip(this.label19, "Multiplier for the stock of stackable items like ammo.");
             // 
             // stackMultiNum
             // 
@@ -1457,11 +1450,11 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(6, 248);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(81, 15);
+            this.label18.Size = new System.Drawing.Size(84, 15);
             this.label18.TabIndex = 9;
-            this.label18.Text = "Stock Modifer";
-            this.toolTip1.SetToolTip(this.label18, "Adds to the minium and maximum stock of items that aren\'t stackable (weapons, foo" +
-        "d, meds, armor, etc.).\r\n\r\n1 means +1 to minimum and maximum stock.\r\n");
+            this.label18.Text = "Stock Modifier";
+            this.toolTip1.SetToolTip(this.label18, "Adds to the minimum and maximum stock of items that aren\'t stackable (weapons, fo" +
+        "od, meds, armor, etc.).\r\n\r\n1 means +1 to minimum and maximum stock.\r\n");
             // 
             // stockModNum
             // 
@@ -1587,7 +1580,7 @@
             this.traderllCheck.Size = new System.Drawing.Size(170, 19);
             this.traderllCheck.TabIndex = 1;
             this.traderllCheck.Text = "Change Item Loyalty Levels";
-            this.toolTip1.SetToolTip(this.traderllCheck, "Changes the trader loyalty level requirements for ammo, armor and wepaons to be b" +
+            this.toolTip1.SetToolTip(this.traderllCheck, "Changes the trader loyalty level requirements for ammo, armor and weapons to be b" +
         "alanced with changes to ballistics and weapons.");
             this.traderllCheck.UseVisualStyleBackColor = true;
             this.traderllCheck.CheckedChanged += new System.EventHandler(this.traderllCheck_CheckedChanged);
@@ -1615,9 +1608,9 @@
             this.tieredFleaCheck.Size = new System.Drawing.Size(119, 19);
             this.tieredFleaCheck.TabIndex = 0;
             this.tieredFleaCheck.Text = "Tiered Fleamarket";
-            this.toolTip1.SetToolTip(this.tieredFleaCheck, "If Enabled the fleamarket will unlock progressivly by category or subcategory of " +
-        "item based on the player\'s level.\r\nThere are 7 tiers in total, the final one bei" +
-        "ng a \'full unlock\'. ");
+            this.toolTip1.SetToolTip(this.tieredFleaCheck, "If Enabled the fleamarket will unlock progressively by category or subcategory of" +
+        " item based on the player\'s level.\r\nThere are 7 tiers in total, the final one be" +
+        "ing a \'full unlock\'. ");
             this.tieredFleaCheck.UseVisualStyleBackColor = true;
             this.tieredFleaCheck.CheckedChanged += new System.EventHandler(this.tieredFleaCheck_CheckedChanged);
             // 
@@ -1658,7 +1651,7 @@
             this.backupCheck.Checked = true;
             this.backupCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.backupCheck.ForeColor = System.Drawing.Color.White;
-            this.backupCheck.Location = new System.Drawing.Point(19, 139);
+            this.backupCheck.Location = new System.Drawing.Point(19, 167);
             this.backupCheck.Name = "backupCheck";
             this.backupCheck.Size = new System.Drawing.Size(107, 19);
             this.backupCheck.TabIndex = 13;
@@ -1670,16 +1663,32 @@
             // 
             // itemGroupBox
             // 
+            this.itemGroupBox.Controls.Add(this.firQuestCheck);
             this.itemGroupBox.Controls.Add(this.firCheck);
             this.itemGroupBox.Controls.Add(this.allExaminedCheck);
             this.itemGroupBox.Controls.Add(this.removeRaidRestrictionsCheck);
             this.itemGroupBox.ForeColor = System.Drawing.Color.White;
             this.itemGroupBox.Location = new System.Drawing.Point(19, 12);
             this.itemGroupBox.Name = "itemGroupBox";
-            this.itemGroupBox.Size = new System.Drawing.Size(234, 96);
+            this.itemGroupBox.Size = new System.Drawing.Size(273, 124);
             this.itemGroupBox.TabIndex = 12;
             this.itemGroupBox.TabStop = false;
             this.itemGroupBox.Text = "Items";
+            // 
+            // firQuestCheck
+            // 
+            this.firQuestCheck.AutoSize = true;
+            this.firQuestCheck.Checked = true;
+            this.firQuestCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.firQuestCheck.ForeColor = System.Drawing.Color.White;
+            this.firQuestCheck.Location = new System.Drawing.Point(6, 96);
+            this.firQuestCheck.Name = "firQuestCheck";
+            this.firQuestCheck.Size = new System.Drawing.Size(262, 19);
+            this.firQuestCheck.TabIndex = 7;
+            this.firQuestCheck.Text = "Remove Quest  Found-In-Raid Requirements";
+            this.toolTip1.SetToolTip(this.firQuestCheck, "Quests won\'t requrie items to be FIR.\r\n");
+            this.firQuestCheck.UseVisualStyleBackColor = true;
+            this.firQuestCheck.CheckedChanged += new System.EventHandler(this.firQuestCheck_CheckedChanged);
             // 
             // firCheck
             // 
@@ -1689,11 +1698,11 @@
             this.firCheck.ForeColor = System.Drawing.Color.White;
             this.firCheck.Location = new System.Drawing.Point(6, 71);
             this.firCheck.Name = "firCheck";
-            this.firCheck.Size = new System.Drawing.Size(225, 19);
+            this.firCheck.Size = new System.Drawing.Size(252, 19);
             this.firCheck.TabIndex = 6;
-            this.firCheck.Text = "Remove Found-In-Raid Requirements";
-            this.toolTip1.SetToolTip(this.firCheck, "Sets all items to FIR, including bought items, and removes FIR requirement for qu" +
-        "ests.\r\n");
+            this.firCheck.Text = "Remove Item Found-In-Raid Requirements";
+            this.toolTip1.SetToolTip(this.firCheck, "Sets all items to FIR, including bought items and items in secure container after" +
+        " death.");
             this.firCheck.UseVisualStyleBackColor = true;
             this.firCheck.CheckedChanged += new System.EventHandler(this.firCheck_CheckedChanged);
             // 
@@ -1734,7 +1743,7 @@
             this.airdropChangesCheck.Checked = true;
             this.airdropChangesCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.airdropChangesCheck.ForeColor = System.Drawing.Color.White;
-            this.airdropChangesCheck.Location = new System.Drawing.Point(19, 114);
+            this.airdropChangesCheck.Location = new System.Drawing.Point(19, 142);
             this.airdropChangesCheck.Name = "airdropChangesCheck";
             this.airdropChangesCheck.Size = new System.Drawing.Size(115, 19);
             this.airdropChangesCheck.TabIndex = 11;
@@ -1761,6 +1770,25 @@
             this.recoilTab.Size = new System.Drawing.Size(1360, 684);
             this.recoilTab.TabIndex = 7;
             this.recoilTab.Text = "Recoil & Presets";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(24, 488);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(69, 15);
+            this.label23.TabIndex = 22;
+            this.label23.Text = "Gear Preset:";
+            // 
+            // gearPresetCombo
+            // 
+            this.gearPresetCombo.FormattingEnabled = true;
+            this.gearPresetCombo.Location = new System.Drawing.Point(145, 485);
+            this.gearPresetCombo.Name = "gearPresetCombo";
+            this.gearPresetCombo.Size = new System.Drawing.Size(188, 23);
+            this.gearPresetCombo.TabIndex = 21;
+            this.gearPresetCombo.SelectedIndexChanged += new System.EventHandler(this.gearPresetCombo_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -1843,8 +1871,8 @@
             this.crankCheck.Size = new System.Drawing.Size(136, 19);
             this.crankCheck.TabIndex = 4;
             this.crankCheck.Text = "Enable \'Recoil Crank\'";
-            this.toolTip1.SetToolTip(this.crankCheck, "If Recoil Crank Is Enabled, Recoil Will Go Rearwards Into The Shoulder. If It\'s O" +
-        "ff Then Recoil Will Go Forward Like In Unmodded EFT.");
+            this.toolTip1.SetToolTip(this.crankCheck, "If Recoil Crank is enabled, recoil will go rearwards into the shoulder. If it\'s o" +
+        "ff then recoil will go forward like In unmodded EFT.");
             this.crankCheck.UseVisualStyleBackColor = true;
             this.crankCheck.CheckedChanged += new System.EventHandler(this.crankCheck_CheckedChanged);
             // 
@@ -1856,7 +1884,7 @@
             this.label14.Size = new System.Drawing.Size(114, 15);
             this.label14.TabIndex = 11;
             this.label14.Text = "Camera Recoil Multi";
-            this.toolTip1.SetToolTip(this.label14, "Camera Recoil Multi. Higher = More Screen Shake And Head Tilting When Firing.");
+            this.toolTip1.SetToolTip(this.label14, "Camera recoil multi. Higher = more screen shake and head tilting when firing.");
             // 
             // camRecNumeric
             // 
@@ -1896,9 +1924,9 @@
             this.ergoMultiLabel.Size = new System.Drawing.Size(62, 15);
             this.ergoMultiLabel.TabIndex = 9;
             this.ergoMultiLabel.Text = "Ergo Multi";
-            this.toolTip1.SetToolTip(this.ergoMultiLabel, "Ergonomics Multi. In This Mod, Higher Ergo = Reduction To Weight And Balance Pena" +
-        "lties, So Faster ADS, Less Aim Sway And Inertira, Faster Weapon Handling (Reload" +
-        "ing, Chambering).");
+            this.toolTip1.SetToolTip(this.ergoMultiLabel, "Ergonomics multi. In this mod, higher ergo = reduction to weight and balance pena" +
+        "lties, so faster ADS, less aim sway and inertira, faster weapon handling (reload" +
+        "ing, chambering).");
             // 
             // ergoNumeric
             // 
@@ -1937,8 +1965,8 @@
             this.dispMultLabel.Size = new System.Drawing.Size(93, 15);
             this.dispMultLabel.TabIndex = 7;
             this.dispMultLabel.Text = "Dispersion Multi";
-            this.toolTip1.SetToolTip(this.dispMultLabel, "Dispersion Is Basically The Amount Of Spread. It\'s The Radius In Which Recoil Can" +
-        " Occur, So Higher Dispersion = More Spread.");
+            this.toolTip1.SetToolTip(this.dispMultLabel, "Dispersion is the amount of spread. It\'s the radius in which recoil can occur, so" +
+        " higher dispersion = more spread.");
             // 
             // dispNumeric
             // 
@@ -2055,7 +2083,7 @@
             this.vertRecMultLabel.Size = new System.Drawing.Size(111, 15);
             this.vertRecMultLabel.TabIndex = 1;
             this.vertRecMultLabel.Text = "Vertical Recoil Multi";
-            this.toolTip1.SetToolTip(this.vertRecMultLabel, "Vertical Recoil Multi. Higher Vertical Recoil = More Muzzle Rise And Flip.");
+            this.toolTip1.SetToolTip(this.vertRecMultLabel, "Vertical recoil multi. Higher vertical rcoil = moe muzzle rise and flip.");
             // 
             // vertRecNumeric
             // 
@@ -2322,25 +2350,6 @@
             this.modVerLabel.TabIndex = 11;
             this.modVerLabel.Text = "modVer";
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(24, 488);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(69, 15);
-            this.label23.TabIndex = 22;
-            this.label23.Text = "Gear Preset:";
-            // 
-            // gearPresetCombo
-            // 
-            this.gearPresetCombo.FormattingEnabled = true;
-            this.gearPresetCombo.Location = new System.Drawing.Point(145, 485);
-            this.gearPresetCombo.Name = "gearPresetCombo";
-            this.gearPresetCombo.Size = new System.Drawing.Size(188, 23);
-            this.gearPresetCombo.TabIndex = 21;
-            this.gearPresetCombo.SelectedIndexChanged += new System.EventHandler(this.gearPresetCombo_SelectedIndexChanged);
-            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2567,5 +2576,6 @@
         private CheckBox backupCheck;
         private Label label23;
         private ComboBox gearPresetCombo;
+        private CheckBox firQuestCheck;
     }
 }
