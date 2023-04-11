@@ -56,6 +56,7 @@
             this.medChangesCheck = new System.Windows.Forms.CheckBox();
             this.revertMedsCheck = new System.Windows.Forms.CheckBox();
             this.Bots = new System.Windows.Forms.TabPage();
+            this.dynBotLoot = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.hostNum3 = new System.Windows.Forms.NumericUpDown();
             this.hostNum2 = new System.Windows.Forms.NumericUpDown();
@@ -599,6 +600,7 @@
             this.Bots.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.Bots.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Bots.BackgroundImage")));
             this.Bots.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Bots.Controls.Add(this.dynBotLoot);
             this.Bots.Controls.Add(this.groupBox1);
             this.Bots.Controls.Add(this.label5);
             this.Bots.Controls.Add(this.botTierGroup);
@@ -615,6 +617,21 @@
             this.Bots.Size = new System.Drawing.Size(1360, 684);
             this.Bots.TabIndex = 2;
             this.Bots.Text = "Bots";
+            // 
+            // dynBotLoot
+            // 
+            this.dynBotLoot.AutoSize = true;
+            this.dynBotLoot.Checked = true;
+            this.dynBotLoot.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.dynBotLoot.ForeColor = System.Drawing.Color.White;
+            this.dynBotLoot.Location = new System.Drawing.Point(158, 17);
+            this.dynBotLoot.Name = "dynBotLoot";
+            this.dynBotLoot.Size = new System.Drawing.Size(168, 19);
+            this.dynBotLoot.TabIndex = 22;
+            this.dynBotLoot.Text = "Looting Bots Compatibility";
+            this.toolTip1.SetToolTip(this.dynBotLoot, resources.GetString("dynBotLoot.ToolTip"));
+            this.dynBotLoot.UseVisualStyleBackColor = true;
+            this.dynBotLoot.CheckedChanged += new System.EventHandler(this.dynBotLoot_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -2577,5 +2594,6 @@
         private Label label23;
         private ComboBox gearPresetCombo;
         private CheckBox firQuestCheck;
+        private CheckBox dynBotLoot;
     }
 }

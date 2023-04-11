@@ -6282,6 +6282,11 @@ See the mod overview page for details.</value>
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="dynBotLoot.ToolTip" xml:space="preserve">
+    <value>For use with the "Looting Bots" mod. Makes PMCs spawn with only "personal" items, meds, ammo and food so that any loot found on their bodies would be loot they got themselves, just like the player.
+
+</value>
+  </data>
   <data name="hostNum3.ToolTip" xml:space="preserve">
     <value>Chance of same-faction PMCs being hostile to player per base tier.
 
