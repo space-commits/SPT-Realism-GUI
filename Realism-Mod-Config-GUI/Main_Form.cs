@@ -48,7 +48,7 @@ namespace Realism_Mod_Config_GUI
 
         private void setTitleBar()
         {
-            string modVer = "v0.7.9";
+            string modVer = "v0.7.11";
             string sptVer = "v3.5.5";
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
@@ -226,6 +226,7 @@ namespace Realism_Mod_Config_GUI
             Config.increased_bot_cap = false;
             Config.open_zones_fix = true;
             Config.boss_spawns = true;
+            Config.spawn_waves = true;
             Config.realistic_boss_health = true;
             Config.realistic_boss_follower_health = true;
             Config.realistic_raider_rogue_health = true;
@@ -256,14 +257,14 @@ namespace Realism_Mod_Config_GUI
             Config.no_fall_damage = false;
             Config.logEverything = false;
             Config.revert_hp = false;
-            Config.botTierOdds1 = new int[] { 15, 1, 0, 0 };
-            Config.botTierOdds2 = new int[] { 20, 2, 0, 0 };
-            Config.botTierOdds3 = new int[] { 15, 10, 1, 0 };
-            Config.botTierOdds4 = new int[] { 5, 15, 2, 1 };
-            Config.botTierOdds5 = new int[] { 2, 10, 15, 2 };
-            Config.botTierOdds6 = new int[] { 1, 4, 25, 10 };
-            Config.botTierOdds7 = new int[] { 1, 4, 10, 30 };
-            Config.botTierOdds8 = new int[] { 1, 2, 8, 35 };
+            Config.botTierOdds1 = new int[] { 92, 5, 2, 1 };
+            Config.botTierOdds2 = new int[] { 82, 15, 2, 1 };
+            Config.botTierOdds3 = new int[] { 38, 57, 4, 1 };
+            Config.botTierOdds4 = new int[] { 10, 85, 4, 1 };
+            Config.botTierOdds5 = new int[] { 8, 69, 21, 2 };
+            Config.botTierOdds6 = new int[] { 5, 50, 40, 5 };
+            Config.botTierOdds7 = new int[] { 5, 20, 70, 5 };
+            Config.botTierOdds8 = new int[] { 3, 18, 64, 15 };
 
             Config.trader_repair_changes = true;
             Config.change_trader_ll = true;
@@ -345,6 +346,7 @@ namespace Realism_Mod_Config_GUI
             increasedBotCapCheck.Checked = Config.increased_bot_cap;
             openZonesFixCheck.Checked = Config.open_zones_fix;
             bossSpawnCheck.Checked = Config.boss_spawns;
+            spawnWaveCheck.Checked = Config.spawn_waves;
             realBossHealthCheck.Checked = Config.realistic_boss_health;
             realFollowerHealthCheck.Checked = Config.realistic_boss_follower_health;
             realRRHealthCheck.Checked = Config.realistic_raider_rogue_health;
@@ -757,6 +759,11 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void spawnWaveCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.spawn_waves = spawnWaveCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
 
         private void bossSpawnCheck_CheckedChanged(object sender, EventArgs e)
         {
@@ -1186,9 +1193,9 @@ namespace Realism_Mod_Config_GUI
             Config.botTierOdds8 = stringToIntArr(stringValidationHelper(botOdds8Text.Text));
         }
 
-        private string stringValidationHelper(string str) 
+        private string stringValidationHelper(string str)
         {
-            if (str == "" || str.Any(Char.IsLetter) || str.Contains(".") || !str.Contains(",")) 
+            if (str == "" || str.Any(Char.IsLetter) || str.Contains(".") || !str.Contains(","))
             {
                 throw new ArgumentException("Invalid Character(s) In Bot Tier String");
             }
@@ -1212,10 +1219,10 @@ namespace Realism_Mod_Config_GUI
             Timer(revertLabel);
         }
 
-        private int[] stringToIntArr(string str) 
+        private int[] stringToIntArr(string str)
         {
             int[] arr = Array.ConvertAll(str.Split(','), int.Parse);
-            if (arr.Length <4 || arr.Length > 4) 
+            if (arr.Length < 4 || arr.Length > 4)
             {
                 throw new ArgumentException("Bot Tier Array Has Too Few Or Too Many Tiers");
             }
@@ -1251,6 +1258,7 @@ namespace Realism_Mod_Config_GUI
             public bool realistic_cultist_health { get; set; }
             public bool open_zones_fix { get; set; }
             public bool boss_spawns { get; set; }
+            public bool spawn_waves { get; set; }
             public bool pmc_difficulty { get; set; }
             public bool boss_difficulty { get; set; }
             public bool pmc_types { get; set; }
@@ -1316,9 +1324,11 @@ namespace Realism_Mod_Config_GUI
             public decimal rand_cost_discount { get; set; }
             public decimal rand_cost_increase { get; set; }
             public int trader_refresh_time { get; set; }
-            public bool old_ballistics { get; set; }            
+            public bool old_ballistics { get; set; }
             public bool backup_profiles { get; set; }
             public bool dynamic_loot_bots { get; set; }
         }
+
+
     }
 }
