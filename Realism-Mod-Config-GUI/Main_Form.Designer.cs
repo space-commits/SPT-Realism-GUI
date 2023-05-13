@@ -362,9 +362,9 @@
             recoilAttOverhaulCheck.ForeColor = Color.White;
             recoilAttOverhaulCheck.Location = new Point(6, 22);
             recoilAttOverhaulCheck.Name = "recoilAttOverhaulCheck";
-            recoilAttOverhaulCheck.Size = new Size(201, 19);
+            recoilAttOverhaulCheck.Size = new Size(198, 19);
             recoilAttOverhaulCheck.TabIndex = 6;
-            recoilAttOverhaulCheck.Text = "Recoil, and Attachment Overhaul";
+            recoilAttOverhaulCheck.Text = "Recoil and Attachment Overhaul";
             toolTip1.SetToolTip(recoilAttOverhaulCheck, resources.GetString("recoilAttOverhaulCheck.ToolTip"));
             recoilAttOverhaulCheck.UseVisualStyleBackColor = true;
             recoilAttOverhaulCheck.CheckedChanged += recoilAttOverhaulCheck_CheckedChanged;
