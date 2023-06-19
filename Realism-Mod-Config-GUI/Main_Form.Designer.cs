@@ -565,10 +565,10 @@
             medChangesCheck.ForeColor = Color.White;
             medChangesCheck.Location = new Point(6, 22);
             medChangesCheck.Name = "medChangesCheck";
-            medChangesCheck.Size = new Size(99, 19);
+            medChangesCheck.Size = new Size(117, 19);
             medChangesCheck.TabIndex = 2;
-            medChangesCheck.Text = "Med Changes";
-            toolTip1.SetToolTip(medChangesCheck, "RealismModConfig");
+            medChangesCheck.Text = "Disable Skill Issue";
+            toolTip1.SetToolTip(medChangesCheck, resources.GetString("medChangesCheck.ToolTip"));
             medChangesCheck.UseVisualStyleBackColor = true;
             medChangesCheck.CheckedChanged += medChangesCheck_CheckedChanged;
             // 
@@ -924,7 +924,7 @@
             bossSpawnCheck.Size = new Size(128, 19);
             bossSpawnCheck.TabIndex = 17;
             bossSpawnCheck.Text = "Boss Spawn Tweaks";
-            toolTip1.SetToolTip(bossSpawnCheck, ". ");
+            toolTip1.SetToolTip(bossSpawnCheck, resources.GetString("bossSpawnCheck.ToolTip"));
             bossSpawnCheck.UseVisualStyleBackColor = true;
             bossSpawnCheck.CheckedChanged += bossSpawnCheck_CheckedChanged;
             // 
