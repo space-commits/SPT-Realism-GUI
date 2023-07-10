@@ -4220,6 +4220,14 @@ IF YOU WANT TO DISABLE THIS FEATURE MAKE SURE TO ASLO DELETE THE REALISMMOD.DLL 
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="medChangesCheck.ToolTip" xml:space="preserve">
+    <value>Disable if you have a skill issue.
+
+By itself it just makes medkits not able to restore HP, and adds various debuffs and buffs to other medical items.
+This option must be enabled for the client-side overhaul of the medical and health system to take effect.
+
+See the mod's overview page for details.</value>
+  </data>
   <data name="Bots.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAp4AAAGQCAYAAAAHlGB+AAABfmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAA
@@ -6281,11 +6289,6 @@ IF YOU WANT TO DISABLE THIS FEATURE MAKE SURE TO ASLO DELETE THE REALISMMOD.DLL 
     <value>Boss/Rogue/Raider spawn chances increase as you level up, allows bosses to spawn in more parts of the map and additional maps, adds chance for Raiders and Rogues to spawn on more maps. 
 Raiders and Rogues still have 100% spawn chance on Labs and Lighthouse respectively.</value>
   </data>
-  <data name="dynBotLoot.ToolTip" xml:space="preserve">
-    <value>For use with the "Looting Bots" mod. Makes PMCs spawn with only "personal" items, meds, ammo and food so that any loot found on their bodies would be loot they got themselves, just like the player.
-
-</value>
-  </data>
   <data name="hostNum3.ToolTip" xml:space="preserve">
     <value>Chance of same-faction PMCs being hostile to player per base tier.
 
@@ -6366,6 +6369,11 @@ Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved
 
 Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
 </value>
+  </data>
+  <data name="bossSpawnCheck.ToolTip" xml:space="preserve">
+    <value>Changes boss spawn chance to be based on the player's level. At the start the boss spawn chance is very low.
+
+Bosses can spawn on maps they wouldn't normally in unexpected places, Raiders and Rogues can spawn on most maps.</value>
   </data>
   <data name="pmcTypeCheck.ToolTip" xml:space="preserve">
     <value>Changes the odds and available behaviour templates that PMCs can use. The types available and their odds changes based on player level, time of day and map.

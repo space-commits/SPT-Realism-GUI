@@ -56,8 +56,9 @@
             medChangesCheck = new CheckBox();
             revertMedsCheck = new CheckBox();
             Bots = new TabPage();
+            dynScavLoot = new CheckBox();
             spawnWaveCheck = new CheckBox();
-            dynBotLoot = new CheckBox();
+            dynPMCLoot = new CheckBox();
             groupBox1 = new GroupBox();
             hostNum3 = new NumericUpDown();
             hostNum2 = new NumericUpDown();
@@ -178,6 +179,7 @@
             revertLabel = new Label();
             savedLabel = new Label();
             modVerLabel = new Label();
+            nerfFenceCheck = new CheckBox();
             mainTabControl.SuspendLayout();
             Realism_Ballistics.SuspendLayout();
             weapGroupBox.SuspendLayout();
@@ -565,10 +567,10 @@
             medChangesCheck.ForeColor = Color.White;
             medChangesCheck.Location = new Point(6, 22);
             medChangesCheck.Name = "medChangesCheck";
-            medChangesCheck.Size = new Size(99, 19);
+            medChangesCheck.Size = new Size(117, 19);
             medChangesCheck.TabIndex = 2;
-            medChangesCheck.Text = "Med Changes";
-            toolTip1.SetToolTip(medChangesCheck, "RealismModConfig");
+            medChangesCheck.Text = "Medical Changes";
+            toolTip1.SetToolTip(medChangesCheck, resources.GetString("medChangesCheck.ToolTip"));
             medChangesCheck.UseVisualStyleBackColor = true;
             medChangesCheck.CheckedChanged += medChangesCheck_CheckedChanged;
             // 
@@ -590,8 +592,9 @@
             Bots.BackColor = Color.FromArgb(36, 36, 36);
             Bots.BackgroundImage = (Image)resources.GetObject("Bots.BackgroundImage");
             Bots.BackgroundImageLayout = ImageLayout.Center;
+            Bots.Controls.Add(dynScavLoot);
             Bots.Controls.Add(spawnWaveCheck);
-            Bots.Controls.Add(dynBotLoot);
+            Bots.Controls.Add(dynPMCLoot);
             Bots.Controls.Add(groupBox1);
             Bots.Controls.Add(label5);
             Bots.Controls.Add(botTierGroup);
@@ -609,13 +612,28 @@
             Bots.TabIndex = 2;
             Bots.Text = "Bots";
             // 
+            // dynScavLoot
+            // 
+            dynScavLoot.AutoSize = true;
+            dynScavLoot.Checked = true;
+            dynScavLoot.CheckState = CheckState.Checked;
+            dynScavLoot.ForeColor = Color.White;
+            dynScavLoot.Location = new Point(192, 93);
+            dynScavLoot.Name = "dynScavLoot";
+            dynScavLoot.Size = new Size(203, 19);
+            dynScavLoot.TabIndex = 24;
+            dynScavLoot.Text = "Looting Bots Compatibility: Scavs";
+            toolTip1.SetToolTip(dynScavLoot, "For use with the \"Looting Bots\" mod. Makes Scavs spawn with meds, ammo and food so that any loot found on their bodies would be loot they got themselves during the raid.\r\n\r\n");
+            dynScavLoot.UseVisualStyleBackColor = true;
+            dynScavLoot.CheckedChanged += dynScavLoot_CheckedChanged;
+            // 
             // spawnWaveCheck
             // 
             spawnWaveCheck.AutoSize = true;
             spawnWaveCheck.Checked = true;
             spawnWaveCheck.CheckState = CheckState.Checked;
             spawnWaveCheck.ForeColor = Color.White;
-            spawnWaveCheck.Location = new Point(192, 42);
+            spawnWaveCheck.Location = new Point(192, 17);
             spawnWaveCheck.Name = "spawnWaveCheck";
             spawnWaveCheck.Size = new Size(133, 19);
             spawnWaveCheck.TabIndex = 23;
@@ -624,20 +642,20 @@
             spawnWaveCheck.UseVisualStyleBackColor = true;
             spawnWaveCheck.CheckedChanged += spawnWaveCheck_CheckedChanged;
             // 
-            // dynBotLoot
+            // dynPMCLoot
             // 
-            dynBotLoot.AutoSize = true;
-            dynBotLoot.Checked = true;
-            dynBotLoot.CheckState = CheckState.Checked;
-            dynBotLoot.ForeColor = Color.White;
-            dynBotLoot.Location = new Point(18, 118);
-            dynBotLoot.Name = "dynBotLoot";
-            dynBotLoot.Size = new Size(168, 19);
-            dynBotLoot.TabIndex = 22;
-            dynBotLoot.Text = "Looting Bots Compatibility";
-            toolTip1.SetToolTip(dynBotLoot, resources.GetString("dynBotLoot.ToolTip"));
-            dynBotLoot.UseVisualStyleBackColor = true;
-            dynBotLoot.CheckedChanged += dynBotLoot_CheckedChanged;
+            dynPMCLoot.AutoSize = true;
+            dynPMCLoot.Checked = true;
+            dynPMCLoot.CheckState = CheckState.Checked;
+            dynPMCLoot.ForeColor = Color.White;
+            dynPMCLoot.Location = new Point(192, 68);
+            dynPMCLoot.Name = "dynPMCLoot";
+            dynPMCLoot.Size = new Size(205, 19);
+            dynPMCLoot.TabIndex = 22;
+            dynPMCLoot.Text = "Looting Bots Compatibility: PMCs\r\n";
+            toolTip1.SetToolTip(dynPMCLoot, "For use with the \"Looting Bots\" mod. Makes PMCs spawn with meds, ammo and food so that any loot found on their bodies would be loot they got themselves during the raid.\r\n");
+            dynPMCLoot.UseVisualStyleBackColor = true;
+            dynPMCLoot.CheckedChanged += dynBotLoot_CheckedChanged;
             // 
             // groupBox1
             // 
@@ -648,7 +666,7 @@
             groupBox1.Controls.Add(label15);
             groupBox1.Controls.Add(hostNum1);
             groupBox1.ForeColor = SystemColors.Window;
-            groupBox1.Location = new Point(294, 465);
+            groupBox1.Location = new Point(294, 438);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(140, 115);
             groupBox1.TabIndex = 21;
@@ -738,7 +756,7 @@
             botTierGroup.Controls.Add(label6);
             botTierGroup.Controls.Add(label8);
             botTierGroup.ForeColor = Color.White;
-            botTierGroup.Location = new Point(18, 281);
+            botTierGroup.Location = new Point(18, 254);
             botTierGroup.Name = "botTierGroup";
             botTierGroup.Size = new Size(258, 299);
             botTierGroup.TabIndex = 19;
@@ -919,12 +937,12 @@
             bossSpawnCheck.Checked = true;
             bossSpawnCheck.CheckState = CheckState.Checked;
             bossSpawnCheck.ForeColor = Color.White;
-            bossSpawnCheck.Location = new Point(192, 17);
+            bossSpawnCheck.Location = new Point(192, 42);
             bossSpawnCheck.Name = "bossSpawnCheck";
             bossSpawnCheck.Size = new Size(128, 19);
             bossSpawnCheck.TabIndex = 17;
             bossSpawnCheck.Text = "Boss Spawn Tweaks";
-            toolTip1.SetToolTip(bossSpawnCheck, ". ");
+            toolTip1.SetToolTip(bossSpawnCheck, resources.GetString("bossSpawnCheck.ToolTip"));
             bossSpawnCheck.UseVisualStyleBackColor = true;
             bossSpawnCheck.CheckedChanged += bossSpawnCheck_CheckedChanged;
             // 
@@ -933,7 +951,7 @@
             botNameGroupBox.Controls.Add(pmcNamesCheck);
             botNameGroupBox.Controls.Add(cyrillicNamesCheck);
             botNameGroupBox.ForeColor = SystemColors.Window;
-            botNameGroupBox.Location = new Point(294, 384);
+            botNameGroupBox.Location = new Point(294, 357);
             botNameGroupBox.Name = "botNameGroupBox";
             botNameGroupBox.Size = new Size(140, 75);
             botNameGroupBox.TabIndex = 16;
@@ -977,7 +995,7 @@
             botDiffGroupBox.Controls.Add(pmcDifficultyCheck);
             botDiffGroupBox.Controls.Add(bossDifficultyCheck);
             botDiffGroupBox.ForeColor = SystemColors.Window;
-            botDiffGroupBox.Location = new Point(294, 281);
+            botDiffGroupBox.Location = new Point(294, 254);
             botDiffGroupBox.Name = "botDiffGroupBox";
             botDiffGroupBox.Size = new Size(140, 97);
             botDiffGroupBox.TabIndex = 15;
@@ -1003,7 +1021,7 @@
             // 
             pmcDifficultyCheck.AutoSize = true;
             pmcDifficultyCheck.ForeColor = Color.White;
-            pmcDifficultyCheck.Location = new Point(6, 22);
+            pmcDifficultyCheck.Location = new Point(6, 25);
             pmcDifficultyCheck.Name = "pmcDifficultyCheck";
             pmcDifficultyCheck.Size = new Size(103, 19);
             pmcDifficultyCheck.TabIndex = 10;
@@ -1038,7 +1056,7 @@
             botHealthGroupBox.Controls.Add(realRRHealthCheck);
             botHealthGroupBox.Controls.Add(realCultistHealthCheck);
             botHealthGroupBox.ForeColor = Color.White;
-            botHealthGroupBox.Location = new Point(18, 143);
+            botHealthGroupBox.Location = new Point(18, 116);
             botHealthGroupBox.Name = "botHealthGroupBox";
             botHealthGroupBox.Size = new Size(416, 124);
             botHealthGroupBox.TabIndex = 14;
@@ -1239,6 +1257,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(nerfFenceCheck);
             groupBox2.Controls.Add(label22);
             groupBox2.Controls.Add(tradRefreshNum);
             groupBox2.Controls.Add(label21);
@@ -1261,7 +1280,7 @@
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(19, 98);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(297, 389);
+            groupBox2.Size = new Size(297, 422);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Traders";
@@ -1269,7 +1288,7 @@
             // label22
             // 
             label22.AutoSize = true;
-            label22.Location = new Point(6, 359);
+            label22.Location = new Point(6, 384);
             label22.Name = "label22";
             label22.Size = new Size(110, 15);
             label22.TabIndex = 17;
@@ -1279,7 +1298,7 @@
             // tradRefreshNum
             // 
             tradRefreshNum.Increment = new decimal(new int[] { 60, 0, 0, 0 });
-            tradRefreshNum.Location = new Point(161, 357);
+            tradRefreshNum.Location = new Point(161, 382);
             tradRefreshNum.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             tradRefreshNum.Name = "tradRefreshNum";
             tradRefreshNum.Size = new Size(120, 23);
@@ -1290,7 +1309,7 @@
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(6, 333);
+            label21.Location = new Point(6, 358);
             label21.Name = "label21";
             label21.Size = new Size(148, 15);
             label21.TabIndex = 15;
@@ -1300,7 +1319,7 @@
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(6, 306);
+            label20.Location = new Point(6, 331);
             label20.Name = "label20";
             label20.Size = new Size(152, 15);
             label20.TabIndex = 14;
@@ -1311,7 +1330,7 @@
             // 
             costIncreaseNum.DecimalPlaces = 2;
             costIncreaseNum.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            costIncreaseNum.Location = new Point(161, 331);
+            costIncreaseNum.Location = new Point(161, 356);
             costIncreaseNum.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
             costIncreaseNum.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             costIncreaseNum.Name = "costIncreaseNum";
@@ -1325,7 +1344,7 @@
             // 
             discountNum.DecimalPlaces = 2;
             discountNum.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            discountNum.Location = new Point(161, 304);
+            discountNum.Location = new Point(161, 329);
             discountNum.Maximum = new decimal(new int[] { 1, 0, 0, 0 });
             discountNum.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
             discountNum.Name = "discountNum";
@@ -1338,7 +1357,7 @@
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(6, 277);
+            label19.Location = new Point(6, 302);
             label19.Name = "label19";
             label19.Size = new Size(115, 15);
             label19.TabIndex = 11;
@@ -1349,7 +1368,7 @@
             // 
             stackMultiNum.DecimalPlaces = 1;
             stackMultiNum.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            stackMultiNum.Location = new Point(161, 275);
+            stackMultiNum.Location = new Point(161, 300);
             stackMultiNum.Name = "stackMultiNum";
             stackMultiNum.Size = new Size(120, 23);
             stackMultiNum.TabIndex = 10;
@@ -1359,7 +1378,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(6, 248);
+            label18.Location = new Point(6, 273);
             label18.Name = "label18";
             label18.Size = new Size(84, 15);
             label18.TabIndex = 9;
@@ -1368,7 +1387,7 @@
             // 
             // stockModNum
             // 
-            stockModNum.Location = new Point(161, 246);
+            stockModNum.Location = new Point(161, 271);
             stockModNum.Name = "stockModNum";
             stockModNum.Size = new Size(120, 23);
             stockModNum.TabIndex = 8;
@@ -2128,6 +2147,18 @@
             modVerLabel.TabIndex = 11;
             modVerLabel.Text = "modVer";
             // 
+            // nerfFenceCheck
+            // 
+            nerfFenceCheck.AutoSize = true;
+            nerfFenceCheck.Location = new Point(6, 246);
+            nerfFenceCheck.Name = "nerfFenceCheck";
+            nerfFenceCheck.Size = new Size(83, 19);
+            nerfFenceCheck.TabIndex = 18;
+            nerfFenceCheck.Text = "Nerf Fence";
+            toolTip1.SetToolTip(nerfFenceCheck, "Randomizes the cost of trader offers. They can be higher or lower than the base pirce.");
+            nerfFenceCheck.UseVisualStyleBackColor = true;
+            nerfFenceCheck.CheckedChanged += nerfFenceCheck_CheckedChanged;
+            // 
             // Main_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2354,7 +2385,9 @@
         private Label label23;
         private ComboBox gearPresetCombo;
         private CheckBox firQuestCheck;
-        private CheckBox dynBotLoot;
+        private CheckBox dynPMCLoot;
         private CheckBox spawnWaveCheck;
+        private CheckBox dynScavLoot;
+        private CheckBox nerfFenceCheck;
     }
 }
