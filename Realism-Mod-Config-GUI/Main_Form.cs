@@ -48,8 +48,8 @@ namespace Realism_Mod_Config_GUI
 
         private void setTitleBar()
         {
-            string modVer = "v0.8.3";
-            string sptVer = "v3.5.7";
+            string modVer = "v0.8.8";
+            string sptVer = "v3.5.8";
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
 
@@ -70,8 +70,6 @@ namespace Realism_Mod_Config_GUI
             decimal botHostMax = 100.0m;
             decimal botHostInc = 1.0m;
             int botHostDeci = 0;
-
-
 
             vertRecNumeric.Minimum = recoilMultiMin;
             vertRecNumeric.Maximum = recoilMultiMax;
@@ -239,6 +237,7 @@ namespace Realism_Mod_Config_GUI
             Config.tiered_flea = true;
             Config.flea_changes = true;
             Config.trader_changes = true;
+            Config.nerf_fence = true;
             Config.all_examined = true;
             Config.remove_inraid_restrictions = true;
             Config.remove_quest_fir_req = true;
@@ -257,14 +256,14 @@ namespace Realism_Mod_Config_GUI
             Config.no_fall_damage = false;
             Config.logEverything = false;
             Config.revert_hp = false;
-            Config.botTierOdds1 = new int[] { 92, 5, 2, 1 };
-            Config.botTierOdds2 = new int[] { 82, 15, 2, 1 };
-            Config.botTierOdds3 = new int[] { 38, 57, 4, 1 };
-            Config.botTierOdds4 = new int[] { 10, 85, 4, 1 };
-            Config.botTierOdds5 = new int[] { 8, 69, 21, 2 };
-            Config.botTierOdds6 = new int[] { 5, 50, 40, 5 };
-            Config.botTierOdds7 = new int[] { 5, 20, 70, 5 };
-            Config.botTierOdds8 = new int[] { 3, 18, 64, 15 };
+            Config.botTierOdds1 = new int[] { 90, 7, 2, 1 };
+            Config.botTierOdds2 = new int[] { 80, 15, 3, 2 };
+            Config.botTierOdds3 = new int[] { 30, 55, 13, 2 };
+            Config.botTierOdds4 = new int[] { 10, 65, 20, 5 };
+            Config.botTierOdds5 = new int[] { 8, 50, 35, 7 };
+            Config.botTierOdds6 = new int[] { 5, 35, 50, 10 };
+            Config.botTierOdds7 = new int[] { 4, 15, 70, 11 };
+            Config.botTierOdds8 = new int[] { 3, 10, 67, 20 };
 
             Config.trader_repair_changes = true;
             Config.change_trader_ll = true;
@@ -279,7 +278,8 @@ namespace Realism_Mod_Config_GUI
 
             Config.backup_profiles = true;
 
-            Config.dynamic_loot_bots = false;
+            Config.dynamic_loot_pmcs = false;
+            Config.dynamic_loot_scavs = false;
 
             Config.rand_stock_modifier = 0;
             Config.rand_stackable_modifier = 1m;
@@ -360,6 +360,7 @@ namespace Realism_Mod_Config_GUI
             tieredFleaCheck.Checked = Config.tiered_flea;
             fleaConfigCheck.Checked = Config.flea_changes;
             traderChangesCheck.Checked = Config.trader_changes;
+            nerfFenceCheck.Checked = Config.nerf_fence;
             allExaminedCheck.Checked = Config.all_examined;
             removeRaidRestrictionsCheck.Checked = Config.remove_inraid_restrictions;
             firCheck.Checked = Config.remove_fir_req;
@@ -388,7 +389,8 @@ namespace Realism_Mod_Config_GUI
 
             backupCheck.Checked = Config.backup_profiles;
 
-            dynBotLoot.Checked = Config.dynamic_loot_bots;
+            dynPMCLoot.Checked = Config.dynamic_loot_pmcs;
+            dynScavLoot.Checked = Config.dynamic_loot_scavs;
 
             stockModNum.Value = (decimal)Config.rand_stock_modifier;
             stackMultiNum.Value = (decimal)Config.rand_stackable_modifier;
@@ -848,6 +850,12 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void nerfFenceCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.nerf_fence = nerfFenceCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
         private void allExaminedCheck_CheckedChanged(object sender, EventArgs e)
         {
             Config.all_examined = allExaminedCheck.Checked == true ? true : false;
@@ -1175,11 +1183,15 @@ namespace Realism_Mod_Config_GUI
 
         private void dynBotLoot_CheckedChanged(object sender, EventArgs e)
         {
-            Config.dynamic_loot_bots = dynBotLoot.Checked == true ? true : false;
+            Config.dynamic_loot_pmcs = dynPMCLoot.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
-
+        private void dynScavLoot_CheckedChanged(object sender, EventArgs e)
+        {
+            Config.dynamic_loot_scavs = dynScavLoot.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
 
         private void validateBotTierText()
         {
@@ -1319,6 +1331,7 @@ namespace Realism_Mod_Config_GUI
             public bool randomize_trader_stock { get; set; }
             public bool adjust_trader_prices { get; set; }
             public bool randomize_trader_prices { get; set; }
+            public bool nerf_fence { get; set; }
             public int rand_stock_modifier { get; set; }
             public decimal rand_stackable_modifier { get; set; }
             public decimal rand_cost_discount { get; set; }
@@ -1326,7 +1339,8 @@ namespace Realism_Mod_Config_GUI
             public int trader_refresh_time { get; set; }
             public bool old_ballistics { get; set; }
             public bool backup_profiles { get; set; }
-            public bool dynamic_loot_bots { get; set; }
+            public bool dynamic_loot_pmcs { get; set; }
+            public bool dynamic_loot_scavs { get; set; }
         }
 
 
