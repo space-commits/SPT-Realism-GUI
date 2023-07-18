@@ -48,7 +48,7 @@ namespace Realism_Mod_Config_GUI
 
         private void setTitleBar()
         {
-            string modVer = "v0.8.8";
+            string modVer = "v0.8.10";
             string sptVer = "v3.5.8";
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;

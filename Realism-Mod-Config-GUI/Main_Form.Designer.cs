@@ -109,6 +109,7 @@
             botChangesCheck = new CheckBox();
             Misc = new TabPage();
             groupBox2 = new GroupBox();
+            nerfFenceCheck = new CheckBox();
             label22 = new Label();
             tradRefreshNum = new NumericUpDown();
             label21 = new Label();
@@ -179,7 +180,6 @@
             revertLabel = new Label();
             savedLabel = new Label();
             modVerLabel = new Label();
-            nerfFenceCheck = new CheckBox();
             mainTabControl.SuspendLayout();
             Realism_Ballistics.SuspendLayout();
             weapGroupBox.SuspendLayout();
@@ -1285,6 +1285,18 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Traders";
             // 
+            // nerfFenceCheck
+            // 
+            nerfFenceCheck.AutoSize = true;
+            nerfFenceCheck.Location = new Point(6, 246);
+            nerfFenceCheck.Name = "nerfFenceCheck";
+            nerfFenceCheck.Size = new Size(83, 19);
+            nerfFenceCheck.TabIndex = 18;
+            nerfFenceCheck.Text = "Nerf Fence";
+            toolTip1.SetToolTip(nerfFenceCheck, resources.GetString("nerfFenceCheck.ToolTip"));
+            nerfFenceCheck.UseVisualStyleBackColor = true;
+            nerfFenceCheck.CheckedChanged += nerfFenceCheck_CheckedChanged;
+            // 
             // label22
             // 
             label22.AutoSize = true;
@@ -2146,18 +2158,6 @@
             modVerLabel.Size = new Size(78, 25);
             modVerLabel.TabIndex = 11;
             modVerLabel.Text = "modVer";
-            // 
-            // nerfFenceCheck
-            // 
-            nerfFenceCheck.AutoSize = true;
-            nerfFenceCheck.Location = new Point(6, 246);
-            nerfFenceCheck.Name = "nerfFenceCheck";
-            nerfFenceCheck.Size = new Size(83, 19);
-            nerfFenceCheck.TabIndex = 18;
-            nerfFenceCheck.Text = "Nerf Fence";
-            toolTip1.SetToolTip(nerfFenceCheck, "Randomizes the cost of trader offers. They can be higher or lower than the base pirce.");
-            nerfFenceCheck.UseVisualStyleBackColor = true;
-            nerfFenceCheck.CheckedChanged += nerfFenceCheck_CheckedChanged;
             // 
             // Main_Form
             // 
