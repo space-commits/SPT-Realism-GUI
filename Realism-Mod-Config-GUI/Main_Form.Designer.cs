@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             mainTabControl = new TabControl();
             Realism_Ballistics = new TabPage();
-            oldBallsCheck = new CheckBox();
             revertHPCheck = new CheckBox();
             realPlayerHealthCheck = new CheckBox();
             warningTextBox = new RichTextBox();
@@ -245,7 +244,6 @@
             Realism_Ballistics.BackColor = Color.FromArgb(36, 36, 36);
             Realism_Ballistics.BackgroundImage = (Image)resources.GetObject("Realism_Ballistics.BackgroundImage");
             Realism_Ballistics.BackgroundImageLayout = ImageLayout.Center;
-            Realism_Ballistics.Controls.Add(oldBallsCheck);
             Realism_Ballistics.Controls.Add(revertHPCheck);
             Realism_Ballistics.Controls.Add(realPlayerHealthCheck);
             Realism_Ballistics.Controls.Add(warningTextBox);
@@ -259,21 +257,6 @@
             Realism_Ballistics.Size = new Size(1360, 684);
             Realism_Ballistics.TabIndex = 0;
             Realism_Ballistics.Text = "Realism and Ballistics";
-            // 
-            // oldBallsCheck
-            // 
-            oldBallsCheck.AutoSize = true;
-            oldBallsCheck.Checked = true;
-            oldBallsCheck.CheckState = CheckState.Checked;
-            oldBallsCheck.ForeColor = Color.White;
-            oldBallsCheck.Location = new Point(141, 67);
-            oldBallsCheck.Name = "oldBallsCheck";
-            oldBallsCheck.Size = new Size(93, 19);
-            oldBallsCheck.TabIndex = 14;
-            oldBallsCheck.Text = "Old Ballistics";
-            toolTip1.SetToolTip(oldBallsCheck, "Enables the Armor and Ammo changes from before the overhaul of ballistics. Penetration, blunt damage and armor damage is calculated as it is in unmodded EFT.\r\n\r\n");
-            oldBallsCheck.UseVisualStyleBackColor = true;
-            oldBallsCheck.CheckedChanged += oldBallsCheck_CheckedChanged;
             // 
             // revertHPCheck
             // 
@@ -2380,7 +2363,6 @@
         private NumericUpDown stockModNum;
         private NumericUpDown tradRefreshNum;
         private Label label22;
-        private CheckBox oldBallsCheck;
         private CheckBox backupCheck;
         private Label label23;
         private ComboBox gearPresetCombo;
