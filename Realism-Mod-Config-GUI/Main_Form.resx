@@ -8494,6 +8494,14 @@ NOTE: 'Realistic Ballistics' option must be true for this to take effect. If rea
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="nerfFenceCheck.ToolTip" xml:space="preserve">
+    <value>In the war-torn land of Tarkov, the SPT Mod "SPT Realism Mod" introduces the "Nerf Fence" option. 
+Activating it raised Fence's prices and reduced offers. Players faced scarcity and high costs, requiring cunning and resilience. 
+They adapted strategies, formed alliances, and delved into hidden corners for survival. 
+Triumphs were hard-earned, but the challenges brought a sense of accomplishment. 
+Tarkov became a relentless battlefield, testing players' mettle and pushing them to their limits. 
+Beyond virtual rewards, they cherished the unforgettable experiences gained in their struggle for survival.</value>
+  </data>
   <data name="tradRepairCheck.ToolTip" xml:space="preserve">
     <value>Improves the repair quality of Traders. Skier's and Prapor's repairs will still reduce max durability, but Mechanic's repairs will not reduce max durability but will be much more expensive.
 

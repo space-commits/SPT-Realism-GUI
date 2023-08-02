@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
 
@@ -7,31 +8,33 @@ namespace Realism_Mod_Config_GUI
     public partial class Main_Form : Form
     {
 
-        public static string ConfigFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"config\config.json");
-        public static string ConfigJSON = File.ReadAllText(ConfigFilePath);
-        public static ConfigTemplate Config = JsonConvert.DeserializeObject<ConfigTemplate>(ConfigJSON);
+        public static string configFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"config\config.json");
+        public static string configJSON = File.ReadAllText(configFilePath);
+        public static ConfigTemplate config = JsonConvert.DeserializeObject<ConfigTemplate>(configJSON);
 
-        public static string weapFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"db/templates/weapons/");
+        public static string weapFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"db\templates\weapons\");
         public static DirectoryInfo weapDI = new DirectoryInfo(weapFilePath);
         public static DirectoryInfo[] weapPresetFilePath = weapDI.GetDirectories();
 
-        public static string attFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"db/templates/attatchments/");
+        public static string attFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"db\templates\attatchments\");
         public static DirectoryInfo attDI = new DirectoryInfo(attFilePath);
         public static DirectoryInfo[] attPresetFilePath = attDI.GetDirectories();
 
-        public static string gearFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"db/templates/gear/");
+        public static string gearFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"db\templates\gear\");
         public static DirectoryInfo gearDI = new DirectoryInfo(gearFilePath);
         public static DirectoryInfo[] gearPresetFilePath = gearDI.GetDirectories();
 
+        public static string packagePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"package.json");
+        public static string packageJSON = File.ReadAllText(packagePath);
+        public static PackageTemplate package = JsonConvert.DeserializeObject<PackageTemplate>(packageJSON);
 
         public Main_Form()
         {
-            InitializeComponent();
-            setTitleBar();
-            setNumericLimits();
-
             try
             {
+                InitializeComponent();
+                setTitleBar();
+                setNumericLimits();
                 warningTextBox.Hide();
                 SetDisplayValues();
                 SetPresetComboBoxes(weapPresetFilePath, weapPresetCombo);
@@ -48,8 +51,8 @@ namespace Realism_Mod_Config_GUI
 
         private void setTitleBar()
         {
-            string modVer = "v0.8.8";
-            string sptVer = "v3.5.8";
+            string modVer = "v"+package.version;
+            string sptVer = "v" + package.akiVersion;
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
 
@@ -184,243 +187,239 @@ namespace Realism_Mod_Config_GUI
                      weapPresetCombo.SelectedItem = "Realism";
                      attachPresetCombo.SelectedItem = "Realism";*/
 
-            Config.vert_recoil_multi = 1.0m;
-            Config.horz_recoil_multi = 1.0m;
-            Config.convergence_multi = 1.0m;
-            Config.dispersion_multi = 1.0m;
-            Config.ergo_multi = 1.0m;
-            Config.cam_multi = 1.0m;
+            config.vert_recoil_multi = 1.0m;
+            config.horz_recoil_multi = 1.0m;
+            config.convergence_multi = 1.0m;
+            config.dispersion_multi = 1.0m;
+            config.ergo_multi = 1.0m;
+            config.cam_multi = 1.0m;
 
-            Config.bot_hostile1 = 95;
-            Config.bot_hostile2 = 99;
-            Config.bot_hostile3 = 100;
+            config.bot_hostile1 = 95;
+            config.bot_hostile2 = 99;
+            config.bot_hostile3 = 100;
 
-            Config.standard_bot_hp_multi = 1.0m;
-            Config.mid_bot_hp_multi = 1.0m;
-            Config.boss_bot_hp_multi = 1.0m;
+            config.standard_bot_hp_multi = 1.0m;
+            config.mid_bot_hp_multi = 1.0m;
+            config.boss_bot_hp_multi = 1.0m;
 
-            Config.recoil_crank = true;
+            config.recoil_crank = true;
 
-            Config.weap_preset = "Realism";
-            Config.att_preset = "Realism";
-            Config.gear_preset = "Realism";
+            config.weap_preset = "Realism";
+            config.att_preset = "Realism";
+            config.gear_preset = "Realism";
 
-            Config.realistic_player_health = true;
-            Config.realistic_ballistics = true;
-            Config.recoil_attachment_overhaul = true;
-            Config.mastery_changes = true;
-            Config.legacy_recoil_changes = false;
-            Config.buff_helmets = false;
-            Config.armor_mouse_penalty = true;
-            Config.headgear_conflicts = true;
-            Config.malf_changes = true;
-            Config.med_changes = true;
-            Config.revert_med_changes = false;
-            Config.weight_limits_changes = true;
-            Config.headset_changes = true;
-            Config.movement_changes = true;
-            Config.fall_damage_changes = true;
-            Config.bot_changes = true;
-            Config.increased_bot_cap = false;
-            Config.open_zones_fix = true;
-            Config.boss_spawns = true;
-            Config.spawn_waves = true;
-            Config.realistic_boss_health = true;
-            Config.realistic_boss_follower_health = true;
-            Config.realistic_raider_rogue_health = true;
-            Config.realistic_cultist_health = true;
-            Config.pmc_difficulty = false;
-            Config.boss_difficulty = false;
-            Config.pmc_types = true;
-            Config.bot_names = true;
-            Config.cyrillic_bear_names = true;
-            Config.tiered_flea = true;
-            Config.flea_changes = true;
-            Config.trader_changes = true;
-            Config.nerf_fence = true;
-            Config.all_examined = true;
-            Config.remove_inraid_restrictions = true;
-            Config.remove_quest_fir_req = true;
-            Config.remove_fir_req = true;
-            Config.airdrop_changes = true;
-            Config.bot_testing = false;
-            Config.bot_test_tier = 1;
-            Config.all_bear = false;
-            Config.all_USEC = false;
-            Config.all_PMCs = false;
-            Config.all_scavs = false;
-            Config.bot_test_weps_enabled = true;
-            Config.guarantee_boss_spawn = false;
-            Config.force_boss_items = false;
-            Config.disable_flea_blacklist = false;
-            Config.no_fall_damage = false;
-            Config.logEverything = false;
-            Config.revert_hp = false;
-            Config.botTierOdds1 = new int[] { 90, 7, 2, 1 };
-            Config.botTierOdds2 = new int[] { 80, 15, 3, 2 };
-            Config.botTierOdds3 = new int[] { 30, 55, 13, 2 };
-            Config.botTierOdds4 = new int[] { 10, 65, 20, 5 };
-            Config.botTierOdds5 = new int[] { 8, 50, 35, 7 };
-            Config.botTierOdds6 = new int[] { 5, 35, 50, 10 };
-            Config.botTierOdds7 = new int[] { 4, 15, 70, 11 };
-            Config.botTierOdds8 = new int[] { 3, 10, 67, 20 };
+            config.realistic_player_health = true;
+            config.realistic_ballistics = true;
+            config.recoil_attachment_overhaul = true;
+            config.mastery_changes = true;
+            config.legacy_recoil_changes = false;
+            config.buff_helmets = false;
+            config.armor_mouse_penalty = true;
+            config.headgear_conflicts = true;
+            config.malf_changes = true;
+            config.med_changes = true;
+            config.revert_med_changes = false;
+            config.weight_limits_changes = true;
+            config.headset_changes = true;
+            config.movement_changes = true;
+            config.fall_damage_changes = true;
+            config.bot_changes = true;
+            config.increased_bot_cap = false;
+            config.open_zones_fix = true;
+            config.boss_spawns = true;
+            config.spawn_waves = true;
+            config.realistic_boss_health = true;
+            config.realistic_boss_follower_health = true;
+            config.realistic_raider_rogue_health = true;
+            config.realistic_cultist_health = true;
+            config.pmc_difficulty = false;
+            config.boss_difficulty = false;
+            config.pmc_types = true;
+            config.bot_names = true;
+            config.cyrillic_bear_names = true;
+            config.tiered_flea = true;
+            config.flea_changes = true;
+            config.trader_changes = true;
+            config.nerf_fence = true;
+            config.all_examined = true;
+            config.remove_inraid_restrictions = true;
+            config.remove_quest_fir_req = true;
+            config.remove_fir_req = true;
+            config.airdrop_changes = true;
+            config.bot_testing = false;
+            config.bot_test_tier = 1;
+            config.all_bear = false;
+            config.all_USEC = false;
+            config.all_PMCs = false;
+            config.all_scavs = false;
+            config.bot_test_weps_enabled = true;
+            config.guarantee_boss_spawn = false;
+            config.force_boss_items = false;
+            config.disable_flea_blacklist = false;
+            config.no_fall_damage = false;
+            config.logEverything = false;
+            config.revert_hp = false;
+            config.botTierOdds1 = new int[] { 90, 7, 2, 1 };
+            config.botTierOdds2 = new int[] { 80, 15, 3, 2 };
+            config.botTierOdds3 = new int[] { 30, 55, 13, 2 };
+            config.botTierOdds4 = new int[] { 10, 65, 20, 5 };
+            config.botTierOdds5 = new int[] { 8, 50, 35, 7 };
+            config.botTierOdds6 = new int[] { 5, 35, 50, 10 };
+            config.botTierOdds7 = new int[] { 4, 15, 70, 11 };
+            config.botTierOdds8 = new int[] { 3, 10, 67, 20 };
 
-            Config.trader_repair_changes = true;
-            Config.change_trader_ll = true;
-            Config.add_cust_trader_items = true;
-            Config.randomize_traders = true;
-            Config.randomize_trader_ll = true;
-            Config.randomize_trader_stock = true;
-            Config.adjust_trader_prices = true;
-            Config.randomize_trader_prices = true;
+            config.trader_repair_changes = true;
+            config.change_trader_ll = true;
+            config.add_cust_trader_items = true;
+            config.randomize_traders = true;
+            config.randomize_trader_ll = true;
+            config.randomize_trader_stock = true;
+            config.adjust_trader_prices = true;
+            config.randomize_trader_prices = true;
 
-            Config.old_ballistics = false;
+            config.backup_profiles = true;
 
-            Config.backup_profiles = true;
+            config.dynamic_loot_pmcs = false;
+            config.dynamic_loot_scavs = false;
 
-            Config.dynamic_loot_pmcs = false;
-            Config.dynamic_loot_scavs = false;
-
-            Config.rand_stock_modifier = 0;
-            Config.rand_stackable_modifier = 1m;
-            Config.rand_cost_discount = 0.85m;
-            Config.rand_cost_increase = 1.15m;
-            Config.trader_refresh_time = 1800;
+            config.rand_stock_modifier = 0;
+            config.rand_stackable_modifier = 1m;
+            config.rand_cost_discount = 0.85m;
+            config.rand_cost_increase = 1.15m;
+            config.trader_refresh_time = 1800;
 
             CheckCheckBoxes();
         }
 
         private void SetDisplayValues()
         {
-            vertRecNumeric.Value = (decimal)Config.vert_recoil_multi;
-            horzRecNumeric.Value = (decimal)Config.horz_recoil_multi;
-            convNumeric.Value = (decimal)Config.convergence_multi;
-            dispNumeric.Value = (decimal)Config.dispersion_multi;
-            ergoNumeric.Value = (decimal)Config.ergo_multi;
-            camRecNumeric.Value = (decimal)Config.cam_multi;
+            vertRecNumeric.Value = (decimal)config.vert_recoil_multi;
+            horzRecNumeric.Value = (decimal)config.horz_recoil_multi;
+            convNumeric.Value = (decimal)config.convergence_multi;
+            dispNumeric.Value = (decimal)config.dispersion_multi;
+            ergoNumeric.Value = (decimal)config.ergo_multi;
+            camRecNumeric.Value = (decimal)config.cam_multi;
 
-            hostNum1.Value = (decimal)Config.bot_hostile1;
-            hostNum2.Value = (decimal)Config.bot_hostile2;
-            hostNum3.Value = (decimal)Config.bot_hostile3;
+            hostNum1.Value = (decimal)config.bot_hostile1;
+            hostNum2.Value = (decimal)config.bot_hostile2;
+            hostNum3.Value = (decimal)config.bot_hostile3;
 
-            standardHPNumeric.Value = (decimal)Config.standard_bot_hp_multi;
-            midHPNumeric.Value = (decimal)Config.mid_bot_hp_multi;
-            bossHPNumeric.Value = (decimal)Config.boss_bot_hp_multi;
+            standardHPNumeric.Value = (decimal)config.standard_bot_hp_multi;
+            midHPNumeric.Value = (decimal)config.mid_bot_hp_multi;
+            bossHPNumeric.Value = (decimal)config.boss_bot_hp_multi;
 
-            crankCheck.Checked = Config.recoil_crank;
+            crankCheck.Checked = config.recoil_crank;
 
-            weapPresetCombo.SelectedItem = Config.weap_preset;
-            attachPresetCombo.SelectedItem = Config.att_preset;
-            gearPresetCombo.SelectedItem = Config.gear_preset;
-            weapPresetCombo.Text = Config.weap_preset;
-            attachPresetCombo.Text = Config.att_preset;
-            gearPresetCombo.Text = Config.gear_preset;
+            weapPresetCombo.SelectedItem = config.weap_preset;
+            attachPresetCombo.SelectedItem = config.att_preset;
+            gearPresetCombo.SelectedItem = config.gear_preset;
+            weapPresetCombo.Text = config.weap_preset;
+            attachPresetCombo.Text = config.att_preset;
+            gearPresetCombo.Text = config.gear_preset;
 
-            realPlayerHealthCheck.Checked = Config.realistic_player_health;
-            realBallisticsCheck.Checked = Config.realistic_ballistics;
-            recoilAttOverhaulCheck.Checked = Config.recoil_attachment_overhaul;
-            malfChangesCheck.Checked = Config.malf_changes;
-            masteryCheck.Checked = Config.mastery_changes;
-            buffHelmetsCheck.Checked = Config.buff_helmets;
-            armorMousePenaltyCheck.Checked = Config.armor_mouse_penalty;
-            headgearConflictsCheck.Checked = Config.headgear_conflicts;
-            legacyRecoilCheck.Checked = Config.legacy_recoil_changes;
+            realPlayerHealthCheck.Checked = config.realistic_player_health;
+            realBallisticsCheck.Checked = config.realistic_ballistics;
+            recoilAttOverhaulCheck.Checked = config.recoil_attachment_overhaul;
+            malfChangesCheck.Checked = config.malf_changes;
+            masteryCheck.Checked = config.mastery_changes;
+            buffHelmetsCheck.Checked = config.buff_helmets;
+            armorMousePenaltyCheck.Checked = config.armor_mouse_penalty;
+            headgearConflictsCheck.Checked = config.headgear_conflicts;
+            legacyRecoilCheck.Checked = config.legacy_recoil_changes;
 
-            medChangesCheck.Checked = Config.med_changes;
-            revertMedsCheck.Checked = Config.revert_med_changes;
-            movementChangesCheck.Checked = Config.movement_changes;
-            weightCheck.Checked = Config.weight_limits_changes;
-            headsetCheck.Checked = Config.headset_changes;
-            fallDamageChangesCheck.Checked = Config.fall_damage_changes;
+            medChangesCheck.Checked = config.med_changes;
+            revertMedsCheck.Checked = config.revert_med_changes;
+            movementChangesCheck.Checked = config.movement_changes;
+            weightCheck.Checked = config.weight_limits_changes;
+            headsetCheck.Checked = config.headset_changes;
+            fallDamageChangesCheck.Checked = config.fall_damage_changes;
 
-            botOdds1Text.Text = intArrToString(Config.botTierOdds1);
-            botOdds2Text.Text = intArrToString(Config.botTierOdds2);
-            botOdds3Text.Text = intArrToString(Config.botTierOdds3);
-            botOdds4Text.Text = intArrToString(Config.botTierOdds4);
-            botOdds5Text.Text = intArrToString(Config.botTierOdds5);
-            botOdds6Text.Text = intArrToString(Config.botTierOdds6);
-            botOdds7Text.Text = intArrToString(Config.botTierOdds7);
-            botOdds8Text.Text = intArrToString(Config.botTierOdds8);
+            botOdds1Text.Text = intArrToString(config.botTierOdds1);
+            botOdds2Text.Text = intArrToString(config.botTierOdds2);
+            botOdds3Text.Text = intArrToString(config.botTierOdds3);
+            botOdds4Text.Text = intArrToString(config.botTierOdds4);
+            botOdds5Text.Text = intArrToString(config.botTierOdds5);
+            botOdds6Text.Text = intArrToString(config.botTierOdds6);
+            botOdds7Text.Text = intArrToString(config.botTierOdds7);
+            botOdds8Text.Text = intArrToString(config.botTierOdds8);
 
-            botChangesCheck.Checked = Config.bot_changes;
-            increasedBotCapCheck.Checked = Config.increased_bot_cap;
-            openZonesFixCheck.Checked = Config.open_zones_fix;
-            bossSpawnCheck.Checked = Config.boss_spawns;
-            spawnWaveCheck.Checked = Config.spawn_waves;
-            realBossHealthCheck.Checked = Config.realistic_boss_health;
-            realFollowerHealthCheck.Checked = Config.realistic_boss_follower_health;
-            realRRHealthCheck.Checked = Config.realistic_raider_rogue_health;
-            realCultistHealthCheck.Checked = Config.realistic_cultist_health;
-            bossDifficultyCheck.Checked = Config.boss_difficulty;
-            pmcDifficultyCheck.Checked = Config.pmc_difficulty;
-            pmcTypeCheck.Checked = Config.pmc_types;
-            pmcNamesCheck.Checked = Config.bot_names;
-            cyrillicNamesCheck.Checked = Config.cyrillic_bear_names;
+            botChangesCheck.Checked = config.bot_changes;
+            increasedBotCapCheck.Checked = config.increased_bot_cap;
+            openZonesFixCheck.Checked = config.open_zones_fix;
+            bossSpawnCheck.Checked = config.boss_spawns;
+            spawnWaveCheck.Checked = config.spawn_waves;
+            realBossHealthCheck.Checked = config.realistic_boss_health;
+            realFollowerHealthCheck.Checked = config.realistic_boss_follower_health;
+            realRRHealthCheck.Checked = config.realistic_raider_rogue_health;
+            realCultistHealthCheck.Checked = config.realistic_cultist_health;
+            bossDifficultyCheck.Checked = config.boss_difficulty;
+            pmcDifficultyCheck.Checked = config.pmc_difficulty;
+            pmcTypeCheck.Checked = config.pmc_types;
+            pmcNamesCheck.Checked = config.bot_names;
+            cyrillicNamesCheck.Checked = config.cyrillic_bear_names;
 
-            tieredFleaCheck.Checked = Config.tiered_flea;
-            fleaConfigCheck.Checked = Config.flea_changes;
-            traderChangesCheck.Checked = Config.trader_changes;
-            nerfFenceCheck.Checked = Config.nerf_fence;
-            allExaminedCheck.Checked = Config.all_examined;
-            removeRaidRestrictionsCheck.Checked = Config.remove_inraid_restrictions;
-            firCheck.Checked = Config.remove_fir_req;
-            firQuestCheck.Checked = Config.remove_quest_fir_req;
-            airdropChangesCheck.Checked = Config.airdrop_changes;
+            tieredFleaCheck.Checked = config.tiered_flea;
+            fleaConfigCheck.Checked = config.flea_changes;
+            traderChangesCheck.Checked = config.trader_changes;
+            nerfFenceCheck.Checked = config.nerf_fence;
+            allExaminedCheck.Checked = config.all_examined;
+            removeRaidRestrictionsCheck.Checked = config.remove_inraid_restrictions;
+            firCheck.Checked = config.remove_fir_req;
+            firQuestCheck.Checked = config.remove_quest_fir_req;
+            airdropChangesCheck.Checked = config.airdrop_changes;
 
-            botTestingCheck.Checked = Config.bot_testing;
-            enableBotWeapsCheck.Checked = Config.bot_test_weps_enabled;
-            bossSpawnsCheck.Checked = Config.guarantee_boss_spawn;
-            bossItemsCheck.Checked = Config.force_boss_items;
-            disableFleaBlacklistCheck.Checked = Config.disable_flea_blacklist;
-            noFallDamageCheck.Checked = Config.no_fall_damage;
-            logEverythingCheck.Checked = Config.logEverything;
-            revertHPCheck.Checked = Config.revert_hp;
+            botTestingCheck.Checked = config.bot_testing;
+            enableBotWeapsCheck.Checked = config.bot_test_weps_enabled;
+            bossSpawnsCheck.Checked = config.guarantee_boss_spawn;
+            bossItemsCheck.Checked = config.force_boss_items;
+            disableFleaBlacklistCheck.Checked = config.disable_flea_blacklist;
+            noFallDamageCheck.Checked = config.no_fall_damage;
+            logEverythingCheck.Checked = config.logEverything;
+            revertHPCheck.Checked = config.revert_hp;
 
-            tradAdjustPriceCheck.Checked = Config.adjust_trader_prices;
-            tradRepairCheck.Checked = Config.trader_repair_changes;
-            traderllCheck.Checked = Config.change_trader_ll;
-            tradCustItemCheck.Checked = Config.add_cust_trader_items;
-            randTradCheck.Checked = Config.randomize_traders;
-            randTradLLCheck.Checked = Config.randomize_trader_ll;
-            randTradStockCheck.Checked = Config.randomize_trader_stock;
-            randTradPriceCheck.Checked = Config.randomize_trader_prices;
+            tradAdjustPriceCheck.Checked = config.adjust_trader_prices;
+            tradRepairCheck.Checked = config.trader_repair_changes;
+            traderllCheck.Checked = config.change_trader_ll;
+            tradCustItemCheck.Checked = config.add_cust_trader_items;
+            randTradCheck.Checked = config.randomize_traders;
+            randTradLLCheck.Checked = config.randomize_trader_ll;
+            randTradStockCheck.Checked = config.randomize_trader_stock;
+            randTradPriceCheck.Checked = config.randomize_trader_prices;
 
-            oldBallsCheck.Checked = Config.old_ballistics;
+            backupCheck.Checked = config.backup_profiles;
 
-            backupCheck.Checked = Config.backup_profiles;
+            dynPMCLoot.Checked = config.dynamic_loot_pmcs;
+            dynScavLoot.Checked = config.dynamic_loot_scavs;
 
-            dynPMCLoot.Checked = Config.dynamic_loot_pmcs;
-            dynScavLoot.Checked = Config.dynamic_loot_scavs;
+            stockModNum.Value = (decimal)config.rand_stock_modifier;
+            stackMultiNum.Value = (decimal)config.rand_stackable_modifier;
+            discountNum.Value = (decimal)config.rand_cost_discount;
+            costIncreaseNum.Value = (decimal)config.rand_cost_increase;
+            tradRefreshNum.Value = (decimal)config.trader_refresh_time;
 
-            stockModNum.Value = (decimal)Config.rand_stock_modifier;
-            stackMultiNum.Value = (decimal)Config.rand_stackable_modifier;
-            discountNum.Value = (decimal)Config.rand_cost_discount;
-            costIncreaseNum.Value = (decimal)Config.rand_cost_increase;
-            tradRefreshNum.Value = (decimal)Config.trader_refresh_time;
-
-            if (Config.bot_test_tier > 1 && Config.bot_test_tier <= 4)
+            if (config.bot_test_tier > 1 && config.bot_test_tier <= 4)
             {
-                botTierNumeric.Value = Config.bot_test_tier;
+                botTierNumeric.Value = config.bot_test_tier;
             }
             else
             {
                 botTierNumeric.Value = 1;
-                Config.bot_test_tier = 1;
+                config.bot_test_tier = 1;
             }
 
-            if (Config.all_scavs == true)
+            if (config.all_scavs == true)
             {
                 botTypeCombo.SelectedItem = "All Scavs";
             }
-            else if (Config.all_PMCs == true)
+            else if (config.all_PMCs == true)
             {
                 botTypeCombo.SelectedItem = "All PMCs";
             }
-            else if (Config.all_USEC == true)
+            else if (config.all_USEC == true)
             {
                 botTypeCombo.SelectedItem = "All USEC";
             }
-            else if (Config.all_bear == true)
+            else if (config.all_bear == true)
             {
                 botTypeCombo.SelectedItem = "All Bear";
             }
@@ -466,7 +465,6 @@ namespace Realism_Mod_Config_GUI
                 buffHelmetsCheck.Enabled = false;
                 realPlayerHealthCheck.Checked = false;
                 realPlayerHealthCheck.Enabled = false;
-                oldBallsCheck.Enabled = true;
 
                 realBossHealthCheck.Checked = false;
                 realBossHealthCheck.Enabled = false;
@@ -481,22 +479,11 @@ namespace Realism_Mod_Config_GUI
             {
                 buffHelmetsCheck.Enabled = true;
                 realPlayerHealthCheck.Enabled = true;
-                oldBallsCheck.Enabled = false;
 
                 realBossHealthCheck.Enabled = true;
                 realFollowerHealthCheck.Enabled = true;
                 realRRHealthCheck.Enabled = true;
                 realCultistHealthCheck.Enabled = true;
-            }
-
-
-            if (oldBallsCheck.Checked == true)
-            {
-                realBallisticsCheck.Enabled = false;
-            }
-            else
-            {
-                realBallisticsCheck.Enabled = true;
             }
 
             //realistic player HP
@@ -668,13 +655,13 @@ namespace Realism_Mod_Config_GUI
 
         private void realPlayerHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.realistic_player_health = realPlayerHealthCheck.Checked == true ? true : false;
+            config.realistic_player_health = realPlayerHealthCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void realismCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.realistic_ballistics = realBallisticsCheck.Checked == true ? true : false;
+            config.realistic_ballistics = realBallisticsCheck.Checked == true ? true : false;
 
             if (realBallisticsCheck.Checked == true)
             {
@@ -686,215 +673,215 @@ namespace Realism_Mod_Config_GUI
         }
         private void recoilAttOverhaulCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.recoil_attachment_overhaul = recoilAttOverhaulCheck.Checked == true ? true : false;
+            config.recoil_attachment_overhaul = recoilAttOverhaulCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void legacyRecoilCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.legacy_recoil_changes = legacyRecoilCheck.Checked == true ? true : false;
+            config.legacy_recoil_changes = legacyRecoilCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
         private void masteryCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.mastery_changes = masteryCheck.Checked == true ? true : false;
+            config.mastery_changes = masteryCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void buffHelmetsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.buff_helmets = buffHelmetsCheck.Checked == true ? true : false;
+            config.buff_helmets = buffHelmetsCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void armorMousePenaltyCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.armor_mouse_penalty = armorMousePenaltyCheck.Checked == true ? true : false;
+            config.armor_mouse_penalty = armorMousePenaltyCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void headgearConflictsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.headgear_conflicts = headgearConflictsCheck.Checked == true ? true : false;
+            config.headgear_conflicts = headgearConflictsCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void malfChanges_CheckedChanged(object sender, EventArgs e)
         {
-            Config.malf_changes = malfChangesCheck.Checked == true ? true : false;
+            config.malf_changes = malfChangesCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void medChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.med_changes = medChangesCheck.Checked == true ? true : false;
+            config.med_changes = medChangesCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void revertMedsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.revert_med_changes = revertMedsCheck.Checked == true ? true : false;
+            config.revert_med_changes = revertMedsCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void movementChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.movement_changes = movementChangesCheck.Checked == true ? true : false;
+            config.movement_changes = movementChangesCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void fallDamageChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.fall_damage_changes = fallDamageChangesCheck.Checked == true ? true : false;
+            config.fall_damage_changes = fallDamageChangesCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void botChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.bot_changes = botChangesCheck.Checked == true ? true : false;
+            config.bot_changes = botChangesCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void increasedBotCapCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.increased_bot_cap = increasedBotCapCheck.Checked == true ? true : false;
+            config.increased_bot_cap = increasedBotCapCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void spawnWaveCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.spawn_waves = spawnWaveCheck.Checked == true ? true : false;
+            config.spawn_waves = spawnWaveCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void bossSpawnCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.boss_spawns = bossSpawnCheck.Checked == true ? true : false;
+            config.boss_spawns = bossSpawnCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void openZonesFixCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.open_zones_fix = openZonesFixCheck.Checked == true ? true : false;
+            config.open_zones_fix = openZonesFixCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void realBossHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.realistic_boss_health = realBossHealthCheck.Checked == true ? true : false;
+            config.realistic_boss_health = realBossHealthCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void realFollowerHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.realistic_boss_follower_health = realFollowerHealthCheck.Checked == true ? true : false;
+            config.realistic_boss_follower_health = realFollowerHealthCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void realRRHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.realistic_raider_rogue_health = realRRHealthCheck.Checked == true ? true : false;
+            config.realistic_raider_rogue_health = realRRHealthCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void realCultistHealthCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.realistic_cultist_health = realCultistHealthCheck.Checked == true ? true : false;
+            config.realistic_cultist_health = realCultistHealthCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void pmcTypeCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.pmc_types = pmcTypeCheck.Checked == true ? true : false;
+            config.pmc_types = pmcTypeCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void pmcDifficultyCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.pmc_difficulty = pmcDifficultyCheck.Checked == true ? true : false;
+            config.pmc_difficulty = pmcDifficultyCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void bossDifficultyCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.boss_difficulty = bossDifficultyCheck.Checked == true ? true : false;
+            config.boss_difficulty = bossDifficultyCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void pmcNamesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.bot_names = pmcNamesCheck.Checked == true ? true : false;
+            config.bot_names = pmcNamesCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
         private void cyrillicNamesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.cyrillic_bear_names = cyrillicNamesCheck.Checked == true ? true : false;
+            config.cyrillic_bear_names = cyrillicNamesCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void tieredFleaCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.tiered_flea = tieredFleaCheck.Checked == true ? true : false;
+            config.tiered_flea = tieredFleaCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void fleaConfigCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.flea_changes = fleaConfigCheck.Checked == true ? true : false;
+            config.flea_changes = fleaConfigCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void traderChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.trader_changes = traderChangesCheck.Checked == true ? true : false;
+            config.trader_changes = traderChangesCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void nerfFenceCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.nerf_fence = nerfFenceCheck.Checked == true ? true : false;
+            config.nerf_fence = nerfFenceCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void allExaminedCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.all_examined = allExaminedCheck.Checked == true ? true : false;
+            config.all_examined = allExaminedCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void removeRaidRestrictionsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.remove_inraid_restrictions = removeRaidRestrictionsCheck.Checked == true ? true : false;
+            config.remove_inraid_restrictions = removeRaidRestrictionsCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void firQuestCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.remove_quest_fir_req = firQuestCheck.Checked == true ? true : false;
+            config.remove_quest_fir_req = firQuestCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void firCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.remove_fir_req = firCheck.Checked == true ? true : false;
+            config.remove_fir_req = firCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void airdropChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.airdrop_changes = airdropChangesCheck.Checked == true ? true : false;
+            config.airdrop_changes = airdropChangesCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void botTestingCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.bot_testing = botTestingCheck.Checked == true ? true : false;
+            config.bot_testing = botTestingCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void botTierNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.bot_test_tier = (int)botTierNumeric.Value;
+            config.bot_test_tier = (int)botTierNumeric.Value;
             CheckCheckBoxes();
         }
 
@@ -902,38 +889,38 @@ namespace Realism_Mod_Config_GUI
         {
             if ((string)botTypeCombo.SelectedItem == "Default")
             {
-                Config.all_bear = false;
-                Config.all_USEC = false;
-                Config.all_PMCs = false;
-                Config.all_scavs = false;
+                config.all_bear = false;
+                config.all_USEC = false;
+                config.all_PMCs = false;
+                config.all_scavs = false;
             }
             if ((string)botTypeCombo.SelectedItem == "All Scavs")
             {
-                Config.all_bear = false;
-                Config.all_USEC = false;
-                Config.all_PMCs = false;
-                Config.all_scavs = true;
+                config.all_bear = false;
+                config.all_USEC = false;
+                config.all_PMCs = false;
+                config.all_scavs = true;
             }
             if ((string)botTypeCombo.SelectedItem == "All PMCs")
             {
-                Config.all_bear = false;
-                Config.all_USEC = false;
-                Config.all_PMCs = true;
-                Config.all_scavs = false;
+                config.all_bear = false;
+                config.all_USEC = false;
+                config.all_PMCs = true;
+                config.all_scavs = false;
             }
             if ((string)botTypeCombo.SelectedItem == "All Bear")
             {
-                Config.all_bear = true;
-                Config.all_USEC = false;
-                Config.all_PMCs = false;
-                Config.all_scavs = false;
+                config.all_bear = true;
+                config.all_USEC = false;
+                config.all_PMCs = false;
+                config.all_scavs = false;
             }
             if ((string)botTypeCombo.SelectedItem == "All USEC")
             {
-                Config.all_bear = false;
-                Config.all_USEC = true;
-                Config.all_PMCs = false;
-                Config.all_scavs = false;
+                config.all_bear = false;
+                config.all_USEC = true;
+                config.all_PMCs = false;
+                config.all_scavs = false;
             }
             CheckCheckBoxes();
         }
@@ -941,268 +928,260 @@ namespace Realism_Mod_Config_GUI
 
         private void enableBotWeapsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.bot_test_weps_enabled = enableBotWeapsCheck.Checked == true ? true : false;
+            config.bot_test_weps_enabled = enableBotWeapsCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void bossSpawnsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.guarantee_boss_spawn = bossSpawnsCheck.Checked == true ? true : false;
+            config.guarantee_boss_spawn = bossSpawnsCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void bossItemsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.force_boss_items = bossItemsCheck.Checked == true ? true : false;
+            config.force_boss_items = bossItemsCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void disableFleaBlacklistCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.disable_flea_blacklist = disableFleaBlacklistCheck.Checked == true ? true : false;
+            config.disable_flea_blacklist = disableFleaBlacklistCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void noFallDamageCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.no_fall_damage = noFallDamageCheck.Checked == true ? true : false;
+            config.no_fall_damage = noFallDamageCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void logEverythingCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.logEverything = logEverythingCheck.Checked == true ? true : false;
+            config.logEverything = logEverythingCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void revertHPCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.revert_hp = revertHPCheck.Checked == true ? true : false;
+            config.revert_hp = revertHPCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void vertRecNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.vert_recoil_multi = vertRecNumeric.Value;
+            config.vert_recoil_multi = vertRecNumeric.Value;
             CheckCheckBoxes();
         }
 
         private void horzRecNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.horz_recoil_multi = horzRecNumeric.Value;
+            config.horz_recoil_multi = horzRecNumeric.Value;
             CheckCheckBoxes();
         }
 
         private void convNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.convergence_multi = convNumeric.Value;
+            config.convergence_multi = convNumeric.Value;
             CheckCheckBoxes();
         }
 
         private void dispNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.dispersion_multi = dispNumeric.Value;
+            config.dispersion_multi = dispNumeric.Value;
             CheckCheckBoxes();
         }
 
         private void ergoNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.ergo_multi = ergoNumeric.Value;
+            config.ergo_multi = ergoNumeric.Value;
             CheckCheckBoxes();
         }
 
         private void camRecNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.cam_multi = camRecNumeric.Value;
+            config.cam_multi = camRecNumeric.Value;
             CheckCheckBoxes();
         }
 
         private void crankCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.recoil_crank = crankCheck.Checked == true ? true : false;
+            config.recoil_crank = crankCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void weapPresetCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Config.weap_preset = weapPresetCombo.SelectedItem.ToString();
+            config.weap_preset = weapPresetCombo.SelectedItem.ToString();
             CheckCheckBoxes();
         }
 
         private void attachPresetCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Config.att_preset = attachPresetCombo.SelectedItem.ToString();
+            config.att_preset = attachPresetCombo.SelectedItem.ToString();
             CheckCheckBoxes();
         }
 
         private void gearPresetCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Config.gear_preset = gearPresetCombo.SelectedItem.ToString();
+            config.gear_preset = gearPresetCombo.SelectedItem.ToString();
             CheckCheckBoxes();
         }
 
         private void standardHPNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.standard_bot_hp_multi = standardHPNumeric.Value;
+            config.standard_bot_hp_multi = standardHPNumeric.Value;
             CheckCheckBoxes();
         }
 
         private void midHPNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.mid_bot_hp_multi = midHPNumeric.Value;
+            config.mid_bot_hp_multi = midHPNumeric.Value;
             CheckCheckBoxes();
         }
 
         private void bossHPNumeric_ValueChanged(object sender, EventArgs e)
         {
-            Config.boss_bot_hp_multi = bossHPNumeric.Value;
+            config.boss_bot_hp_multi = bossHPNumeric.Value;
             CheckCheckBoxes();
         }
 
         private void weightCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.weight_limits_changes = weightCheck.Checked == true ? true : false;
+            config.weight_limits_changes = weightCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void headsetCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.headset_changes = headsetCheck.Checked == true ? true : false;
+            config.headset_changes = headsetCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void botHost1_ValueChanged(object sender, EventArgs e)
         {
-            Config.bot_hostile1 = (int)hostNum1.Value;
+            config.bot_hostile1 = (int)hostNum1.Value;
             CheckCheckBoxes();
         }
 
         private void botHost2_ValueChanged(object sender, EventArgs e)
         {
-            Config.bot_hostile2 = (int)hostNum2.Value;
+            config.bot_hostile2 = (int)hostNum2.Value;
             CheckCheckBoxes();
         }
 
         private void botHost3_ValueChanged(object sender, EventArgs e)
         {
-            Config.bot_hostile3 = (int)hostNum3.Value;
+            config.bot_hostile3 = (int)hostNum3.Value;
             CheckCheckBoxes();
         }
 
         private void tradRepairCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.trader_repair_changes = tradRepairCheck.Checked == true ? true : false; ;
+            config.trader_repair_changes = tradRepairCheck.Checked == true ? true : false; ;
             CheckCheckBoxes();
         }
 
         private void traderllCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.change_trader_ll = traderllCheck.Checked == true ? true : false; ;
+            config.change_trader_ll = traderllCheck.Checked == true ? true : false; ;
             CheckCheckBoxes();
         }
 
         private void tradCustItemCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.add_cust_trader_items = tradCustItemCheck.Checked == true ? true : false; ;
+            config.add_cust_trader_items = tradCustItemCheck.Checked == true ? true : false; ;
             CheckCheckBoxes();
         }
 
         private void tradAdjustPriceCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.adjust_trader_prices = tradAdjustPriceCheck.Checked == true ? true : false; ;
+            config.adjust_trader_prices = tradAdjustPriceCheck.Checked == true ? true : false; ;
             CheckCheckBoxes();
         }
 
         private void randTradCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.randomize_traders = randTradCheck.Checked == true ? true : false; ;
+            config.randomize_traders = randTradCheck.Checked == true ? true : false; ;
             CheckCheckBoxes();
         }
 
         private void randTradLLCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.randomize_trader_ll = randTradLLCheck.Checked == true ? true : false; ;
+            config.randomize_trader_ll = randTradLLCheck.Checked == true ? true : false; ;
             CheckCheckBoxes();
         }
 
         private void randTradStockCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.randomize_trader_stock = randTradStockCheck.Checked == true ? true : false; ;
+            config.randomize_trader_stock = randTradStockCheck.Checked == true ? true : false; ;
             CheckCheckBoxes();
         }
 
         private void randTradPriceCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.randomize_trader_prices = randTradPriceCheck.Checked == true ? true : false; ;
+            config.randomize_trader_prices = randTradPriceCheck.Checked == true ? true : false; ;
             CheckCheckBoxes();
         }
 
         private void stockModNum_ValueChanged(object sender, EventArgs e)
         {
-            Config.rand_stock_modifier = (int)stockModNum.Value;
+            config.rand_stock_modifier = (int)stockModNum.Value;
             CheckCheckBoxes();
         }
 
         private void stackMultiNum_ValueChanged(object sender, EventArgs e)
         {
-            Config.rand_stackable_modifier = stackMultiNum.Value;
+            config.rand_stackable_modifier = stackMultiNum.Value;
             CheckCheckBoxes();
         }
 
         private void discountNum_ValueChanged(object sender, EventArgs e)
         {
-            Config.rand_cost_discount = discountNum.Value;
+            config.rand_cost_discount = discountNum.Value;
             CheckCheckBoxes();
         }
 
         private void costIncreaseNum_ValueChanged(object sender, EventArgs e)
         {
-            Config.rand_cost_increase = costIncreaseNum.Value;
+            config.rand_cost_increase = costIncreaseNum.Value;
             CheckCheckBoxes();
         }
 
         private void tradRefreshNum_ValueChanged(object sender, EventArgs e)
         {
-            Config.trader_refresh_time = (int)tradRefreshNum.Value;
+            config.trader_refresh_time = (int)tradRefreshNum.Value;
             CheckCheckBoxes();
         }
-
-
-        private void oldBallsCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            Config.old_ballistics = oldBallsCheck.Checked == true ? true : false;
-            CheckCheckBoxes();
-        }
-
 
         private void backupCheck_CheckedChanged(object sender, EventArgs e)
         {
-            Config.backup_profiles = backupCheck.Checked == true ? true : false;
+            config.backup_profiles = backupCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void dynBotLoot_CheckedChanged(object sender, EventArgs e)
         {
-            Config.dynamic_loot_pmcs = dynPMCLoot.Checked == true ? true : false;
+            config.dynamic_loot_pmcs = dynPMCLoot.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void dynScavLoot_CheckedChanged(object sender, EventArgs e)
         {
-            Config.dynamic_loot_scavs = dynScavLoot.Checked == true ? true : false;
+            config.dynamic_loot_scavs = dynScavLoot.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
         private void validateBotTierText()
         {
-            Config.botTierOdds1 = stringToIntArr(stringValidationHelper(botOdds1Text.Text));
-            Config.botTierOdds2 = stringToIntArr(stringValidationHelper(botOdds2Text.Text));
-            Config.botTierOdds3 = stringToIntArr(stringValidationHelper(botOdds3Text.Text));
-            Config.botTierOdds4 = stringToIntArr(stringValidationHelper(botOdds4Text.Text));
-            Config.botTierOdds5 = stringToIntArr(stringValidationHelper(botOdds5Text.Text));
-            Config.botTierOdds6 = stringToIntArr(stringValidationHelper(botOdds6Text.Text));
-            Config.botTierOdds7 = stringToIntArr(stringValidationHelper(botOdds7Text.Text));
-            Config.botTierOdds8 = stringToIntArr(stringValidationHelper(botOdds8Text.Text));
+            config.botTierOdds1 = stringToIntArr(stringValidationHelper(botOdds1Text.Text));
+            config.botTierOdds2 = stringToIntArr(stringValidationHelper(botOdds2Text.Text));
+            config.botTierOdds3 = stringToIntArr(stringValidationHelper(botOdds3Text.Text));
+            config.botTierOdds4 = stringToIntArr(stringValidationHelper(botOdds4Text.Text));
+            config.botTierOdds5 = stringToIntArr(stringValidationHelper(botOdds5Text.Text));
+            config.botTierOdds6 = stringToIntArr(stringValidationHelper(botOdds6Text.Text));
+            config.botTierOdds7 = stringToIntArr(stringValidationHelper(botOdds7Text.Text));
+            config.botTierOdds8 = stringToIntArr(stringValidationHelper(botOdds8Text.Text));
         }
 
         private string stringValidationHelper(string str)
@@ -1218,7 +1197,7 @@ namespace Realism_Mod_Config_GUI
         {
 
             validateBotTierText();
-            File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
+            File.WriteAllText(configFilePath, JsonConvert.SerializeObject(config));
             savedLabel.ForeColor = Color.GreenYellow;
             Timer(savedLabel);
         }
@@ -1226,7 +1205,7 @@ namespace Realism_Mod_Config_GUI
         {
             SetDefaultValues();
             SetDisplayValues();
-            File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(Config));
+            File.WriteAllText(configFilePath, JsonConvert.SerializeObject(config));
             revertLabel.ForeColor = Color.DarkOrange;
             Timer(revertLabel);
         }
@@ -1244,6 +1223,13 @@ namespace Realism_Mod_Config_GUI
         private string intArrToString(int[] intArr)
         {
             return string.Join(",", intArr);
+        }
+
+
+        public class PackageTemplate 
+        {
+            public string version { get; set; }
+            public string akiVersion { get; set; }
         }
 
 
@@ -1337,7 +1323,6 @@ namespace Realism_Mod_Config_GUI
             public decimal rand_cost_discount { get; set; }
             public decimal rand_cost_increase { get; set; }
             public int trader_refresh_time { get; set; }
-            public bool old_ballistics { get; set; }
             public bool backup_profiles { get; set; }
             public bool dynamic_loot_pmcs { get; set; }
             public bool dynamic_loot_scavs { get; set; }

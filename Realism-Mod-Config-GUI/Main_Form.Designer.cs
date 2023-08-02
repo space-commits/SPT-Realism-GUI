@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             mainTabControl = new TabControl();
             Realism_Ballistics = new TabPage();
-            oldBallsCheck = new CheckBox();
             revertHPCheck = new CheckBox();
             realPlayerHealthCheck = new CheckBox();
             warningTextBox = new RichTextBox();
@@ -109,6 +108,7 @@
             botChangesCheck = new CheckBox();
             Misc = new TabPage();
             groupBox2 = new GroupBox();
+            nerfFenceCheck = new CheckBox();
             label22 = new Label();
             tradRefreshNum = new NumericUpDown();
             label21 = new Label();
@@ -179,7 +179,6 @@
             revertLabel = new Label();
             savedLabel = new Label();
             modVerLabel = new Label();
-            nerfFenceCheck = new CheckBox();
             mainTabControl.SuspendLayout();
             Realism_Ballistics.SuspendLayout();
             weapGroupBox.SuspendLayout();
@@ -245,7 +244,6 @@
             Realism_Ballistics.BackColor = Color.FromArgb(36, 36, 36);
             Realism_Ballistics.BackgroundImage = (Image)resources.GetObject("Realism_Ballistics.BackgroundImage");
             Realism_Ballistics.BackgroundImageLayout = ImageLayout.Center;
-            Realism_Ballistics.Controls.Add(oldBallsCheck);
             Realism_Ballistics.Controls.Add(revertHPCheck);
             Realism_Ballistics.Controls.Add(realPlayerHealthCheck);
             Realism_Ballistics.Controls.Add(warningTextBox);
@@ -259,21 +257,6 @@
             Realism_Ballistics.Size = new Size(1360, 684);
             Realism_Ballistics.TabIndex = 0;
             Realism_Ballistics.Text = "Realism and Ballistics";
-            // 
-            // oldBallsCheck
-            // 
-            oldBallsCheck.AutoSize = true;
-            oldBallsCheck.Checked = true;
-            oldBallsCheck.CheckState = CheckState.Checked;
-            oldBallsCheck.ForeColor = Color.White;
-            oldBallsCheck.Location = new Point(141, 67);
-            oldBallsCheck.Name = "oldBallsCheck";
-            oldBallsCheck.Size = new Size(93, 19);
-            oldBallsCheck.TabIndex = 14;
-            oldBallsCheck.Text = "Old Ballistics";
-            toolTip1.SetToolTip(oldBallsCheck, "Enables the Armor and Ammo changes from before the overhaul of ballistics. Penetration, blunt damage and armor damage is calculated as it is in unmodded EFT.\r\n\r\n");
-            oldBallsCheck.UseVisualStyleBackColor = true;
-            oldBallsCheck.CheckedChanged += oldBallsCheck_CheckedChanged;
             // 
             // revertHPCheck
             // 
@@ -1285,6 +1268,18 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Traders";
             // 
+            // nerfFenceCheck
+            // 
+            nerfFenceCheck.AutoSize = true;
+            nerfFenceCheck.Location = new Point(6, 246);
+            nerfFenceCheck.Name = "nerfFenceCheck";
+            nerfFenceCheck.Size = new Size(83, 19);
+            nerfFenceCheck.TabIndex = 18;
+            nerfFenceCheck.Text = "Nerf Fence";
+            toolTip1.SetToolTip(nerfFenceCheck, resources.GetString("nerfFenceCheck.ToolTip"));
+            nerfFenceCheck.UseVisualStyleBackColor = true;
+            nerfFenceCheck.CheckedChanged += nerfFenceCheck_CheckedChanged;
+            // 
             // label22
             // 
             label22.AutoSize = true;
@@ -2147,18 +2142,6 @@
             modVerLabel.TabIndex = 11;
             modVerLabel.Text = "modVer";
             // 
-            // nerfFenceCheck
-            // 
-            nerfFenceCheck.AutoSize = true;
-            nerfFenceCheck.Location = new Point(6, 246);
-            nerfFenceCheck.Name = "nerfFenceCheck";
-            nerfFenceCheck.Size = new Size(83, 19);
-            nerfFenceCheck.TabIndex = 18;
-            nerfFenceCheck.Text = "Nerf Fence";
-            toolTip1.SetToolTip(nerfFenceCheck, "Randomizes the cost of trader offers. They can be higher or lower than the base pirce.");
-            nerfFenceCheck.UseVisualStyleBackColor = true;
-            nerfFenceCheck.CheckedChanged += nerfFenceCheck_CheckedChanged;
-            // 
             // Main_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2380,7 +2363,6 @@
         private NumericUpDown stockModNum;
         private NumericUpDown tradRefreshNum;
         private Label label22;
-        private CheckBox oldBallsCheck;
         private CheckBox backupCheck;
         private Label label23;
         private ComboBox gearPresetCombo;
