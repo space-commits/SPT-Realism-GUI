@@ -37,13 +37,11 @@
             warningTextBox = new RichTextBox();
             weapGroupBox = new GroupBox();
             masteryCheck = new CheckBox();
-            legacyRecoilCheck = new CheckBox();
             recoilAttOverhaulCheck = new CheckBox();
             malfChangesCheck = new CheckBox();
             armorGroupBox = new GroupBox();
             headsetCheck = new CheckBox();
             buffHelmetsCheck = new CheckBox();
-            armorMousePenaltyCheck = new CheckBox();
             headgearConflictsCheck = new CheckBox();
             realBallisticsCheck = new CheckBox();
             Health_Movement = new TabPage();
@@ -148,19 +146,8 @@
             presetLabel = new Label();
             weapPresetCombo = new ComboBox();
             globalRecoilModiGroupBox = new GroupBox();
-            crankCheck = new CheckBox();
-            label14 = new Label();
-            camRecNumeric = new NumericUpDown();
             ergoMultiLabel = new Label();
             ergoNumeric = new NumericUpDown();
-            dispMultLabel = new Label();
-            dispNumeric = new NumericUpDown();
-            convMultLabel = new Label();
-            convNumeric = new NumericUpDown();
-            horzRecMultLabel = new Label();
-            horzRecNumeric = new NumericUpDown();
-            vertRecMultLabel = new Label();
-            vertRecNumeric = new NumericUpDown();
             Dev_Tools = new TabPage();
             devToolsTextBox = new TextBox();
             logEverythingCheck = new CheckBox();
@@ -179,6 +166,8 @@
             revertLabel = new Label();
             savedLabel = new Label();
             modVerLabel = new Label();
+            botOdds9Text = new TextBox();
+            label14 = new Label();
             mainTabControl.SuspendLayout();
             Realism_Ballistics.SuspendLayout();
             weapGroupBox.SuspendLayout();
@@ -210,12 +199,7 @@
             itemGroupBox.SuspendLayout();
             recoilTab.SuspendLayout();
             globalRecoilModiGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)camRecNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ergoNumeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dispNumeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)convNumeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)horzRecNumeric).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)vertRecNumeric).BeginInit();
             Dev_Tools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)botTierNumeric).BeginInit();
             SuspendLayout();
@@ -302,7 +286,6 @@
             // weapGroupBox
             // 
             weapGroupBox.Controls.Add(masteryCheck);
-            weapGroupBox.Controls.Add(legacyRecoilCheck);
             weapGroupBox.Controls.Add(recoilAttOverhaulCheck);
             weapGroupBox.Controls.Add(malfChangesCheck);
             weapGroupBox.ForeColor = Color.White;
@@ -325,19 +308,6 @@
             toolTip1.SetToolTip(masteryCheck, resources.GetString("masteryCheck.ToolTip"));
             masteryCheck.UseVisualStyleBackColor = true;
             masteryCheck.CheckedChanged += masteryCheck_CheckedChanged;
-            // 
-            // legacyRecoilCheck
-            // 
-            legacyRecoilCheck.AutoSize = true;
-            legacyRecoilCheck.ForeColor = Color.White;
-            legacyRecoilCheck.Location = new Point(6, 97);
-            legacyRecoilCheck.Name = "legacyRecoilCheck";
-            legacyRecoilCheck.Size = new Size(147, 19);
-            legacyRecoilCheck.TabIndex = 5;
-            legacyRecoilCheck.Text = "Legacy Recoil Changes";
-            toolTip1.SetToolTip(legacyRecoilCheck, "The standard recoil settings from previous versions. DO NOT USE THIS IF THE RECOIL AND ATTACHMENT OVERHAUL IS INSTALLED AND ENABLED.\r\n");
-            legacyRecoilCheck.UseVisualStyleBackColor = true;
-            legacyRecoilCheck.CheckedChanged += legacyRecoilCheck_CheckedChanged;
             // 
             // recoilAttOverhaulCheck
             // 
@@ -373,12 +343,11 @@
             // 
             armorGroupBox.Controls.Add(headsetCheck);
             armorGroupBox.Controls.Add(buffHelmetsCheck);
-            armorGroupBox.Controls.Add(armorMousePenaltyCheck);
             armorGroupBox.Controls.Add(headgearConflictsCheck);
             armorGroupBox.ForeColor = Color.White;
             armorGroupBox.Location = new Point(18, 225);
             armorGroupBox.Name = "armorGroupBox";
-            armorGroupBox.Size = new Size(150, 124);
+            armorGroupBox.Size = new Size(150, 96);
             armorGroupBox.TabIndex = 7;
             armorGroupBox.TabStop = false;
             armorGroupBox.Text = "Gear";
@@ -389,12 +358,12 @@
             headsetCheck.Checked = true;
             headsetCheck.CheckState = CheckState.Checked;
             headsetCheck.ForeColor = Color.White;
-            headsetCheck.Location = new Point(6, 96);
+            headsetCheck.Location = new Point(6, 66);
             headsetCheck.Name = "headsetCheck";
             headsetCheck.Size = new Size(118, 19);
             headsetCheck.TabIndex = 4;
             headsetCheck.Text = "Headset Changes";
-            toolTip1.SetToolTip(headsetCheck, "Enables changes to the sound profile of headsets.\r\n");
+            toolTip1.SetToolTip(headsetCheck, resources.GetString("headsetCheck.ToolTip"));
             headsetCheck.UseVisualStyleBackColor = true;
             headsetCheck.CheckedChanged += headsetCheck_CheckedChanged;
             // 
@@ -413,28 +382,13 @@
             buffHelmetsCheck.UseVisualStyleBackColor = true;
             buffHelmetsCheck.CheckedChanged += buffHelmetsCheck_CheckedChanged;
             // 
-            // armorMousePenaltyCheck
-            // 
-            armorMousePenaltyCheck.AutoSize = true;
-            armorMousePenaltyCheck.Checked = true;
-            armorMousePenaltyCheck.CheckState = CheckState.Checked;
-            armorMousePenaltyCheck.ForeColor = Color.White;
-            armorMousePenaltyCheck.Location = new Point(6, 47);
-            armorMousePenaltyCheck.Name = "armorMousePenaltyCheck";
-            armorMousePenaltyCheck.Size = new Size(141, 19);
-            armorMousePenaltyCheck.TabIndex = 2;
-            armorMousePenaltyCheck.Text = "Armor Mouse Penalty";
-            toolTip1.SetToolTip(armorMousePenaltyCheck, "Armor will reduce mouse sensitivity by % equal to their weight.\r\nIf disabled, armor will have no mouse sensitivity penalty.");
-            armorMousePenaltyCheck.UseVisualStyleBackColor = true;
-            armorMousePenaltyCheck.CheckedChanged += armorMousePenaltyCheck_CheckedChanged;
-            // 
             // headgearConflictsCheck
             // 
             headgearConflictsCheck.AutoSize = true;
             headgearConflictsCheck.Checked = true;
             headgearConflictsCheck.CheckState = CheckState.Checked;
             headgearConflictsCheck.ForeColor = Color.White;
-            headgearConflictsCheck.Location = new Point(6, 72);
+            headgearConflictsCheck.Location = new Point(6, 42);
             headgearConflictsCheck.Name = "headgearConflictsCheck";
             headgearConflictsCheck.Size = new Size(127, 19);
             headgearConflictsCheck.TabIndex = 3;
@@ -722,6 +676,8 @@
             // 
             // botTierGroup
             // 
+            botTierGroup.Controls.Add(label14);
+            botTierGroup.Controls.Add(botOdds9Text);
             botTierGroup.Controls.Add(botOdds8Text);
             botTierGroup.Controls.Add(botOdds7Text);
             botTierGroup.Controls.Add(botOdds6Text);
@@ -825,9 +781,9 @@
             label13.ForeColor = Color.White;
             label13.Location = new Point(15, 231);
             label13.Name = "label13";
-            label13.Size = new Size(44, 15);
+            label13.Size = new Size(53, 15);
             label13.TabIndex = 88;
-            label13.Text = "Lvl 34+";
+            label13.Text = "Lvl 35-39";
             // 
             // label12
             // 
@@ -1686,7 +1642,7 @@
             // 
             label23.AutoSize = true;
             label23.ForeColor = Color.White;
-            label23.Location = new Point(24, 488);
+            label23.Location = new Point(18, 196);
             label23.Name = "label23";
             label23.Size = new Size(69, 15);
             label23.TabIndex = 22;
@@ -1695,7 +1651,7 @@
             // gearPresetCombo
             // 
             gearPresetCombo.FormattingEnabled = true;
-            gearPresetCombo.Location = new Point(145, 485);
+            gearPresetCombo.Location = new Point(139, 193);
             gearPresetCombo.Name = "gearPresetCombo";
             gearPresetCombo.Size = new Size(188, 23);
             gearPresetCombo.TabIndex = 21;
@@ -1705,7 +1661,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(24, 450);
+            label1.Location = new Point(18, 158);
             label1.Name = "label1";
             label1.Size = new Size(112, 15);
             label1.TabIndex = 20;
@@ -1714,7 +1670,7 @@
             // attachPresetCombo
             // 
             attachPresetCombo.FormattingEnabled = true;
-            attachPresetCombo.Location = new Point(145, 447);
+            attachPresetCombo.Location = new Point(139, 155);
             attachPresetCombo.Name = "attachPresetCombo";
             attachPresetCombo.Size = new Size(188, 23);
             attachPresetCombo.TabIndex = 19;
@@ -1724,7 +1680,7 @@
             // 
             presetHelpLabel.AutoSize = true;
             presetHelpLabel.ForeColor = Color.White;
-            presetHelpLabel.Location = new Point(25, 375);
+            presetHelpLabel.Location = new Point(19, 83);
             presetHelpLabel.Name = "presetHelpLabel";
             presetHelpLabel.Size = new Size(649, 15);
             presetHelpLabel.TabIndex = 18;
@@ -1734,7 +1690,7 @@
             // 
             presetLabel.AutoSize = true;
             presetLabel.ForeColor = Color.White;
-            presetLabel.Location = new Point(24, 412);
+            presetLabel.Location = new Point(18, 120);
             presetLabel.Name = "presetLabel";
             presetLabel.Size = new Size(89, 15);
             presetLabel.TabIndex = 17;
@@ -1743,7 +1699,7 @@
             // weapPresetCombo
             // 
             weapPresetCombo.FormattingEnabled = true;
-            weapPresetCombo.Location = new Point(145, 409);
+            weapPresetCombo.Location = new Point(139, 117);
             weapPresetCombo.Name = "weapPresetCombo";
             weapPresetCombo.Size = new Size(188, 23);
             weapPresetCombo.TabIndex = 16;
@@ -1751,68 +1707,20 @@
             // 
             // globalRecoilModiGroupBox
             // 
-            globalRecoilModiGroupBox.Controls.Add(crankCheck);
-            globalRecoilModiGroupBox.Controls.Add(label14);
-            globalRecoilModiGroupBox.Controls.Add(camRecNumeric);
             globalRecoilModiGroupBox.Controls.Add(ergoMultiLabel);
             globalRecoilModiGroupBox.Controls.Add(ergoNumeric);
-            globalRecoilModiGroupBox.Controls.Add(dispMultLabel);
-            globalRecoilModiGroupBox.Controls.Add(dispNumeric);
-            globalRecoilModiGroupBox.Controls.Add(convMultLabel);
-            globalRecoilModiGroupBox.Controls.Add(convNumeric);
-            globalRecoilModiGroupBox.Controls.Add(horzRecMultLabel);
-            globalRecoilModiGroupBox.Controls.Add(horzRecNumeric);
-            globalRecoilModiGroupBox.Controls.Add(vertRecMultLabel);
-            globalRecoilModiGroupBox.Controls.Add(vertRecNumeric);
             globalRecoilModiGroupBox.ForeColor = Color.White;
             globalRecoilModiGroupBox.Location = new Point(19, 12);
             globalRecoilModiGroupBox.Name = "globalRecoilModiGroupBox";
-            globalRecoilModiGroupBox.Size = new Size(320, 245);
+            globalRecoilModiGroupBox.Size = new Size(320, 58);
             globalRecoilModiGroupBox.TabIndex = 14;
             globalRecoilModiGroupBox.TabStop = false;
-            globalRecoilModiGroupBox.Text = "Global Recoil Modifiers";
-            // 
-            // crankCheck
-            // 
-            crankCheck.AutoSize = true;
-            crankCheck.ForeColor = Color.White;
-            crankCheck.Location = new Point(6, 205);
-            crankCheck.Name = "crankCheck";
-            crankCheck.Size = new Size(136, 19);
-            crankCheck.TabIndex = 4;
-            crankCheck.Text = "Enable 'Recoil Crank'";
-            toolTip1.SetToolTip(crankCheck, "If Recoil Crank is enabled, recoil will go rearwards into the shoulder. If it's off then recoil will go forward like In unmodded EFT.");
-            crankCheck.UseVisualStyleBackColor = true;
-            crankCheck.CheckedChanged += crankCheck_CheckedChanged;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(6, 178);
-            label14.Name = "label14";
-            label14.Size = new Size(114, 15);
-            label14.TabIndex = 11;
-            label14.Text = "Camera Recoil Multi";
-            toolTip1.SetToolTip(label14, "Camera recoil multi. Higher = more screen shake and head tilting when firing.");
-            // 
-            // camRecNumeric
-            // 
-            camRecNumeric.DecimalPlaces = 2;
-            camRecNumeric.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            camRecNumeric.Location = new Point(147, 176);
-            camRecNumeric.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            camRecNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
-            camRecNumeric.Name = "camRecNumeric";
-            camRecNumeric.Size = new Size(120, 23);
-            camRecNumeric.TabIndex = 10;
-            toolTip1.SetToolTip(camRecNumeric, "Camera Recoil multi. Higher = more screen shake and head tilting when firing.");
-            camRecNumeric.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            camRecNumeric.ValueChanged += camRecNumeric_ValueChanged;
+            globalRecoilModiGroupBox.Text = "Global Weapon Modifiers";
             // 
             // ergoMultiLabel
             // 
             ergoMultiLabel.AutoSize = true;
-            ergoMultiLabel.Location = new Point(6, 149);
+            ergoMultiLabel.Location = new Point(6, 21);
             ergoMultiLabel.Name = "ergoMultiLabel";
             ergoMultiLabel.Size = new Size(62, 15);
             ergoMultiLabel.TabIndex = 9;
@@ -1823,7 +1731,7 @@
             // 
             ergoNumeric.DecimalPlaces = 2;
             ergoNumeric.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            ergoNumeric.Location = new Point(147, 147);
+            ergoNumeric.Location = new Point(147, 19);
             ergoNumeric.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             ergoNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
             ergoNumeric.Name = "ergoNumeric";
@@ -1831,98 +1739,6 @@
             ergoNumeric.TabIndex = 8;
             ergoNumeric.Value = new decimal(new int[] { 1, 0, 0, 0 });
             ergoNumeric.ValueChanged += ergoNumeric_ValueChanged;
-            // 
-            // dispMultLabel
-            // 
-            dispMultLabel.AutoSize = true;
-            dispMultLabel.Location = new Point(6, 120);
-            dispMultLabel.Name = "dispMultLabel";
-            dispMultLabel.Size = new Size(93, 15);
-            dispMultLabel.TabIndex = 7;
-            dispMultLabel.Text = "Dispersion Multi";
-            toolTip1.SetToolTip(dispMultLabel, "Dispersion is the amount of spread. It's the radius in which recoil can occur, so higher dispersion = more spread.");
-            // 
-            // dispNumeric
-            // 
-            dispNumeric.DecimalPlaces = 2;
-            dispNumeric.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            dispNumeric.Location = new Point(147, 118);
-            dispNumeric.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            dispNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
-            dispNumeric.Name = "dispNumeric";
-            dispNumeric.Size = new Size(120, 23);
-            dispNumeric.TabIndex = 6;
-            dispNumeric.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            dispNumeric.ValueChanged += dispNumeric_ValueChanged;
-            // 
-            // convMultLabel
-            // 
-            convMultLabel.AutoSize = true;
-            convMultLabel.Location = new Point(6, 91);
-            convMultLabel.Name = "convMultLabel";
-            convMultLabel.Size = new Size(108, 15);
-            convMultLabel.TabIndex = 5;
-            convMultLabel.Text = "Convergence Multi";
-            toolTip1.SetToolTip(convMultLabel, resources.GetString("convMultLabel.ToolTip"));
-            // 
-            // convNumeric
-            // 
-            convNumeric.DecimalPlaces = 2;
-            convNumeric.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            convNumeric.Location = new Point(147, 89);
-            convNumeric.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            convNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
-            convNumeric.Name = "convNumeric";
-            convNumeric.Size = new Size(120, 23);
-            convNumeric.TabIndex = 4;
-            convNumeric.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            convNumeric.ValueChanged += convNumeric_ValueChanged;
-            // 
-            // horzRecMultLabel
-            // 
-            horzRecMultLabel.AutoSize = true;
-            horzRecMultLabel.Location = new Point(6, 62);
-            horzRecMultLabel.Name = "horzRecMultLabel";
-            horzRecMultLabel.Size = new Size(128, 15);
-            horzRecMultLabel.TabIndex = 3;
-            horzRecMultLabel.Text = "Horizontal Recoil Multi";
-            toolTip1.SetToolTip(horzRecMultLabel, resources.GetString("horzRecMultLabel.ToolTip"));
-            // 
-            // horzRecNumeric
-            // 
-            horzRecNumeric.DecimalPlaces = 2;
-            horzRecNumeric.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            horzRecNumeric.Location = new Point(147, 60);
-            horzRecNumeric.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            horzRecNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
-            horzRecNumeric.Name = "horzRecNumeric";
-            horzRecNumeric.Size = new Size(120, 23);
-            horzRecNumeric.TabIndex = 2;
-            horzRecNumeric.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            horzRecNumeric.ValueChanged += horzRecNumeric_ValueChanged;
-            // 
-            // vertRecMultLabel
-            // 
-            vertRecMultLabel.AutoSize = true;
-            vertRecMultLabel.Location = new Point(6, 33);
-            vertRecMultLabel.Name = "vertRecMultLabel";
-            vertRecMultLabel.Size = new Size(111, 15);
-            vertRecMultLabel.TabIndex = 1;
-            vertRecMultLabel.Text = "Vertical Recoil Multi";
-            toolTip1.SetToolTip(vertRecMultLabel, "Vertical recoil multi. Higher vertical rcoil = moe muzzle rise and flip.");
-            // 
-            // vertRecNumeric
-            // 
-            vertRecNumeric.DecimalPlaces = 2;
-            vertRecNumeric.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            vertRecNumeric.Location = new Point(147, 31);
-            vertRecNumeric.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            vertRecNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
-            vertRecNumeric.Name = "vertRecNumeric";
-            vertRecNumeric.Size = new Size(120, 23);
-            vertRecNumeric.TabIndex = 0;
-            vertRecNumeric.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            vertRecNumeric.ValueChanged += vertRecNumeric_ValueChanged;
             // 
             // Dev_Tools
             // 
@@ -2142,6 +1958,25 @@
             modVerLabel.TabIndex = 11;
             modVerLabel.Text = "modVer";
             // 
+            // botOdds9Text
+            // 
+            botOdds9Text.Location = new Point(87, 256);
+            botOdds9Text.Name = "botOdds9Text";
+            botOdds9Text.Size = new Size(146, 23);
+            botOdds9Text.TabIndex = 96;
+            botOdds9Text.Text = "15, 1, 0, 0";
+            toolTip1.SetToolTip(botOdds9Text, resources.GetString("botOdds9Text.ToolTip"));
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.ForeColor = Color.White;
+            label14.Location = new Point(15, 259);
+            label14.Name = "label14";
+            label14.Size = new Size(44, 15);
+            label14.TabIndex = 97;
+            label14.Text = "Lvl 40+";
+            // 
             // Main_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2207,12 +2042,7 @@
             recoilTab.PerformLayout();
             globalRecoilModiGroupBox.ResumeLayout(false);
             globalRecoilModiGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)camRecNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)ergoNumeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dispNumeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)convNumeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)horzRecNumeric).EndInit();
-            ((System.ComponentModel.ISupportInitialize)vertRecNumeric).EndInit();
             Dev_Tools.ResumeLayout(false);
             Dev_Tools.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)botTierNumeric).EndInit();
@@ -2231,8 +2061,6 @@
         private CheckBox buffHelmetsCheck;
         private CheckBox realBallisticsCheck;
         private CheckBox headgearConflictsCheck;
-        private CheckBox armorMousePenaltyCheck;
-        private CheckBox legacyRecoilCheck;
         private CheckBox malfChangesCheck;
         private CheckBox recoilAttOverhaulCheck;
         private ToolTip toolTip1;
@@ -2297,18 +2125,8 @@
         private Label presetHelpLabel;
         private Label presetLabel;
         private ComboBox weapPresetCombo;
-        private CheckBox crankCheck;
         private GroupBox globalRecoilModiGroupBox;
         private Label ergoMultiLabel;
-        private NumericUpDown ergoNumeric;
-        private Label dispMultLabel;
-        private NumericUpDown dispNumeric;
-        private Label convMultLabel;
-        private NumericUpDown convNumeric;
-        private Label horzRecMultLabel;
-        private NumericUpDown horzRecNumeric;
-        private Label vertRecMultLabel;
-        private NumericUpDown vertRecNumeric;
         private Label label4;
         private NumericUpDown bossHPNumeric;
         private Label label2;
@@ -2335,8 +2153,6 @@
         private TextBox botOdds4Text;
         private TextBox botOdds3Text;
         private TextBox botOdds2Text;
-        private Label label14;
-        private NumericUpDown camRecNumeric;
         private GroupBox groupBox1;
         private NumericUpDown hostNum1;
         private NumericUpDown hostNum3;
@@ -2371,5 +2187,8 @@
         private CheckBox spawnWaveCheck;
         private CheckBox dynScavLoot;
         private CheckBox nerfFenceCheck;
+        private NumericUpDown ergoNumeric;
+        private Label label14;
+        private TextBox botOdds9Text;
     }
 }

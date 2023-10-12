@@ -2127,6 +2127,12 @@ you're going to use another mod to change your health.
 It is NOT recommended to turn this off, it is balanced around changes to ballistics, and turning it off may cause unforseen issues.
 This is only an option for those who want to raise their health using another mod to make the game easier.</value>
   </data>
+  <data name="realBallisticsCheck.ToolTip" xml:space="preserve">
+    <value>Enables Armor and Ammo changes, the core of Realism Mod. This includes the complete overhaul of how armor damage, penetration and blunt damage is calculated as well as adding some additional mechanics. 
+This will change the health of bot PMCs and Scavs to be balanced with these changes.
+
+</value>
+  </data>
   <data name="masteryCheck.ToolTip" xml:space="preserve">
     <value>Changes what weapons fall into what Mastery categories. Weapons that have similar controls or reload operation are in the same category.
 For most weapons, mastery will come a lot quicker because of this.</value>
@@ -2136,13 +2142,18 @@ For most weapons, mastery will come a lot quicker because of this.</value>
 You can further configure the overhaul in-game, press F12 to open the config menu for mods.
 
 NOTE: some of the changes made by this overhaul are balanced around the changes made to ammo stats, it is recommended to use in combination with 'Realistic Ballistics'.
-
-IF YOU WANT TO DISABLE THIS FEATURE MAKE SURE TO ASLO DELETE THE REALISMMOD.DLL FROM YOUR BEPINEX/PLUGINS FOLDER!</value>
+</value>
   </data>
   <data name="malfChangesCheck.ToolTip" xml:space="preserve">
     <value>Enables changes to malfunctions and overheating. Overall the chance of a malfunction is lower, depending on the weapon, attachments, magazine and ammo. See the mod's Overview page for details.
 
 This option must be enabled for the additional malfunction mechanics to be available.</value>
+  </data>
+  <data name="headsetCheck.ToolTip" xml:space="preserve">
+    <value>Enables changes to the sound profile of headsets.
+
+This should be automatically disabled if the .dll is not installed, but I recommend disabling it manually just to be safe,
+otherwise you run the risk of headsets being very loud!</value>
   </data>
   <data name="buffHelmetsCheck.ToolTip" xml:space="preserve">
     <value>Buffs helmets and faceshields by raising their armor level by 1. Their blunt throughput has been modified to compensate.
@@ -2152,16 +2163,6 @@ Not carefully balanced, just for those that want a slightly less hardcore experi
     <value>Ensures bots spawn with NVGs correctly and makes some masks and headgear conflict to prevent bots from looking cursed, these are items that clip badly. 
 
 If disabled, bots will sometimes spawn with NVG mounts but the NVG missing.</value>
-  </data>
-  <data name="realBallisticsCheck.ToolTip" xml:space="preserve">
-    <value>Enables Armor and Ammo changes, the core of Realism Mod. This includes the complete overhaul of how armor damage, penetration and blunt damage is calculated as well as adding some additional mechanics. 
-This will change the health of bot PMCs and Scavs to be balanced with these changes.
-
-IF YOU WANT TO DISABLE THIS FEATURE MAKE SURE TO ASLO DELETE THE REALISMMOD.DLL FROM YOUR BEPINEX/PLUGINS FOLDER!
-
-
-
-</value>
   </data>
   <data name="Health_Movement.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6289,6 +6290,13 @@ See the mod's overview page for details.</value>
     <value>Boss/Rogue/Raider spawn chances increase as you level up, allows bosses to spawn in more parts of the map and additional maps, adds chance for Raiders and Rogues to spawn on more maps. 
 Raiders and Rogues still have 100% spawn chance on Labs and Lighthouse respectively.</value>
   </data>
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value>Chance of same-faction PMCs being hostile to player per base tier.
+
+Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
+
+</value>
+  </data>
   <data name="hostNum3.ToolTip" xml:space="preserve">
     <value>Chance of same-faction PMCs being hostile to player per base tier.
 
@@ -6307,11 +6315,10 @@ Base tiers are sets of bot config options that are also based on level, there ar
 Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
 </value>
   </data>
-  <data name="groupBox1.ToolTip" xml:space="preserve">
-    <value>Chance of same-faction PMCs being hostile to player per base tier.
+  <data name="botTierGroup.ToolTip" xml:space="preserve">
+    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
 
-Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
-
+Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
 </value>
   </data>
   <data name="botOdds8Text.ToolTip" xml:space="preserve">
@@ -6364,16 +6371,18 @@ For example, at lvl 0-4, tier 1 bots have odds of 15, tier 2 bots odds of 1, tie
 Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
 </value>
   </data>
-  <data name="botTierGroup.ToolTip" xml:space="preserve">
-    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
-
-Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
-</value>
-  </data>
   <data name="bossSpawnCheck.ToolTip" xml:space="preserve">
     <value>Changes boss spawn chance to be based on the player's level. At the start the boss spawn chance is very low.
 
 Bosses can spawn on maps they wouldn't normally in unexpected places, Raiders and Rogues can spawn on most maps.</value>
+  </data>
+  <data name="botDiffGroupBox.ToolTip" xml:space="preserve">
+    <value>Raises PMC and Boss difficulty.
+Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
+
+NOTE: This option will only take effect if 'Bot Changes' is enabled.
+It's not recommended to use this option if you are using mods that change AI behaviour.
+</value>
   </data>
   <data name="pmcTypeCheck.ToolTip" xml:space="preserve">
     <value>Changes the odds and available behaviour templates that PMCs can use. The types available and their odds changes based on player level, time of day and map.
@@ -6399,12 +6408,10 @@ NOTE: This option will only take effect if 'Bot Changes' is enabled.
 It's not recommended to use this option if you are using mods that change AI behaviour.
 </value>
   </data>
-  <data name="botDiffGroupBox.ToolTip" xml:space="preserve">
-    <value>Raises PMC and Boss difficulty.
-Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
+  <data name="botHealthGroupBox.ToolTip" xml:space="preserve">
+    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
 
-NOTE: This option will only take effect if 'Bot Changes' is enabled.
-It's not recommended to use this option if you are using mods that change AI behaviour.
+NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have default health.
 </value>
   </data>
   <data name="realBossHealthCheck.ToolTip" xml:space="preserve">
@@ -6426,12 +6433,6 @@ NOTE: 'Realistic Ballistics' option must be true for this to take effect. If rea
 </value>
   </data>
   <data name="realCultistHealthCheck.ToolTip" xml:space="preserve">
-    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
-
-NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have default health.
-</value>
-  </data>
-  <data name="botHealthGroupBox.ToolTip" xml:space="preserve">
     <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
 
 NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have default health.
@@ -8516,13 +8517,6 @@ If the "Med Changes" are enabled Therapist will sell the makeshift medkits, if t
     <value>If enabled airdrops will have 'types' (medical supplies, food, ammo, etc.) and will only have items of that type.
 Different types have different rarity, airdrop types will be rerolled when starting the game or at the end of raids.</value>
   </data>
-  <data name="convMultLabel.ToolTip" xml:space="preserve">
-    <value>Also known as 'Auto Compensation', this is the speed at which the gun comes under control. In this mod convergence only works this way for semi auto, in full auto convergence dictates the overall amount of recoil climb and how snappy it is. Basically, lower = more recoil that is more floaty.</value>
-  </data>
-  <data name="horzRecMultLabel.ToolTip" xml:space="preserve">
-    <value>Horizontal recoil. Horizontal recoil in EFT is actually the front/rear recoil impulse. With 'Recoil Crank' enabled more horizontal recoil = more recoil into the shoulder, if disabled recoil will go forward instead.
-</value>
-  </data>
   <data name="Dev_Tools.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAp4AAAGQCAYAAAAHlGB+AAABfmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAA
@@ -10584,6 +10578,15 @@ Different types have different rarity, airdrop types will be rerolled when start
     <value>Testing parameters. For testing purposes only. No support given if these are enabled. 
 First enable bot testing. Set the tier to 1-4 to spawn a specific tier of bot, then set what bot type you want to spawn.
 Disabling weapons will deactivate the AI, they will spawn but not move or react.</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="botOdds9Text.ToolTip" xml:space="preserve">
+    <value>The odds of the 4 bot tiers spawning within a given player level range. Each number represents the tier, 1-4, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
+
+Note: some bot types have only 3 tiers. If tier 4 is picked, it will be resolved as tier 3.
+</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>55</value>
