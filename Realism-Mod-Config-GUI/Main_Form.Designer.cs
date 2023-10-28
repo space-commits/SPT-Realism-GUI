@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             mainTabControl = new TabControl();
             Realism_Ballistics = new TabPage();
+            label24 = new Label();
+            playerHPNumeric = new NumericUpDown();
             revertHPCheck = new CheckBox();
             realPlayerHealthCheck = new CheckBox();
             warningTextBox = new RichTextBox();
@@ -65,6 +67,8 @@
             hostNum1 = new NumericUpDown();
             label5 = new Label();
             botTierGroup = new GroupBox();
+            label14 = new Label();
+            botOdds9Text = new TextBox();
             botOdds8Text = new TextBox();
             botOdds7Text = new TextBox();
             botOdds6Text = new TextBox();
@@ -166,10 +170,9 @@
             revertLabel = new Label();
             savedLabel = new Label();
             modVerLabel = new Label();
-            botOdds9Text = new TextBox();
-            label14 = new Label();
             mainTabControl.SuspendLayout();
             Realism_Ballistics.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)playerHPNumeric).BeginInit();
             weapGroupBox.SuspendLayout();
             armorGroupBox.SuspendLayout();
             Health_Movement.SuspendLayout();
@@ -228,6 +231,8 @@
             Realism_Ballistics.BackColor = Color.FromArgb(36, 36, 36);
             Realism_Ballistics.BackgroundImage = (Image)resources.GetObject("Realism_Ballistics.BackgroundImage");
             Realism_Ballistics.BackgroundImageLayout = ImageLayout.Center;
+            Realism_Ballistics.Controls.Add(label24);
+            Realism_Ballistics.Controls.Add(playerHPNumeric);
             Realism_Ballistics.Controls.Add(revertHPCheck);
             Realism_Ballistics.Controls.Add(realPlayerHealthCheck);
             Realism_Ballistics.Controls.Add(warningTextBox);
@@ -241,6 +246,31 @@
             Realism_Ballistics.Size = new Size(1360, 684);
             Realism_Ballistics.TabIndex = 0;
             Realism_Ballistics.Text = "Realism and Ballistics";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.ForeColor = SystemColors.Control;
+            label24.Location = new Point(178, 18);
+            label24.Name = "label24";
+            label24.Size = new Size(108, 15);
+            label24.TabIndex = 15;
+            label24.Text = "Player Health Multi";
+            toolTip1.SetToolTip(label24, "'Realistic Player Health' must be enabled for this to take effect.");
+            // 
+            // playerHPNumeric
+            // 
+            playerHPNumeric.DecimalPlaces = 2;
+            playerHPNumeric.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
+            playerHPNumeric.Location = new Point(292, 16);
+            playerHPNumeric.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            playerHPNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
+            playerHPNumeric.Name = "playerHPNumeric";
+            playerHPNumeric.Size = new Size(120, 23);
+            playerHPNumeric.TabIndex = 14;
+            toolTip1.SetToolTip(playerHPNumeric, "'Realistic Player Health' must be enabled for this to take effect.");
+            playerHPNumeric.Value = new decimal(new int[] { 1, 0, 0, 65536 });
+            playerHPNumeric.ValueChanged += playerHPNumeric_ValueChanged;
             // 
             // revertHPCheck
             // 
@@ -703,13 +733,32 @@
             botTierGroup.Text = "Bot Tier Odds";
             toolTip1.SetToolTip(botTierGroup, resources.GetString("botTierGroup.ToolTip"));
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.ForeColor = Color.White;
+            label14.Location = new Point(15, 259);
+            label14.Name = "label14";
+            label14.Size = new Size(44, 15);
+            label14.TabIndex = 97;
+            label14.Text = "Lvl 40+";
+            // 
+            // botOdds9Text
+            // 
+            botOdds9Text.Location = new Point(87, 256);
+            botOdds9Text.Name = "botOdds9Text";
+            botOdds9Text.Size = new Size(146, 23);
+            botOdds9Text.TabIndex = 96;
+            botOdds9Text.Text = "15, 1, 0, 0, 1";
+            toolTip1.SetToolTip(botOdds9Text, resources.GetString("botOdds9Text.ToolTip"));
+            // 
             // botOdds8Text
             // 
             botOdds8Text.Location = new Point(87, 228);
             botOdds8Text.Name = "botOdds8Text";
             botOdds8Text.Size = new Size(146, 23);
             botOdds8Text.TabIndex = 95;
-            botOdds8Text.Text = "15, 1, 0, 0";
+            botOdds8Text.Text = "15, 1, 0, 0, 1";
             toolTip1.SetToolTip(botOdds8Text, resources.GetString("botOdds8Text.ToolTip"));
             // 
             // botOdds7Text
@@ -718,7 +767,7 @@
             botOdds7Text.Name = "botOdds7Text";
             botOdds7Text.Size = new Size(146, 23);
             botOdds7Text.TabIndex = 94;
-            botOdds7Text.Text = "15, 1, 0, 0";
+            botOdds7Text.Text = "15, 1, 0, 0, 1";
             toolTip1.SetToolTip(botOdds7Text, resources.GetString("botOdds7Text.ToolTip"));
             // 
             // botOdds6Text
@@ -727,7 +776,7 @@
             botOdds6Text.Name = "botOdds6Text";
             botOdds6Text.Size = new Size(146, 23);
             botOdds6Text.TabIndex = 93;
-            botOdds6Text.Text = "15, 1, 0, 0";
+            botOdds6Text.Text = "15, 1, 0, 0, 1";
             toolTip1.SetToolTip(botOdds6Text, resources.GetString("botOdds6Text.ToolTip"));
             // 
             // botOdds5Text
@@ -736,7 +785,7 @@
             botOdds5Text.Name = "botOdds5Text";
             botOdds5Text.Size = new Size(146, 23);
             botOdds5Text.TabIndex = 92;
-            botOdds5Text.Text = "15, 1, 0, 0";
+            botOdds5Text.Text = "15, 1, 0, 0, 1";
             toolTip1.SetToolTip(botOdds5Text, resources.GetString("botOdds5Text.ToolTip"));
             // 
             // botOdds4Text
@@ -745,7 +794,7 @@
             botOdds4Text.Name = "botOdds4Text";
             botOdds4Text.Size = new Size(146, 23);
             botOdds4Text.TabIndex = 91;
-            botOdds4Text.Text = "15, 1, 0, 0";
+            botOdds4Text.Text = "15, 1, 0, 0, 1";
             toolTip1.SetToolTip(botOdds4Text, resources.GetString("botOdds4Text.ToolTip"));
             // 
             // botOdds3Text
@@ -754,7 +803,7 @@
             botOdds3Text.Name = "botOdds3Text";
             botOdds3Text.Size = new Size(146, 23);
             botOdds3Text.TabIndex = 90;
-            botOdds3Text.Text = "15, 1, 0, 0";
+            botOdds3Text.Text = "15, 1, 0, 0, 1";
             toolTip1.SetToolTip(botOdds3Text, resources.GetString("botOdds3Text.ToolTip"));
             // 
             // botOdds2Text
@@ -763,7 +812,7 @@
             botOdds2Text.Name = "botOdds2Text";
             botOdds2Text.Size = new Size(146, 23);
             botOdds2Text.TabIndex = 89;
-            botOdds2Text.Text = "15, 1, 0, 0";
+            botOdds2Text.Text = "15, 1, 0, 0, 1";
             toolTip1.SetToolTip(botOdds2Text, resources.GetString("botOdds2Text.ToolTip"));
             // 
             // botOdds1Text
@@ -772,7 +821,7 @@
             botOdds1Text.Name = "botOdds1Text";
             botOdds1Text.Size = new Size(146, 23);
             botOdds1Text.TabIndex = 21;
-            botOdds1Text.Text = "15, 1, 0, 0";
+            botOdds1Text.Text = "15, 1, 0, 0, 1";
             toolTip1.SetToolTip(botOdds1Text, resources.GetString("botOdds1Text.ToolTip"));
             // 
             // label13
@@ -814,6 +863,7 @@
             label10.Size = new Size(53, 15);
             label10.TabIndex = 73;
             label10.Text = "Lvl 20-24";
+            toolTip1.SetToolTip(label10, resources.GetString("label10.ToolTip"));
             // 
             // label9
             // 
@@ -824,6 +874,7 @@
             label9.Size = new Size(53, 15);
             label9.TabIndex = 68;
             label9.Text = "Lvl 15-19";
+            toolTip1.SetToolTip(label9, resources.GetString("label9.ToolTip"));
             // 
             // label7
             // 
@@ -834,6 +885,7 @@
             label7.Size = new Size(53, 15);
             label7.TabIndex = 63;
             label7.Text = "Lvl 10-14";
+            toolTip1.SetToolTip(label7, resources.GetString("label7.ToolTip"));
             // 
             // label6
             // 
@@ -844,6 +896,7 @@
             label6.Size = new Size(41, 15);
             label6.TabIndex = 58;
             label6.Text = "Lvl 5-9";
+            toolTip1.SetToolTip(label6, resources.GetString("label6.ToolTip"));
             // 
             // label8
             // 
@@ -854,6 +907,7 @@
             label8.Size = new Size(41, 15);
             label8.TabIndex = 53;
             label8.Text = "Lvl 0-4";
+            toolTip1.SetToolTip(label8, resources.GetString("label8.ToolTip"));
             // 
             // bossItemsCheck
             // 
@@ -1857,7 +1911,7 @@
             // botTierNumeric
             // 
             botTierNumeric.Location = new Point(78, 127);
-            botTierNumeric.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            botTierNumeric.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
             botTierNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             botTierNumeric.Name = "botTierNumeric";
             botTierNumeric.Size = new Size(121, 23);
@@ -1958,25 +2012,6 @@
             modVerLabel.TabIndex = 11;
             modVerLabel.Text = "modVer";
             // 
-            // botOdds9Text
-            // 
-            botOdds9Text.Location = new Point(87, 256);
-            botOdds9Text.Name = "botOdds9Text";
-            botOdds9Text.Size = new Size(146, 23);
-            botOdds9Text.TabIndex = 96;
-            botOdds9Text.Text = "15, 1, 0, 0";
-            toolTip1.SetToolTip(botOdds9Text, resources.GetString("botOdds9Text.ToolTip"));
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.ForeColor = Color.White;
-            label14.Location = new Point(15, 259);
-            label14.Name = "label14";
-            label14.Size = new Size(44, 15);
-            label14.TabIndex = 97;
-            label14.Text = "Lvl 40+";
-            // 
             // Main_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1997,6 +2032,7 @@
             mainTabControl.ResumeLayout(false);
             Realism_Ballistics.ResumeLayout(false);
             Realism_Ballistics.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)playerHPNumeric).EndInit();
             weapGroupBox.ResumeLayout(false);
             weapGroupBox.PerformLayout();
             armorGroupBox.ResumeLayout(false);
@@ -2190,5 +2226,7 @@
         private NumericUpDown ergoNumeric;
         private Label label14;
         private TextBox botOdds9Text;
+        private Label label24;
+        private NumericUpDown playerHPNumeric;
     }
 }

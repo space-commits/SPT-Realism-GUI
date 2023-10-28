@@ -94,6 +94,11 @@ namespace Realism_Mod_Config_GUI
             bossHPNumeric.Increment = increment;
             bossHPNumeric.DecimalPlaces = decimalPlaces;
 
+            playerHPNumeric.Minimum = hpMultiMin;
+            playerHPNumeric.Maximum = hpMultiMax;
+            playerHPNumeric.Increment = increment;
+            playerHPNumeric.DecimalPlaces = decimalPlaces;
+
             hostNum1.Minimum = botHostMin;
             hostNum1.Maximum = botHostMax;
             hostNum1.Increment = botHostInc;
@@ -171,6 +176,7 @@ namespace Realism_Mod_Config_GUI
             config.standard_bot_hp_multi = 1.0m;
             config.mid_bot_hp_multi = 1.0m;
             config.boss_bot_hp_multi = 1.0m;
+            config.player_hp_multi = 1.0m;
             config.weap_preset = "Realism";
             config.att_preset = "Realism";
             config.gear_preset = "Realism";
@@ -224,15 +230,15 @@ namespace Realism_Mod_Config_GUI
             config.no_fall_damage = false;
             config.logEverything = false;
             config.revert_hp = false;
-            config.botTierOdds1 = new int[] { 90, 7, 2, 1 };
-            config.botTierOdds2 = new int[] { 80, 15, 3, 2 };
-            config.botTierOdds3 = new int[] { 30, 53, 13, 4 };
-            config.botTierOdds4 = new int[] { 10, 63, 20, 7 };
-            config.botTierOdds5 = new int[] { 8, 47, 35, 10 };
-            config.botTierOdds6 = new int[] { 5, 30, 50, 15 };
-            config.botTierOdds7 = new int[] { 4, 15, 60, 20 };
-            config.botTierOdds8 = new int[] { 3, 10, 62, 25 };
-            config.botTierOdds9 = new int[] { 3, 10, 57, 30 };
+            config.botTierOdds1 = new int[] { 90, 7, 2, 1, 0 };
+            config.botTierOdds2 = new int[] { 80, 15, 3, 2, 0 };
+            config.botTierOdds3 = new int[] { 30, 53, 13, 4, 0 };
+            config.botTierOdds4 = new int[] { 10, 60, 20, 7, 3 };
+            config.botTierOdds5 = new int[] { 8, 40, 30, 17, 5 };
+            config.botTierOdds6 = new int[] { 5, 25, 41, 22, 7 };
+            config.botTierOdds7 = new int[] { 4, 15, 40, 31, 10 };
+            config.botTierOdds8 = new int[] { 3, 8, 30, 40, 19 };
+            config.botTierOdds9 = new int[] { 3, 7, 20, 35, 35 };
             config.trader_repair_changes = true;
             config.change_trader_ll = true;
             config.add_cust_trader_items = true;
@@ -267,6 +273,7 @@ namespace Realism_Mod_Config_GUI
             standardHPNumeric.Value = (decimal)config.standard_bot_hp_multi;
             midHPNumeric.Value = (decimal)config.mid_bot_hp_multi;
             bossHPNumeric.Value = (decimal)config.boss_bot_hp_multi;
+            playerHPNumeric.Value = (decimal)config.player_hp_multi;
 
             weapPresetCombo.SelectedItem = config.weap_preset;
             attachPresetCombo.SelectedItem = config.att_preset;
@@ -354,7 +361,7 @@ namespace Realism_Mod_Config_GUI
             costIncreaseNum.Value = (decimal)config.rand_cost_increase;
             tradRefreshNum.Value = (decimal)config.trader_refresh_time;
 
-            if (config.bot_test_tier > 1 && config.bot_test_tier <= 4)
+            if (config.bot_test_tier > 1 && config.bot_test_tier <= 5)
             {
                 botTierNumeric.Value = config.bot_test_tier;
             }
@@ -436,11 +443,14 @@ namespace Realism_Mod_Config_GUI
             {
                 revertHPCheck.Checked = false;
                 revertHPCheck.Enabled = false;
+                playerHPNumeric.Enabled = true;
             }
             else
             {
+                playerHPNumeric.Enabled = false;
                 revertHPCheck.Enabled = true;
             }
+
             //revert HP
             if (revertHPCheck.Checked == true)
             {
@@ -946,6 +956,12 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void playerHPNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            config.player_hp_multi = playerHPNumeric.Value;
+            CheckCheckBoxes();
+        }
+
         private void weightCheck_CheckedChanged(object sender, EventArgs e)
         {
             config.weight_limits_changes = weightCheck.Checked == true ? true : false;
@@ -1114,7 +1130,7 @@ namespace Realism_Mod_Config_GUI
         private int[] stringToIntArr(string str)
         {
             int[] arr = Array.ConvertAll(str.Split(','), int.Parse);
-            if (arr.Length < 4 || arr.Length > 4)
+            if (arr.Length != 5)
             {
                 throw new ArgumentException("Bot Tier Array Has Too Few Or Too Many Tiers");
             }
@@ -1190,6 +1206,7 @@ namespace Realism_Mod_Config_GUI
             public decimal standard_bot_hp_multi { get; set; }
             public decimal mid_bot_hp_multi { get; set; }
             public decimal boss_bot_hp_multi { get; set; }
+            public decimal player_hp_multi { get; set; }
             public bool headset_changes { get; set; }
             public int[] botTierOdds1 { get; set; }
             public int[] botTierOdds2 { get; set; }
