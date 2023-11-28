@@ -149,9 +149,6 @@
             presetHelpLabel = new Label();
             presetLabel = new Label();
             weapPresetCombo = new ComboBox();
-            globalRecoilModiGroupBox = new GroupBox();
-            ergoMultiLabel = new Label();
-            ergoNumeric = new NumericUpDown();
             Dev_Tools = new TabPage();
             devToolsTextBox = new TextBox();
             logEverythingCheck = new CheckBox();
@@ -201,8 +198,6 @@
             miscTab.SuspendLayout();
             itemGroupBox.SuspendLayout();
             recoilTab.SuspendLayout();
-            globalRecoilModiGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ergoNumeric).BeginInit();
             Dev_Tools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)botTierNumeric).BeginInit();
             SuspendLayout();
@@ -1685,7 +1680,6 @@
             recoilTab.Controls.Add(presetHelpLabel);
             recoilTab.Controls.Add(presetLabel);
             recoilTab.Controls.Add(weapPresetCombo);
-            recoilTab.Controls.Add(globalRecoilModiGroupBox);
             recoilTab.Location = new Point(4, 24);
             recoilTab.Name = "recoilTab";
             recoilTab.Size = new Size(1360, 684);
@@ -1696,7 +1690,7 @@
             // 
             label23.AutoSize = true;
             label23.ForeColor = Color.White;
-            label23.Location = new Point(18, 196);
+            label23.Location = new Point(18, 130);
             label23.Name = "label23";
             label23.Size = new Size(69, 15);
             label23.TabIndex = 22;
@@ -1705,7 +1699,7 @@
             // gearPresetCombo
             // 
             gearPresetCombo.FormattingEnabled = true;
-            gearPresetCombo.Location = new Point(139, 193);
+            gearPresetCombo.Location = new Point(139, 127);
             gearPresetCombo.Name = "gearPresetCombo";
             gearPresetCombo.Size = new Size(188, 23);
             gearPresetCombo.TabIndex = 21;
@@ -1715,7 +1709,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(18, 158);
+            label1.Location = new Point(18, 92);
             label1.Name = "label1";
             label1.Size = new Size(112, 15);
             label1.TabIndex = 20;
@@ -1724,7 +1718,7 @@
             // attachPresetCombo
             // 
             attachPresetCombo.FormattingEnabled = true;
-            attachPresetCombo.Location = new Point(139, 155);
+            attachPresetCombo.Location = new Point(139, 89);
             attachPresetCombo.Name = "attachPresetCombo";
             attachPresetCombo.Size = new Size(188, 23);
             attachPresetCombo.TabIndex = 19;
@@ -1734,7 +1728,7 @@
             // 
             presetHelpLabel.AutoSize = true;
             presetHelpLabel.ForeColor = Color.White;
-            presetHelpLabel.Location = new Point(19, 83);
+            presetHelpLabel.Location = new Point(19, 17);
             presetHelpLabel.Name = "presetHelpLabel";
             presetHelpLabel.Size = new Size(649, 15);
             presetHelpLabel.TabIndex = 18;
@@ -1744,7 +1738,7 @@
             // 
             presetLabel.AutoSize = true;
             presetLabel.ForeColor = Color.White;
-            presetLabel.Location = new Point(18, 120);
+            presetLabel.Location = new Point(18, 54);
             presetLabel.Name = "presetLabel";
             presetLabel.Size = new Size(89, 15);
             presetLabel.TabIndex = 17;
@@ -1753,46 +1747,11 @@
             // weapPresetCombo
             // 
             weapPresetCombo.FormattingEnabled = true;
-            weapPresetCombo.Location = new Point(139, 117);
+            weapPresetCombo.Location = new Point(139, 51);
             weapPresetCombo.Name = "weapPresetCombo";
             weapPresetCombo.Size = new Size(188, 23);
             weapPresetCombo.TabIndex = 16;
             weapPresetCombo.SelectedIndexChanged += weapPresetCombo_SelectedIndexChanged;
-            // 
-            // globalRecoilModiGroupBox
-            // 
-            globalRecoilModiGroupBox.Controls.Add(ergoMultiLabel);
-            globalRecoilModiGroupBox.Controls.Add(ergoNumeric);
-            globalRecoilModiGroupBox.ForeColor = Color.White;
-            globalRecoilModiGroupBox.Location = new Point(19, 12);
-            globalRecoilModiGroupBox.Name = "globalRecoilModiGroupBox";
-            globalRecoilModiGroupBox.Size = new Size(320, 58);
-            globalRecoilModiGroupBox.TabIndex = 14;
-            globalRecoilModiGroupBox.TabStop = false;
-            globalRecoilModiGroupBox.Text = "Global Weapon Modifiers";
-            // 
-            // ergoMultiLabel
-            // 
-            ergoMultiLabel.AutoSize = true;
-            ergoMultiLabel.Location = new Point(6, 21);
-            ergoMultiLabel.Name = "ergoMultiLabel";
-            ergoMultiLabel.Size = new Size(62, 15);
-            ergoMultiLabel.TabIndex = 9;
-            ergoMultiLabel.Text = "Ergo Multi";
-            toolTip1.SetToolTip(ergoMultiLabel, "Ergonomics multi. In this mod, higher ergo = reduction to weight and balance penalties, so faster ADS, less aim sway and inertira, faster weapon handling (reloading, chambering).");
-            // 
-            // ergoNumeric
-            // 
-            ergoNumeric.DecimalPlaces = 2;
-            ergoNumeric.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            ergoNumeric.Location = new Point(147, 19);
-            ergoNumeric.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            ergoNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
-            ergoNumeric.Name = "ergoNumeric";
-            ergoNumeric.Size = new Size(120, 23);
-            ergoNumeric.TabIndex = 8;
-            ergoNumeric.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            ergoNumeric.ValueChanged += ergoNumeric_ValueChanged;
             // 
             // Dev_Tools
             // 
@@ -2076,9 +2035,6 @@
             itemGroupBox.PerformLayout();
             recoilTab.ResumeLayout(false);
             recoilTab.PerformLayout();
-            globalRecoilModiGroupBox.ResumeLayout(false);
-            globalRecoilModiGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)ergoNumeric).EndInit();
             Dev_Tools.ResumeLayout(false);
             Dev_Tools.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)botTierNumeric).EndInit();
@@ -2161,8 +2117,6 @@
         private Label presetHelpLabel;
         private Label presetLabel;
         private ComboBox weapPresetCombo;
-        private GroupBox globalRecoilModiGroupBox;
-        private Label ergoMultiLabel;
         private Label label4;
         private NumericUpDown bossHPNumeric;
         private Label label2;
@@ -2223,7 +2177,6 @@
         private CheckBox spawnWaveCheck;
         private CheckBox dynScavLoot;
         private CheckBox nerfFenceCheck;
-        private NumericUpDown ergoNumeric;
         private Label label14;
         private TextBox botOdds9Text;
         private Label label24;

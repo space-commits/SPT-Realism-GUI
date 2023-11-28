@@ -61,9 +61,6 @@ namespace Realism_Mod_Config_GUI
 
         private void setNumericLimits()
         {
-
-            decimal recoilMultiMin = 0.1m;
-            decimal recoilMultiMax = 10.0m;
             decimal hpMultiMax = 10.0m;
             decimal hpMultiMin = 0.1m;
             decimal increment = 0.1m;
@@ -73,11 +70,6 @@ namespace Realism_Mod_Config_GUI
             decimal botHostMax = 100.0m;
             decimal botHostInc = 1.0m;
             int botHostDeci = 0;
-
-            ergoNumeric.Minimum = recoilMultiMin;
-            ergoNumeric.Maximum = recoilMultiMax;
-            ergoNumeric.Increment = increment;
-            ergoNumeric.DecimalPlaces = decimalPlaces;
 
             standardHPNumeric.Minimum = hpMultiMin;
             standardHPNumeric.Maximum = hpMultiMax;
@@ -127,7 +119,6 @@ namespace Realism_Mod_Config_GUI
 
         private void SetDefaultValues()
         {
-
             foreach (TabPage p in this.mainTabControl.TabPages)
             {
                 foreach (Control c in p.Controls)
@@ -146,28 +137,6 @@ namespace Realism_Mod_Config_GUI
                     }
                 }
             }
-
-            /*         vertRecNumeric.Value = 1.0m;
-                     horzRecNumeric.Value = 1.0m;
-                     convNumeric.Value = 1.0m;
-                     dispNumeric.Value = 1.0m;
-                     ergoNumeric.Value = 1.0m;
-                     camRecNumeric.Value = 1.0m;
-
-                     hostNum1.Value = 95.0m;
-                     hostNum2.Value = 99.0m;
-                     hostNum3.Value = 100.0m;
-
-                     standardHPNumeric.Value = 1.0m;
-                     midHPNumeric.Value = 1.0m;
-                     bossHPNumeric.Value = 1.0m;
-
-                     crankCheck.Checked = true;
-
-                     weapPresetCombo.SelectedItem = "Realism";
-                     attachPresetCombo.SelectedItem = "Realism";*/
-
-            config.ergo_multi = 1.0m;
 
             config.bot_hostile1 = 95;
             config.bot_hostile2 = 99;
@@ -264,8 +233,6 @@ namespace Realism_Mod_Config_GUI
 
         private void SetDisplayValues()
         {
-            ergoNumeric.Value = (decimal)config.ergo_multi;
-
             hostNum1.Value = (decimal)config.bot_hostile1;
             hostNum2.Value = (decimal)config.bot_hostile2;
             hostNum3.Value = (decimal)config.bot_hostile3;
@@ -914,12 +881,6 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
-        private void ergoNumeric_ValueChanged(object sender, EventArgs e)
-        {
-            config.ergo_multi = ergoNumeric.Value;
-            CheckCheckBoxes();
-        }
-
         private void weapPresetCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             config.weap_preset = weapPresetCombo.SelectedItem.ToString();
@@ -1202,7 +1163,6 @@ namespace Realism_Mod_Config_GUI
             public string weap_preset { get; set; }
             public string att_preset { get; set; }
             public string gear_preset { get; set; }
-            public decimal ergo_multi { get; set; }
             public decimal standard_bot_hp_multi { get; set; }
             public decimal mid_bot_hp_multi { get; set; }
             public decimal boss_bot_hp_multi { get; set; }
