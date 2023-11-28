@@ -51,7 +51,7 @@ namespace Realism_Mod_Config_GUI
 
         private void setTitleBar()
         {
-            string modVer = "v"+package.version;
+            string modVer = "v" + package.version;
             string sptVer = "v" + package.akiVersion;
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
@@ -61,9 +61,6 @@ namespace Realism_Mod_Config_GUI
 
         private void setNumericLimits()
         {
-
-            decimal recoilMultiMin = 0.1m;
-            decimal recoilMultiMax = 10.0m;
             decimal hpMultiMax = 10.0m;
             decimal hpMultiMin = 0.1m;
             decimal increment = 0.1m;
@@ -73,36 +70,6 @@ namespace Realism_Mod_Config_GUI
             decimal botHostMax = 100.0m;
             decimal botHostInc = 1.0m;
             int botHostDeci = 0;
-
-            vertRecNumeric.Minimum = recoilMultiMin;
-            vertRecNumeric.Maximum = recoilMultiMax;
-            vertRecNumeric.Increment = increment;
-            vertRecNumeric.DecimalPlaces = decimalPlaces;
-
-            horzRecNumeric.Minimum = recoilMultiMin;
-            horzRecNumeric.Maximum = recoilMultiMax;
-            horzRecNumeric.Increment = increment;
-            horzRecNumeric.DecimalPlaces = decimalPlaces;
-
-            convNumeric.Minimum = recoilMultiMin;
-            convNumeric.Maximum = recoilMultiMax;
-            convNumeric.Increment = increment;
-            convNumeric.DecimalPlaces = decimalPlaces;
-
-            dispNumeric.Minimum = recoilMultiMin;
-            dispNumeric.Maximum = recoilMultiMax;
-            dispNumeric.Increment = increment;
-            dispNumeric.DecimalPlaces = decimalPlaces;
-
-            ergoNumeric.Minimum = recoilMultiMin;
-            ergoNumeric.Maximum = recoilMultiMax;
-            ergoNumeric.Increment = increment;
-            ergoNumeric.DecimalPlaces = decimalPlaces;
-
-            camRecNumeric.Minimum = recoilMultiMin;
-            camRecNumeric.Maximum = recoilMultiMax;
-            camRecNumeric.Increment = increment;
-            camRecNumeric.DecimalPlaces = decimalPlaces;
 
             standardHPNumeric.Minimum = hpMultiMin;
             standardHPNumeric.Maximum = hpMultiMax;
@@ -118,6 +85,11 @@ namespace Realism_Mod_Config_GUI
             bossHPNumeric.Maximum = hpMultiMax;
             bossHPNumeric.Increment = increment;
             bossHPNumeric.DecimalPlaces = decimalPlaces;
+
+            playerHPNumeric.Minimum = hpMultiMin;
+            playerHPNumeric.Maximum = hpMultiMax;
+            playerHPNumeric.Increment = increment;
+            playerHPNumeric.DecimalPlaces = decimalPlaces;
 
             hostNum1.Minimum = botHostMin;
             hostNum1.Maximum = botHostMax;
@@ -147,7 +119,6 @@ namespace Realism_Mod_Config_GUI
 
         private void SetDefaultValues()
         {
-
             foreach (TabPage p in this.mainTabControl.TabPages)
             {
                 foreach (Control c in p.Controls)
@@ -167,33 +138,6 @@ namespace Realism_Mod_Config_GUI
                 }
             }
 
-            /*         vertRecNumeric.Value = 1.0m;
-                     horzRecNumeric.Value = 1.0m;
-                     convNumeric.Value = 1.0m;
-                     dispNumeric.Value = 1.0m;
-                     ergoNumeric.Value = 1.0m;
-                     camRecNumeric.Value = 1.0m;
-
-                     hostNum1.Value = 95.0m;
-                     hostNum2.Value = 99.0m;
-                     hostNum3.Value = 100.0m;
-
-                     standardHPNumeric.Value = 1.0m;
-                     midHPNumeric.Value = 1.0m;
-                     bossHPNumeric.Value = 1.0m;
-
-                     crankCheck.Checked = true;
-
-                     weapPresetCombo.SelectedItem = "Realism";
-                     attachPresetCombo.SelectedItem = "Realism";*/
-
-            config.vert_recoil_multi = 1.0m;
-            config.horz_recoil_multi = 1.0m;
-            config.convergence_multi = 1.0m;
-            config.dispersion_multi = 1.0m;
-            config.ergo_multi = 1.0m;
-            config.cam_multi = 1.0m;
-
             config.bot_hostile1 = 95;
             config.bot_hostile2 = 99;
             config.bot_hostile3 = 100;
@@ -201,9 +145,7 @@ namespace Realism_Mod_Config_GUI
             config.standard_bot_hp_multi = 1.0m;
             config.mid_bot_hp_multi = 1.0m;
             config.boss_bot_hp_multi = 1.0m;
-
-            config.recoil_crank = true;
-
+            config.player_hp_multi = 1.0m;
             config.weap_preset = "Realism";
             config.att_preset = "Realism";
             config.gear_preset = "Realism";
@@ -212,9 +154,7 @@ namespace Realism_Mod_Config_GUI
             config.realistic_ballistics = true;
             config.recoil_attachment_overhaul = true;
             config.mastery_changes = true;
-            config.legacy_recoil_changes = false;
             config.buff_helmets = false;
-            config.armor_mouse_penalty = true;
             config.headgear_conflicts = true;
             config.malf_changes = true;
             config.med_changes = true;
@@ -259,15 +199,15 @@ namespace Realism_Mod_Config_GUI
             config.no_fall_damage = false;
             config.logEverything = false;
             config.revert_hp = false;
-            config.botTierOdds1 = new int[] { 90, 7, 2, 1 };
-            config.botTierOdds2 = new int[] { 80, 15, 3, 2 };
-            config.botTierOdds3 = new int[] { 30, 55, 13, 2 };
-            config.botTierOdds4 = new int[] { 10, 65, 20, 5 };
-            config.botTierOdds5 = new int[] { 8, 50, 35, 7 };
-            config.botTierOdds6 = new int[] { 5, 35, 50, 10 };
-            config.botTierOdds7 = new int[] { 4, 15, 70, 11 };
-            config.botTierOdds8 = new int[] { 3, 10, 67, 20 };
-
+            config.botTierOdds1 = new int[] { 90, 7, 2, 1, 0 };
+            config.botTierOdds2 = new int[] { 80, 15, 3, 2, 0 };
+            config.botTierOdds3 = new int[] { 30, 52, 13, 5, 0 };
+            config.botTierOdds4 = new int[] { 10, 58, 22, 7, 3 };
+            config.botTierOdds5 = new int[] { 8, 38, 32, 17, 5 };
+            config.botTierOdds6 = new int[] { 5, 25, 40, 23, 7 };
+            config.botTierOdds7 = new int[] { 4, 15, 35, 33, 12 };
+            config.botTierOdds8 = new int[] { 3, 8, 28, 40, 22 };
+            config.botTierOdds9 = new int[] { 3, 7, 15, 35, 40 };
             config.trader_repair_changes = true;
             config.change_trader_ll = true;
             config.add_cust_trader_items = true;
@@ -293,13 +233,6 @@ namespace Realism_Mod_Config_GUI
 
         private void SetDisplayValues()
         {
-            vertRecNumeric.Value = (decimal)config.vert_recoil_multi;
-            horzRecNumeric.Value = (decimal)config.horz_recoil_multi;
-            convNumeric.Value = (decimal)config.convergence_multi;
-            dispNumeric.Value = (decimal)config.dispersion_multi;
-            ergoNumeric.Value = (decimal)config.ergo_multi;
-            camRecNumeric.Value = (decimal)config.cam_multi;
-
             hostNum1.Value = (decimal)config.bot_hostile1;
             hostNum2.Value = (decimal)config.bot_hostile2;
             hostNum3.Value = (decimal)config.bot_hostile3;
@@ -307,8 +240,7 @@ namespace Realism_Mod_Config_GUI
             standardHPNumeric.Value = (decimal)config.standard_bot_hp_multi;
             midHPNumeric.Value = (decimal)config.mid_bot_hp_multi;
             bossHPNumeric.Value = (decimal)config.boss_bot_hp_multi;
-
-            crankCheck.Checked = config.recoil_crank;
+            playerHPNumeric.Value = (decimal)config.player_hp_multi;
 
             weapPresetCombo.SelectedItem = config.weap_preset;
             attachPresetCombo.SelectedItem = config.att_preset;
@@ -323,9 +255,7 @@ namespace Realism_Mod_Config_GUI
             malfChangesCheck.Checked = config.malf_changes;
             masteryCheck.Checked = config.mastery_changes;
             buffHelmetsCheck.Checked = config.buff_helmets;
-            armorMousePenaltyCheck.Checked = config.armor_mouse_penalty;
             headgearConflictsCheck.Checked = config.headgear_conflicts;
-            legacyRecoilCheck.Checked = config.legacy_recoil_changes;
 
             medChangesCheck.Checked = config.med_changes;
             revertMedsCheck.Checked = config.revert_med_changes;
@@ -342,6 +272,7 @@ namespace Realism_Mod_Config_GUI
             botOdds6Text.Text = intArrToString(config.botTierOdds6);
             botOdds7Text.Text = intArrToString(config.botTierOdds7);
             botOdds8Text.Text = intArrToString(config.botTierOdds8);
+            botOdds9Text.Text = intArrToString(config.botTierOdds9);
 
             botChangesCheck.Checked = config.bot_changes;
             increasedBotCapCheck.Checked = config.increased_bot_cap;
@@ -397,7 +328,7 @@ namespace Realism_Mod_Config_GUI
             costIncreaseNum.Value = (decimal)config.rand_cost_increase;
             tradRefreshNum.Value = (decimal)config.trader_refresh_time;
 
-            if (config.bot_test_tier > 1 && config.bot_test_tier <= 4)
+            if (config.bot_test_tier > 1 && config.bot_test_tier <= 5)
             {
                 botTierNumeric.Value = config.bot_test_tier;
             }
@@ -437,25 +368,13 @@ namespace Realism_Mod_Config_GUI
             //recoil
             if (recoilAttOverhaulCheck.Checked == true)
             {
-                legacyRecoilCheck.Checked = false;
-                legacyRecoilCheck.Enabled = false;
                 attachPresetCombo.Enabled = true;
                 weapPresetCombo.Enabled = true;
             }
             else
             {
-                legacyRecoilCheck.Enabled = true;
                 attachPresetCombo.Enabled = false;
                 weapPresetCombo.Enabled = false;
-            }
-            if (legacyRecoilCheck.Checked == true)
-            {
-                recoilAttOverhaulCheck.Checked = false;
-                recoilAttOverhaulCheck.Enabled = false;
-            }
-            else
-            {
-                recoilAttOverhaulCheck.Enabled = true;
             }
 
             //ballistics
@@ -491,11 +410,14 @@ namespace Realism_Mod_Config_GUI
             {
                 revertHPCheck.Checked = false;
                 revertHPCheck.Enabled = false;
+                playerHPNumeric.Enabled = true;
             }
             else
             {
+                playerHPNumeric.Enabled = false;
                 revertHPCheck.Enabled = true;
             }
+
             //revert HP
             if (revertHPCheck.Checked == true)
             {
@@ -571,6 +493,7 @@ namespace Realism_Mod_Config_GUI
                 botOdds6Text.Enabled = false;
                 botOdds7Text.Enabled = false;
                 botOdds8Text.Enabled = false;
+                botOdds9Text.Enabled = false;
             }
             else
             {
@@ -582,6 +505,7 @@ namespace Realism_Mod_Config_GUI
                 botOdds6Text.Enabled = true;
                 botOdds7Text.Enabled = true;
                 botOdds8Text.Enabled = true;
+                botOdds9Text.Enabled = true;
             }
 
 
@@ -677,11 +601,6 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
-        private void legacyRecoilCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            config.legacy_recoil_changes = legacyRecoilCheck.Checked == true ? true : false;
-            CheckCheckBoxes();
-        }
         private void masteryCheck_CheckedChanged(object sender, EventArgs e)
         {
             config.mastery_changes = masteryCheck.Checked == true ? true : false;
@@ -691,12 +610,6 @@ namespace Realism_Mod_Config_GUI
         private void buffHelmetsCheck_CheckedChanged(object sender, EventArgs e)
         {
             config.buff_helmets = buffHelmetsCheck.Checked == true ? true : false;
-            CheckCheckBoxes();
-        }
-
-        private void armorMousePenaltyCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            config.armor_mouse_penalty = armorMousePenaltyCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
@@ -968,48 +881,6 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
-        private void vertRecNumeric_ValueChanged(object sender, EventArgs e)
-        {
-            config.vert_recoil_multi = vertRecNumeric.Value;
-            CheckCheckBoxes();
-        }
-
-        private void horzRecNumeric_ValueChanged(object sender, EventArgs e)
-        {
-            config.horz_recoil_multi = horzRecNumeric.Value;
-            CheckCheckBoxes();
-        }
-
-        private void convNumeric_ValueChanged(object sender, EventArgs e)
-        {
-            config.convergence_multi = convNumeric.Value;
-            CheckCheckBoxes();
-        }
-
-        private void dispNumeric_ValueChanged(object sender, EventArgs e)
-        {
-            config.dispersion_multi = dispNumeric.Value;
-            CheckCheckBoxes();
-        }
-
-        private void ergoNumeric_ValueChanged(object sender, EventArgs e)
-        {
-            config.ergo_multi = ergoNumeric.Value;
-            CheckCheckBoxes();
-        }
-
-        private void camRecNumeric_ValueChanged(object sender, EventArgs e)
-        {
-            config.cam_multi = camRecNumeric.Value;
-            CheckCheckBoxes();
-        }
-
-        private void crankCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            config.recoil_crank = crankCheck.Checked == true ? true : false;
-            CheckCheckBoxes();
-        }
-
         private void weapPresetCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             config.weap_preset = weapPresetCombo.SelectedItem.ToString();
@@ -1043,6 +914,12 @@ namespace Realism_Mod_Config_GUI
         private void bossHPNumeric_ValueChanged(object sender, EventArgs e)
         {
             config.boss_bot_hp_multi = bossHPNumeric.Value;
+            CheckCheckBoxes();
+        }
+
+        private void playerHPNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            config.player_hp_multi = playerHPNumeric.Value;
             CheckCheckBoxes();
         }
 
@@ -1182,6 +1059,7 @@ namespace Realism_Mod_Config_GUI
             config.botTierOdds6 = stringToIntArr(stringValidationHelper(botOdds6Text.Text));
             config.botTierOdds7 = stringToIntArr(stringValidationHelper(botOdds7Text.Text));
             config.botTierOdds8 = stringToIntArr(stringValidationHelper(botOdds8Text.Text));
+            config.botTierOdds9 = stringToIntArr(stringValidationHelper(botOdds9Text.Text));
         }
 
         private string stringValidationHelper(string str)
@@ -1213,7 +1091,7 @@ namespace Realism_Mod_Config_GUI
         private int[] stringToIntArr(string str)
         {
             int[] arr = Array.ConvertAll(str.Split(','), int.Parse);
-            if (arr.Length < 4 || arr.Length > 4)
+            if (arr.Length != 5)
             {
                 throw new ArgumentException("Bot Tier Array Has Too Few Or Too Many Tiers");
             }
@@ -1226,7 +1104,7 @@ namespace Realism_Mod_Config_GUI
         }
 
 
-        public class PackageTemplate 
+        public class PackageTemplate
         {
             public string version { get; set; }
             public string akiVersion { get; set; }
@@ -1238,7 +1116,6 @@ namespace Realism_Mod_Config_GUI
             public bool realistic_player_health { get; set; }
             public bool realistic_ballistics { get; set; }
             public bool buff_helmets { get; set; }
-            public bool armor_mouse_penalty { get; set; }
             public bool headgear_conflicts { get; set; }
             public bool recoil_attachment_overhaul { get; set; }
             public bool mastery_changes { get; set; }
@@ -1270,7 +1147,6 @@ namespace Realism_Mod_Config_GUI
             public bool remove_inraid_restrictions { get; set; }
             public bool remove_fir_req { get; set; }
             public bool remove_quest_fir_req { get; set; }
-            public bool legacy_recoil_changes { get; set; }
             public bool bot_testing { get; set; }
             public bool bot_test_weps_enabled { get; set; }
             public int bot_test_tier { get; set; }
@@ -1287,16 +1163,10 @@ namespace Realism_Mod_Config_GUI
             public string weap_preset { get; set; }
             public string att_preset { get; set; }
             public string gear_preset { get; set; }
-            public bool recoil_crank { get; set; }
-            public decimal vert_recoil_multi { get; set; }
-            public decimal horz_recoil_multi { get; set; }
-            public decimal convergence_multi { get; set; }
-            public decimal dispersion_multi { get; set; }
-            public decimal ergo_multi { get; set; }
-            public decimal cam_multi { get; set; }
             public decimal standard_bot_hp_multi { get; set; }
             public decimal mid_bot_hp_multi { get; set; }
             public decimal boss_bot_hp_multi { get; set; }
+            public decimal player_hp_multi { get; set; }
             public bool headset_changes { get; set; }
             public int[] botTierOdds1 { get; set; }
             public int[] botTierOdds2 { get; set; }
@@ -1306,6 +1176,7 @@ namespace Realism_Mod_Config_GUI
             public int[] botTierOdds6 { get; set; }
             public int[] botTierOdds7 { get; set; }
             public int[] botTierOdds8 { get; set; }
+            public int[] botTierOdds9 { get; set; }
             public int bot_hostile1 { get; set; }
             public int bot_hostile2 { get; set; }
             public int bot_hostile3 { get; set; }
