@@ -55,6 +55,7 @@
             medChangesCheck = new CheckBox();
             revertMedsCheck = new CheckBox();
             Bots = new TabPage();
+            botLootCheck = new CheckBox();
             dynScavLoot = new CheckBox();
             spawnWaveCheck = new CheckBox();
             dynPMCLoot = new CheckBox();
@@ -167,6 +168,7 @@
             revertLabel = new Label();
             savedLabel = new Label();
             modVerLabel = new Label();
+            addKeysCheck = new CheckBox();
             mainTabControl.SuspendLayout();
             Realism_Ballistics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)playerHPNumeric).BeginInit();
@@ -554,6 +556,8 @@
             Bots.BackColor = Color.FromArgb(36, 36, 36);
             Bots.BackgroundImage = (Image)resources.GetObject("Bots.BackgroundImage");
             Bots.BackgroundImageLayout = ImageLayout.Center;
+            Bots.Controls.Add(addKeysCheck);
+            Bots.Controls.Add(botLootCheck);
             Bots.Controls.Add(dynScavLoot);
             Bots.Controls.Add(spawnWaveCheck);
             Bots.Controls.Add(dynPMCLoot);
@@ -573,6 +577,21 @@
             Bots.Size = new Size(1360, 684);
             Bots.TabIndex = 2;
             Bots.Text = "Bots";
+            // 
+            // botLootCheck
+            // 
+            botLootCheck.AutoSize = true;
+            botLootCheck.Checked = true;
+            botLootCheck.CheckState = CheckState.Checked;
+            botLootCheck.ForeColor = Color.White;
+            botLootCheck.Location = new Point(18, 42);
+            botLootCheck.Name = "botLootCheck";
+            botLootCheck.Size = new Size(120, 19);
+            botLootCheck.TabIndex = 25;
+            botLootCheck.Text = "Bot Loot Changes";
+            toolTip1.SetToolTip(botLootCheck, "Enables changes to what loot bots can spawn with and the amount. PMC loot is determined by their level, otehr bots determiend by the player's level (includes bosses).");
+            botLootCheck.UseVisualStyleBackColor = true;
+            botLootCheck.CheckedChanged += botLootCheck_CheckedChanged;
             // 
             // dynScavLoot
             // 
@@ -628,7 +647,7 @@
             groupBox1.Controls.Add(label15);
             groupBox1.Controls.Add(hostNum1);
             groupBox1.ForeColor = SystemColors.Window;
-            groupBox1.Location = new Point(294, 438);
+            groupBox1.Location = new Point(294, 464);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(140, 115);
             groupBox1.TabIndex = 21;
@@ -720,7 +739,7 @@
             botTierGroup.Controls.Add(label6);
             botTierGroup.Controls.Add(label8);
             botTierGroup.ForeColor = Color.White;
-            botTierGroup.Location = new Point(18, 254);
+            botTierGroup.Location = new Point(18, 280);
             botTierGroup.Name = "botTierGroup";
             botTierGroup.Size = new Size(258, 299);
             botTierGroup.TabIndex = 19;
@@ -910,7 +929,7 @@
             bossItemsCheck.Checked = true;
             bossItemsCheck.CheckState = CheckState.Checked;
             bossItemsCheck.ForeColor = Color.White;
-            bossItemsCheck.Location = new Point(18, 42);
+            bossItemsCheck.Location = new Point(18, 68);
             bossItemsCheck.Name = "bossItemsCheck";
             bossItemsCheck.Size = new Size(114, 19);
             bossItemsCheck.TabIndex = 18;
@@ -939,7 +958,7 @@
             botNameGroupBox.Controls.Add(pmcNamesCheck);
             botNameGroupBox.Controls.Add(cyrillicNamesCheck);
             botNameGroupBox.ForeColor = SystemColors.Window;
-            botNameGroupBox.Location = new Point(294, 357);
+            botNameGroupBox.Location = new Point(294, 383);
             botNameGroupBox.Name = "botNameGroupBox";
             botNameGroupBox.Size = new Size(140, 75);
             botNameGroupBox.TabIndex = 16;
@@ -983,7 +1002,7 @@
             botDiffGroupBox.Controls.Add(pmcDifficultyCheck);
             botDiffGroupBox.Controls.Add(bossDifficultyCheck);
             botDiffGroupBox.ForeColor = SystemColors.Window;
-            botDiffGroupBox.Location = new Point(294, 254);
+            botDiffGroupBox.Location = new Point(294, 280);
             botDiffGroupBox.Name = "botDiffGroupBox";
             botDiffGroupBox.Size = new Size(140, 97);
             botDiffGroupBox.TabIndex = 15;
@@ -1044,7 +1063,7 @@
             botHealthGroupBox.Controls.Add(realRRHealthCheck);
             botHealthGroupBox.Controls.Add(realCultistHealthCheck);
             botHealthGroupBox.ForeColor = Color.White;
-            botHealthGroupBox.Location = new Point(18, 116);
+            botHealthGroupBox.Location = new Point(18, 142);
             botHealthGroupBox.Name = "botHealthGroupBox";
             botHealthGroupBox.Size = new Size(416, 124);
             botHealthGroupBox.TabIndex = 14;
@@ -1190,7 +1209,7 @@
             openZonesFixCheck.Checked = true;
             openZonesFixCheck.CheckState = CheckState.Checked;
             openZonesFixCheck.ForeColor = Color.White;
-            openZonesFixCheck.Location = new Point(18, 93);
+            openZonesFixCheck.Location = new Point(18, 119);
             openZonesFixCheck.Name = "openZonesFixCheck";
             openZonesFixCheck.Size = new Size(105, 19);
             openZonesFixCheck.TabIndex = 2;
@@ -1205,7 +1224,7 @@
             increasedBotCapCheck.Checked = true;
             increasedBotCapCheck.CheckState = CheckState.Checked;
             increasedBotCapCheck.ForeColor = Color.White;
-            increasedBotCapCheck.Location = new Point(18, 68);
+            increasedBotCapCheck.Location = new Point(18, 94);
             increasedBotCapCheck.Name = "increasedBotCapCheck";
             increasedBotCapCheck.Size = new Size(121, 19);
             increasedBotCapCheck.TabIndex = 1;
@@ -1971,6 +1990,21 @@
             modVerLabel.TabIndex = 11;
             modVerLabel.Text = "modVer";
             // 
+            // addKeysCheck
+            // 
+            addKeysCheck.AutoSize = true;
+            addKeysCheck.Checked = true;
+            addKeysCheck.CheckState = CheckState.Checked;
+            addKeysCheck.ForeColor = Color.White;
+            addKeysCheck.Location = new Point(192, 119);
+            addKeysCheck.Name = "addKeysCheck";
+            addKeysCheck.Size = new Size(124, 19);
+            addKeysCheck.TabIndex = 26;
+            addKeysCheck.Text = "Add Keys To PMCs";
+            toolTip1.SetToolTip(addKeysCheck, resources.GetString("addKeysCheck.ToolTip"));
+            addKeysCheck.UseVisualStyleBackColor = true;
+            addKeysCheck.CheckedChanged += addKeysCheck_CheckedChanged;
+            // 
             // Main_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2181,5 +2215,7 @@
         private TextBox botOdds9Text;
         private Label label24;
         private NumericUpDown playerHPNumeric;
+        private CheckBox botLootCheck;
+        private CheckBox addKeysCheck;
     }
 }

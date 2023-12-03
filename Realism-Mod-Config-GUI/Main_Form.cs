@@ -164,6 +164,7 @@ namespace Realism_Mod_Config_GUI
             config.movement_changes = true;
             config.fall_damage_changes = true;
             config.bot_changes = true;
+            config.bot_loot_changes = false;
             config.increased_bot_cap = false;
             config.open_zones_fix = true;
             config.boss_spawns = true;
@@ -221,6 +222,7 @@ namespace Realism_Mod_Config_GUI
 
             config.dynamic_loot_pmcs = false;
             config.dynamic_loot_scavs = false;
+            config.add_keys = false;
 
             config.rand_stock_modifier = 0;
             config.rand_stackable_modifier = 1m;
@@ -275,6 +277,7 @@ namespace Realism_Mod_Config_GUI
             botOdds9Text.Text = intArrToString(config.botTierOdds9);
 
             botChangesCheck.Checked = config.bot_changes;
+            botLootCheck.Checked = config.bot_loot_changes;
             increasedBotCapCheck.Checked = config.increased_bot_cap;
             openZonesFixCheck.Checked = config.open_zones_fix;
             bossSpawnCheck.Checked = config.boss_spawns;
@@ -321,6 +324,7 @@ namespace Realism_Mod_Config_GUI
 
             dynPMCLoot.Checked = config.dynamic_loot_pmcs;
             dynScavLoot.Checked = config.dynamic_loot_scavs;
+            addKeysCheck.Checked = config.add_keys;
 
             stockModNum.Value = (decimal)config.rand_stock_modifier;
             stackMultiNum.Value = (decimal)config.rand_stackable_modifier;
@@ -494,6 +498,10 @@ namespace Realism_Mod_Config_GUI
                 botOdds7Text.Enabled = false;
                 botOdds8Text.Enabled = false;
                 botOdds9Text.Enabled = false;
+                botLootCheck.Enabled = false;
+                dynPMCLoot.Enabled = false;
+                dynScavLoot.Enabled = false;
+                addKeysCheck.Enabled = false;
             }
             else
             {
@@ -506,6 +514,10 @@ namespace Realism_Mod_Config_GUI
                 botOdds7Text.Enabled = true;
                 botOdds8Text.Enabled = true;
                 botOdds9Text.Enabled = true;
+                botLootCheck.Enabled = true;
+                dynPMCLoot.Enabled = true;
+                dynScavLoot.Enabled = true;
+                addKeysCheck.Enabled = true;
             }
 
 
@@ -652,6 +664,13 @@ namespace Realism_Mod_Config_GUI
         private void botChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
             config.bot_changes = botChangesCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
+
+        private void botLootCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            config.bot_loot_changes = botLootCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
@@ -1049,6 +1068,13 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+
+        private void addKeysCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            config.add_keys = addKeysCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
         private void validateBotTierText()
         {
             config.botTierOdds1 = stringToIntArr(stringValidationHelper(botOdds1Text.Text));
@@ -1126,6 +1152,7 @@ namespace Realism_Mod_Config_GUI
             public bool med_changes { get; set; }
             public bool revert_med_changes { get; set; }
             public bool bot_changes { get; set; }
+            public bool bot_loot_changes { get; set; }
             public bool increased_bot_cap { get; set; }
             public bool realistic_boss_health { get; set; }
             public bool realistic_boss_follower_health { get; set; }
@@ -1197,8 +1224,8 @@ namespace Realism_Mod_Config_GUI
             public bool backup_profiles { get; set; }
             public bool dynamic_loot_pmcs { get; set; }
             public bool dynamic_loot_scavs { get; set; }
+            public bool add_keys { get; set; }
         }
-
 
     }
 }
