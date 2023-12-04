@@ -164,7 +164,7 @@ namespace Realism_Mod_Config_GUI
             config.movement_changes = true;
             config.fall_damage_changes = true;
             config.bot_changes = true;
-            config.bot_loot_changes = false;
+            config.bot_loot_changes = true;
             config.increased_bot_cap = false;
             config.open_zones_fix = true;
             config.boss_spawns = true;
