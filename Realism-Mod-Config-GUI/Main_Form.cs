@@ -180,7 +180,7 @@ namespace Realism_Mod_Config_GUI
             config.cyrillic_bear_names = true;
             config.tiered_flea = true;
             config.flea_changes = true;
-            config.trader_changes = true;
+            config.change_buy_categories = true;
             config.nerf_fence = true;
             config.all_examined = true;
             config.remove_inraid_restrictions = true;
@@ -217,6 +217,8 @@ namespace Realism_Mod_Config_GUI
             config.randomize_trader_stock = true;
             config.adjust_trader_prices = true;
             config.randomize_trader_prices = true;
+            config.change_heal_cost = true;
+            config.change_buy_price = true;
 
             config.backup_profiles = true;
 
@@ -294,7 +296,7 @@ namespace Realism_Mod_Config_GUI
 
             tieredFleaCheck.Checked = config.tiered_flea;
             fleaConfigCheck.Checked = config.flea_changes;
-            traderChangesCheck.Checked = config.trader_changes;
+            traderChangesCheck.Checked = config.change_buy_categories;
             nerfFenceCheck.Checked = config.nerf_fence;
             allExaminedCheck.Checked = config.all_examined;
             removeRaidRestrictionsCheck.Checked = config.remove_inraid_restrictions;
@@ -311,6 +313,8 @@ namespace Realism_Mod_Config_GUI
             logEverythingCheck.Checked = config.logEverything;
             revertHPCheck.Checked = config.revert_hp;
 
+            traderCoeffCheck.Checked = config.change_buy_price;
+            theraHeaCheck.Checked = config.change_heal_cost;
             tradAdjustPriceCheck.Checked = config.adjust_trader_prices;
             tradRepairCheck.Checked = config.trader_repair_changes;
             traderllCheck.Checked = config.change_trader_ll;
@@ -765,7 +769,7 @@ namespace Realism_Mod_Config_GUI
 
         private void traderChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
-            config.trader_changes = traderChangesCheck.Checked == true ? true : false;
+            config.change_buy_categories = traderChangesCheck.Checked == true ? true : false;
             CheckCheckBoxes();
         }
 
@@ -1075,6 +1079,18 @@ namespace Realism_Mod_Config_GUI
             CheckCheckBoxes();
         }
 
+        private void theraHeaCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            config.change_heal_cost = theraHeaCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
+        private void traderCoeffCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            config.change_buy_price = traderCoeffCheck.Checked == true ? true : false;
+            CheckCheckBoxes();
+        }
+
         private void validateBotTierText()
         {
             config.botTierOdds1 = stringToIntArr(stringValidationHelper(botOdds1Text.Text));
@@ -1168,7 +1184,7 @@ namespace Realism_Mod_Config_GUI
             public bool cyrillic_bear_names { get; set; }
             public bool tiered_flea { get; set; }
             public bool flea_changes { get; set; }
-            public bool trader_changes { get; set; }
+            public bool change_buy_categories { get; set; }
             public bool airdrop_changes { get; set; }
             public bool all_examined { get; set; }
             public bool remove_inraid_restrictions { get; set; }
@@ -1225,7 +1241,8 @@ namespace Realism_Mod_Config_GUI
             public bool dynamic_loot_pmcs { get; set; }
             public bool dynamic_loot_scavs { get; set; }
             public bool add_keys { get; set; }
+            public bool change_buy_price { get; set; }
+            public bool change_heal_cost { get; set; }
         }
-
     }
 }

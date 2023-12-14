@@ -55,6 +55,7 @@
             medChangesCheck = new CheckBox();
             revertMedsCheck = new CheckBox();
             Bots = new TabPage();
+            addKeysCheck = new CheckBox();
             botLootCheck = new CheckBox();
             dynScavLoot = new CheckBox();
             spawnWaveCheck = new CheckBox();
@@ -111,6 +112,8 @@
             botChangesCheck = new CheckBox();
             Misc = new TabPage();
             groupBox2 = new GroupBox();
+            traderCoeffCheck = new CheckBox();
+            theraHeaCheck = new CheckBox();
             nerfFenceCheck = new CheckBox();
             label22 = new Label();
             tradRefreshNum = new NumericUpDown();
@@ -168,7 +171,6 @@
             revertLabel = new Label();
             savedLabel = new Label();
             modVerLabel = new Label();
-            addKeysCheck = new CheckBox();
             mainTabControl.SuspendLayout();
             Realism_Ballistics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)playerHPNumeric).BeginInit();
@@ -577,6 +579,21 @@
             Bots.Size = new Size(1360, 684);
             Bots.TabIndex = 2;
             Bots.Text = "Bots";
+            // 
+            // addKeysCheck
+            // 
+            addKeysCheck.AutoSize = true;
+            addKeysCheck.Checked = true;
+            addKeysCheck.CheckState = CheckState.Checked;
+            addKeysCheck.ForeColor = Color.White;
+            addKeysCheck.Location = new Point(192, 119);
+            addKeysCheck.Name = "addKeysCheck";
+            addKeysCheck.Size = new Size(124, 19);
+            addKeysCheck.TabIndex = 26;
+            addKeysCheck.Text = "Add Keys To PMCs";
+            toolTip1.SetToolTip(addKeysCheck, resources.GetString("addKeysCheck.ToolTip"));
+            addKeysCheck.UseVisualStyleBackColor = true;
+            addKeysCheck.CheckedChanged += addKeysCheck_CheckedChanged;
             // 
             // botLootCheck
             // 
@@ -1264,6 +1281,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(traderCoeffCheck);
+            groupBox2.Controls.Add(theraHeaCheck);
             groupBox2.Controls.Add(nerfFenceCheck);
             groupBox2.Controls.Add(label22);
             groupBox2.Controls.Add(tradRefreshNum);
@@ -1287,10 +1306,40 @@
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(19, 98);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(297, 422);
+            groupBox2.Size = new Size(347, 422);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Traders";
+            // 
+            // traderCoeffCheck
+            // 
+            traderCoeffCheck.AutoSize = true;
+            traderCoeffCheck.Checked = true;
+            traderCoeffCheck.CheckState = CheckState.Checked;
+            traderCoeffCheck.ForeColor = Color.White;
+            traderCoeffCheck.Location = new Point(183, 46);
+            traderCoeffCheck.Name = "traderCoeffCheck";
+            traderCoeffCheck.Size = new Size(115, 19);
+            traderCoeffCheck.TabIndex = 20;
+            traderCoeffCheck.Text = "Trader Buy Prices";
+            toolTip1.SetToolTip(traderCoeffCheck, "Decreases the amount of money received when selling items to traders.\r\n\r\nTrader loyalty level also increases the money received. ");
+            traderCoeffCheck.UseVisualStyleBackColor = true;
+            traderCoeffCheck.CheckedChanged += traderCoeffCheck_CheckedChanged;
+            // 
+            // theraHeaCheck
+            // 
+            theraHeaCheck.AutoSize = true;
+            theraHeaCheck.Checked = true;
+            theraHeaCheck.CheckState = CheckState.Checked;
+            theraHeaCheck.ForeColor = Color.White;
+            theraHeaCheck.Location = new Point(183, 22);
+            theraHeaCheck.Name = "theraHeaCheck";
+            theraHeaCheck.Size = new Size(145, 19);
+            theraHeaCheck.TabIndex = 19;
+            theraHeaCheck.Text = "Therapist Healing Cost";
+            toolTip1.SetToolTip(theraHeaCheck, "Increases the cost of Therapist healing service.");
+            theraHeaCheck.UseVisualStyleBackColor = true;
+            theraHeaCheck.CheckedChanged += theraHeaCheck_CheckedChanged;
             // 
             // nerfFenceCheck
             // 
@@ -1484,10 +1533,10 @@
             traderChangesCheck.ForeColor = Color.White;
             traderChangesCheck.Location = new Point(6, 22);
             traderChangesCheck.Name = "traderChangesCheck";
-            traderChangesCheck.Size = new Size(98, 19);
+            traderChangesCheck.Size = new Size(140, 19);
             traderChangesCheck.TabIndex = 2;
-            traderChangesCheck.Text = "Trader Tweaks";
-            toolTip1.SetToolTip(traderChangesCheck, "Enables changes to what traders will buy, increases Therapist healing cost, and nerfs Fence a small bit.\r\n");
+            traderChangesCheck.Text = "Trader Buy Categories";
+            toolTip1.SetToolTip(traderChangesCheck, "Enables changes to what categories of items individual traders will buy.");
             traderChangesCheck.UseVisualStyleBackColor = true;
             traderChangesCheck.CheckedChanged += traderChangesCheck_CheckedChanged;
             // 
@@ -1534,7 +1583,7 @@
             tradeGroupBox.ForeColor = Color.White;
             tradeGroupBox.Location = new Point(19, 12);
             tradeGroupBox.Name = "tradeGroupBox";
-            tradeGroupBox.Size = new Size(297, 80);
+            tradeGroupBox.Size = new Size(347, 80);
             tradeGroupBox.TabIndex = 6;
             tradeGroupBox.TabStop = false;
             tradeGroupBox.Text = "Fleamarket";
@@ -1990,21 +2039,6 @@
             modVerLabel.TabIndex = 11;
             modVerLabel.Text = "modVer";
             // 
-            // addKeysCheck
-            // 
-            addKeysCheck.AutoSize = true;
-            addKeysCheck.Checked = true;
-            addKeysCheck.CheckState = CheckState.Checked;
-            addKeysCheck.ForeColor = Color.White;
-            addKeysCheck.Location = new Point(192, 119);
-            addKeysCheck.Name = "addKeysCheck";
-            addKeysCheck.Size = new Size(124, 19);
-            addKeysCheck.TabIndex = 26;
-            addKeysCheck.Text = "Add Keys To PMCs";
-            toolTip1.SetToolTip(addKeysCheck, resources.GetString("addKeysCheck.ToolTip"));
-            addKeysCheck.UseVisualStyleBackColor = true;
-            addKeysCheck.CheckedChanged += addKeysCheck_CheckedChanged;
-            // 
             // Main_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2217,5 +2251,7 @@
         private NumericUpDown playerHPNumeric;
         private CheckBox botLootCheck;
         private CheckBox addKeysCheck;
+        private CheckBox traderCoeffCheck;
+        private CheckBox theraHeaCheck;
     }
 }
