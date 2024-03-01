@@ -57,6 +57,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="homeTxtBx.Text" xml:space="preserve">
+    <value>                           This Is the main configuration tool for SPT Realism Mod.
+
+The major features can be enabled or disabled here, sub-features can be toggled or modified with the in-game BepInEx config (press F12). Note that some featuers are designed around each other, balance or stability is not guaranteed with different combinations of settings.
+
+Some of the in-game's config options are hidden unless teh "Advanced" settings checbox is ticked in the BepInEx configuration menu,
+
+Please read about the mod's features before playing and before asking for support:
+https://hub.sp-tarkov.com/files/file/606-spt-realism-mod/#overview
+
+For support related questions use the mod's support thread only, for general feedback or questions use the comments.
+
+If you enjoy my work and wish to support me, please consider donating to my Ko-Fi:
+https://ko-fi.com/fontaine37967
+
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Realism_Ballistics.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Realism_Mod_Config_GUI
 {
+    public class PackageTemplate
+    {
+        public string version { get; set; } = "unknown";
+        public string akiVersion { get; set; } = "unknown";
+    }
+
+
     public class ConfigTemplate
     {
         public bool realistic_player_health { get; set; } = true;

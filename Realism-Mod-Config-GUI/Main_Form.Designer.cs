@@ -31,9 +31,12 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             mainTabControl = new TabControl();
+            homeTab = new TabPage();
+            homeTxtBx = new RichTextBox();
             Realism_Ballistics = new TabPage();
             label24 = new Label();
             playerHPNumeric = new NumericUpDown();
+            buffHelmetsCheck = new CheckBox();
             revertHPCheck = new CheckBox();
             realPlayerHealthCheck = new CheckBox();
             warningTextBox = new RichTextBox();
@@ -46,7 +49,6 @@
             armorGroupBox = new GroupBox();
             comfortCheck = new CheckBox();
             headsetCheck = new CheckBox();
-            buffHelmetsCheck = new CheckBox();
             headgearConflictsCheck = new CheckBox();
             realBallisticsCheck = new CheckBox();
             Health_Movement = new TabPage();
@@ -176,6 +178,7 @@
             savedLabel = new Label();
             modVerLabel = new Label();
             mainTabControl.SuspendLayout();
+            homeTab.SuspendLayout();
             Realism_Ballistics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)playerHPNumeric).BeginInit();
             weapGroupBox.SuspendLayout();
@@ -213,6 +216,7 @@
             // mainTabControl
             // 
             mainTabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            mainTabControl.Controls.Add(homeTab);
             mainTabControl.Controls.Add(Realism_Ballistics);
             mainTabControl.Controls.Add(Health_Movement);
             mainTabControl.Controls.Add(Bots);
@@ -228,6 +232,30 @@
             mainTabControl.SelectedIndex = 0;
             mainTabControl.Size = new Size(1368, 712);
             mainTabControl.TabIndex = 0;
+            // 
+            // homeTab
+            // 
+            homeTab.BackColor = Color.FromArgb(36, 36, 36);
+            homeTab.BackgroundImage = Properties.Resources.SPTRM_config_image;
+            homeTab.BackgroundImageLayout = ImageLayout.Center;
+            homeTab.Controls.Add(homeTxtBx);
+            homeTab.Location = new Point(4, 24);
+            homeTab.Name = "homeTab";
+            homeTab.Size = new Size(1360, 684);
+            homeTab.TabIndex = 8;
+            homeTab.Text = "Home";
+            // 
+            // homeTxtBx
+            // 
+            homeTxtBx.Anchor = AnchorStyles.None;
+            homeTxtBx.BackColor = Color.PapayaWhip;
+            homeTxtBx.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            homeTxtBx.Location = new Point(349, 18);
+            homeTxtBx.Name = "homeTxtBx";
+            homeTxtBx.ReadOnly = true;
+            homeTxtBx.Size = new Size(664, 375);
+            homeTxtBx.TabIndex = 0;
+            homeTxtBx.Text = resources.GetString("homeTxtBx.Text");
             // 
             // Realism_Ballistics
             // 
@@ -275,6 +303,21 @@
             toolTip1.SetToolTip(playerHPNumeric, "'Realistic Player Health' must be enabled for this to take effect.");
             playerHPNumeric.Value = new decimal(new int[] { 1, 0, 0, 65536 });
             playerHPNumeric.ValueChanged += playerHPNumeric_ValueChanged;
+            // 
+            // buffHelmetsCheck
+            // 
+            buffHelmetsCheck.AutoSize = true;
+            buffHelmetsCheck.Checked = true;
+            buffHelmetsCheck.CheckState = CheckState.Checked;
+            buffHelmetsCheck.ForeColor = Color.White;
+            buffHelmetsCheck.Location = new Point(24, 92);
+            buffHelmetsCheck.Name = "buffHelmetsCheck";
+            buffHelmetsCheck.Size = new Size(95, 19);
+            buffHelmetsCheck.TabIndex = 1;
+            buffHelmetsCheck.Text = "Buff Helmets";
+            toolTip1.SetToolTip(buffHelmetsCheck, resources.GetString("buffHelmetsCheck.ToolTip"));
+            buffHelmetsCheck.UseVisualStyleBackColor = true;
+            buffHelmetsCheck.CheckedChanged += buffHelmetsCheck_CheckedChanged;
             // 
             // revertHPCheck
             // 
@@ -446,21 +489,6 @@
             toolTip1.SetToolTip(headsetCheck, resources.GetString("headsetCheck.ToolTip"));
             headsetCheck.UseVisualStyleBackColor = true;
             headsetCheck.CheckedChanged += headsetCheck_CheckedChanged;
-            // 
-            // buffHelmetsCheck
-            // 
-            buffHelmetsCheck.AutoSize = true;
-            buffHelmetsCheck.Checked = true;
-            buffHelmetsCheck.CheckState = CheckState.Checked;
-            buffHelmetsCheck.ForeColor = Color.White;
-            buffHelmetsCheck.Location = new Point(24, 92);
-            buffHelmetsCheck.Name = "buffHelmetsCheck";
-            buffHelmetsCheck.Size = new Size(95, 19);
-            buffHelmetsCheck.TabIndex = 1;
-            buffHelmetsCheck.Text = "Buff Helmets";
-            toolTip1.SetToolTip(buffHelmetsCheck, resources.GetString("buffHelmetsCheck.ToolTip"));
-            buffHelmetsCheck.UseVisualStyleBackColor = true;
-            buffHelmetsCheck.CheckedChanged += buffHelmetsCheck_CheckedChanged;
             // 
             // headgearConflictsCheck
             // 
@@ -2124,6 +2152,7 @@
             Name = "Main_Form";
             Text = " ";
             mainTabControl.ResumeLayout(false);
+            homeTab.ResumeLayout(false);
             Realism_Ballistics.ResumeLayout(false);
             Realism_Ballistics.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)playerHPNumeric).EndInit();
@@ -2324,5 +2353,7 @@
         private CheckBox stanceCheck;
         private CheckBox chamberCheck;
         private CheckBox reloadCheck;
+        private TabPage homeTab;
+        private RichTextBox homeTxtBx;
     }
 }

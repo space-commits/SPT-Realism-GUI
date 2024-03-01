@@ -8,16 +8,11 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace Realism_Mod_Config_GUI
 {
-    public class PackageTemplate
-    {
-        public string version { get; set; } = "unknown";
-        public string akiVersion { get; set; } = "unknown";
-    }
-
     public partial class Main_Form : Form
     {
 
         private List<ControlRule> controlRules = new List<ControlRule>();
+        private string? configFilePath;
         private ConfigTemplate? configTemplate;
         private PackageTemplate? packageTemplate;
         private DirectoryInfo[]? weapPresetFilePath;
@@ -38,7 +33,7 @@ namespace Realism_Mod_Config_GUI
                 setPresetComboBoxes(attPresetFilePath, attachPresetCombo);
                 setPresetComboBoxes(gearPresetFilePath, gearPresetCombo);
                 controlRules = initializeControlRules();
-                evaluateControlRules(); 
+                evaluateControlRules();
             }
             catch (Exception exception)
             {
@@ -47,10 +42,9 @@ namespace Realism_Mod_Config_GUI
             }
         }
 
-
-        private void deserializeJSON() 
+        private void deserializeJSON()
         {
-            string configFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"config\config.json");
+            configFilePath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath), @"config\config.json");
             string configJSON = File.ReadAllText(configFilePath);
             configTemplate = JsonConvert.DeserializeObject<ConfigTemplate>(configJSON);
 
@@ -70,7 +64,6 @@ namespace Realism_Mod_Config_GUI
             string packageJSON = File.ReadAllText(packagePath);
             packageTemplate = JsonConvert.DeserializeObject<PackageTemplate>(packageJSON);
         }
-
 
         private void setTitleBar()
         {
@@ -302,7 +295,7 @@ namespace Realism_Mod_Config_GUI
         }
 
 
-        private List<ControlRule> initializeControlRules() 
+        private List<ControlRule> initializeControlRules()
         {
             return new List<ControlRule>
             {
@@ -370,7 +363,7 @@ namespace Realism_Mod_Config_GUI
             };
         }
 
-        private void evaluateControlRules ()
+        private void evaluateControlRules()
         {
             foreach (ControlRule rule in controlRules)
             {
@@ -379,7 +372,7 @@ namespace Realism_Mod_Config_GUI
 
             Color disabled = Color.SlateGray;
             Color enabled = Color.FromArgb(36, 36, 36);
-  
+
             foreach (TabPage p in this.mainTabControl.TabPages)
             {
                 foreach (Control c in p.Controls)
