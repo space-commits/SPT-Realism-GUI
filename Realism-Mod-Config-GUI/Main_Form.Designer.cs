@@ -38,16 +38,20 @@
             realPlayerHealthCheck = new CheckBox();
             warningTextBox = new RichTextBox();
             weapGroupBox = new GroupBox();
+            reloadCheck = new CheckBox();
+            chamberCheck = new CheckBox();
             masteryCheck = new CheckBox();
             recoilAttOverhaulCheck = new CheckBox();
             malfChangesCheck = new CheckBox();
             armorGroupBox = new GroupBox();
+            comfortCheck = new CheckBox();
             headsetCheck = new CheckBox();
             buffHelmetsCheck = new CheckBox();
             headgearConflictsCheck = new CheckBox();
             realBallisticsCheck = new CheckBox();
             Health_Movement = new TabPage();
             moveGroupBox = new GroupBox();
+            stanceCheck = new CheckBox();
             weightCheck = new CheckBox();
             movementChangesCheck = new CheckBox();
             fallDamageChangesCheck = new CheckBox();
@@ -232,6 +236,7 @@
             Realism_Ballistics.BackgroundImageLayout = ImageLayout.Center;
             Realism_Ballistics.Controls.Add(label24);
             Realism_Ballistics.Controls.Add(playerHPNumeric);
+            Realism_Ballistics.Controls.Add(buffHelmetsCheck);
             Realism_Ballistics.Controls.Add(revertHPCheck);
             Realism_Ballistics.Controls.Add(realPlayerHealthCheck);
             Realism_Ballistics.Controls.Add(warningTextBox);
@@ -250,7 +255,7 @@
             // 
             label24.AutoSize = true;
             label24.ForeColor = SystemColors.Control;
-            label24.Location = new Point(178, 18);
+            label24.Location = new Point(178, 21);
             label24.Name = "label24";
             label24.Size = new Size(108, 15);
             label24.TabIndex = 15;
@@ -261,7 +266,7 @@
             // 
             playerHPNumeric.DecimalPlaces = 2;
             playerHPNumeric.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            playerHPNumeric.Location = new Point(292, 16);
+            playerHPNumeric.Location = new Point(292, 19);
             playerHPNumeric.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             playerHPNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
             playerHPNumeric.Name = "playerHPNumeric";
@@ -277,7 +282,7 @@
             revertHPCheck.Checked = true;
             revertHPCheck.CheckState = CheckState.Checked;
             revertHPCheck.ForeColor = Color.White;
-            revertHPCheck.Location = new Point(18, 42);
+            revertHPCheck.Location = new Point(24, 42);
             revertHPCheck.Name = "revertHPCheck";
             revertHPCheck.Size = new Size(133, 19);
             revertHPCheck.TabIndex = 13;
@@ -292,7 +297,7 @@
             realPlayerHealthCheck.Checked = true;
             realPlayerHealthCheck.CheckState = CheckState.Checked;
             realPlayerHealthCheck.ForeColor = Color.White;
-            realPlayerHealthCheck.Location = new Point(18, 17);
+            realPlayerHealthCheck.Location = new Point(24, 20);
             realPlayerHealthCheck.Name = "realPlayerHealthCheck";
             realPlayerHealthCheck.Size = new Size(142, 19);
             realPlayerHealthCheck.TabIndex = 12;
@@ -314,22 +319,53 @@
             // 
             // weapGroupBox
             // 
+            weapGroupBox.Controls.Add(reloadCheck);
+            weapGroupBox.Controls.Add(chamberCheck);
             weapGroupBox.Controls.Add(masteryCheck);
             weapGroupBox.Controls.Add(recoilAttOverhaulCheck);
             weapGroupBox.Controls.Add(malfChangesCheck);
             weapGroupBox.ForeColor = Color.White;
-            weapGroupBox.Location = new Point(18, 93);
+            weapGroupBox.Location = new Point(18, 120);
             weapGroupBox.Name = "weapGroupBox";
-            weapGroupBox.Size = new Size(260, 126);
+            weapGroupBox.Size = new Size(260, 155);
             weapGroupBox.TabIndex = 8;
             weapGroupBox.TabStop = false;
             weapGroupBox.Text = "Weapons";
+            // 
+            // reloadCheck
+            // 
+            reloadCheck.AutoSize = true;
+            reloadCheck.Checked = true;
+            reloadCheck.CheckState = CheckState.Checked;
+            reloadCheck.ForeColor = Color.White;
+            reloadCheck.Location = new Point(6, 97);
+            reloadCheck.Name = "reloadCheck";
+            reloadCheck.Size = new Size(179, 19);
+            reloadCheck.TabIndex = 9;
+            reloadCheck.Text = "Enable Variable Reload Speed";
+            toolTip1.SetToolTip(reloadCheck, resources.GetString("reloadCheck.ToolTip"));
+            reloadCheck.UseVisualStyleBackColor = true;
+            // 
+            // chamberCheck
+            // 
+            chamberCheck.AutoSize = true;
+            chamberCheck.Checked = true;
+            chamberCheck.CheckState = CheckState.Checked;
+            chamberCheck.ForeColor = Color.White;
+            chamberCheck.Location = new Point(6, 72);
+            chamberCheck.Name = "chamberCheck";
+            chamberCheck.Size = new Size(135, 19);
+            chamberCheck.TabIndex = 8;
+            chamberCheck.Text = "Manual Chambering";
+            toolTip1.SetToolTip(chamberCheck, "Enables manual chambering. Weapons with an empty chamber and a magazine with ammo will no longer be automatically chambered.\r\nUse the rechamber keybind to load the gun.");
+            chamberCheck.UseVisualStyleBackColor = true;
+            chamberCheck.CheckedChanged += chamberCheck_CheckedChanged;
             // 
             // masteryCheck
             // 
             masteryCheck.AutoSize = true;
             masteryCheck.ForeColor = Color.White;
-            masteryCheck.Location = new Point(6, 72);
+            masteryCheck.Location = new Point(6, 122);
             masteryCheck.Name = "masteryCheck";
             masteryCheck.Size = new Size(117, 19);
             masteryCheck.TabIndex = 7;
@@ -370,16 +406,31 @@
             // 
             // armorGroupBox
             // 
+            armorGroupBox.Controls.Add(comfortCheck);
             armorGroupBox.Controls.Add(headsetCheck);
-            armorGroupBox.Controls.Add(buffHelmetsCheck);
             armorGroupBox.Controls.Add(headgearConflictsCheck);
             armorGroupBox.ForeColor = Color.White;
-            armorGroupBox.Location = new Point(18, 225);
+            armorGroupBox.Location = new Point(18, 281);
             armorGroupBox.Name = "armorGroupBox";
-            armorGroupBox.Size = new Size(150, 96);
+            armorGroupBox.Size = new Size(260, 107);
             armorGroupBox.TabIndex = 7;
             armorGroupBox.TabStop = false;
             armorGroupBox.Text = "Gear";
+            // 
+            // comfortCheck
+            // 
+            comfortCheck.AutoSize = true;
+            comfortCheck.Checked = true;
+            comfortCheck.CheckState = CheckState.Checked;
+            comfortCheck.ForeColor = Color.White;
+            comfortCheck.Location = new Point(7, 72);
+            comfortCheck.Name = "comfortCheck";
+            comfortCheck.Size = new Size(126, 19);
+            comfortCheck.TabIndex = 5;
+            comfortCheck.Text = "Comfort Mechanic";
+            toolTip1.SetToolTip(comfortCheck, "Gear has a \"comfort\" stat which is a modifier to the weight of the items contained by the gear.");
+            comfortCheck.UseVisualStyleBackColor = true;
+            comfortCheck.CheckedChanged += comfortCheck_CheckedChanged;
             // 
             // headsetCheck
             // 
@@ -387,11 +438,11 @@
             headsetCheck.Checked = true;
             headsetCheck.CheckState = CheckState.Checked;
             headsetCheck.ForeColor = Color.White;
-            headsetCheck.Location = new Point(6, 66);
+            headsetCheck.Location = new Point(6, 47);
             headsetCheck.Name = "headsetCheck";
-            headsetCheck.Size = new Size(118, 19);
+            headsetCheck.Size = new Size(198, 19);
             headsetCheck.TabIndex = 4;
-            headsetCheck.Text = "Headset Changes";
+            headsetCheck.Text = "Deafening and Headset Changes";
             toolTip1.SetToolTip(headsetCheck, resources.GetString("headsetCheck.ToolTip"));
             headsetCheck.UseVisualStyleBackColor = true;
             headsetCheck.CheckedChanged += headsetCheck_CheckedChanged;
@@ -402,7 +453,7 @@
             buffHelmetsCheck.Checked = true;
             buffHelmetsCheck.CheckState = CheckState.Checked;
             buffHelmetsCheck.ForeColor = Color.White;
-            buffHelmetsCheck.Location = new Point(6, 22);
+            buffHelmetsCheck.Location = new Point(24, 92);
             buffHelmetsCheck.Name = "buffHelmetsCheck";
             buffHelmetsCheck.Size = new Size(95, 19);
             buffHelmetsCheck.TabIndex = 1;
@@ -417,7 +468,7 @@
             headgearConflictsCheck.Checked = true;
             headgearConflictsCheck.CheckState = CheckState.Checked;
             headgearConflictsCheck.ForeColor = Color.White;
-            headgearConflictsCheck.Location = new Point(6, 42);
+            headgearConflictsCheck.Location = new Point(6, 22);
             headgearConflictsCheck.Name = "headgearConflictsCheck";
             headgearConflictsCheck.Size = new Size(127, 19);
             headgearConflictsCheck.TabIndex = 3;
@@ -432,7 +483,7 @@
             realBallisticsCheck.Checked = true;
             realBallisticsCheck.CheckState = CheckState.Checked;
             realBallisticsCheck.ForeColor = Color.White;
-            realBallisticsCheck.Location = new Point(18, 68);
+            realBallisticsCheck.Location = new Point(24, 67);
             realBallisticsCheck.Name = "realBallisticsCheck";
             realBallisticsCheck.Size = new Size(117, 19);
             realBallisticsCheck.TabIndex = 0;
@@ -453,20 +504,36 @@
             Health_Movement.Padding = new Padding(3);
             Health_Movement.Size = new Size(1360, 684);
             Health_Movement.TabIndex = 1;
-            Health_Movement.Text = "Health & Movement";
+            Health_Movement.Text = "Health & Player";
             // 
             // moveGroupBox
             // 
+            moveGroupBox.Controls.Add(stanceCheck);
             moveGroupBox.Controls.Add(weightCheck);
             moveGroupBox.Controls.Add(movementChangesCheck);
             moveGroupBox.Controls.Add(fallDamageChangesCheck);
             moveGroupBox.ForeColor = Color.White;
             moveGroupBox.Location = new Point(19, 98);
             moveGroupBox.Name = "moveGroupBox";
-            moveGroupBox.Size = new Size(200, 99);
+            moveGroupBox.Size = new Size(200, 134);
             moveGroupBox.TabIndex = 5;
             moveGroupBox.TabStop = false;
             moveGroupBox.Text = "Movement";
+            // 
+            // stanceCheck
+            // 
+            stanceCheck.AutoSize = true;
+            stanceCheck.Checked = true;
+            stanceCheck.CheckState = CheckState.Checked;
+            stanceCheck.ForeColor = Color.White;
+            stanceCheck.Location = new Point(6, 97);
+            stanceCheck.Name = "stanceCheck";
+            stanceCheck.Size = new Size(104, 19);
+            stanceCheck.TabIndex = 3;
+            stanceCheck.Text = "Enable Stances";
+            toolTip1.SetToolTip(stanceCheck, resources.GetString("stanceCheck.ToolTip"));
+            stanceCheck.UseVisualStyleBackColor = true;
+            stanceCheck.CheckedChanged += stanceCheck_CheckedChanged;
             // 
             // weightCheck
             // 
@@ -494,7 +561,7 @@
             movementChangesCheck.Size = new Size(133, 19);
             movementChangesCheck.TabIndex = 0;
             movementChangesCheck.Text = "Movement Changes";
-            toolTip1.SetToolTip(movementChangesCheck, "Enables changes to movement speed, inertia, weight limits, and fall/jump penalties.");
+            toolTip1.SetToolTip(movementChangesCheck, "Enables changes to movement speed, inertia, weight limits, and fall/jump penalties.\r\nDifferent types surfaces will change movement speed. Can be further configured with the \r\nin-game config.\r\n");
             movementChangesCheck.UseVisualStyleBackColor = true;
             movementChangesCheck.CheckedChanged += movementChangesCheck_CheckedChanged;
             // 
@@ -2253,5 +2320,9 @@
         private CheckBox addKeysCheck;
         private CheckBox traderCoeffCheck;
         private CheckBox theraHeaCheck;
+        private CheckBox comfortCheck;
+        private CheckBox stanceCheck;
+        private CheckBox chamberCheck;
+        private CheckBox reloadCheck;
     }
 }
