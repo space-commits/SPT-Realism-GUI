@@ -26,6 +26,8 @@ namespace Realism_Mod_Config_GUI
         public bool weight_limits_changes { get; set; } = true;
         public bool fall_damage_changes { get; set; } = true;
         public bool med_changes { get; set; } = true;
+        public bool stim_changes { get; set; } = true;
+        public bool food_changes { get; set; } = true;
         public bool revert_med_changes { get; set; } = false;
         public bool bot_changes { get; set; } = true;
         public bool bot_loot_changes { get; set; } = true;

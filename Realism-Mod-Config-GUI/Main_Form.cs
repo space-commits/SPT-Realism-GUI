@@ -164,6 +164,8 @@ namespace Realism_Mod_Config_GUI
             reloadCheck.Checked = configTemplate.reload_changes;
 
             medChangesCheck.Checked = configTemplate.med_changes;
+            foodCheck.Checked = configTemplate.food_changes;
+            stimCheck.Checked = configTemplate.stim_changes;
             revertMedsCheck.Checked = configTemplate.revert_med_changes;
             movementChangesCheck.Checked = configTemplate.movement_changes;
             weightCheck.Checked = configTemplate.weight_limits_changes;
@@ -369,6 +371,18 @@ namespace Realism_Mod_Config_GUI
             {
                 rule.Evaluate();
             }
+
+            //temporarily disabling these
+            botLootCheck.Enabled = false;
+            addKeysCheck.Enabled = false;
+            dynPMCLoot.Enabled = false;
+            dynScavLoot.Enabled = false;
+            bossItemsCheck.Enabled = false;
+            botLootCheck.Checked = false;
+            addKeysCheck.Checked = false;
+            dynPMCLoot.Checked = false;
+            dynScavLoot.Checked = false;
+            bossItemsCheck.Checked = false;
 
             Color disabled = Color.SlateGray;
             Color enabled = Color.FromArgb(36, 36, 36);
@@ -995,6 +1009,18 @@ namespace Realism_Mod_Config_GUI
         private void chamberCheck_CheckedChanged(object sender, EventArgs e)
         {
             configTemplate.manual_chambering = chamberCheck.Checked == true ? true : false;
+            evaluateControlRules();
+        }
+
+        private void stimCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            configTemplate.stim_changes = stimCheck.Checked == true ? true : false;
+            evaluateControlRules();
+        }
+
+        private void foodCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            configTemplate.food_changes = foodCheck.Checked == true ? true : false;
             evaluateControlRules();
         }
     }

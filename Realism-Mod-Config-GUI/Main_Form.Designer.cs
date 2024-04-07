@@ -58,6 +58,8 @@
             movementChangesCheck = new CheckBox();
             fallDamageChangesCheck = new CheckBox();
             healthGroupBox = new GroupBox();
+            foodCheck = new CheckBox();
+            stimCheck = new CheckBox();
             medChangesCheck = new CheckBox();
             revertMedsCheck = new CheckBox();
             Bots = new TabPage();
@@ -386,8 +388,9 @@
             reloadCheck.Size = new Size(179, 19);
             reloadCheck.TabIndex = 9;
             reloadCheck.Text = "Enable Variable Reload Speed";
-            toolTip1.SetToolTip(reloadCheck, resources.GetString("reloadCheck.ToolTip"));
+            toolTip1.SetToolTip(reloadCheck, "Reload and weapon manipulation speed (chamber checking, chambering, malfunction fixing etc.) are affected by player health, skill, weapon ergo and attachments.\r\n");
             reloadCheck.UseVisualStyleBackColor = true;
+            reloadCheck.CheckedChanged += reloadCheck_CheckedChanged;
             // 
             // chamberCheck
             // 
@@ -541,7 +544,7 @@
             moveGroupBox.Controls.Add(movementChangesCheck);
             moveGroupBox.Controls.Add(fallDamageChangesCheck);
             moveGroupBox.ForeColor = Color.White;
-            moveGroupBox.Location = new Point(19, 98);
+            moveGroupBox.Location = new Point(19, 140);
             moveGroupBox.Name = "moveGroupBox";
             moveGroupBox.Size = new Size(200, 134);
             moveGroupBox.TabIndex = 5;
@@ -610,15 +613,47 @@
             // 
             // healthGroupBox
             // 
+            healthGroupBox.Controls.Add(foodCheck);
+            healthGroupBox.Controls.Add(stimCheck);
             healthGroupBox.Controls.Add(medChangesCheck);
             healthGroupBox.Controls.Add(revertMedsCheck);
             healthGroupBox.ForeColor = Color.White;
             healthGroupBox.Location = new Point(19, 12);
             healthGroupBox.Name = "healthGroupBox";
-            healthGroupBox.Size = new Size(200, 80);
+            healthGroupBox.Size = new Size(200, 122);
             healthGroupBox.TabIndex = 4;
             healthGroupBox.TabStop = false;
             healthGroupBox.Text = "Health";
+            // 
+            // foodCheck
+            // 
+            foodCheck.AutoSize = true;
+            foodCheck.Checked = true;
+            foodCheck.CheckState = CheckState.Checked;
+            foodCheck.ForeColor = Color.White;
+            foodCheck.Location = new Point(6, 97);
+            foodCheck.Name = "foodCheck";
+            foodCheck.Size = new Size(102, 19);
+            foodCheck.TabIndex = 5;
+            foodCheck.Text = "Food Changes";
+            toolTip1.SetToolTip(foodCheck, resources.GetString("foodCheck.ToolTip"));
+            foodCheck.UseVisualStyleBackColor = true;
+            foodCheck.CheckedChanged += foodCheck_CheckedChanged;
+            // 
+            // stimCheck
+            // 
+            stimCheck.AutoSize = true;
+            stimCheck.Checked = true;
+            stimCheck.CheckState = CheckState.Checked;
+            stimCheck.ForeColor = Color.White;
+            stimCheck.Location = new Point(6, 72);
+            stimCheck.Name = "stimCheck";
+            stimCheck.Size = new Size(99, 19);
+            stimCheck.TabIndex = 4;
+            stimCheck.Text = "Stim Changes";
+            toolTip1.SetToolTip(stimCheck, "Rebalances stims to have stronger debuffs, and makes them more unique and varied in what effects they have.\r\n");
+            stimCheck.UseVisualStyleBackColor = true;
+            stimCheck.CheckedChanged += stimCheck_CheckedChanged;
             // 
             // medChangesCheck
             // 
@@ -2355,5 +2390,7 @@
         private CheckBox reloadCheck;
         private TabPage homeTab;
         private RichTextBox homeTxtBx;
+        private CheckBox foodCheck;
+        private CheckBox stimCheck;
     }
 }
