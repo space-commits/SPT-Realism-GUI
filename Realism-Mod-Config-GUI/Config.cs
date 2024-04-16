@@ -17,7 +17,7 @@ namespace Realism_Mod_Config_GUI
     {
         public bool realistic_player_health { get; set; } = true;
         public bool realistic_ballistics { get; set; } = true;
-        public bool buff_helmets { get; set; } = true;
+        public bool buff_helmets { get; set; } = false;
         public bool headgear_conflicts { get; set; } = true;
         public bool recoil_attachment_overhaul { get; set; } = true;
         public bool mastery_changes { get; set; } = true;
