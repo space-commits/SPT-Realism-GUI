@@ -31,30 +31,40 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             mainTabControl = new TabControl();
+            homeTab = new TabPage();
+            homeTxtBx = new RichTextBox();
             Realism_Ballistics = new TabPage();
             label24 = new Label();
             playerHPNumeric = new NumericUpDown();
+            buffHelmetsCheck = new CheckBox();
             revertHPCheck = new CheckBox();
             realPlayerHealthCheck = new CheckBox();
             warningTextBox = new RichTextBox();
             weapGroupBox = new GroupBox();
+            reloadCheck = new CheckBox();
+            chamberCheck = new CheckBox();
             masteryCheck = new CheckBox();
             recoilAttOverhaulCheck = new CheckBox();
             malfChangesCheck = new CheckBox();
             armorGroupBox = new GroupBox();
+            comfortCheck = new CheckBox();
             headsetCheck = new CheckBox();
-            buffHelmetsCheck = new CheckBox();
             headgearConflictsCheck = new CheckBox();
             realBallisticsCheck = new CheckBox();
             Health_Movement = new TabPage();
             moveGroupBox = new GroupBox();
+            stanceCheck = new CheckBox();
             weightCheck = new CheckBox();
             movementChangesCheck = new CheckBox();
             fallDamageChangesCheck = new CheckBox();
             healthGroupBox = new GroupBox();
+            foodCheck = new CheckBox();
+            stimCheck = new CheckBox();
             medChangesCheck = new CheckBox();
             revertMedsCheck = new CheckBox();
             Bots = new TabPage();
+            addKeysCheck = new CheckBox();
+            botLootCheck = new CheckBox();
             dynScavLoot = new CheckBox();
             spawnWaveCheck = new CheckBox();
             dynPMCLoot = new CheckBox();
@@ -110,6 +120,8 @@
             botChangesCheck = new CheckBox();
             Misc = new TabPage();
             groupBox2 = new GroupBox();
+            traderCoeffCheck = new CheckBox();
+            theraHeaCheck = new CheckBox();
             nerfFenceCheck = new CheckBox();
             label22 = new Label();
             tradRefreshNum = new NumericUpDown();
@@ -168,6 +180,7 @@
             savedLabel = new Label();
             modVerLabel = new Label();
             mainTabControl.SuspendLayout();
+            homeTab.SuspendLayout();
             Realism_Ballistics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)playerHPNumeric).BeginInit();
             weapGroupBox.SuspendLayout();
@@ -205,6 +218,7 @@
             // mainTabControl
             // 
             mainTabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            mainTabControl.Controls.Add(homeTab);
             mainTabControl.Controls.Add(Realism_Ballistics);
             mainTabControl.Controls.Add(Health_Movement);
             mainTabControl.Controls.Add(Bots);
@@ -221,6 +235,30 @@
             mainTabControl.Size = new Size(1368, 712);
             mainTabControl.TabIndex = 0;
             // 
+            // homeTab
+            // 
+            homeTab.BackColor = Color.FromArgb(36, 36, 36);
+            homeTab.BackgroundImage = Properties.Resources.SPTRM_config_image;
+            homeTab.BackgroundImageLayout = ImageLayout.Center;
+            homeTab.Controls.Add(homeTxtBx);
+            homeTab.Location = new Point(4, 24);
+            homeTab.Name = "homeTab";
+            homeTab.Size = new Size(1360, 684);
+            homeTab.TabIndex = 8;
+            homeTab.Text = "Home";
+            // 
+            // homeTxtBx
+            // 
+            homeTxtBx.Anchor = AnchorStyles.None;
+            homeTxtBx.BackColor = Color.PapayaWhip;
+            homeTxtBx.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            homeTxtBx.Location = new Point(349, 18);
+            homeTxtBx.Name = "homeTxtBx";
+            homeTxtBx.ReadOnly = true;
+            homeTxtBx.Size = new Size(664, 375);
+            homeTxtBx.TabIndex = 0;
+            homeTxtBx.Text = resources.GetString("homeTxtBx.Text");
+            // 
             // Realism_Ballistics
             // 
             Realism_Ballistics.BackColor = Color.FromArgb(36, 36, 36);
@@ -228,6 +266,7 @@
             Realism_Ballistics.BackgroundImageLayout = ImageLayout.Center;
             Realism_Ballistics.Controls.Add(label24);
             Realism_Ballistics.Controls.Add(playerHPNumeric);
+            Realism_Ballistics.Controls.Add(buffHelmetsCheck);
             Realism_Ballistics.Controls.Add(revertHPCheck);
             Realism_Ballistics.Controls.Add(realPlayerHealthCheck);
             Realism_Ballistics.Controls.Add(warningTextBox);
@@ -246,7 +285,7 @@
             // 
             label24.AutoSize = true;
             label24.ForeColor = SystemColors.Control;
-            label24.Location = new Point(178, 18);
+            label24.Location = new Point(178, 21);
             label24.Name = "label24";
             label24.Size = new Size(108, 15);
             label24.TabIndex = 15;
@@ -257,7 +296,7 @@
             // 
             playerHPNumeric.DecimalPlaces = 2;
             playerHPNumeric.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
-            playerHPNumeric.Location = new Point(292, 16);
+            playerHPNumeric.Location = new Point(292, 19);
             playerHPNumeric.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             playerHPNumeric.Minimum = new decimal(new int[] { 1, 0, 0, 65536 });
             playerHPNumeric.Name = "playerHPNumeric";
@@ -267,13 +306,28 @@
             playerHPNumeric.Value = new decimal(new int[] { 1, 0, 0, 65536 });
             playerHPNumeric.ValueChanged += playerHPNumeric_ValueChanged;
             // 
+            // buffHelmetsCheck
+            // 
+            buffHelmetsCheck.AutoSize = true;
+            buffHelmetsCheck.Checked = true;
+            buffHelmetsCheck.CheckState = CheckState.Checked;
+            buffHelmetsCheck.ForeColor = Color.White;
+            buffHelmetsCheck.Location = new Point(24, 92);
+            buffHelmetsCheck.Name = "buffHelmetsCheck";
+            buffHelmetsCheck.Size = new Size(95, 19);
+            buffHelmetsCheck.TabIndex = 1;
+            buffHelmetsCheck.Text = "Buff Helmets";
+            toolTip1.SetToolTip(buffHelmetsCheck, resources.GetString("buffHelmetsCheck.ToolTip"));
+            buffHelmetsCheck.UseVisualStyleBackColor = true;
+            buffHelmetsCheck.CheckedChanged += buffHelmetsCheck_CheckedChanged;
+            // 
             // revertHPCheck
             // 
             revertHPCheck.AutoSize = true;
             revertHPCheck.Checked = true;
             revertHPCheck.CheckState = CheckState.Checked;
             revertHPCheck.ForeColor = Color.White;
-            revertHPCheck.Location = new Point(18, 42);
+            revertHPCheck.Location = new Point(24, 42);
             revertHPCheck.Name = "revertHPCheck";
             revertHPCheck.Size = new Size(133, 19);
             revertHPCheck.TabIndex = 13;
@@ -288,7 +342,7 @@
             realPlayerHealthCheck.Checked = true;
             realPlayerHealthCheck.CheckState = CheckState.Checked;
             realPlayerHealthCheck.ForeColor = Color.White;
-            realPlayerHealthCheck.Location = new Point(18, 17);
+            realPlayerHealthCheck.Location = new Point(24, 20);
             realPlayerHealthCheck.Name = "realPlayerHealthCheck";
             realPlayerHealthCheck.Size = new Size(142, 19);
             realPlayerHealthCheck.TabIndex = 12;
@@ -310,22 +364,54 @@
             // 
             // weapGroupBox
             // 
+            weapGroupBox.Controls.Add(reloadCheck);
+            weapGroupBox.Controls.Add(chamberCheck);
             weapGroupBox.Controls.Add(masteryCheck);
             weapGroupBox.Controls.Add(recoilAttOverhaulCheck);
             weapGroupBox.Controls.Add(malfChangesCheck);
             weapGroupBox.ForeColor = Color.White;
-            weapGroupBox.Location = new Point(18, 93);
+            weapGroupBox.Location = new Point(18, 120);
             weapGroupBox.Name = "weapGroupBox";
-            weapGroupBox.Size = new Size(260, 126);
+            weapGroupBox.Size = new Size(260, 155);
             weapGroupBox.TabIndex = 8;
             weapGroupBox.TabStop = false;
             weapGroupBox.Text = "Weapons";
+            // 
+            // reloadCheck
+            // 
+            reloadCheck.AutoSize = true;
+            reloadCheck.Checked = true;
+            reloadCheck.CheckState = CheckState.Checked;
+            reloadCheck.ForeColor = Color.White;
+            reloadCheck.Location = new Point(6, 97);
+            reloadCheck.Name = "reloadCheck";
+            reloadCheck.Size = new Size(179, 19);
+            reloadCheck.TabIndex = 9;
+            reloadCheck.Text = "Enable Variable Reload Speed";
+            toolTip1.SetToolTip(reloadCheck, "Reload and weapon manipulation speed (chamber checking, chambering, malfunction fixing etc.) are affected by player health, skill, weapon ergo and attachments.\r\n");
+            reloadCheck.UseVisualStyleBackColor = true;
+            reloadCheck.CheckedChanged += reloadCheck_CheckedChanged;
+            // 
+            // chamberCheck
+            // 
+            chamberCheck.AutoSize = true;
+            chamberCheck.Checked = true;
+            chamberCheck.CheckState = CheckState.Checked;
+            chamberCheck.ForeColor = Color.White;
+            chamberCheck.Location = new Point(6, 72);
+            chamberCheck.Name = "chamberCheck";
+            chamberCheck.Size = new Size(135, 19);
+            chamberCheck.TabIndex = 8;
+            chamberCheck.Text = "Manual Chambering";
+            toolTip1.SetToolTip(chamberCheck, "Enables manual chambering. Weapons with an empty chamber and a magazine with ammo will no longer be automatically chambered.\r\nUse the rechamber keybind to load the gun.");
+            chamberCheck.UseVisualStyleBackColor = true;
+            chamberCheck.CheckedChanged += chamberCheck_CheckedChanged;
             // 
             // masteryCheck
             // 
             masteryCheck.AutoSize = true;
             masteryCheck.ForeColor = Color.White;
-            masteryCheck.Location = new Point(6, 72);
+            masteryCheck.Location = new Point(6, 122);
             masteryCheck.Name = "masteryCheck";
             masteryCheck.Size = new Size(117, 19);
             masteryCheck.TabIndex = 7;
@@ -366,16 +452,31 @@
             // 
             // armorGroupBox
             // 
+            armorGroupBox.Controls.Add(comfortCheck);
             armorGroupBox.Controls.Add(headsetCheck);
-            armorGroupBox.Controls.Add(buffHelmetsCheck);
             armorGroupBox.Controls.Add(headgearConflictsCheck);
             armorGroupBox.ForeColor = Color.White;
-            armorGroupBox.Location = new Point(18, 225);
+            armorGroupBox.Location = new Point(18, 281);
             armorGroupBox.Name = "armorGroupBox";
-            armorGroupBox.Size = new Size(150, 96);
+            armorGroupBox.Size = new Size(260, 107);
             armorGroupBox.TabIndex = 7;
             armorGroupBox.TabStop = false;
             armorGroupBox.Text = "Gear";
+            // 
+            // comfortCheck
+            // 
+            comfortCheck.AutoSize = true;
+            comfortCheck.Checked = true;
+            comfortCheck.CheckState = CheckState.Checked;
+            comfortCheck.ForeColor = Color.White;
+            comfortCheck.Location = new Point(7, 72);
+            comfortCheck.Name = "comfortCheck";
+            comfortCheck.Size = new Size(126, 19);
+            comfortCheck.TabIndex = 5;
+            comfortCheck.Text = "Comfort Mechanic";
+            toolTip1.SetToolTip(comfortCheck, "Gear has a \"comfort\" stat which is a modifier to the weight of the items contained by the gear.");
+            comfortCheck.UseVisualStyleBackColor = true;
+            comfortCheck.CheckedChanged += comfortCheck_CheckedChanged;
             // 
             // headsetCheck
             // 
@@ -383,29 +484,14 @@
             headsetCheck.Checked = true;
             headsetCheck.CheckState = CheckState.Checked;
             headsetCheck.ForeColor = Color.White;
-            headsetCheck.Location = new Point(6, 66);
+            headsetCheck.Location = new Point(6, 47);
             headsetCheck.Name = "headsetCheck";
-            headsetCheck.Size = new Size(118, 19);
+            headsetCheck.Size = new Size(198, 19);
             headsetCheck.TabIndex = 4;
-            headsetCheck.Text = "Headset Changes";
+            headsetCheck.Text = "Deafening and Headset Changes";
             toolTip1.SetToolTip(headsetCheck, resources.GetString("headsetCheck.ToolTip"));
             headsetCheck.UseVisualStyleBackColor = true;
             headsetCheck.CheckedChanged += headsetCheck_CheckedChanged;
-            // 
-            // buffHelmetsCheck
-            // 
-            buffHelmetsCheck.AutoSize = true;
-            buffHelmetsCheck.Checked = true;
-            buffHelmetsCheck.CheckState = CheckState.Checked;
-            buffHelmetsCheck.ForeColor = Color.White;
-            buffHelmetsCheck.Location = new Point(6, 22);
-            buffHelmetsCheck.Name = "buffHelmetsCheck";
-            buffHelmetsCheck.Size = new Size(95, 19);
-            buffHelmetsCheck.TabIndex = 1;
-            buffHelmetsCheck.Text = "Buff Helmets";
-            toolTip1.SetToolTip(buffHelmetsCheck, resources.GetString("buffHelmetsCheck.ToolTip"));
-            buffHelmetsCheck.UseVisualStyleBackColor = true;
-            buffHelmetsCheck.CheckedChanged += buffHelmetsCheck_CheckedChanged;
             // 
             // headgearConflictsCheck
             // 
@@ -413,7 +499,7 @@
             headgearConflictsCheck.Checked = true;
             headgearConflictsCheck.CheckState = CheckState.Checked;
             headgearConflictsCheck.ForeColor = Color.White;
-            headgearConflictsCheck.Location = new Point(6, 42);
+            headgearConflictsCheck.Location = new Point(6, 22);
             headgearConflictsCheck.Name = "headgearConflictsCheck";
             headgearConflictsCheck.Size = new Size(127, 19);
             headgearConflictsCheck.TabIndex = 3;
@@ -428,7 +514,7 @@
             realBallisticsCheck.Checked = true;
             realBallisticsCheck.CheckState = CheckState.Checked;
             realBallisticsCheck.ForeColor = Color.White;
-            realBallisticsCheck.Location = new Point(18, 68);
+            realBallisticsCheck.Location = new Point(24, 67);
             realBallisticsCheck.Name = "realBallisticsCheck";
             realBallisticsCheck.Size = new Size(117, 19);
             realBallisticsCheck.TabIndex = 0;
@@ -449,20 +535,36 @@
             Health_Movement.Padding = new Padding(3);
             Health_Movement.Size = new Size(1360, 684);
             Health_Movement.TabIndex = 1;
-            Health_Movement.Text = "Health & Movement";
+            Health_Movement.Text = "Health & Player";
             // 
             // moveGroupBox
             // 
+            moveGroupBox.Controls.Add(stanceCheck);
             moveGroupBox.Controls.Add(weightCheck);
             moveGroupBox.Controls.Add(movementChangesCheck);
             moveGroupBox.Controls.Add(fallDamageChangesCheck);
             moveGroupBox.ForeColor = Color.White;
-            moveGroupBox.Location = new Point(19, 98);
+            moveGroupBox.Location = new Point(19, 140);
             moveGroupBox.Name = "moveGroupBox";
-            moveGroupBox.Size = new Size(200, 99);
+            moveGroupBox.Size = new Size(200, 134);
             moveGroupBox.TabIndex = 5;
             moveGroupBox.TabStop = false;
             moveGroupBox.Text = "Movement";
+            // 
+            // stanceCheck
+            // 
+            stanceCheck.AutoSize = true;
+            stanceCheck.Checked = true;
+            stanceCheck.CheckState = CheckState.Checked;
+            stanceCheck.ForeColor = Color.White;
+            stanceCheck.Location = new Point(6, 97);
+            stanceCheck.Name = "stanceCheck";
+            stanceCheck.Size = new Size(104, 19);
+            stanceCheck.TabIndex = 3;
+            stanceCheck.Text = "Enable Stances";
+            toolTip1.SetToolTip(stanceCheck, resources.GetString("stanceCheck.ToolTip"));
+            stanceCheck.UseVisualStyleBackColor = true;
+            stanceCheck.CheckedChanged += stanceCheck_CheckedChanged;
             // 
             // weightCheck
             // 
@@ -490,7 +592,7 @@
             movementChangesCheck.Size = new Size(133, 19);
             movementChangesCheck.TabIndex = 0;
             movementChangesCheck.Text = "Movement Changes";
-            toolTip1.SetToolTip(movementChangesCheck, "Enables changes to movement speed, inertia, weight limits, and fall/jump penalties.");
+            toolTip1.SetToolTip(movementChangesCheck, "Enables changes to movement speed, inertia, weight limits, and fall/jump penalties.\r\nDifferent types surfaces will change movement speed. Can be further configured with the \r\nin-game config.\r\n");
             movementChangesCheck.UseVisualStyleBackColor = true;
             movementChangesCheck.CheckedChanged += movementChangesCheck_CheckedChanged;
             // 
@@ -511,15 +613,47 @@
             // 
             // healthGroupBox
             // 
+            healthGroupBox.Controls.Add(foodCheck);
+            healthGroupBox.Controls.Add(stimCheck);
             healthGroupBox.Controls.Add(medChangesCheck);
             healthGroupBox.Controls.Add(revertMedsCheck);
             healthGroupBox.ForeColor = Color.White;
             healthGroupBox.Location = new Point(19, 12);
             healthGroupBox.Name = "healthGroupBox";
-            healthGroupBox.Size = new Size(200, 80);
+            healthGroupBox.Size = new Size(200, 122);
             healthGroupBox.TabIndex = 4;
             healthGroupBox.TabStop = false;
             healthGroupBox.Text = "Health";
+            // 
+            // foodCheck
+            // 
+            foodCheck.AutoSize = true;
+            foodCheck.Checked = true;
+            foodCheck.CheckState = CheckState.Checked;
+            foodCheck.ForeColor = Color.White;
+            foodCheck.Location = new Point(6, 97);
+            foodCheck.Name = "foodCheck";
+            foodCheck.Size = new Size(102, 19);
+            foodCheck.TabIndex = 5;
+            foodCheck.Text = "Food Changes";
+            toolTip1.SetToolTip(foodCheck, resources.GetString("foodCheck.ToolTip"));
+            foodCheck.UseVisualStyleBackColor = true;
+            foodCheck.CheckedChanged += foodCheck_CheckedChanged;
+            // 
+            // stimCheck
+            // 
+            stimCheck.AutoSize = true;
+            stimCheck.Checked = true;
+            stimCheck.CheckState = CheckState.Checked;
+            stimCheck.ForeColor = Color.White;
+            stimCheck.Location = new Point(6, 72);
+            stimCheck.Name = "stimCheck";
+            stimCheck.Size = new Size(99, 19);
+            stimCheck.TabIndex = 4;
+            stimCheck.Text = "Stim Changes";
+            toolTip1.SetToolTip(stimCheck, "Rebalances stims to have stronger debuffs, and makes them more unique and varied in what effects they have.\r\n");
+            stimCheck.UseVisualStyleBackColor = true;
+            stimCheck.CheckedChanged += stimCheck_CheckedChanged;
             // 
             // medChangesCheck
             // 
@@ -554,6 +688,8 @@
             Bots.BackColor = Color.FromArgb(36, 36, 36);
             Bots.BackgroundImage = (Image)resources.GetObject("Bots.BackgroundImage");
             Bots.BackgroundImageLayout = ImageLayout.Center;
+            Bots.Controls.Add(addKeysCheck);
+            Bots.Controls.Add(botLootCheck);
             Bots.Controls.Add(dynScavLoot);
             Bots.Controls.Add(spawnWaveCheck);
             Bots.Controls.Add(dynPMCLoot);
@@ -573,6 +709,36 @@
             Bots.Size = new Size(1360, 684);
             Bots.TabIndex = 2;
             Bots.Text = "Bots";
+            // 
+            // addKeysCheck
+            // 
+            addKeysCheck.AutoSize = true;
+            addKeysCheck.Checked = true;
+            addKeysCheck.CheckState = CheckState.Checked;
+            addKeysCheck.ForeColor = Color.White;
+            addKeysCheck.Location = new Point(192, 119);
+            addKeysCheck.Name = "addKeysCheck";
+            addKeysCheck.Size = new Size(124, 19);
+            addKeysCheck.TabIndex = 26;
+            addKeysCheck.Text = "Add Keys To PMCs";
+            toolTip1.SetToolTip(addKeysCheck, resources.GetString("addKeysCheck.ToolTip"));
+            addKeysCheck.UseVisualStyleBackColor = true;
+            addKeysCheck.CheckedChanged += addKeysCheck_CheckedChanged;
+            // 
+            // botLootCheck
+            // 
+            botLootCheck.AutoSize = true;
+            botLootCheck.Checked = true;
+            botLootCheck.CheckState = CheckState.Checked;
+            botLootCheck.ForeColor = Color.White;
+            botLootCheck.Location = new Point(18, 42);
+            botLootCheck.Name = "botLootCheck";
+            botLootCheck.Size = new Size(120, 19);
+            botLootCheck.TabIndex = 25;
+            botLootCheck.Text = "Bot Loot Changes";
+            toolTip1.SetToolTip(botLootCheck, "Enables changes to what loot bots can spawn with and the amount. PMC loot is determined by their level, otehr bots determiend by the player's level (includes bosses).");
+            botLootCheck.UseVisualStyleBackColor = true;
+            botLootCheck.CheckedChanged += botLootCheck_CheckedChanged;
             // 
             // dynScavLoot
             // 
@@ -628,7 +794,7 @@
             groupBox1.Controls.Add(label15);
             groupBox1.Controls.Add(hostNum1);
             groupBox1.ForeColor = SystemColors.Window;
-            groupBox1.Location = new Point(294, 438);
+            groupBox1.Location = new Point(294, 464);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(140, 115);
             groupBox1.TabIndex = 21;
@@ -720,7 +886,7 @@
             botTierGroup.Controls.Add(label6);
             botTierGroup.Controls.Add(label8);
             botTierGroup.ForeColor = Color.White;
-            botTierGroup.Location = new Point(18, 254);
+            botTierGroup.Location = new Point(18, 280);
             botTierGroup.Name = "botTierGroup";
             botTierGroup.Size = new Size(258, 299);
             botTierGroup.TabIndex = 19;
@@ -910,7 +1076,7 @@
             bossItemsCheck.Checked = true;
             bossItemsCheck.CheckState = CheckState.Checked;
             bossItemsCheck.ForeColor = Color.White;
-            bossItemsCheck.Location = new Point(18, 42);
+            bossItemsCheck.Location = new Point(18, 68);
             bossItemsCheck.Name = "bossItemsCheck";
             bossItemsCheck.Size = new Size(114, 19);
             bossItemsCheck.TabIndex = 18;
@@ -939,7 +1105,7 @@
             botNameGroupBox.Controls.Add(pmcNamesCheck);
             botNameGroupBox.Controls.Add(cyrillicNamesCheck);
             botNameGroupBox.ForeColor = SystemColors.Window;
-            botNameGroupBox.Location = new Point(294, 357);
+            botNameGroupBox.Location = new Point(294, 383);
             botNameGroupBox.Name = "botNameGroupBox";
             botNameGroupBox.Size = new Size(140, 75);
             botNameGroupBox.TabIndex = 16;
@@ -983,7 +1149,7 @@
             botDiffGroupBox.Controls.Add(pmcDifficultyCheck);
             botDiffGroupBox.Controls.Add(bossDifficultyCheck);
             botDiffGroupBox.ForeColor = SystemColors.Window;
-            botDiffGroupBox.Location = new Point(294, 254);
+            botDiffGroupBox.Location = new Point(294, 280);
             botDiffGroupBox.Name = "botDiffGroupBox";
             botDiffGroupBox.Size = new Size(140, 97);
             botDiffGroupBox.TabIndex = 15;
@@ -1044,7 +1210,7 @@
             botHealthGroupBox.Controls.Add(realRRHealthCheck);
             botHealthGroupBox.Controls.Add(realCultistHealthCheck);
             botHealthGroupBox.ForeColor = Color.White;
-            botHealthGroupBox.Location = new Point(18, 116);
+            botHealthGroupBox.Location = new Point(18, 142);
             botHealthGroupBox.Name = "botHealthGroupBox";
             botHealthGroupBox.Size = new Size(416, 124);
             botHealthGroupBox.TabIndex = 14;
@@ -1190,7 +1356,7 @@
             openZonesFixCheck.Checked = true;
             openZonesFixCheck.CheckState = CheckState.Checked;
             openZonesFixCheck.ForeColor = Color.White;
-            openZonesFixCheck.Location = new Point(18, 93);
+            openZonesFixCheck.Location = new Point(18, 119);
             openZonesFixCheck.Name = "openZonesFixCheck";
             openZonesFixCheck.Size = new Size(105, 19);
             openZonesFixCheck.TabIndex = 2;
@@ -1205,7 +1371,7 @@
             increasedBotCapCheck.Checked = true;
             increasedBotCapCheck.CheckState = CheckState.Checked;
             increasedBotCapCheck.ForeColor = Color.White;
-            increasedBotCapCheck.Location = new Point(18, 68);
+            increasedBotCapCheck.Location = new Point(18, 94);
             increasedBotCapCheck.Name = "increasedBotCapCheck";
             increasedBotCapCheck.Size = new Size(121, 19);
             increasedBotCapCheck.TabIndex = 1;
@@ -1245,6 +1411,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(traderCoeffCheck);
+            groupBox2.Controls.Add(theraHeaCheck);
             groupBox2.Controls.Add(nerfFenceCheck);
             groupBox2.Controls.Add(label22);
             groupBox2.Controls.Add(tradRefreshNum);
@@ -1268,10 +1436,40 @@
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(19, 98);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(297, 422);
+            groupBox2.Size = new Size(347, 422);
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Traders";
+            // 
+            // traderCoeffCheck
+            // 
+            traderCoeffCheck.AutoSize = true;
+            traderCoeffCheck.Checked = true;
+            traderCoeffCheck.CheckState = CheckState.Checked;
+            traderCoeffCheck.ForeColor = Color.White;
+            traderCoeffCheck.Location = new Point(183, 46);
+            traderCoeffCheck.Name = "traderCoeffCheck";
+            traderCoeffCheck.Size = new Size(115, 19);
+            traderCoeffCheck.TabIndex = 20;
+            traderCoeffCheck.Text = "Trader Buy Prices";
+            toolTip1.SetToolTip(traderCoeffCheck, "Decreases the amount of money received when selling items to traders.\r\n\r\nTrader loyalty level also increases the money received. ");
+            traderCoeffCheck.UseVisualStyleBackColor = true;
+            traderCoeffCheck.CheckedChanged += traderCoeffCheck_CheckedChanged;
+            // 
+            // theraHeaCheck
+            // 
+            theraHeaCheck.AutoSize = true;
+            theraHeaCheck.Checked = true;
+            theraHeaCheck.CheckState = CheckState.Checked;
+            theraHeaCheck.ForeColor = Color.White;
+            theraHeaCheck.Location = new Point(183, 22);
+            theraHeaCheck.Name = "theraHeaCheck";
+            theraHeaCheck.Size = new Size(145, 19);
+            theraHeaCheck.TabIndex = 19;
+            theraHeaCheck.Text = "Therapist Healing Cost";
+            toolTip1.SetToolTip(theraHeaCheck, "Increases the cost of Therapist healing service.");
+            theraHeaCheck.UseVisualStyleBackColor = true;
+            theraHeaCheck.CheckedChanged += theraHeaCheck_CheckedChanged;
             // 
             // nerfFenceCheck
             // 
@@ -1465,10 +1663,10 @@
             traderChangesCheck.ForeColor = Color.White;
             traderChangesCheck.Location = new Point(6, 22);
             traderChangesCheck.Name = "traderChangesCheck";
-            traderChangesCheck.Size = new Size(98, 19);
+            traderChangesCheck.Size = new Size(140, 19);
             traderChangesCheck.TabIndex = 2;
-            traderChangesCheck.Text = "Trader Tweaks";
-            toolTip1.SetToolTip(traderChangesCheck, "Enables changes to what traders will buy, increases Therapist healing cost, and nerfs Fence a small bit.\r\n");
+            traderChangesCheck.Text = "Trader Buy Categories";
+            toolTip1.SetToolTip(traderChangesCheck, "Enables changes to what categories of items individual traders will buy.");
             traderChangesCheck.UseVisualStyleBackColor = true;
             traderChangesCheck.CheckedChanged += traderChangesCheck_CheckedChanged;
             // 
@@ -1515,7 +1713,7 @@
             tradeGroupBox.ForeColor = Color.White;
             tradeGroupBox.Location = new Point(19, 12);
             tradeGroupBox.Name = "tradeGroupBox";
-            tradeGroupBox.Size = new Size(297, 80);
+            tradeGroupBox.Size = new Size(347, 80);
             tradeGroupBox.TabIndex = 6;
             tradeGroupBox.TabStop = false;
             tradeGroupBox.Text = "Fleamarket";
@@ -1989,6 +2187,7 @@
             Name = "Main_Form";
             Text = " ";
             mainTabControl.ResumeLayout(false);
+            homeTab.ResumeLayout(false);
             Realism_Ballistics.ResumeLayout(false);
             Realism_Ballistics.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)playerHPNumeric).EndInit();
@@ -2181,5 +2380,17 @@
         private TextBox botOdds9Text;
         private Label label24;
         private NumericUpDown playerHPNumeric;
+        private CheckBox botLootCheck;
+        private CheckBox addKeysCheck;
+        private CheckBox traderCoeffCheck;
+        private CheckBox theraHeaCheck;
+        private CheckBox comfortCheck;
+        private CheckBox stanceCheck;
+        private CheckBox chamberCheck;
+        private CheckBox reloadCheck;
+        private TabPage homeTab;
+        private RichTextBox homeTxtBx;
+        private CheckBox foodCheck;
+        private CheckBox stimCheck;
     }
 }

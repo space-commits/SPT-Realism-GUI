@@ -57,6 +57,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="homeTxtBx.Text" xml:space="preserve">
+    <value>                                    This is the main configuration tool for SPT Realism Mod.
+
+The major features can be enabled or disabled here; sub-features can be toggled or modified with the in-game BepInEx config (press F12). Note that some features are designed to work with each other; balance or stability is not guaranteed with different combinations of settings. Server-related features are configured here (traders, bots, and miscellaneous settings).
+
+Some of the in-game config's options are hidden unless the "Advanced" settings checkbox is checked in the BepInEx configuration menu.
+
+Please read about the mod's features before playing and before asking for support:
+https://hub.sp-tarkov.com/files/file/606-spt-realism-mod/#overview
+
+For support-related questions, use the mod's support thread only; for general feedback or questions, use the comments.
+
+If you enjoy my work and wish to support me, please consider donating to my Ko-Fi:
+https://ko-fi.com/fontaine37967</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Realism_Ballistics.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2118,6 +2133,10 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="buffHelmetsCheck.ToolTip" xml:space="preserve">
+    <value>Buffs helmets and faceshields by raising their armor level by 1. Their blunt throughput has been modified to compensate.
+Not carefully balanced, just for those that want a slightly less hardcore experience.</value>
+  </data>
   <data name="realPlayerHealthCheck.ToolTip" xml:space="preserve">
     <value>Changes the player's health to be realistic and to match that of PMC bots and Scavs. Use in combination with "Realistic Ballistics".
 
@@ -2133,25 +2152,36 @@ For most weapons, mastery will come a lot quicker because of this.</value>
   </data>
   <data name="recoilAttOverhaulCheck.ToolTip" xml:space="preserve">
     <value>Enables the complete overhaul of recoil and attachments. See  the mod's overview page on the hub for details.
-You can further configure the overhaul in-game, press F12 to open the config menu for mods.
 
-NOTE: some of the changes made by this overhaul are balanced around the changes made to ammo stats, it is recommended to use in combination with 'Realistic Ballistics'.
+Can be further configured in-game, dozens of config options..
+
+------------
+NOTE: this and other options are designed and balanced around the following features being enabled: 
+Realistic Ballistics, Malfunction Changes, Comfort Mechanic, Stances, Variable Realod Speed, Medical Changes.
+
+There may be bugs, jank or general issues if one or more of these are not enabled.
+
 </value>
   </data>
   <data name="malfChangesCheck.ToolTip" xml:space="preserve">
-    <value>Enables changes to malfunctions and overheating. Overall the chance of a malfunction is lower, depending on the weapon, attachments, magazine and ammo. See the mod's Overview page for details.
+    <value>Enables changes to malfunctions and overheating.
 
-This option must be enabled for the additional malfunction mechanics to be available.</value>
+Attachments can affect the chance of malfunctions. Using the wrong ammo
+in the wrong gun could have catastrophic consequences, like putting .300blk in a 5.56 rifle.
+
+Can be further configured with the in-game config.</value>
   </data>
   <data name="headsetCheck.ToolTip" xml:space="preserve">
-    <value>Enables changes to the sound profile of headsets.
+    <value>Enables the "Deafen" mechanic and changes to how headsets work.
+
+Gunfire and explosions will muffle you hearing if not wearing ear pro, and you will get a vignette effect. 
+The strenght of these effects depends on the weapon's characteristics and the headest being worn). 
+Headsets have adjustable and will cutoff audio when firing.
+
+Can be further configured with the in-game config.
 
 This should be automatically disabled if the .dll is not installed, but I recommend disabling it manually just to be safe,
 otherwise you run the risk of headsets being very loud!</value>
-  </data>
-  <data name="buffHelmetsCheck.ToolTip" xml:space="preserve">
-    <value>Buffs helmets and faceshields by raising their armor level by 1. Their blunt throughput has been modified to compensate.
-Not carefully balanced, just for those that want a slightly less hardcore experience.</value>
   </data>
   <data name="headgearConflictsCheck.ToolTip" xml:space="preserve">
     <value>Ensures bots spawn with NVGs correctly and makes some masks and headgear conflict to prevent bots from looking cursed, these are items that clip badly. 
@@ -2159,9 +2189,18 @@ Not carefully balanced, just for those that want a slightly less hardcore experi
 If disabled, bots will sometimes spawn with NVG mounts but the NVG missing.</value>
   </data>
   <data name="realBallisticsCheck.ToolTip" xml:space="preserve">
-    <value>Enables Armor and Ammo changes, the core of Realism Mod. This includes the complete overhaul of how armor damage, penetration and blunt damage is calculated as well as adding some additional mechanics. 
+    <value>Enables Armor and Ammo changes, the core of Realism Mod. This includes the complete overhaul of how armor damage, penetration and blunt damage is calculated,
+spalling, variable damage hitzones, the ability to knock down or be knocked down, disarmed etc.
+
 This will change the health of bot PMCs and Scavs to be balanced with these changes.
 
+Can be further configured with the in-game config.
+
+------------
+NOTE: this and other options are designed and balanced around the following features being enabled: 
+Realistic Ballistics, Malfunction Changes, Comfort Mechanic, Stances, Variable Realod Speed, Medical Changes.
+
+There may be bugs, jank or general issues if one or more of these are not enabled.
 </value>
   </data>
   <data name="Health_Movement.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -4221,13 +4260,41 @@ This will change the health of bot PMCs and Scavs to be balanced with these chan
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="stanceCheck.ToolTip" xml:space="preserve">
+    <value>Enables Stance animations, which includes:
+-High Ready
+-Low Ready
+-Active Aim (point shooting)
+-Short Stocking
+-Rifle Melee
+-Mounting and Bracing Cover
+-Alternative Pistol Idle Stance
+
+Can be further customized with the in-game config.
+
+------------
+NOTE: this and other options are designed and balanced around the following features being enabled: 
+Realistic Ballistics, Malfunction Changes, Comfort Mechanic, Stances, Variable Realod Speed, Medical Changes.
+
+There may be bugs, jank or general issues if one or more of these are not enabled.
+</value>
+  </data>
+  <data name="foodCheck.ToolTip" xml:space="preserve">
+    <value>Rebalances food/drink items to be more hardcore. Instead of instantly restoring hydration or energy, it is restored over time.
+
+In addition, most food and drink is expired and has a chane to poison you. MREs and water are the safest option.
+</value>
+  </data>
   <data name="medChangesCheck.ToolTip" xml:space="preserve">
-    <value>Disable if you have a skill issue.
+    <value>Enables a major overhaul of EFT's medical and health system to be more realistic and interesting.
+See the mod's overview page for details. You can customize this features with the in-game config.
 
-By itself it just makes medkits not able to restore HP, and adds various debuffs and buffs to other medical items.
-This option must be enabled for the client-side overhaul of the medical and health system to take effect.
+------------
+NOTE: this and other options are designed and balanced around the following features being enabled: 
+Realistic Ballistics, Malfunction Changes, Comfort Mechanic, Stances, Variable Realod Speed, Medical Changes.
 
-See the mod's overview page for details.</value>
+There may be bugs, jank or general issues if one or more of these are not enabled.
+</value>
   </data>
   <data name="Bots.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6285,6 +6352,11 @@ See the mod's overview page for details.</value>
         SimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRS
         SimllFKu8xmf8X+l/Yisu6sbVAAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="addKeysCheck.ToolTip" xml:space="preserve">
+    <value>Adds quest keys and keycards to PMCs. 
+
+It is recommended to keep this disabled If using SPT 3.7.2-3.7.3 and possibly future versions, as it will often cause PMCs to spawn with multiple valuable keys.</value>
   </data>
   <data name="spawnWaveCheck.ToolTip" xml:space="preserve">
     <value>Boss/Rogue/Raider spawn chances increase as you level up, allows bosses to spawn in more parts of the map and additional maps, adds chance for Raiders and Rogues to spawn on more maps. 
