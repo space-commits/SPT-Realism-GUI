@@ -372,18 +372,6 @@ namespace Realism_Mod_Config_GUI
                 rule.Evaluate();
             }
 
-            //temporarily disabling these
-            botLootCheck.Enabled = false;
-            addKeysCheck.Enabled = false;
-            dynPMCLoot.Enabled = false;
-            dynScavLoot.Enabled = false;
-            bossItemsCheck.Enabled = false;
-            botLootCheck.Checked = false;
-            addKeysCheck.Checked = false;
-            dynPMCLoot.Checked = false;
-            dynScavLoot.Checked = false;
-            bossItemsCheck.Checked = false;
-
             Color disabled = Color.SlateGray;
             Color enabled = Color.FromArgb(36, 36, 36);
 
