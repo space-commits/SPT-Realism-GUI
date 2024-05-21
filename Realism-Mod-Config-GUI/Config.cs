@@ -86,9 +86,6 @@ namespace Realism_Mod_Config_GUI
         public bool enable_stances { get; set; } = true;
         public int trader_refresh_time { get; set; } = 1800;
         public int bot_test_tier { get; set; } = 1;
-        public string weap_preset { get; set; } = "Realism";
-        public string att_preset { get; set; } = "Realism";
-        public string gear_preset { get; set; } = "Realism";
         public decimal standard_bot_hp_multi { get; set; } = 1.0m;
         public decimal mid_bot_hp_multi { get; set; } = 1.0m;
         public decimal boss_bot_hp_multi { get; set; } = 1.0m;
@@ -106,6 +103,7 @@ namespace Realism_Mod_Config_GUI
         public int bot_hostile2 { get; set; } = 99;
         public int bot_hostile3 { get; set; } = 100;
         public int rand_stock_modifier { get; set; } = 0;
+        public int rand_stock_modifier_min { get; set; } = 0;
         public decimal rand_stackable_modifier { get; set; } = 1m;
         public decimal rand_cost_discount { get; set; } = 0.85m;
         public decimal rand_cost_increase { get; set; } = 1.15m;

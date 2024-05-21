@@ -18,6 +18,7 @@ namespace Realism_Mod_Config_GUI
         private DirectoryInfo[]? weapPresetFilePath;
         private DirectoryInfo[]? attPresetFilePath;
         private DirectoryInfo[]? gearPresetFilePath;
+        private bool haveInitialized = false;
 
         public Main_Form()
         {
@@ -29,11 +30,9 @@ namespace Realism_Mod_Config_GUI
                 setNumericLimits();
                 warningTextBox.Hide();
                 setDisplayValues();
-                setPresetComboBoxes(weapPresetFilePath, weapPresetCombo);
-                setPresetComboBoxes(attPresetFilePath, attachPresetCombo);
-                setPresetComboBoxes(gearPresetFilePath, gearPresetCombo);
                 controlRules = initializeControlRules();
                 evaluateControlRules();
+                haveInitialized = true;
             }
             catch (Exception exception)
             {
@@ -143,13 +142,6 @@ namespace Realism_Mod_Config_GUI
             bossHPNumeric.Value = (decimal)configTemplate.boss_bot_hp_multi;
             playerHPNumeric.Value = (decimal)configTemplate.player_hp_multi;
 
-            weapPresetCombo.SelectedItem = configTemplate.weap_preset;
-            attachPresetCombo.SelectedItem = configTemplate.att_preset;
-            gearPresetCombo.SelectedItem = configTemplate.gear_preset;
-            weapPresetCombo.Text = configTemplate.weap_preset;
-            attachPresetCombo.Text = configTemplate.att_preset;
-            gearPresetCombo.Text = configTemplate.gear_preset;
-
             realPlayerHealthCheck.Checked = configTemplate.realistic_player_health;
             realBallisticsCheck.Checked = configTemplate.realistic_ballistics;
             recoilAttOverhaulCheck.Checked = configTemplate.recoil_attachment_overhaul;
@@ -234,6 +226,7 @@ namespace Realism_Mod_Config_GUI
             dynScavLoot.Checked = configTemplate.dynamic_loot_scavs;
             addKeysCheck.Checked = configTemplate.add_keys;
 
+            stockModMinNum.Value = (decimal)configTemplate.rand_stock_modifier_min;
             stockModNum.Value = (decimal)configTemplate.rand_stock_modifier;
             stackMultiNum.Value = (decimal)configTemplate.rand_stackable_modifier;
             discountNum.Value = (decimal)configTemplate.rand_cost_discount;
@@ -303,7 +296,7 @@ namespace Realism_Mod_Config_GUI
             {
                 new ControlRule
                 {
-                    Targets = new List<Control> { attachPresetCombo, weapPresetCombo, malfChangesCheck, headsetCheck, stanceCheck, reloadCheck, chamberCheck },
+                    Targets = new List<Control> { malfChangesCheck, headsetCheck, stanceCheck, reloadCheck, chamberCheck },
                     Condition = () => recoilAttOverhaulCheck.Checked
                 },
                 new ControlRule
@@ -343,7 +336,7 @@ namespace Realism_Mod_Config_GUI
                 },
                 new ControlRule
                 {
-                    Targets = new List<Control> { randTradLLCheck, randTradStockCheck, randTradPriceCheck, stockModNum, stackMultiNum, discountNum, costIncreaseNum },
+                    Targets = new List<Control> { randTradLLCheck, randTradStockCheck, randTradPriceCheck, stockModNum, stockModMinNum, stackMultiNum, discountNum, costIncreaseNum },
                     Condition = () => randTradCheck.Checked
                 },
                 new ControlRule
@@ -351,6 +344,11 @@ namespace Realism_Mod_Config_GUI
                     Targets = new List<Control> { botOdds1Text, botOdds2Text, botOdds3Text, botOdds4Text, botOdds5Text, botOdds6Text, botOdds7Text, botOdds8Text,
                     botOdds9Text, botLootCheck, dynPMCLoot, dynScavLoot, addKeysCheck },
                     Condition = () => botChangesCheck.Checked
+                },
+                new ControlRule
+                {
+                    Targets = new List<Control> { dynPMCLoot, dynScavLoot },
+                    Condition = () => botLootCheck.Checked
                 },
                 new ControlRule
                 {
@@ -789,24 +787,6 @@ namespace Realism_Mod_Config_GUI
             evaluateControlRules();
         }
 
-        private void weapPresetCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            configTemplate.weap_preset = weapPresetCombo.SelectedItem.ToString();
-            evaluateControlRules();
-        }
-
-        private void attachPresetCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            configTemplate.att_preset = attachPresetCombo.SelectedItem.ToString();
-            evaluateControlRules();
-        }
-
-        private void gearPresetCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            configTemplate.gear_preset = gearPresetCombo.SelectedItem.ToString();
-            evaluateControlRules();
-        }
-
         private void standardHPNumeric_ValueChanged(object sender, EventArgs e)
         {
             configTemplate.standard_bot_hp_multi = standardHPNumeric.Value;
@@ -909,8 +889,27 @@ namespace Realism_Mod_Config_GUI
             evaluateControlRules();
         }
 
+        private void stockModMinNum_ValueChanged(object sender, EventArgs e)
+        {
+            if (!haveInitialized) return;
+            if (stockModMinNum.Value > stockModNum.Value)
+            {
+                stockModMinNum.Value = stockModNum.Value;
+            }
+            stockModNum.Minimum = stockModMinNum.Value;
+            configTemplate.rand_stock_modifier_min = (int)stockModMinNum.Value;
+            evaluateControlRules();
+        }
+
         private void stockModNum_ValueChanged(object sender, EventArgs e)
         {
+            if (!haveInitialized) return;
+            if (stockModNum.Value < stockModMinNum.Value)
+            {
+                stockModNum.Value = stockModMinNum.Value;
+            }
+
+            stockModMinNum.Maximum = stockModNum.Value;
             configTemplate.rand_stock_modifier = (int)stockModNum.Value;
             evaluateControlRules();
         }
@@ -1011,5 +1010,7 @@ namespace Realism_Mod_Config_GUI
             configTemplate.food_changes = foodCheck.Checked == true ? true : false;
             evaluateControlRules();
         }
+
+
     }
 }
