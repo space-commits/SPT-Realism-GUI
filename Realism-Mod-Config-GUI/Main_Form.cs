@@ -198,8 +198,8 @@ namespace Realism_Mod_Config_GUI
             removeRaidRestrictionsCheck.Checked = configTemplate.remove_inraid_restrictions;
             firCheck.Checked = configTemplate.remove_fir_req;
             firQuestCheck.Checked = configTemplate.remove_quest_fir_req;
-            airdropChangesCheck.Checked = configTemplate.airdrop_changes;
-
+        /*    airdropChangesCheck.Checked = configTemplate.airdrop_changes;
+*/
             botTestingCheck.Checked = configTemplate.bot_testing;
             enableBotWeapsCheck.Checked = configTemplate.bot_test_weps_enabled;
             bossSpawnsCheck.Checked = configTemplate.guarantee_boss_spawn;
@@ -687,11 +687,11 @@ namespace Realism_Mod_Config_GUI
             evaluateControlRules();
         }
 
-        private void airdropChangesCheck_CheckedChanged(object sender, EventArgs e)
+   /*     private void airdropChangesCheck_CheckedChanged(object sender, EventArgs e)
         {
             configTemplate.airdrop_changes = airdropChangesCheck.Checked == true ? true : false;
             evaluateControlRules();
-        }
+        }*/
 
         private void botTestingCheck_CheckedChanged(object sender, EventArgs e)
         {
