@@ -172,6 +172,7 @@
             homeTab = new TabPage();
             homeTxtBx = new RichTextBox();
             mainTabControl = new TabControl();
+            hazardCheck = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)stockModNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)stackMultiNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)discountNum).BeginInit();
@@ -1958,7 +1959,7 @@
             moveGroupBox.Controls.Add(movementChangesCheck);
             moveGroupBox.Controls.Add(fallDamageChangesCheck);
             moveGroupBox.ForeColor = Color.White;
-            moveGroupBox.Location = new Point(19, 140);
+            moveGroupBox.Location = new Point(19, 170);
             moveGroupBox.Name = "moveGroupBox";
             moveGroupBox.Size = new Size(200, 134);
             moveGroupBox.TabIndex = 5;
@@ -1967,6 +1968,7 @@
             // 
             // healthGroupBox
             // 
+            healthGroupBox.Controls.Add(hazardCheck);
             healthGroupBox.Controls.Add(foodCheck);
             healthGroupBox.Controls.Add(stimCheck);
             healthGroupBox.Controls.Add(medChangesCheck);
@@ -1974,7 +1976,7 @@
             healthGroupBox.ForeColor = Color.White;
             healthGroupBox.Location = new Point(19, 12);
             healthGroupBox.Name = "healthGroupBox";
-            healthGroupBox.Size = new Size(200, 122);
+            healthGroupBox.Size = new Size(200, 152);
             healthGroupBox.TabIndex = 4;
             healthGroupBox.TabStop = false;
             healthGroupBox.Text = "Health";
@@ -2082,6 +2084,21 @@
             mainTabControl.SelectedIndex = 0;
             mainTabControl.Size = new Size(1368, 712);
             mainTabControl.TabIndex = 0;
+            // 
+            // hazardCheck
+            // 
+            hazardCheck.AutoSize = true;
+            hazardCheck.Checked = true;
+            hazardCheck.CheckState = CheckState.Checked;
+            hazardCheck.ForeColor = Color.White;
+            hazardCheck.Location = new Point(6, 122);
+            hazardCheck.Name = "hazardCheck";
+            hazardCheck.Size = new Size(98, 19);
+            hazardCheck.TabIndex = 6;
+            hazardCheck.Text = "Hazard Zones";
+            toolTip1.SetToolTip(hazardCheck, "Enables Radiation and Toxic Gas zones, found all over the Tarkov region.\r\n\r\nRequires Medical Changes to work.\r\n");
+            hazardCheck.UseVisualStyleBackColor = true;
+            hazardCheck.CheckedChanged += hazardCheck_CheckedChanged;
             // 
             // Main_Form
             // 
@@ -2297,5 +2314,6 @@
         private TabPage homeTab;
         private RichTextBox homeTxtBx;
         public TabControl mainTabControl;
+        private CheckBox hazardCheck;
     }
 }
