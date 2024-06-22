@@ -139,6 +139,7 @@
             buffHelmetsCheck = new CheckBox();
             playerHPNumeric = new NumericUpDown();
             label24 = new Label();
+            hazardCheck = new CheckBox();
             saveButton = new Button();
             revertLabel = new Label();
             savedLabel = new Label();
@@ -172,7 +173,6 @@
             homeTab = new TabPage();
             homeTxtBx = new RichTextBox();
             mainTabControl = new TabControl();
-            hazardCheck = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)stockModNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)stackMultiNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)discountNum).BeginInit();
@@ -1247,7 +1247,7 @@
             spawnWaveCheck.Size = new Size(133, 19);
             spawnWaveCheck.TabIndex = 23;
             spawnWaveCheck.Text = "Spawn Wave Tweaks";
-            toolTip1.SetToolTip(spawnWaveCheck, resources.GetString("spawnWaveCheck.ToolTip"));
+            toolTip1.SetToolTip(spawnWaveCheck, "Tweaked PMC and Scav spawn changes. PMCs are a little bit more rare, and spawns shouldn't be as excessive as vanilla SPT.");
             spawnWaveCheck.UseVisualStyleBackColor = true;
             spawnWaveCheck.CheckedChanged += spawnWaveCheck_CheckedChanged;
             // 
@@ -1616,6 +1616,21 @@
             label24.TabIndex = 15;
             label24.Text = "Player Health Multi";
             toolTip1.SetToolTip(label24, "'Realistic Player Health' must be enabled for this to take effect.");
+            // 
+            // hazardCheck
+            // 
+            hazardCheck.AutoSize = true;
+            hazardCheck.Checked = true;
+            hazardCheck.CheckState = CheckState.Checked;
+            hazardCheck.ForeColor = Color.White;
+            hazardCheck.Location = new Point(6, 122);
+            hazardCheck.Name = "hazardCheck";
+            hazardCheck.Size = new Size(98, 19);
+            hazardCheck.TabIndex = 6;
+            hazardCheck.Text = "Hazard Zones";
+            toolTip1.SetToolTip(hazardCheck, "Enables Radiation and Toxic Gas zones, found all over the Tarkov region.\r\n\r\nRequires Medical Changes to work.\r\n");
+            hazardCheck.UseVisualStyleBackColor = true;
+            hazardCheck.CheckedChanged += hazardCheck_CheckedChanged;
             // 
             // saveButton
             // 
@@ -2084,21 +2099,6 @@
             mainTabControl.SelectedIndex = 0;
             mainTabControl.Size = new Size(1368, 712);
             mainTabControl.TabIndex = 0;
-            // 
-            // hazardCheck
-            // 
-            hazardCheck.AutoSize = true;
-            hazardCheck.Checked = true;
-            hazardCheck.CheckState = CheckState.Checked;
-            hazardCheck.ForeColor = Color.White;
-            hazardCheck.Location = new Point(6, 122);
-            hazardCheck.Name = "hazardCheck";
-            hazardCheck.Size = new Size(98, 19);
-            hazardCheck.TabIndex = 6;
-            hazardCheck.Text = "Hazard Zones";
-            toolTip1.SetToolTip(hazardCheck, "Enables Radiation and Toxic Gas zones, found all over the Tarkov region.\r\n\r\nRequires Medical Changes to work.\r\n");
-            hazardCheck.UseVisualStyleBackColor = true;
-            hazardCheck.CheckedChanged += hazardCheck_CheckedChanged;
             // 
             // Main_Form
             // 
