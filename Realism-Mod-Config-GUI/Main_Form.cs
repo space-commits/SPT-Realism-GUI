@@ -67,7 +67,7 @@ namespace Realism_Mod_Config_GUI
         private void SetTitleBar()
         {
             string modVer = "v" + _packageTemplate.version;
-            string sptVer = "v" + _packageTemplate.akiVersion;
+            string sptVer = "v" + _packageTemplate.sptVersion;
 
             this.Text = "SPT Realism Mod Config SPTRM " + modVer + " SPT " + sptVer;
 

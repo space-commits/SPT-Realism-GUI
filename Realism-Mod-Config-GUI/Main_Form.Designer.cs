@@ -444,7 +444,7 @@
             tradRepairCheck.Size = new Size(143, 19);
             tradRepairCheck.TabIndex = 8;
             tradRepairCheck.Text = "Trader Repair Changes";
-            toolTip1.SetToolTip(tradRepairCheck, resources.GetString("tradRepairCheck.ToolTip"));
+            toolTip1.SetToolTip(tradRepairCheck, "Improves the repair quality of Traders but makes them more expensive.\r\n");
             tradRepairCheck.UseVisualStyleBackColor = true;
             tradRepairCheck.CheckedChanged += tradRepairCheck_CheckedChanged;
             // 
@@ -839,9 +839,9 @@
             pmcTypeCheck.CheckState = CheckState.Checked;
             pmcTypeCheck.Location = new Point(6, 72);
             pmcTypeCheck.Name = "pmcTypeCheck";
-            pmcTypeCheck.Size = new Size(128, 19);
+            pmcTypeCheck.Size = new Size(162, 19);
             pmcTypeCheck.TabIndex = 12;
-            pmcTypeCheck.Text = "PMC Type Changes";
+            pmcTypeCheck.Text = "PMC Personality Changes";
             toolTip1.SetToolTip(pmcTypeCheck, resources.GetString("pmcTypeCheck.ToolTip"));
             pmcTypeCheck.UseVisualStyleBackColor = true;
             pmcTypeCheck.CheckedChanged += pmcTypeCheck_CheckedChanged;

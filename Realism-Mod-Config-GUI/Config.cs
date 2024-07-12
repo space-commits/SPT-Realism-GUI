@@ -9,7 +9,7 @@ namespace Realism_Mod_Config_GUI
     public class PackageTemplate
     {
         public string version { get; set; } = "unknown";
-        public string akiVersion { get; set; } = "unknown";
+        public string sptVersion { get; set; } = "unknown";
     }
 
 
