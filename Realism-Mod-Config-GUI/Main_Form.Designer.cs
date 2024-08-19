@@ -162,7 +162,6 @@
             groupBox2 = new GroupBox();
             tradeGroupBox = new GroupBox();
             Bots = new TabPage();
-            label5 = new Label();
             Health_Movement = new TabPage();
             moveGroupBox = new GroupBox();
             healthGroupBox = new GroupBox();
@@ -1292,7 +1291,7 @@
             addKeysCheck.Size = new Size(124, 19);
             addKeysCheck.TabIndex = 26;
             addKeysCheck.Text = "Add Keys To PMCs";
-            toolTip1.SetToolTip(addKeysCheck, resources.GetString("addKeysCheck.ToolTip"));
+            toolTip1.SetToolTip(addKeysCheck, "Adds quest keys and keycards to PMCs. \r\n\r\n\r\n");
             addKeysCheck.UseVisualStyleBackColor = true;
             addKeysCheck.CheckedChanged += addKeysCheck_CheckedChanged;
             // 
@@ -1859,7 +1858,7 @@
             // 
             // Misc
             // 
-            Misc.BackColor = Color.FromArgb(36, 36, 36);
+            Misc.BackColor = Color.FromArgb(109, 1, 1);
             Misc.BackgroundImage = (Image)resources.GetObject("Misc.BackgroundImage");
             Misc.BackgroundImageLayout = ImageLayout.Center;
             Misc.Controls.Add(groupBox2);
@@ -1928,7 +1927,6 @@
             Bots.Controls.Add(spawnWaveCheck);
             Bots.Controls.Add(dynPMCLoot);
             Bots.Controls.Add(groupBox1);
-            Bots.Controls.Add(label5);
             Bots.Controls.Add(botTierGroup);
             Bots.Controls.Add(bossItemsCheck);
             Bots.Controls.Add(bossSpawnCheck);
@@ -1943,15 +1941,6 @@
             Bots.Size = new Size(1360, 684);
             Bots.TabIndex = 2;
             Bots.Text = "Bots";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(0, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(38, 15);
-            label5.TabIndex = 20;
-            label5.Text = "label5";
             // 
             // Health_Movement
             // 
@@ -2239,7 +2228,6 @@
         private Label label16;
         private Label label15;
         private NumericUpDown hostNum1;
-        private Label label5;
         private GroupBox botTierGroup;
         private Label label14;
         private TextBox botOdds9Text;
