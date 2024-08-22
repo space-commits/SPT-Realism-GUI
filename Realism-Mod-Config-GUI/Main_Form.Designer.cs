@@ -1858,7 +1858,7 @@
             // 
             // Misc
             // 
-            Misc.BackColor = Color.FromArgb(109, 1, 1);
+            Misc.BackColor = Color.FromArgb(36, 36, 36);
             Misc.BackgroundImage = (Image)resources.GetObject("Misc.BackgroundImage");
             Misc.BackgroundImageLayout = ImageLayout.Center;
             Misc.Controls.Add(groupBox2);
