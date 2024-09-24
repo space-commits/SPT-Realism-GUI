@@ -140,6 +140,7 @@
             playerHPNumeric = new NumericUpDown();
             label24 = new Label();
             hazardCheck = new CheckBox();
+            insuranceCheck = new CheckBox();
             saveButton = new Button();
             revertLabel = new Label();
             savedLabel = new Label();
@@ -162,7 +163,6 @@
             groupBox2 = new GroupBox();
             tradeGroupBox = new GroupBox();
             Bots = new TabPage();
-            label5 = new Label();
             Health_Movement = new TabPage();
             moveGroupBox = new GroupBox();
             healthGroupBox = new GroupBox();
@@ -1292,7 +1292,7 @@
             addKeysCheck.Size = new Size(124, 19);
             addKeysCheck.TabIndex = 26;
             addKeysCheck.Text = "Add Keys To PMCs";
-            toolTip1.SetToolTip(addKeysCheck, resources.GetString("addKeysCheck.ToolTip"));
+            toolTip1.SetToolTip(addKeysCheck, "Adds quest keys and keycards to PMCs. \r\n\r\n\r\n");
             addKeysCheck.UseVisualStyleBackColor = true;
             addKeysCheck.CheckedChanged += addKeysCheck_CheckedChanged;
             // 
@@ -1632,6 +1632,21 @@
             hazardCheck.UseVisualStyleBackColor = true;
             hazardCheck.CheckedChanged += hazardCheck_CheckedChanged;
             // 
+            // insuranceCheck
+            // 
+            insuranceCheck.AutoSize = true;
+            insuranceCheck.Checked = true;
+            insuranceCheck.CheckState = CheckState.Checked;
+            insuranceCheck.ForeColor = Color.White;
+            insuranceCheck.Location = new Point(182, 71);
+            insuranceCheck.Name = "insuranceCheck";
+            insuranceCheck.Size = new Size(126, 19);
+            insuranceCheck.TabIndex = 24;
+            insuranceCheck.Text = "Insurance Changes\r\n";
+            toolTip1.SetToolTip(insuranceCheck, resources.GetString("insuranceCheck.ToolTip"));
+            insuranceCheck.UseVisualStyleBackColor = true;
+            insuranceCheck.CheckedChanged += insuranceCheck1_CheckedChanged;
+            // 
             // saveButton
             // 
             saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -1873,6 +1888,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(insuranceCheck);
             groupBox2.Controls.Add(stockModMinNum);
             groupBox2.Controls.Add(label25);
             groupBox2.Controls.Add(traderCoeffCheck);
@@ -1928,7 +1944,6 @@
             Bots.Controls.Add(spawnWaveCheck);
             Bots.Controls.Add(dynPMCLoot);
             Bots.Controls.Add(groupBox1);
-            Bots.Controls.Add(label5);
             Bots.Controls.Add(botTierGroup);
             Bots.Controls.Add(bossItemsCheck);
             Bots.Controls.Add(bossSpawnCheck);
@@ -1943,15 +1958,6 @@
             Bots.Size = new Size(1360, 684);
             Bots.TabIndex = 2;
             Bots.Text = "Bots";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(0, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(38, 15);
-            label5.TabIndex = 20;
-            label5.Text = "label5";
             // 
             // Health_Movement
             // 
@@ -2239,7 +2245,6 @@
         private Label label16;
         private Label label15;
         private NumericUpDown hostNum1;
-        private Label label5;
         private GroupBox botTierGroup;
         private Label label14;
         private TextBox botOdds9Text;
@@ -2315,5 +2320,6 @@
         private RichTextBox homeTxtBx;
         public TabControl mainTabControl;
         private CheckBox hazardCheck;
+        private CheckBox insuranceCheck;
     }
 }

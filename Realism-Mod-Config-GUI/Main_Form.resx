@@ -1,4 +1,64 @@
-﻿<root>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema 
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -63,7 +123,8 @@
   <data name="tradCustItemCheck.ToolTip" xml:space="preserve">
     <value>Adds custom items and new offers to traders. Mechanic will have complete scopes/sights with their mounts, Ragman will have different helmet setups with NVGs, Faceshields etc.
 
-If the "Med Changes" are enabled Therapist will sell the makeshift medkits, if the "Recoil, Attachment and Ballistics" overhaul is enabled Mechanic will sell custom weapons.</value>
+If the "Recoil, Attachment and Ballistics" overhaul is enabled Mechanic will sell custom weapons. Jaeger will sell bayonets. 
+</value>
   </data>
   <data name="nerfFenceCheck.ToolTip" xml:space="preserve">
     <value>In the war-torn land of Tarkov, the SPT Mod "SPT Realism Mod" introduces the "Nerf Fence" option. 
@@ -72,12 +133,6 @@ They adapted strategies, formed alliances, and delved into hidden corners for su
 Triumphs were hard-earned, but the challenges brought a sense of accomplishment. 
 Tarkov became a relentless battlefield, testing players' mettle and pushing them to their limits. 
 Beyond virtual rewards, they cherished the unforgettable experiences gained in their struggle for survival.</value>
-  </data>
-  <data name="botHealthGroupBox.ToolTip" xml:space="preserve">
-    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
-
-NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have default health.
-</value>
   </data>
   <data name="realBossHealthCheck.ToolTip" xml:space="preserve">
     <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
@@ -103,12 +158,10 @@ NOTE: 'Realistic Ballistics' option must be true for this to take effect. If rea
 NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have default health.
 </value>
   </data>
-  <data name="botDiffGroupBox.ToolTip" xml:space="preserve">
-    <value>Raises PMC and Boss difficulty.
-Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
+  <data name="botHealthGroupBox.ToolTip" xml:space="preserve">
+    <value>Bot health settings. If set to true, these bot types will have the same health as the player. If false, they will have default EFT health pools.
 
-NOTE: This option will only take effect if 'Bot Changes' is enabled.
-It's not recommended to use this option if you are using mods that change AI behaviour.
+NOTE: 'Realistic Ballistics' option must be true for this to take effect. If realism is false, all bots will have default health.
 </value>
   </data>
   <data name="pmcTypeCheck.ToolTip" xml:space="preserve">
@@ -135,17 +188,18 @@ NOTE: This option will only take effect if 'Bot Changes' is enabled.
 It's not recommended to use this option if you are using mods that change AI behaviour.
 </value>
   </data>
+  <data name="botDiffGroupBox.ToolTip" xml:space="preserve">
+    <value>Raises PMC and Boss difficulty.
+Will just simply set bosses and PMC from 'AsOnline' to a higher difficulty settings (Hard or Impossible). 
+
+NOTE: This option will only take effect if 'Bot Changes' is enabled.
+It's not recommended to use this option if you are using mods that change AI behaviour.
+</value>
+  </data>
   <data name="bossSpawnCheck.ToolTip" xml:space="preserve">
     <value>Changes boss spawn chance to be based on the player's level. At the start the boss spawn chance is very low.
 
 Bosses can spawn on maps they wouldn't normally in unexpected places, Raiders and Rogues can spawn on most maps.</value>
-  </data>
-  <data name="botTierGroup.ToolTip" xml:space="preserve">
-    <value>The odds of the 5 bot tiers spawning within a given player level range. Each number represents the tier, 1-5, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
-For example, at player lvl 0-4, a value of "90, 5, 5, 3, 2" means that a bot has a 90% chance of being tier 1, 5% chance tier 2, 5% chance tier 3 etc.
-
-Note: most bot types have only 3 tiers. If tier 4-5 is picked, it will be resolved as tier 3.
-</value>
   </data>
   <data name="botOdds9Text.ToolTip" xml:space="preserve">
     <value>The odds of the 5 bot tiers spawning within a given player level range. Each number represents the tier, 1-5, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
@@ -245,11 +299,11 @@ For example, at player lvl 0-4, a value of "90, 5, 5, 3, 2" means that a bot has
 Note: most bot types have only 3 tiers. If tier 4-5 is picked, it will be resolved as tier 3.
 </value>
   </data>
-  <data name="groupBox1.ToolTip" xml:space="preserve">
-    <value>Chance of same-faction PMCs being hostile to player per base tier.
+  <data name="botTierGroup.ToolTip" xml:space="preserve">
+    <value>The odds of the 5 bot tiers spawning within a given player level range. Each number represents the tier, 1-5, seperated by a comma. Higher = greater odds. Follow the formatting exactly.
+For example, at player lvl 0-4, a value of "90, 5, 5, 3, 2" means that a bot has a 90% chance of being tier 1, 5% chance tier 2, 5% chance tier 3 etc.
 
-Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
-
+Note: most bot types have only 3 tiers. If tier 4-5 is picked, it will be resolved as tier 3.
 </value>
   </data>
   <data name="hostNum3.ToolTip" xml:space="preserve">
@@ -270,10 +324,12 @@ Base tiers are sets of bot config options that are also based on level, there ar
 Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
 </value>
   </data>
-  <data name="addKeysCheck.ToolTip" xml:space="preserve">
-    <value>Adds quest keys and keycards to PMCs. 
+  <data name="groupBox1.ToolTip" xml:space="preserve">
+    <value>Chance of same-faction PMCs being hostile to player per base tier.
 
-It is recommended to keep this disabled If using SPT 3.7.2-3.7.3 and possibly future versions, as it will often cause PMCs to spawn with multiple valuable keys.</value>
+Base tiers are sets of bot config options that are also based on level, there are 3 of them. They determine things like bot loot odds, durability, friendly chance.
+
+</value>
   </data>
   <data name="medChangesCheck.ToolTip" xml:space="preserve">
     <value>Enables a major overhaul of EFT's medical and health system to be more realistic and interesting.
@@ -380,6 +436,12 @@ This is only an option for those who want to raise their health using another mo
   <data name="buffHelmetsCheck.ToolTip" xml:space="preserve">
     <value>Buffs helmets and faceshields by raising their armor level by 1. Their blunt throughput has been modified to compensate.
 Not carefully balanced, just for those that want a slightly less hardcore experience.</value>
+  </data>
+  <data name="insuranceCheck.ToolTip" xml:space="preserve">
+    <value>Therapist returns the cash value of insured items instead of the items themselves. Insured items still have a low chance to not be returned.
+
+Prapor has a much lower insurance return chance but will return the actual items themselves.
+</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Dev_Tools.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
