@@ -437,6 +437,12 @@ This is only an option for those who want to raise their health using another mo
     <value>Buffs helmets and faceshields by raising their armor level by 1. Their blunt throughput has been modified to compensate.
 Not carefully balanced, just for those that want a slightly less hardcore experience.</value>
   </data>
+  <data name="insuranceCheck.ToolTip" xml:space="preserve">
+    <value>Therapist returns the cash value of insured items instead of the items themselves. Insured items still have a low chance to not be returned.
+
+Prapor has a much lower insurance return chance but will return the actual items themselves.
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Dev_Tools.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

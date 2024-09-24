@@ -140,6 +140,7 @@
             playerHPNumeric = new NumericUpDown();
             label24 = new Label();
             hazardCheck = new CheckBox();
+            insuranceCheck = new CheckBox();
             saveButton = new Button();
             revertLabel = new Label();
             savedLabel = new Label();
@@ -1631,6 +1632,21 @@
             hazardCheck.UseVisualStyleBackColor = true;
             hazardCheck.CheckedChanged += hazardCheck_CheckedChanged;
             // 
+            // insuranceCheck
+            // 
+            insuranceCheck.AutoSize = true;
+            insuranceCheck.Checked = true;
+            insuranceCheck.CheckState = CheckState.Checked;
+            insuranceCheck.ForeColor = Color.White;
+            insuranceCheck.Location = new Point(182, 71);
+            insuranceCheck.Name = "insuranceCheck";
+            insuranceCheck.Size = new Size(126, 19);
+            insuranceCheck.TabIndex = 24;
+            insuranceCheck.Text = "Insurance Changes\r\n";
+            toolTip1.SetToolTip(insuranceCheck, resources.GetString("insuranceCheck.ToolTip"));
+            insuranceCheck.UseVisualStyleBackColor = true;
+            insuranceCheck.CheckedChanged += insuranceCheck1_CheckedChanged;
+            // 
             // saveButton
             // 
             saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -1872,6 +1888,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(insuranceCheck);
             groupBox2.Controls.Add(stockModMinNum);
             groupBox2.Controls.Add(label25);
             groupBox2.Controls.Add(traderCoeffCheck);
@@ -2303,5 +2320,6 @@
         private RichTextBox homeTxtBx;
         public TabControl mainTabControl;
         private CheckBox hazardCheck;
+        private CheckBox insuranceCheck;
     }
 }

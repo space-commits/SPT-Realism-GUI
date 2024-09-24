@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "F:\\SP EFT\\Realism Mod\\Client Mods\\SPT-Realism-GUI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|f:\\sp eft\\realism mod\\client mods\\spt-realism-gui\\realism-mod-config-gui\\main_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|F:\\SP EFT\\Realism Mod\\Client Mods\\SPT-Realism-GUI\\realism-mod-config-gui\\main_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|solutionrelative:realism-mod-config-gui\\main_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|f:\\sp eft\\realism mod\\client mods\\spt-realism-gui\\realism-mod-config-gui\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|solutionrelative:realism-mod-config-gui\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|f:\\sp eft\\realism mod\\client mods\\spt-realism-gui\\realism-mod-config-gui\\controlrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|solutionrelative:realism-mod-config-gui\\controlrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|f:\\sp eft\\realism mod\\client mods\\spt-realism-gui\\realism-mod-config-gui\\main_form.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,8 +19,8 @@
       "RelativeMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|solutionrelative:realism-mod-config-gui\\main_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|f:\\sp eft\\realism mod\\client mods\\spt-realism-gui\\realism-mod-config-gui\\controlrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|solutionrelative:realism-mod-config-gui\\controlrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|f:\\sp eft\\realism mod\\client mods\\spt-realism-gui\\realism-mod-config-gui\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D51BD53-62BF-4EA4-889E-64706C7EDDA1}|Realism-Mod-Config-GUI\\Realism-Mod-Config-GUI.csproj|solutionrelative:realism-mod-config-gui\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +30,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
@@ -44,7 +48,7 @@
               "RelativeDocumentMoniker": "Realism-Mod-Config-GUI\\Main_Form.cs",
               "ToolTip": "F:\\SP EFT\\Realism Mod\\Client Mods\\SPT-Realism-GUI\\Realism-Mod-Config-GUI\\Main_Form.cs",
               "RelativeToolTip": "Realism-Mod-Config-GUI\\Main_Form.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAAEcAAAAZAAAA",
+              "ViewState": "AQIAAOgDAAAAAAAAAAAjwPQDAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-24T16:51:56.691Z",
               "EditorCaption": ""
@@ -57,14 +61,14 @@
               "RelativeDocumentMoniker": "Realism-Mod-Config-GUI\\Main_Form.Designer.cs",
               "ToolTip": "F:\\SP EFT\\Realism Mod\\Client Mods\\SPT-Realism-GUI\\Realism-Mod-Config-GUI\\Main_Form.Designer.cs",
               "RelativeToolTip": "Realism-Mod-Config-GUI\\Main_Form.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
+              "ViewState": "AQIAAHcAAAAAAAAAAAAjwI0AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-15T13:13:29.039Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "ControlRule.cs",
               "DocumentMoniker": "F:\\SP EFT\\Realism Mod\\Client Mods\\SPT-Realism-GUI\\Realism-Mod-Config-GUI\\ControlRule.cs",
               "RelativeDocumentMoniker": "Realism-Mod-Config-GUI\\ControlRule.cs",
@@ -72,17 +76,18 @@
               "RelativeToolTip": "Realism-Mod-Config-GUI\\ControlRule.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-02T21:27:22.11Z"
+              "WhenOpened": "2024-03-02T21:27:22.11Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Config.cs",
               "DocumentMoniker": "F:\\SP EFT\\Realism Mod\\Client Mods\\SPT-Realism-GUI\\Realism-Mod-Config-GUI\\Config.cs",
               "RelativeDocumentMoniker": "Realism-Mod-Config-GUI\\Config.cs",
               "ToolTip": "F:\\SP EFT\\Realism Mod\\Client Mods\\SPT-Realism-GUI\\Realism-Mod-Config-GUI\\Config.cs",
               "RelativeToolTip": "Realism-Mod-Config-GUI\\Config.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAiwFcAAAAzAAAA",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAvwFcAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-02T21:27:21.268Z"
             },

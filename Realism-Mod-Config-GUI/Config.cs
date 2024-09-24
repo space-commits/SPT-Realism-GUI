@@ -107,6 +107,7 @@ namespace Realism_Mod_Config_GUI
         public decimal rand_stackable_modifier { get; set; } = 1m;
         public decimal rand_cost_discount { get; set; } = 0.85m;
         public decimal rand_cost_increase { get; set; } = 1.15m;
-        public bool enable_hazard_zones { get; set; } = true;   
+        public bool enable_hazard_zones { get; set; } = true;
+        public bool insurance_changes { get; set; } = true;
     }
 }

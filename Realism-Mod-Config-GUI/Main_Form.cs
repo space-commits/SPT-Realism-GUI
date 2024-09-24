@@ -220,6 +220,7 @@ namespace Realism_Mod_Config_GUI
             randTradLLCheck.Checked = _configTemplate.randomize_trader_ll;
             randTradStockCheck.Checked = _configTemplate.randomize_trader_stock;
             randTradPriceCheck.Checked = _configTemplate.randomize_trader_prices;
+            insuranceCheck.Checked = _configTemplate.insurance_changes;
 
             backupCheck.Checked = _configTemplate.backup_profiles;
 
@@ -1020,6 +1021,12 @@ namespace Realism_Mod_Config_GUI
         private void hazardCheck_CheckedChanged(object sender, EventArgs e)
         {
             _configTemplate.enable_hazard_zones = hazardCheck.Checked == true ? true : false;
+            EvaluateControlRules();
+        }
+
+        private void insuranceCheck1_CheckedChanged(object sender, EventArgs e)
+        {
+            _configTemplate.insurance_changes = insuranceCheck.Checked == true ? true : false;
             EvaluateControlRules();
         }
     }
