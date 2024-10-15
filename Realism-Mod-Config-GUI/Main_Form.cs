@@ -1,7 +1,4 @@
 using Newtonsoft.Json;
-using System;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using CheckBox = System.Windows.Forms.CheckBox;
 using GroupBox = System.Windows.Forms.GroupBox;
 using Timer = System.Windows.Forms.Timer;
