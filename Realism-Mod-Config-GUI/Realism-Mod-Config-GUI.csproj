@@ -13,6 +13,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>res\icon.ico</ApplicationIcon>
     <Configurations>Debug;Release;test</Configurations>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
 
   <ItemGroup>
