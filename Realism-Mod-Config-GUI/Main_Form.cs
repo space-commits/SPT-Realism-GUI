@@ -178,6 +178,7 @@ namespace Realism_Mod_Config_GUI
             openZonesFixCheck.Checked = _configTemplate.open_zones_fix;
             bossSpawnCheck.Checked = _configTemplate.boss_spawns;
             spawnWaveCheck.Checked = _configTemplate.spawn_waves;
+            realZombieCheck.Checked = _configTemplate.realistic_zombies;
             realBossHealthCheck.Checked = _configTemplate.realistic_boss_health;
             realFollowerHealthCheck.Checked = _configTemplate.realistic_boss_follower_health;
             realRRHealthCheck.Checked = _configTemplate.realistic_raider_rogue_health;
@@ -218,6 +219,7 @@ namespace Realism_Mod_Config_GUI
             randTradStockCheck.Checked = _configTemplate.randomize_trader_stock;
             randTradPriceCheck.Checked = _configTemplate.randomize_trader_prices;
             insuranceCheck.Checked = _configTemplate.insurance_changes;
+            lootCheckBox.Checked = _configTemplate.loot_changes;
 
             backupCheck.Checked = _configTemplate.backup_profiles;
 
@@ -264,7 +266,7 @@ namespace Realism_Mod_Config_GUI
             }
         }
 
-        private void SetDefaultValues()
+        private void ResetCheckBoxValues()
         {
             foreach (TabPage p in this.mainTabControl.TabPages)
             {
@@ -284,8 +286,6 @@ namespace Realism_Mod_Config_GUI
                     }
                 }
             }
-
-            _configTemplate = new ConfigTemplate();
         }
 
 
@@ -458,7 +458,8 @@ namespace Realism_Mod_Config_GUI
         }
         private void revertButton_Click(object sender, EventArgs e)
         {
-            SetDefaultValues();
+            ResetCheckBoxValues();
+            _configTemplate = new ConfigTemplate(); //reset config to defaults via default values
             SetDisplayValues();
             EvaluateControlRules();
             File.WriteAllText(_configFilePath, JsonConvert.SerializeObject(_configTemplate));
@@ -581,6 +582,12 @@ namespace Realism_Mod_Config_GUI
         private void bossSpawnCheck_CheckedChanged(object sender, EventArgs e)
         {
             _configTemplate.boss_spawns = bossSpawnCheck.Checked == true ? true : false;
+            EvaluateControlRules();
+        }
+
+        private void realZombieCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            _configTemplate.realistic_zombies = realZombieCheck.Checked == true ? true : false;
             EvaluateControlRules();
         }
 
@@ -1024,6 +1031,12 @@ namespace Realism_Mod_Config_GUI
         private void insuranceCheck1_CheckedChanged(object sender, EventArgs e)
         {
             _configTemplate.insurance_changes = insuranceCheck.Checked == true ? true : false;
+            EvaluateControlRules();
+        }
+
+        private void lootCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            _configTemplate.loot_changes = lootCheckBox.Checked == true ? true : false;
             EvaluateControlRules();
         }
     }

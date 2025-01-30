@@ -67,6 +67,7 @@
             increasedBotCapCheck = new CheckBox();
             openZonesFixCheck = new CheckBox();
             botHealthGroupBox = new GroupBox();
+            realZombieCheck = new CheckBox();
             label4 = new Label();
             bossHPNumeric = new NumericUpDown();
             label2 = new Label();
@@ -141,6 +142,7 @@
             label24 = new Label();
             hazardCheck = new CheckBox();
             insuranceCheck = new CheckBox();
+            lootCheckBox = new CheckBox();
             saveButton = new Button();
             revertLabel = new Label();
             savedLabel = new Label();
@@ -295,7 +297,7 @@
             backupCheck.Checked = true;
             backupCheck.CheckState = CheckState.Checked;
             backupCheck.ForeColor = Color.White;
-            backupCheck.Location = new Point(19, 142);
+            backupCheck.Location = new Point(19, 144);
             backupCheck.Name = "backupCheck";
             backupCheck.Size = new Size(107, 19);
             backupCheck.TabIndex = 13;
@@ -444,7 +446,7 @@
             tradRepairCheck.Size = new Size(143, 19);
             tradRepairCheck.TabIndex = 8;
             tradRepairCheck.Text = "Trader Repair Changes";
-            toolTip1.SetToolTip(tradRepairCheck, "Improves the repair quality of Traders but makes them more expensive.\r\n");
+            toolTip1.SetToolTip(tradRepairCheck, "Effectively removes the ability to repair. Can't fully disable traders repairing otherwise the game throws exceptions.\r\n");
             tradRepairCheck.UseVisualStyleBackColor = true;
             tradRepairCheck.CheckedChanged += tradRepairCheck_CheckedChanged;
             // 
@@ -667,6 +669,7 @@
             // 
             // botHealthGroupBox
             // 
+            botHealthGroupBox.Controls.Add(realZombieCheck);
             botHealthGroupBox.Controls.Add(label4);
             botHealthGroupBox.Controls.Add(bossHPNumeric);
             botHealthGroupBox.Controls.Add(label2);
@@ -680,11 +683,23 @@
             botHealthGroupBox.ForeColor = Color.White;
             botHealthGroupBox.Location = new Point(18, 142);
             botHealthGroupBox.Name = "botHealthGroupBox";
-            botHealthGroupBox.Size = new Size(416, 124);
+            botHealthGroupBox.Size = new Size(416, 148);
             botHealthGroupBox.TabIndex = 14;
             botHealthGroupBox.TabStop = false;
             botHealthGroupBox.Text = "Bot Health";
             toolTip1.SetToolTip(botHealthGroupBox, resources.GetString("botHealthGroupBox.ToolTip"));
+            // 
+            // realZombieCheck
+            // 
+            realZombieCheck.AutoSize = true;
+            realZombieCheck.ForeColor = Color.White;
+            realZombieCheck.Location = new Point(6, 122);
+            realZombieCheck.Name = "realZombieCheck";
+            realZombieCheck.Size = new Size(151, 19);
+            realZombieCheck.TabIndex = 27;
+            realZombieCheck.Text = "Realistic Zombie Health";
+            toolTip1.SetToolTip(realZombieCheck, "Changes their health so that vital zones must be hit in order to take them down quickly. \r\n\r\n\r\n");
+            realZombieCheck.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -824,9 +839,9 @@
             botDiffGroupBox.Controls.Add(pmcDifficultyCheck);
             botDiffGroupBox.Controls.Add(bossDifficultyCheck);
             botDiffGroupBox.ForeColor = SystemColors.Window;
-            botDiffGroupBox.Location = new Point(294, 280);
+            botDiffGroupBox.Location = new Point(294, 296);
             botDiffGroupBox.Name = "botDiffGroupBox";
-            botDiffGroupBox.Size = new Size(140, 97);
+            botDiffGroupBox.Size = new Size(174, 97);
             botDiffGroupBox.TabIndex = 15;
             botDiffGroupBox.TabStop = false;
             botDiffGroupBox.Text = "Bot Difficulty";
@@ -877,7 +892,7 @@
             botNameGroupBox.Controls.Add(pmcNamesCheck);
             botNameGroupBox.Controls.Add(cyrillicNamesCheck);
             botNameGroupBox.ForeColor = SystemColors.Window;
-            botNameGroupBox.Location = new Point(294, 383);
+            botNameGroupBox.Location = new Point(294, 399);
             botNameGroupBox.Name = "botNameGroupBox";
             botNameGroupBox.Size = new Size(140, 75);
             botNameGroupBox.TabIndex = 16;
@@ -966,7 +981,7 @@
             botTierGroup.Controls.Add(label6);
             botTierGroup.Controls.Add(label8);
             botTierGroup.ForeColor = Color.White;
-            botTierGroup.Location = new Point(18, 280);
+            botTierGroup.Location = new Point(18, 296);
             botTierGroup.Name = "botTierGroup";
             botTierGroup.Size = new Size(258, 299);
             botTierGroup.TabIndex = 19;
@@ -1159,7 +1174,7 @@
             groupBox1.Controls.Add(label15);
             groupBox1.Controls.Add(hostNum1);
             groupBox1.ForeColor = SystemColors.Window;
-            groupBox1.Location = new Point(294, 464);
+            groupBox1.Location = new Point(294, 480);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(140, 115);
             groupBox1.TabIndex = 21;
@@ -1244,10 +1259,10 @@
             spawnWaveCheck.ForeColor = Color.White;
             spawnWaveCheck.Location = new Point(192, 17);
             spawnWaveCheck.Name = "spawnWaveCheck";
-            spawnWaveCheck.Size = new Size(133, 19);
+            spawnWaveCheck.Size = new Size(101, 19);
             spawnWaveCheck.TabIndex = 23;
-            spawnWaveCheck.Text = "Spawn Wave Tweaks";
-            toolTip1.SetToolTip(spawnWaveCheck, "Tweaked PMC and Scav spawn changes. PMCs are a little bit more rare, and spawns shouldn't be as excessive as vanilla SPT.");
+            spawnWaveCheck.Text = "Spawn Tweaks";
+            toolTip1.SetToolTip(spawnWaveCheck, "Tweaks Scav and Raider to PMC conversion chance, and lowers max bot cap to improve performance (if increase bot cap is not enabled).\r\n");
             spawnWaveCheck.UseVisualStyleBackColor = true;
             spawnWaveCheck.CheckedChanged += spawnWaveCheck_CheckedChanged;
             // 
@@ -1647,6 +1662,21 @@
             insuranceCheck.UseVisualStyleBackColor = true;
             insuranceCheck.CheckedChanged += insuranceCheck1_CheckedChanged;
             // 
+            // lootCheckBox
+            // 
+            lootCheckBox.AutoSize = true;
+            lootCheckBox.Checked = true;
+            lootCheckBox.CheckState = CheckState.Checked;
+            lootCheckBox.ForeColor = Color.White;
+            lootCheckBox.Location = new Point(183, 96);
+            lootCheckBox.Name = "lootCheckBox";
+            lootCheckBox.Size = new Size(100, 19);
+            lootCheckBox.TabIndex = 25;
+            lootCheckBox.Text = "Dynamic Loot";
+            toolTip1.SetToolTip(lootCheckBox, "The more you loot on a map, the less loot there will be on subsequent raids on that map. Playing on a different map allows loot to regenerate.\r\n");
+            lootCheckBox.UseVisualStyleBackColor = true;
+            lootCheckBox.CheckedChanged += lootCheckBox_CheckedChanged;
+            // 
             // saveButton
             // 
             saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -1867,7 +1897,7 @@
             itemGroupBox.ForeColor = Color.White;
             itemGroupBox.Location = new Point(19, 12);
             itemGroupBox.Name = "itemGroupBox";
-            itemGroupBox.Size = new Size(273, 124);
+            itemGroupBox.Size = new Size(273, 123);
             itemGroupBox.TabIndex = 12;
             itemGroupBox.TabStop = false;
             itemGroupBox.Text = "Items";
@@ -1888,6 +1918,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(lootCheckBox);
             groupBox2.Controls.Add(insuranceCheck);
             groupBox2.Controls.Add(stockModMinNum);
             groupBox2.Controls.Add(label25);
@@ -2321,5 +2352,7 @@
         public TabControl mainTabControl;
         private CheckBox hazardCheck;
         private CheckBox insuranceCheck;
+        private CheckBox lootCheckBox;
+        private CheckBox realZombieCheck;
     }
 }

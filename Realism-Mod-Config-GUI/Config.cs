@@ -15,6 +15,7 @@ namespace Realism_Mod_Config_GUI
 
     public class ConfigTemplate
     {
+        public bool realistic_zombies { get; set; } = false;
         public bool realistic_player_health { get; set; } = true;
         public bool realistic_ballistics { get; set; } = true;
         public bool buff_helmets { get; set; } = false;
@@ -90,15 +91,15 @@ namespace Realism_Mod_Config_GUI
         public decimal mid_bot_hp_multi { get; set; } = 1.0m;
         public decimal boss_bot_hp_multi { get; set; } = 1.0m;
         public decimal player_hp_multi { get; set; } = 1.0m;
-        public int[] botTierOdds1 { get; set; } = new int[] { 90, 7, 2, 1, 0 };
-        public int[] botTierOdds2 { get; set; } = new int[] { 80, 15, 3, 2, 0 };
-        public int[] botTierOdds3 { get; set; } = new int[] { 30, 52, 13, 5, 0 };
-        public int[] botTierOdds4 { get; set; } = new int[] { 10, 58, 22, 7, 3 };
-        public int[] botTierOdds5 { get; set; } = new int[] { 8, 38, 32, 17, 5 };
-        public int[] botTierOdds6 { get; set; } = new int[] { 5, 25, 40, 23, 7 };
-        public int[] botTierOdds7 { get; set; } = new int[] { 4, 15, 35, 33, 12 };
-        public int[] botTierOdds8 { get; set; } = new int[] { 3, 8, 28, 40, 22 };
-        public int[] botTierOdds9 { get; set; } = new int[] { 3, 7, 15, 35, 40 };
+        public int[] botTierOdds1 { get; set; } = new int[] { 100, 0, 0, 0, 0 };
+        public int[] botTierOdds2 { get; set; } = new int[] { 80, 20, 0, 0, 0 };
+        public int[] botTierOdds3 { get; set; } = new int[] { 40, 60, 0, 0, 0 };
+        public int[] botTierOdds4 { get; set; } = new int[] { 20, 60, 18, 2, 0 };
+        public int[] botTierOdds5 { get; set; } = new int[] { 10, 45, 40, 5, 0 };
+        public int[] botTierOdds6 { get; set; } = new int[] { 5, 25, 60, 10, 0 };
+        public int[] botTierOdds7 { get; set; } = new int[] { 5, 20, 55, 19, 1 };
+        public int[] botTierOdds8 { get; set; } = new int[] { 6, 16, 36, 36, 6 };
+        public int[] botTierOdds9 { get; set; } = new int[] { 5, 10, 25, 45, 15 };
         public int bot_hostile1 { get; set; } = 95;
         public int bot_hostile2 { get; set; } = 99;
         public int bot_hostile3 { get; set; } = 100;
@@ -109,5 +110,6 @@ namespace Realism_Mod_Config_GUI
         public decimal rand_cost_increase { get; set; } = 1.15m;
         public bool enable_hazard_zones { get; set; } = true;
         public bool insurance_changes { get; set; } = true;
+        public bool loot_changes { get; set; } = true;
     }
 }
