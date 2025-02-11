@@ -446,7 +446,7 @@
             tradRepairCheck.Size = new Size(143, 19);
             tradRepairCheck.TabIndex = 8;
             tradRepairCheck.Text = "Trader Repair Changes";
-            toolTip1.SetToolTip(tradRepairCheck, "Effectively removes the ability to repair. Can't fully disable traders repairing otherwise the game throws exceptions.\r\n");
+            toolTip1.SetToolTip(tradRepairCheck, resources.GetString("tradRepairCheck.ToolTip"));
             tradRepairCheck.UseVisualStyleBackColor = true;
             tradRepairCheck.CheckedChanged += tradRepairCheck_CheckedChanged;
             // 
@@ -700,6 +700,7 @@
             realZombieCheck.Text = "Realistic Zombie Health";
             toolTip1.SetToolTip(realZombieCheck, "Changes their health so that vital zones must be hit in order to take them down quickly. \r\n\r\n\r\n");
             realZombieCheck.UseVisualStyleBackColor = true;
+            realZombieCheck.CheckedChanged += realZombieCheck_CheckedChanged;
             // 
             // label4
             // 
@@ -1455,7 +1456,7 @@
             headgearConflictsCheck.Size = new Size(127, 19);
             headgearConflictsCheck.TabIndex = 3;
             headgearConflictsCheck.Text = "Headgear Conflicts";
-            toolTip1.SetToolTip(headgearConflictsCheck, resources.GetString("headgearConflictsCheck.ToolTip"));
+            toolTip1.SetToolTip(headgearConflictsCheck, "Ensures bots spawn with NVGs correctly. If disabled, bots will sometimes spawn with NVG mounts but the NVGs will missing.");
             headgearConflictsCheck.UseVisualStyleBackColor = true;
             headgearConflictsCheck.CheckedChanged += headgearConflictsCheck_CheckedChanged;
             // 

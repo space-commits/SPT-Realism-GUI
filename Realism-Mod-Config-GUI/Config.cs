@@ -15,7 +15,7 @@ namespace Realism_Mod_Config_GUI
 
     public class ConfigTemplate
     {
-        public bool realistic_zombies { get; set; } = false;
+        public bool realistic_zombies { get; set; } = true;
         public bool realistic_player_health { get; set; } = true;
         public bool realistic_ballistics { get; set; } = true;
         public bool buff_helmets { get; set; } = false;

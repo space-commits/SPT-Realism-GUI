@@ -300,7 +300,7 @@ namespace Realism_Mod_Config_GUI
                 },
                 new ControlRule
                 {
-                    Targets = new List<Control> { buffHelmetsCheck, realBossHealthCheck, realFollowerHealthCheck, realRRHealthCheck, realCultistHealthCheck },
+                    Targets = new List<Control> { buffHelmetsCheck, realBossHealthCheck, realFollowerHealthCheck, realRRHealthCheck, realCultistHealthCheck, realZombieCheck },
                     Condition = () => realBallisticsCheck.Checked
                 },
                 new ControlRule
@@ -1038,6 +1038,11 @@ namespace Realism_Mod_Config_GUI
         {
             _configTemplate.loot_changes = lootCheckBox.Checked == true ? true : false;
             EvaluateControlRules();
+        }
+
+        private void realZombieCheck_CheckedChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
